@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaultZero | The Anti-Cloud</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: white; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(135deg, #94a3b8, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .grid-bg {
+            background-image: radial-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="antialiased grid-bg">
+    <nav class="p-8 max-w-6xl mx-auto flex justify-between items-center relative z-10">
+        <a href="/" class="flex items-center space-x-4">
+            <img src="../yukora-banner.png" alt="Yukora Logo" class="h-8 w-auto">
+            <div class="text-2xl font-black tracking-tighter text-slate-200">YUKORA</div>
+        </a>
+        <div class="flex space-x-8 font-semibold text-xs uppercase tracking-widest text-slate-400">
+            <a href="/" class="hover:text-white transition">Suite</a>
+            <span class="text-slate-400">VaultZero</span>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <div class="inline-block px-4 py-1 rounded-full bg-slate-500/10 text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-6">
+                    Distributed Storage
+                </div>
+                <h1 class="text-7xl font-bold mb-8 tracking-tighter">The <span class="gradient-text">Anti-Cloud.</span></h1>
+                <p class="text-xl text-slate-400 leading-relaxed mb-10">
+                    Why rent storage when you already own it? VaultZero shards and encrypts your files across your own devices—phone, laptop, and desktop—creating a sovereign cloud that only you control.
+                </p>
+                
+                <div class="flex space-x-4">
+                    <button class="bg-slate-200 text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                        Start Sharding
+                    </button>
+                    <button class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/5 transition-all text-slate-300">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="absolute -inset-4 bg-slate-500/10 blur-3xl rounded-full opacity-50"></div>
+                <!-- Vault Mockup -->
+                <div class="glass p-8 rounded-2xl border border-slate-700/50 shadow-2xl flex flex-col items-center justify-center space-y-8 h-80">
+                    <div class="w-24 h-24 border-4 border-slate-500 rounded-xl flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-slate-800/50 blur-sm"></div>
+                        <span class="text-4xl relative z-10">📂</span>
+                    </div>
+                    
+                    <div class="flex justify-between w-full px-8">
+                        <div class="text-center">
+                            <div class="w-10 h-10 bg-slate-800 rounded-lg mx-auto mb-2 flex items-center justify-center border border-slate-700">📱</div>
+                            <div class="text-[10px] text-slate-500 uppercase">Phone</div>
+                        </div>
+                         <div class="h-px bg-slate-700 w-12 self-center"></div>
+                         <div class="text-center">
+                            <div class="w-10 h-10 bg-slate-800 rounded-lg mx-auto mb-2 flex items-center justify-center border border-slate-700">💻</div>
+                            <div class="text-[10px] text-slate-500 uppercase">Laptop</div>
+                        </div>
+                        <div class="h-px bg-slate-700 w-12 self-center"></div>
+                         <div class="text-center">
+                            <div class="w-10 h-10 bg-slate-800 rounded-lg mx-auto mb-2 flex items-center justify-center border border-slate-700">🖥️</div>
+                            <div class="text-[10px] text-slate-500 uppercase">Desktop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-32 grid md:grid-cols-3 gap-12">
+            <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/20 hover:border-slate-500/30 transition duration-300">
+                <div class="text-slate-400 text-3xl mb-4">🧩</div>
+                <h3 class="text-xl font-bold mb-2">Sharded Storage</h3>
+                <p class="text-slate-500 text-sm">Your file isn't in one place. It's split into encrypted pieces scattered across your devices. Safe even if one device is stolen.</p>
+            </div>
+            <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/20 hover:border-blue-400/30 transition duration-300">
+                <div class="text-blue-400 text-3xl mb-4">💸</div>
+                <h3 class="text-xl font-bold mb-2">Zero Monthly Fees</h3>
+                <p class="text-slate-500 text-sm">Stop paying for Google Drive or Dropbox. Utilize the terabytes of storage you already paid for in your hardware.</p>
+            </div>
+            <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/20 hover:border-red-400/30 transition duration-300">
+                <div class="text-red-400 text-3xl mb-4">🔒</div>
+                <h3 class="text-xl font-bold mb-2">Private Sync</h3>
+                <p class="text-slate-500 text-sm">Files sync over local networks or encrypted relays. No tech giant ever sees your photos or documents.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 text-center border-t border-slate-900 mt-20 relative z-10">
+        <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em] mb-4">Yukora Organization &copy; 2026</p>
+        <p class="text-slate-500 italic text-sm">"Your files. Your hardware. Your rules."</p>
+    </footer>
+</body>
+</html>
