@@ -18,10 +18,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .nexus-gradient {
+            background: linear-gradient(135deg, #facc15, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .nav-link.active { color: #60a5fa; border-bottom: 2px solid #60a5fa; }
         #nav-ghost.active { color: #ec4899; border-bottom: 2px solid #ec4899; }
+        #nav-nexus.active { color: #facc15; border-bottom: 2px solid #facc15; }
     </style>
 </head>
 <body class="antialiased">
@@ -32,6 +38,7 @@
         </div>
         <div class="flex space-x-10 font-semibold text-sm uppercase tracking-widest">
             <button onclick="showTab('projects')" id="nav-projects" class="nav-link active pb-1 transition hover:text-blue-400">Projects</button>
+            <button onclick="showTab('nexus')" id="nav-nexus" class="nav-link pb-1 transition hover:text-yellow-400">Nexus</button>
             <button onclick="showTab('ghost')" id="nav-ghost" class="nav-link pb-1 transition hover:text-pink-400">Ghost Tech</button>
             <button onclick="showTab('philosophy')" id="nav-philosophy" class="nav-link pb-1 transition hover:text-blue-400">Philosophy</button>
         </div>
@@ -50,7 +57,7 @@
                 <a href="https://scriptcommander.store" target="_blank" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-blue-500/50 transition-all duration-500">
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-blue-500 text-4xl">🛠️</div>
-                        <div class="bg-blue-500/10 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Active</div>
+                        <div class="bg-blue-500/10 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Available on Nexus!</div>
                     </div>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-400 transition">Script Commander</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">Visual automation dashboard. Execute PowerShell and Python scripts with one click. Now with a marketplace for scripts!</p>
@@ -61,7 +68,7 @@
                 <a href="https://schnitzelbank.org" target="_blank" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-purple-500/50 transition-all duration-500">
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-purple-500 text-4xl">🏦</div>
-                        <div class="bg-purple-500/10 text-purple-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Alpha</div>
+                        <div class="bg-purple-500/10 text-purple-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Available on Nexus!</div>
                     </div>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-purple-400 transition">Schnitzel Bank</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">The Family Tree App. Secure data ownership for your ancestry and digital legacy.</p>
@@ -72,7 +79,7 @@
                 <a href="https://downloadnemo.com" target="_blank" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-emerald-500/50 transition-all duration-500">
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-emerald-500 text-4xl">⌨️</div>
-                        <div class="bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Live</div>
+                        <div class="bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Available on Nexus!</div>
                     </div>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-emerald-400 transition">Nemo</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">Keyboard derived artificial intelligence agent. AI orchestration powered by Data Invisibility.</p>
@@ -83,7 +90,7 @@
                 <div class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-orange-500/50 transition-all duration-500">
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-orange-500 text-4xl">📸</div>
-                        <div class="bg-orange-500/10 text-orange-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Integrated</div>
+                        <div class="bg-orange-500/10 text-orange-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Available on Nexus!</div>
                     </div>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-orange-400 transition">Artifact Scanner</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">Mobile bridge for physical artifacts. Works with Schnitzelbank to digitize and sync history.</p>
@@ -94,7 +101,7 @@
                 <a href="/aegis" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-amber-500/50 transition-all duration-500">
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-amber-500 text-4xl">🔒</div>
-                        <div class="bg-amber-500/10 text-amber-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Dev</div>
+                        <div class="bg-amber-500/10 text-amber-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Available on Nexus!</div>
                     </div>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-amber-400 transition">Aegis</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">The application firewall. Visualize network traffic and block telemetry from non-sovereign apps.</p>
@@ -105,7 +112,7 @@
                 <a href="/prism" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-purple-500/50 transition-all duration-500">
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-purple-500 text-4xl">🕶️</div>
-                        <div class="bg-purple-500/10 text-purple-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Concept</div>
+                        <div class="bg-purple-500/10 text-purple-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Available on Nexus!</div>
                     </div>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-purple-400 transition">Prism</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">The invisible browser. Headless content fetching that strips trackers and sanitizes the web.</p>
@@ -116,7 +123,7 @@
                 <a href="/spectre" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-cyan-500/50 transition-all duration-500">
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-cyan-500 text-4xl">👻</div>
-                        <div class="bg-cyan-500/10 text-cyan-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Core</div>
+                        <div class="bg-cyan-500/10 text-cyan-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Available on Nexus!</div>
                     </div>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-cyan-400 transition">SpectreID</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">Device-based identity protocol. No passwords, just hardware-verified sovereignty.</p>
@@ -127,7 +134,7 @@
                 <a href="/ghostmech" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-green-500/50 transition-all duration-500">
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-green-500 text-4xl">🤖</div>
-                        <div class="bg-green-500/10 text-green-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Network</div>
+                        <div class="bg-green-500/10 text-green-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Available on Nexus!</div>
                     </div>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-green-400 transition">Ghost Mech</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">Sovereign P2P messaging. Serverless communication powered by SpectreID.</p>
@@ -138,7 +145,7 @@
                 <a href="/vaultzero" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-slate-500/50 transition-all duration-500">
                     <div class="flex justify-between items-start mb-6">
                         <div class="text-slate-400 text-4xl">🧩</div>
-                        <div class="bg-slate-500/10 text-slate-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Storage</div>
+                        <div class="bg-slate-500/10 text-slate-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Available on Nexus!</div>
                     </div>
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-slate-300 transition">VaultZero</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">The Anti-Cloud. Distributed, encrypted file storage across your own devices.</p>
@@ -148,6 +155,56 @@
 
             <div class="mt-24 p-8 bg-slate-900/30 border border-slate-800 rounded-2xl text-center">
                 <p class="text-slate-500 text-sm italic">"All Yukora software is guaranteed data ownership and invisibility"</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: NEXUS -->
+    <div id="nexus" class="tab-content py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <header class="text-center mb-20">
+                <h1 class="text-6xl font-bold mb-6 tracking-tight">The <span class="nexus-gradient">Nexus</span> Controller</h1>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">The last software you'll ever download. A sovereign operating layer for the Yukora Suite.</p>
+            </header>
+
+            <div class="grid lg:grid-cols-2 gap-16 mb-24 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">One Interface. Total Authority.</h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        Nexus is the master controller for your digital sovereignty. Instead of installing dozens of fragmented apps, Nexus provides a single, unified entry point for the entire Yukora ecosystem.
+                    </p>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        Powered by SpectreID, Nexus ensures that every tool you run is physically bound to your hardware. No accounts. No tracking. No central authority.
+                    </p>
+                    <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-xl font-mono text-sm text-yellow-500/80">
+                        <div class="mb-2">$ yukora list</div>
+                        <div class="text-slate-500">--- YUKORA MARKETPLACE ---</div>
+                        <div class="text-slate-300">[+] SpectreID  | INSTALLED</div>
+                        <div class="text-slate-300">[+] VaultZero  | INSTALLED</div>
+                        <div class="text-slate-300">[+] Ghost Mech | INSTALLED</div>
+                        <div class="text-slate-300">[ ] Nemo AI    | AVAILABLE</div>
+                    </div>
+                </div>
+                <div class="relative">
+                     <div class="absolute -inset-4 bg-yellow-500/10 blur-3xl rounded-full opacity-50"></div>
+                     <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800 relative z-10">
+                        <h3 class="text-xl font-bold mb-4 text-white">The Nexus Promise</h3>
+                        <ul class="space-y-4 text-slate-400">
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">✔</span>
+                                <span><b>Unified Execution:</b> Launch any Yukora app from a single command.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">✔</span>
+                                <span><b>P2P Marketplace:</b> Download updates directly from the mesh—no central app store.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">✔</span>
+                                <span><b>Hardware Locked:</b> Your tools only run on your verified hardware.</span>
+                            </li>
+                        </ul>
+                     </div>
+                </div>
             </div>
         </div>
     </div>
