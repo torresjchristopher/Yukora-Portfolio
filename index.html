@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,9 +13,15 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .ghost-gradient {
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .nav-link.active { color: #60a5fa; border-bottom: 2px solid #60a5fa; }
+        #nav-ghost.active { color: #ec4899; border-bottom: 2px solid #ec4899; }
     </style>
 </head>
 <body class="antialiased">
@@ -26,6 +32,7 @@
         </div>
         <div class="flex space-x-10 font-semibold text-sm uppercase tracking-widest">
             <button onclick="showTab('projects')" id="nav-projects" class="nav-link active pb-1 transition hover:text-blue-400">Projects</button>
+            <button onclick="showTab('ghost')" id="nav-ghost" class="nav-link pb-1 transition hover:text-pink-400">Ghost Tech</button>
             <button onclick="showTab('philosophy')" id="nav-philosophy" class="nav-link pb-1 transition hover:text-blue-400">Philosophy</button>
         </div>
     </nav>
@@ -141,6 +148,79 @@
 
             <div class="mt-24 p-8 bg-slate-900/30 border border-slate-800 rounded-2xl text-center">
                 <p class="text-slate-500 text-sm italic">"All Yukora software is guaranteed data ownership and invisibility"</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: GHOST TECH -->
+    <div id="ghost" class="tab-content py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <header class="text-center mb-20">
+                <h1 class="text-6xl font-bold mb-6 tracking-tight">The <span class="ghost-gradient">Ghost Tech</span> Line</h1>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">Security designed for the shadows. You cannot hack what you cannot see.</p>
+            </header>
+
+            <div class="grid lg:grid-cols-2 gap-16 mb-24 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 text-cyan-400">The Core: SpectreID</h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        Traditional security relies on "Something you know" (passwords). This is flawed because knowledge can be stolen. SpectreID relies on "Something you have" (hardware). 
+                    </p>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        We generate a unique cryptographic signature from your CPU, GPU, and Motherboard. To impersonate you, an attacker would need to physically steal your computer.
+                    </p>
+                    <a href="/spectre" class="text-cyan-500 font-bold hover:text-cyan-400 transition">Explore Spectre Protocol &rarr;</a>
+                </div>
+                <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800">
+                    <div class="font-mono text-xs text-slate-500 mb-2">Hash Generation</div>
+                    <div class="space-y-2">
+                        <div class="h-2 bg-slate-800 rounded w-full"></div>
+                        <div class="h-2 bg-slate-800 rounded w-3/4"></div>
+                        <div class="h-2 bg-cyan-900/30 rounded w-1/2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 mb-24 items-center">
+                 <div class="order-2 lg:order-1 bg-slate-900/50 p-8 rounded-2xl border border-slate-800">
+                    <div class="font-mono text-xs text-slate-500 mb-2">P2P Routing</div>
+                    <div class="space-y-2">
+                        <div class="h-2 bg-slate-800 rounded w-full"></div>
+                        <div class="h-2 bg-green-900/30 rounded w-2/3"></div>
+                        <div class="h-2 bg-slate-800 rounded w-1/2"></div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-3xl font-bold mb-6 text-green-400">The Network: GhostMesh</h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        GhostMesh is a sovereign communication layer. It does not use central servers. It routes encrypted packets directly between devices using local Wi-Fi, Bluetooth, or encrypted relays.
+                    </p>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        It is metadata-free. Even if traffic is intercepted, the observer cannot see who is talking to whom.
+                    </p>
+                    <a href="/ghostmesh" class="text-green-500 font-bold hover:text-green-400 transition">Enter the Mesh &rarr;</a>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 text-amber-400">The Shield: Aegis</h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        Your computer is constantly "phoning home" to advertisers and telemetry servers. Aegis is the wall that stops them.
+                    </p>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
+                        It visualizes every connection leaving your machine and gives you the power to sever the cord instantly. It ensures your device works for you, not them.
+                    </p>
+                    <a href="/aegis" class="text-amber-500 font-bold hover:text-amber-400 transition">Raise the Shield &rarr;</a>
+                </div>
+                <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800">
+                    <div class="font-mono text-xs text-slate-500 mb-2">Traffic Blocked</div>
+                    <div class="space-y-2">
+                        <div class="h-2 bg-amber-900/30 rounded w-full"></div>
+                        <div class="h-2 bg-slate-800 rounded w-5/6"></div>
+                        <div class="h-2 bg-slate-800 rounded w-1/2"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
