@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yukora Store | Equip the Ghost</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: white; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(135deg, #facc15, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-gradient {
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 1) 100%);
+        }
+        .glass {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="p-8 max-w-7xl mx-auto flex justify-between items-center relative z-10">
+        <a href="/" class="flex items-center space-x-4">
+            <img src="../yukora-banner.png" alt="Yukora Logo" class="h-8 w-auto">
+            <div class="text-2xl font-black tracking-tighter text-slate-200">YUKORA</div>
+        </a>
+        <div class="flex space-x-8 font-semibold text-xs uppercase tracking-widest text-slate-400">
+            <a href="/" class="hover:text-white transition">Software</a>
+            <span class="text-yellow-400">Store</span>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+        <header class="text-center mb-24">
+            <div class="inline-block px-4 py-1 rounded-full bg-yellow-500/10 text-yellow-500 text-[10px] font-bold uppercase tracking-widest mb-6 border border-yellow-500/20">
+                Official Merch & Literature
+            </div>
+            <h1 class="text-7xl font-bold mb-8 tracking-tighter">Equip the <span class="gradient-text">Ghost.</span></h1>
+            <p class="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                Support the sovereignty revolution. Wear the code, read the manifesto, and fund the development of invisible software.
+            </p>
+        </header>
+
+        <!-- Featured Item: The Book -->
+        <div class="glass p-12 rounded-3xl border border-yellow-500/30 shadow-[0_0_50px_rgba(250,204,21,0.1)] mb-32 flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2 relative group">
+                <div class="absolute -inset-4 bg-yellow-500/20 blur-3xl rounded-full opacity-50 group-hover:opacity-75 transition duration-700"></div>
+                <!-- Book Mockup -->
+                <div class="relative w-64 h-96 bg-slate-900 mx-auto rounded-r-xl shadow-2xl border-l-4 border-slate-700 transform group-hover:-translate-y-2 transition duration-500 flex flex-col items-center justify-center p-6 text-center">
+                    <div class="text-yellow-500 text-6xl mb-4">📖</div>
+                    <div class="font-black text-2xl text-white tracking-tighter uppercase mb-2">The Yukora<br>Protocol</div>
+                    <div class="text-xs text-slate-500 uppercase tracking-widest">Guide to Sovereignty</div>
+                    <div class="mt-12 w-full h-1 bg-gradient-to-r from-yellow-500 to-purple-600"></div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 text-left">
+                <h2 class="text-4xl font-bold mb-4 text-white">The Yukora Protocol</h2>
+                <div class="flex items-center space-x-4 mb-6">
+                    <span class="text-3xl font-light text-yellow-400">$20.00</span>
+                    <span class="bg-slate-800 text-slate-400 text-[10px] font-bold px-2 py-1 rounded uppercase">Physical Copy</span>
+                </div>
+                <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                    The definitive guide to reclaiming your digital life. This book details the philosophy behind Data Invisibility, the architecture of SpectreID, and practical steps to disconnect from the surveillance state while remaining connected to the world.
+                </p>
+                <button class="bg-yellow-500 text-slate-950 px-12 py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-yellow-400 transition shadow-xl">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Merch Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Product 1 -->
+            <div class="card-gradient border border-slate-800 p-8 rounded-2xl group hover:border-slate-600 transition duration-500">
+                <div class="h-64 bg-slate-900/50 rounded-xl mb-6 flex items-center justify-center group-hover:bg-slate-800/50 transition">
+                    <span class="text-6xl">👕</span>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-200">Spectre Tee</h3>
+                        <p class="text-sm text-slate-500 mt-1">Heavyweight Cotton. Black.</p>
+                    </div>
+                    <span class="text-lg font-light text-slate-300">$35.00</span>
+                </div>
+                <button class="w-full mt-6 py-3 rounded-lg border border-slate-700 text-slate-400 hover:text-white hover:border-white transition uppercase text-xs font-bold">Buy Now</button>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="card-gradient border border-slate-800 p-8 rounded-2xl group hover:border-slate-600 transition duration-500">
+                <div class="h-64 bg-slate-900/50 rounded-xl mb-6 flex items-center justify-center group-hover:bg-slate-800/50 transition">
+                    <span class="text-6xl">🧢</span>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-200">Operator Cap</h3>
+                        <p class="text-sm text-slate-500 mt-1">Embroidered Ghost Logo.</p>
+                    </div>
+                    <span class="text-lg font-light text-slate-300">$25.00</span>
+                </div>
+                <button class="w-full mt-6 py-3 rounded-lg border border-slate-700 text-slate-400 hover:text-white hover:border-white transition uppercase text-xs font-bold">Buy Now</button>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="card-gradient border border-slate-800 p-8 rounded-2xl group hover:border-slate-600 transition duration-500">
+                <div class="h-64 bg-slate-900/50 rounded-xl mb-6 flex items-center justify-center group-hover:bg-slate-800/50 transition">
+                    <span class="text-6xl">☕</span>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-200">Void Mug</h3>
+                        <p class="text-sm text-slate-500 mt-1">Matte Black Ceramic.</p>
+                    </div>
+                    <span class="text-lg font-light text-slate-300">$15.00</span>
+                </div>
+                <button class="w-full mt-6 py-3 rounded-lg border border-slate-700 text-slate-400 hover:text-white hover:border-white transition uppercase text-xs font-bold">Buy Now</button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-20 text-center border-t border-slate-900 mt-20 relative z-10">
+        <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em] mb-4">Yukora Organization &copy; 2026</p>
+        <p class="text-slate-500 italic text-sm">"Commerce for the cause."</p>
+    </footer>
+</body>
+</html>
