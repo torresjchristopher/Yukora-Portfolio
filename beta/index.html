@@ -52,16 +52,26 @@
         <!-- Email Signup -->
         <div class="max-w-md mx-auto relative mb-20">
             <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl blur opacity-25"></div>
-            <div class="relative bg-slate-950 p-2 rounded-xl border border-slate-800 flex">
-                <input type="email" placeholder="enter_frequency_code@domain.com" class="bg-transparent text-white px-4 py-3 w-full outline-none placeholder-slate-600 font-mono text-sm">
-                <button class="bg-red-600 text-white font-bold uppercase text-xs px-6 py-3 rounded-lg hover:bg-red-500 transition">
+            <form class="relative bg-slate-950 p-2 rounded-xl border border-slate-800 flex" onsubmit="handleSignup(event)">
+                <input type="email" id="emailInput" placeholder="enter_frequency_code@domain.com" required class="bg-transparent text-white px-4 py-3 w-full outline-none placeholder-slate-600 font-mono text-sm">
+                <button type="submit" class="bg-red-600 text-white font-bold uppercase text-xs px-6 py-3 rounded-lg hover:bg-red-500 transition">
                     Initialize
                 </button>
-            </div>
+            </form>
             <p class="text-slate-600 text-[10px] mt-4 uppercase tracking-widest">
-                * We do not track you. This email list is managed by a sovereign local script.
+                * We do not track you. Clicking Initialize opens your secure email client.
             </p>
         </div>
+
+        <script>
+            function handleSignup(e) {
+                e.preventDefault();
+                const email = document.getElementById('emailInput').value;
+                const subject = encodeURIComponent("Vanguard Access Request");
+                const body = encodeURIComponent(`Requesting access to the Yukora Beta Program.\n\nUser Handle: ${email}\n\n[End Transmission]`);
+                window.location.href = `mailto:chris@yukora.org?subject=${subject}&body=${body}`;
+            }
+        </script>
 
         <!-- Latest Patch Note Example -->
         <div class="text-left max-w-2xl mx-auto">
