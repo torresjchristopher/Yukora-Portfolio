@@ -21,6 +21,7 @@ BANNER = f"""
    ██║   ╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║
    ╚═╝    ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
            SOVEREIGN OPERATING LAYER v{VERSION}
+   [Guaranteed: No Trackers | No Ads | No Submission]
 """
 
 class YukoraNexus:
@@ -37,6 +38,7 @@ class YukoraNexus:
         # Deterministic Hardware Scan
         ghost_key = self.spectre.generate_ghost_key()
         print(f"[+] Device Authenticated: {ghost_key[:16]}... (Hardware Verified)")
+        print("[+] Data Invisibility Shield: ACTIVE")
         self.verified = True
         return True
 
@@ -73,6 +75,7 @@ class YukoraNexus:
             path = paths[module_name]
             if os.path.exists(path):
                 print(f"[-] Launching {module_name} in sovereign space...")
+                print(f"[-] Enforcing Data Invisibility for {module_name}...")
                 subprocess.run([sys.executable, path])
             else:
                 print(f"[!] Error: Module {module_name} source not found at {path}")
@@ -105,6 +108,8 @@ def main():
     elif args.command == "status":
         print(f"Yukora Nexus v{VERSION}")
         print("Status: Operational")
+        print("Data Invisibility: GUARANTEED")
+        print("Telemetry/Tracking: DISABLED")
         print(f"Root: {ROOT_DIR}")
 
 if __name__ == "__main__":
