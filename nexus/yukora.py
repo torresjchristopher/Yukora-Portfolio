@@ -50,7 +50,7 @@ class YukoraNexus:
             {"id": "spectre", "name": "SpectreID", "desc": "Hardware-bound Identity Protocol", "status": "INSTALLED"},
             {"id": "vault", "name": "VaultZero", "desc": "Distributed Secure Storage", "status": "INSTALLED"},
             {"id": "mech", "name": "Ghost Mech", "desc": "P2P Sovereign Messaging", "status": "INSTALLED"},
-            {"id": "nemo", "name": "Nemo AI", "desc": "Keyboard AI Assistant", "status": "AVAILABLE"},
+            {"id": "nemo", "name": "Nemo AI", "desc": "Keyboard AI Assistant", "status": "INSTALLED"},
             {"id": "prism", "name": "Prism", "desc": "Invisible Headless Browser", "status": "CONCEPT"},
             {"id": "aegis", "name": "Aegis", "desc": "Application Network Firewall", "status": "BETA"},
         ] 
@@ -65,10 +65,12 @@ class YukoraNexus:
             print("[!] Error: System not authenticated. Run 'yukora auth'.")
             return
 
+        # Paths for sovereign modules
         paths = {
             "spectre": os.path.join(ROOT_DIR, "spectre", "prototype", "spectre_id.py"),
             "vault": os.path.join(ROOT_DIR, "vaultzero", "prototype", "secure_vault.py"),
             "mech": os.path.join(ROOT_DIR, "ghostmech", "prototype", "ghost_mech.py"),
+            "nemo": os.path.join(ROOT_DIR, "nemo", "prototype", "nemo_vanguard.py"),
         }
 
         if module_name in paths:

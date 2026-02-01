@@ -1,0 +1,12 @@
+{
+    "spectre_version": "1.0.0",
+    "timestamp": "2026-01-31 22:27:19.986773",
+    "hardware_manifest": {
+        "CPU_ID": "BFEBFBFF000806EA",
+        "MOBO_SERIAL": "A75731210967916A",
+        "BIOS_SERIAL": "019983591657",
+        "MAC_NODE": "0xb831b596e40b",
+        "DISK_SERIAL": "0008_0D04_004B_8E5D."
+    },
+    "ghost_key": "4d6bd606d11a4599b77902c7f93ec30d28ed3d40f6dccacee4e399b708de5ec6"
+}
