@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis | The Invisible Shield</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: white; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24, #d946ef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .grid-bg {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="antialiased grid-bg">
+    <nav class="p-8 max-w-6xl mx-auto flex justify-between items-center relative z-10">
+        <a href="/" class="flex items-center space-x-4">
+            <img src="../yukora-banner.png" alt="Yukora Logo" class="h-8 w-auto">
+            <div class="text-2xl font-black tracking-tighter text-slate-200">YUKORA</div>
+        </a>
+        <div class="flex space-x-8 font-semibold text-xs uppercase tracking-widest text-slate-400">
+            <a href="/" class="hover:text-white transition">Suite</a>
+            <span class="text-amber-400">Aegis</span>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <div class="inline-block px-4 py-1 rounded-full bg-amber-500/10 text-amber-500 text-[10px] font-bold uppercase tracking-widest mb-6">
+                    In Development
+                </div>
+                <h1 class="text-7xl font-bold mb-8 tracking-tighter">Raise the <span class="gradient-text">Aegis.</span></h1>
+                <p class="text-xl text-slate-400 leading-relaxed mb-10">
+                    The absolute application firewall. See exactly which apps are "calling home" and cut the connection with a single click. Block telemetry, stop spies, and reclaim your bandwidth.
+                </p>
+                
+                <div class="flex space-x-4">
+                    <button class="bg-amber-500 text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-amber-400 transition-all duration-300 shadow-[0_0_20px_rgba(251,191,36,0.3)]">
+                        Get Early Access
+                    </button>
+                    <button class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/5 transition-all text-slate-300">
+                        View Source
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="absolute -inset-4 bg-amber-500/10 blur-3xl rounded-full opacity-50"></div>
+                <!-- UI Mockup -->
+                <div class="glass p-1 rounded-2xl border border-slate-700/50 shadow-2xl">
+                    <div class="bg-slate-950 rounded-xl overflow-hidden">
+                        <!-- Header -->
+                        <div class="bg-slate-900 p-4 flex justify-between items-center border-b border-slate-800">
+                            <div class="text-xs font-bold text-slate-500 tracking-widest uppercase">Live Traffic Monitor</div>
+                            <div class="flex space-x-2">
+                                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                                <span class="text-xs text-green-500 font-mono">PROTECTED</span>
+                            </div>
+                        </div>
+                        <!-- List -->
+                        <div class="p-4 space-y-4">
+                            <!-- Item 1 -->
+                            <div class="flex items-center justify-between p-3 bg-slate-900/50 rounded-lg border border-slate-800/50">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 rounded bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs">PS</div>
+                                    <div>
+                                        <div class="text-sm font-bold text-slate-200">Photoshop.exe</div>
+                                        <div class="text-[10px] text-slate-500">192.168.1.5 &rarr; 54.23.11.0</div>
+                                    </div>
+                                </div>
+                                <button class="bg-red-500/10 text-red-500 text-xs font-bold px-3 py-1.5 rounded border border-red-500/20 hover:bg-red-500 hover:text-white transition">BLOCK</button>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="flex items-center justify-between p-3 bg-slate-900/50 rounded-lg border border-slate-800/50">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 rounded bg-slate-700 text-slate-400 flex items-center justify-center text-xs">SYS</div>
+                                    <div>
+                                        <div class="text-sm font-bold text-slate-200">System (Telemetry)</div>
+                                        <div class="text-[10px] text-slate-500">Localhost &rarr; micro.soft.net</div>
+                                    </div>
+                                </div>
+                                <button class="bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded shadow-[0_0_10px_rgba(239,68,68,0.4)]">BLOCKED</button>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="flex items-center justify-between p-3 bg-slate-900/50 rounded-lg border border-slate-800/50">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs">NK</div>
+                                    <div>
+                                        <div class="text-sm font-bold text-slate-200">Nemo.exe</div>
+                                        <div class="text-[10px] text-slate-500">Localhost (Loopback)</div>
+                                    </div>
+                                </div>
+                                <div class="text-xs text-slate-600 font-bold px-3">SAFE</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-32 grid md:grid-cols-3 gap-12">
+            <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/20 hover:border-amber-500/30 transition duration-300">
+                <div class="text-amber-500 text-3xl mb-4">👁️</div>
+                <h3 class="text-xl font-bold mb-2">Total Visibility</h3>
+                <p class="text-slate-500 text-sm">Visualize every packet leaving your machine. If an app tries to send data without permission, you'll know instantly.</p>
+            </div>
+            <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/20 hover:border-red-500/30 transition duration-300">
+                <div class="text-red-500 text-3xl mb-4">🛡️</div>
+                <h3 class="text-xl font-bold mb-2">Kill Switch</h3>
+                <p class="text-slate-500 text-sm">Create permanent rules for invasive software. Allow them to run locally, but cut their lifeline to the internet.</p>
+            </div>
+            <div class="p-6 rounded-2xl border border-slate-800 bg-slate-900/20 hover:border-purple-500/30 transition duration-300">
+                <div class="text-purple-500 text-3xl mb-4">👻</div>
+                <h3 class="text-xl font-bold mb-2">Ghost Mode</h3>
+                <p class="text-slate-500 text-sm">Aegis runs silently in the kernel. It cannot be bypassed by standard user-mode applications or spyware.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 text-center border-t border-slate-900 mt-20 relative z-10">
+        <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em] mb-4">Yukora Organization &copy; 2026</p>
+        <p class="text-slate-500 italic text-sm">"Invisibility is the ultimate defense."</p>
+    </footer>
+</body>
+</html>
