@@ -6,6 +6,7 @@
     <title>Forge - Lightning-Fast Container Orchestration</title>
     <meta name="description" content="Forge: 5-10x faster container runtime with embedded Airflow. Real-time TUI dashboard, workflow scheduling, benchmarking tools. All in one CLI.">
     <meta name="keywords" content="containers, orchestration, workflows, Docker alternative, Podman alternative, DevOps, CLI">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -14,193 +15,264 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #ec4899;
+            --accent-alt: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-darker: #020617;
+            --text-light: #f1f5f9;
+            --text-muted: #cbd5e1;
+            --border-color: #1e293b;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-light);
+            background: var(--bg-darker);
             min-height: 100vh;
+            overflow-x: hidden;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
         
+        /* Background Animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* Navigation Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
             padding: 20px 0;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         header h1 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        header p {
-            color: #666;
-            font-size: 1.2em;
-            margin-bottom: 5px;
+            font-size: 1.8em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .status {
-            background: #4caf50;
-            color: white;
-            padding: 8px 15px;
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            padding: 6px 12px;
             border-radius: 20px;
-            display: inline-block;
-            margin-top: 10px;
-            font-weight: bold;
+            font-size: 0.85em;
+            font-weight: 600;
+            border: 1px solid rgba(34, 197, 94, 0.3);
         }
         
+        /* Hero Section */
         .hero {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .hero h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .stat-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 100px 0 60px;
             text-align: center;
         }
         
+        .hero h2 {
+            font-size: 3.5em;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25em;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Stats Grid */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 60px 0;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-box:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(236, 72, 153, 0.1) 100%);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-5px);
+        }
+        
         .stat-box h3 {
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
         }
         
         .stat-box p {
             font-size: 0.95em;
-            opacity: 0.9;
+            color: var(--text-muted);
+        }
+        
+        /* Features Section */
+        .section {
+            margin-bottom: 80px;
+        }
+        
+        .section h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
+            gap: 25px;
         }
         
         .feature-card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #667eea;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+        
+        .feature-card:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.08) 100%);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
         }
         
         .feature-card h3 {
-            color: #667eea;
-            margin-bottom: 10px;
+            color: var(--text-light);
+            margin-bottom: 12px;
             font-size: 1.3em;
+            font-weight: 600;
         }
         
         .feature-card p {
-            color: #666;
-            font-size: 0.95em;
+            color: var(--text-muted);
+            line-height: 1.8;
         }
         
-        .comparison {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 10px;
+        /* Table Styling */
+        .table-container {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
             margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
-        }
-        
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
         }
         
         th {
-            background: #667eea;
-            color: white;
-            font-weight: bold;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--text-light);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-light);
         }
         
         tr:hover {
-            background: #f5f5f5;
+            background: rgba(99, 102, 241, 0.05);
         }
         
         .highlight {
-            background: #fff3cd;
-            font-weight: bold;
+            color: var(--accent-alt);
+            font-weight: 600;
         }
         
-        .cta-section {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-        
-        code {
-            background: #f4f4f4;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-            color: #667eea;
-        }
-        
+        /* Code Blocks */
         .code-block {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 15px;
-            border-radius: 5px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            color: #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
             overflow-x: auto;
-            margin: 15px 0;
-            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.9em;
+            line-height: 1.5;
         }
         
         .code-block code {
@@ -209,260 +281,346 @@
             padding: 0;
         }
         
-        footer {
+        code {
+            background: rgba(99, 102, 241, 0.15);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-alt);
+            font-size: 0.9em;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 60px 40px;
+            border-radius: 16px;
             text-align: center;
-            padding: 20px;
+            margin: 80px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .cta-button.primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            margin-top: 40px;
         }
         
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 10px;
+        .cta-button.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .cta-button.secondary:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+        
+        /* Section with Description */
+        .section-content {
             margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
-        .section h2 {
-            color: #667eea;
+        .section-content h3 {
+            font-size: 1.5em;
+            font-weight: 600;
             margin-bottom: 20px;
-            font-size: 1.8em;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 10px;
+            color: var(--text-light);
         }
         
-        .section h3 {
-            color: #764ba2;
-            margin-top: 20px;
-            margin-bottom: 10px;
+        .section-content p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 16px;
         }
         
         ul {
-            margin-left: 20px;
-            color: #666;
+            margin-left: 24px;
+            color: var(--text-muted);
         }
         
         li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            margin-top: 60px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--accent);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5em;
+            }
+            
+            .section h2 {
+                font-size: 2em;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .cta-button {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <div class="container">
             <h1>⚡ Forge</h1>
-            <p>Lightning-Fast Container Orchestration + Embedded Workflows</p>
             <span class="status">✓ Production Ready v0.1.0</span>
-        </header>
-        
-        <div class="hero">
-            <h2>The Unified Platform for Modern Development</h2>
-            <p>
-                Forge combines a <strong>5-10x faster container runtime</strong>, <strong>embedded Airflow-like orchestration</strong>, 
-                and a <strong>real-time TUI dashboard</strong>—all in a single CLI. No separate databases. No heavy services. 
-                Pure speed and efficiency.
-            </p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h2>Lightning-Fast Container Orchestration</h2>
+            <p class="hero-subtitle">5-10x faster than Docker. 30x leaner than Airflow. Embedded workflows. Real-time monitoring. All in one CLI.</p>
             
             <div class="stats">
                 <div class="stat-box">
                     <h3>5-10x</h3>
-                    <p>Faster Container Startup</p>
+                    <p>Faster Startup</p>
                 </div>
                 <div class="stat-box">
                     <h3>30x</h3>
-                    <p>Leaner Memory Footprint</p>
+                    <p>Leaner Memory</p>
                 </div>
                 <div class="stat-box">
                     <h3>40x</h3>
-                    <p>Smaller Disk Usage</p>
+                    <p>Smaller Disk</p>
                 </div>
                 <div class="stat-box">
                     <h3>245ms</h3>
-                    <p>Average Startup Time</p>
+                    <p>Container Startup</p>
                 </div>
             </div>
-        </div>
-        
-        <div class="section">
+        </section>
+        <section class="section">
             <h2>✨ Core Features</h2>
-            
             <div class="features">
                 <div class="feature-card">
                     <h3>🚀 Lightweight Runtime</h3>
-                    <p>5-10x faster than Podman. 30x leaner than Docker+Airflow. Snapshot-based images with zero daemon overhead.</p>
+                    <p>Snapshot-based images, zero daemon overhead, instant startup. 5-10x faster than Podman and 30x leaner than Docker+Airflow combined.</p>
                 </div>
                 <div class="feature-card">
                     <h3>🔄 Embedded Workflows</h3>
-                    <p>Full DAG orchestration without a separate database. Airflow features built-in: retries, SLAs, dependencies, backfill.</p>
+                    <p>Full DAG orchestration with retries, SLAs, dependencies, and backfill—all without a separate database or Airflow installation.</p>
                 </div>
                 <div class="feature-card">
                     <h3>📅 Smart Scheduler</h3>
-                    <p>Cron-based scheduling with APScheduler. Pause, resume, trigger manually, or backfill historical ranges.</p>
+                    <p>Cron-based scheduling with pause, resume, manual trigger, and historical backfill capabilities—all built-in.</p>
                 </div>
                 <div class="feature-card">
                     <h3>📊 Real-Time Dashboard</h3>
-                    <p>Terminal TUI with 5 views: overview, workflows, containers, scheduler, logs. 2 refreshes/second, <50ms render time.</p>
+                    <p>Terminal TUI with 5 interactive views. 2 refreshes/second, <50ms render time. Works over SSH.</p>
                 </div>
                 <div class="feature-card">
                     <h3>📈 Built-In Benchmarking</h3>
-                    <p>Compare against Podman/Docker. Profile memory usage. Analyze performance. Export results as JSON.</p>
+                    <p>Prove it's faster. Compare against Podman/Docker. Profile memory, disk, and CPU. Export results as JSON.</p>
                 </div>
                 <div class="feature-card">
                     <h3>🛠️ One Configuration</h3>
-                    <p>Single YAML defines containers, workflows, and scheduling. No Docker Compose + Airflow DAGs needed.</p>
+                    <p>Single YAML file defines containers, workflows, and scheduling. No Docker Compose + Airflow DAGs needed.</p>
                 </div>
             </div>
-        </div>
-        
-        <div class="section">
-            <h2>📊 Performance Comparison</h2>
-            <table>
-                <tr>
-                    <th>Operation</th>
-                    <th>Docker+Airflow</th>
-                    <th>Podman</th>
-                    <th class="highlight">Forge</th>
-                    <th>Speedup</th>
-                </tr>
-                <tr>
-                    <td><strong>Container Startup</strong></td>
-                    <td>1-2s</td>
-                    <td>0.5-1s</td>
-                    <td class="highlight">245ms</td>
-                    <td class="highlight">5-10x</td>
-                </tr>
-                <tr>
-                    <td><strong>Memory (Idle)</strong></td>
-                    <td>450MB</td>
-                    <td>85MB</td>
-                    <td class="highlight">18.5MB</td>
-                    <td class="highlight">24x</td>
-                </tr>
-                <tr>
-                    <td><strong>DAG Parsing</strong></td>
-                    <td>2-10s</td>
-                    <td>N/A</td>
-                    <td class="highlight"><100ms</td>
-                    <td class="highlight">20-100x</td>
-                </tr>
-                <tr>
-                    <td><strong>Disk (30 days)</strong></td>
-                    <td>12-15GB</td>
-                    <td>8GB</td>
-                    <td class="highlight">380MB</td>
-                    <td class="highlight">40x</td>
-                </tr>
-                <tr>
-                    <td><strong>Dashboard Startup</strong></td>
-                    <td>5-10s (Browser)</td>
-                    <td>N/A</td>
-                    <td class="highlight"><500ms (TUI)</td>
-                    <td class="highlight">10-20x</td>
-                </tr>
-            </table>
-        </div>
-        
-        <div class="section">
-            <h2>🎯 How It Works</h2>
-            <h3>Three Simple Commands</h3>
-            
-            <h3>1. Launch Dashboard</h3>
-            <div class="code-block">
-<code>$ forge tui
+        </section>
 
-┌─────────────────────────────────────┐
-│ [1: Overview] [2: Workflows] ...    │
-├─────────────────────────────────────┤
-│ System Metrics        Workflow Summary
-│ CPU:    42.5%         Success:  12 ✓
-│ Memory: 61.2%         Running:  2  ▶
-│ Disk:   75.8%         Failed:   1  ✗
-└─────────────────────────────────────┘</code>
+        <section class="section">
+            <h2>📊 Performance Benchmarks</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Docker+Airflow</th>
+                            <th>Podman</th>
+                            <th>Forge</th>
+                            <th>Speedup</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Container Startup</strong></td>
+                            <td>1-2s</td>
+                            <td>0.5-1s</td>
+                            <td><span class="highlight">245ms</span></td>
+                            <td><span class="highlight">5-10x</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Memory (Idle)</strong></td>
+                            <td>450MB</td>
+                            <td>85MB</td>
+                            <td><span class="highlight">18.5MB</span></td>
+                            <td><span class="highlight">24x</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>DAG Parsing</strong></td>
+                            <td>2-10s</td>
+                            <td>N/A</td>
+                            <td><span class="highlight">&lt;100ms</span></td>
+                            <td><span class="highlight">20-100x</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disk (30 days)</strong></td>
+                            <td>12-15GB</td>
+                            <td>8GB</td>
+                            <td><span class="highlight">380MB</span></td>
+                            <td><span class="highlight">40x</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dashboard Startup</strong></td>
+                            <td>5-10s (Browser)</td>
+                            <td>N/A</td>
+                            <td><span class="highlight">&lt;500ms (TUI)</span></td>
+                            <td><span class="highlight">10-20x</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </section>
+
+        <section class="section">
+            <h2>🎯 How It Works</h2>
             
-            <h3>2. Run a Container</h3>
-            <div class="code-block">
-<code>$ forge container run python:3.11 python script.py --memory 512 --port 8000:80</code>
+            <div class="section-content">
+                <h3>1. Launch Dashboard</h3>
+                <div class="code-block"><code>$ forge tui</code></div>
+                <p>Real-time monitoring of all containers, workflows, and scheduled tasks.</p>
             </div>
-            
-            <h3>3. Schedule Workflows</h3>
-            <div class="code-block">
-<code>$ forge workflow run daily_etl
-$ forge scheduler schedule daily_etl --cron "0 2 * * *"
-$ forge scheduler start</code>
+
+            <div class="section-content">
+                <h3>2. Run a Container</h3>
+                <div class="code-block"><code>$ forge container run python:3.11 python script.py --port 8000:80</code></div>
+                <p>Instant execution with port mapping, volume mounting, and resource limits.</p>
             </div>
-        </div>
-        
-        <div class="section">
+
+            <div class="section-content">
+                <h3>3. Schedule Workflows</h3>
+                <div class="code-block"><code>$ forge workflow run daily_etl<br>$ forge scheduler schedule daily_etl --cron "0 2 * * *"<br>$ forge scheduler start</code></div>
+                <p>Automatic execution with full DAG support and monitoring.</p>
+            </div>
+        </section>
+
+        <section class="section">
             <h2>🔨 Integrated with Shortcut-CLI</h2>
-            <p>
-                Forge is now the primary feature of Shortcut CLI v4.0, positioning it as the core innovation for developers 
-                who want unified automation, orchestration, and script management in one place.
-            </p>
+            <p>Forge is now the primary feature of Shortcut CLI v4.0, unifying container orchestration, workflow scheduling, and script management in one powerful CLI.</p>
             
-            <h3>Menu Structure:</h3>
-            <div class="code-block">
-<code>Shortcut CLI
-├── [1] Forge       ← Container orchestration + workflows
-├── [2] Scripts     ← Local script management  
-└── [3] Features    ← Additional capabilities</code>
+            <div class="section-content">
+                <h3>Three-Tier Menu Structure</h3>
+                <div class="code-block"><code>Shortcut CLI v4.0<br>├── [1] Forge       ← Container orchestration + workflows<br>├── [2] Scripts     ← Local script management<br>└── [3] Features    ← Additional tools</code></div>
             </div>
-            
-            <p style="margin-top: 15px;">
-                Access everything through Shortcut CLI:
-            </p>
-            <div class="code-block">
-<code>shortcut forge tui              # Dashboard
-shortcut forge container run    # Containers
-shortcut forge workflow run     # Workflows
-shortcut forge scheduler start  # Scheduling
-shortcut scripts list           # Scripts</code>
+
+            <div class="section-content">
+                <h3>Access Everything</h3>
+                <div class="code-block"><code>shortcut forge tui                  # Dashboard<br>shortcut forge container run        # Containers<br>shortcut forge workflow run         # Workflows<br>shortcut forge scheduler start      # Scheduling<br>shortcut scripts list               # Scripts</code></div>
             </div>
-        </div>
-        
-        <div class="section">
-            <h2>📚 Technical Highlights</h2>
+        </section>
+
+        <section class="section">
+            <h2>📚 Technical Architecture</h2>
             <ul>
                 <li><strong>Lightweight Isolation:</strong> Linux namespaces + Windows Job Objects for process isolation</li>
-                <li><strong>Smart Images:</strong> Snapshot-based (not layered) for instant extraction</li>
-                <li><strong>Zero Daemon:</strong> Containers execute directly, no background service needed</li>
-                <li><strong>Auto-Pruning:</strong> Automatic cleanup—never accumulates data</li>
-                <li><strong>File-Based State:</strong> All data in JSON—no separate database</li>
-                <li><strong>Embedded Orchestration:</strong> Full DAG engine built-in</li>
-                <li><strong>Real-Time TUI:</strong> 2 refreshes/second, <50ms render time</li>
-                <li><strong>Benchmarking Suite:</strong> Compare against Podman/Docker</li>
+                <li><strong>Snapshot-Based Images:</strong> Single tar.gz per image, instant extraction, no layering overhead</li>
+                <li><strong>Zero Daemon:</strong> Direct execution with no persistent background service</li>
+                <li><strong>Auto-Pruning:</strong> Automatic cleanup—data never accumulates</li>
+                <li><strong>File-Based State:</strong> All configuration in YAML, all data in JSON—no database required</li>
+                <li><strong>Embedded DAG Engine:</strong> Full orchestration built directly into the CLI</li>
+                <li><strong>Real-Time TUI:</strong> 2 refreshes/second with <50ms render time</li>
+                <li><strong>Production Benchmarking:</strong> Compare against Podman/Docker with scientific rigor</li>
             </ul>
-        </div>
-        
-        <div class="section">
+        </section>
+
+        <section class="section">
             <h2>🚀 Quick Start</h2>
-            <h3>Installation</h3>
-            <div class="code-block">
-<code>git clone https://github.com/torresjchristopher/forge.git
-cd forge
-pip install -e .</code>
+            <div class="section-content">
+                <h3>Installation</h3>
+                <div class="code-block"><code>git clone https://github.com/torresjchristopher/forge.git<br>cd forge<br>pip install -e .</code></div>
             </div>
-            
-            <h3>First Command</h3>
-            <div class="code-block">
-<code>forge tui</code>
+
+            <div class="section-content">
+                <h3>First Steps</h3>
+                <div class="code-block"><code>forge tui                                    # Launch dashboard<br>forge container run python:3.11 --help    # Run a container<br>forge workflow run example                  # Execute workflow</code></div>
             </div>
-        </div>
-        
-        <div class="cta-section">
-            <h2>Ready to Experience Lightning-Fast Orchestration?</h2>
-            <a href="https://github.com/torresjchristopher/forge" class="cta-button">⭐ View on GitHub</a>
-            <a href="https://github.com/torresjchristopher/forge#quick-start" class="cta-button">📖 Documentation</a>
-            <a href="https://github.com/torresjchristopher/ScriptCommander-Source" class="cta-button">🎯 Try with Shortcut CLI</a>
-        </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Experience the Future of Orchestration?</h2>
+            <div class="cta-buttons">
+                <a href="https://github.com/torresjchristopher/forge" class="cta-button primary">⭐ View on GitHub</a>
+                <a href="https://github.com/torresjchristopher/forge#quick-start" class="cta-button secondary">📖 Read Docs</a>
+                <a href="https://github.com/torresjchristopher/ScriptCommander-Source" class="cta-button secondary">🎯 Try with Shortcut</a>
+            </div>
+        </section>
         
         <footer>
             <p>Forge v0.1.0 | Built for speed. Optimized for developers. Made for the future.</p>
             <p style="font-size: 0.9em; margin-top: 10px;">
                 Part of the <strong>Yukora</strong> ecosystem | 
-                <a href="https://github.com/torresjchristopher" style="color: white; text-decoration: underline;">GitHub</a> | 
-                <a href="https://scriptcommander.store" style="color: white; text-decoration: underline;">Shortcut CLI</a>
+                <a href="https://github.com/torresjchristopher">GitHub</a> | 
+                <a href="https://scriptcommander.store">Shortcut CLI</a>
             </p>
         </footer>
     </div>
