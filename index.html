@@ -166,144 +166,96 @@
         </div>
 
         <!-- PROJECTS GRID (BELOW CAROUSEL) -->
-        <div class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
+        <div class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
             <header class="text-center mb-20">
                 <h1 class="text-6xl font-bold mb-6 tracking-tight">The <span class="gradient-text">Yukora</span> Suite</h1>
                 <p class="text-xl text-slate-400 max-w-2xl mx-auto">A unified ecosystem of proprietary, privacy-first software designed for absolute data sovereignty.</p>
             </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project: Shortcut CLI -->
-                <a href="https://scriptcommander.store" target="_blank" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-blue-500/50 transition-all duration-500 text-center">
-                    <div class="flex justify-center mb-6">
-                        <div class="text-blue-500 text-5xl">⚙️</div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">Shortcut CLI</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Unified automation platform for container orchestration, workflow scheduling, and script management.</p>
-                    <div class="bg-blue-500/10 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Available on Nexus!</div>
-                    <div class="block">
-                        <span class="text-xs font-bold text-blue-500 group-hover:translate-x-2 transition-transform inline-block">Learn More &rarr;</span>
-                    </div>
-                </a>
-
-                <!-- Project: Forge ⭐ NEW -->
-                <a href="https://yukora.org/forge/" target="_blank" class="group bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-blue-500/30 p-8 rounded-2xl hover:border-blue-500/80 transition-all duration-500 text-center relative overflow-hidden">
+            <!-- Premium Featured Row (Forge) -->
+            <div class="mb-16">
+                <a href="https://yukora.org/forge/" target="_blank" class="group relative block bg-gradient-to-br from-blue-600/20 to-slate-900/50 border-2 border-blue-500/40 p-12 rounded-2xl hover:border-blue-400/80 transition-all duration-500 overflow-hidden">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-400"></div>
-                    <div class="flex justify-center mb-6">
-                        <div class="text-blue-400 text-5xl animate-pulse">⚡</div>
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative flex items-center gap-8">
+                        <div class="text-6xl">⚡</div>
+                        <div class="flex-1">
+                            <div class="bg-blue-500/20 text-blue-300 text-[11px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-3 w-fit">Featured ⭐ Lightning Performance</div>
+                            <h3 class="text-4xl font-bold mb-2 text-white group-hover:text-blue-300 transition">Forge</h3>
+                            <p class="text-slate-300 text-base leading-relaxed mb-3 max-w-2xl">Lightning-fast container orchestration + embedded workflows. <span class="font-semibold text-blue-400">5-10x faster than Docker, 30x leaner than Airflow.</span></p>
+                            <span class="text-sm font-bold text-blue-400 group-hover:translate-x-2 transition-transform inline-block">Explore Forge &rarr;</span>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-blue-400 group-hover:text-blue-300 transition">Forge</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Lightning-fast container orchestration + embedded workflows. 5-10x faster than Docker.</p>
-                    <div class="bg-blue-500/20 text-blue-300 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Featured ⭐</div>
-                    <div class="block">
-                        <span class="text-xs font-bold text-blue-400 group-hover:translate-x-2 transition-transform inline-block">View Portfolio &rarr;</span>
+                </a>
+            </div>
+
+            <!-- Primary Grid (2 cols on lg) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Shortcut CLI -->
+                <a href="https://scriptcommander.store" target="_blank" class="group relative bg-slate-900/60 border border-slate-700 p-10 rounded-2xl hover:border-blue-500/60 hover:bg-slate-900/80 transition-all duration-500 overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl -mr-16 -mt-16"></div>
+                    <div class="relative">
+                        <div class="text-5xl mb-4">⚙️</div>
+                        <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-400 transition">Shortcut CLI</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">Unified automation platform for container orchestration, workflow scheduling, and script management.</p>
+                        <div class="bg-blue-500/10 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block">On Nexus</div>
+                        <div class="block mt-4">
+                            <span class="text-xs font-bold text-blue-500 group-hover:translate-x-2 transition-transform inline-block">Launch &rarr;</span>
+                        </div>
                     </div>
                 </a>
 
-                <!-- Project: Schnitzel Bank -->
-                <a href="https://schnitzelbank.org" target="_blank" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-purple-500/50 transition-all duration-500 text-center">
-                    <div class="flex justify-center mb-6">
-                        <div class="text-purple-500 text-5xl">🏦</div>
+                <!-- Schnitzel Bank -->
+                <a href="https://schnitzelbank.org" target="_blank" class="group relative bg-slate-900/60 border border-slate-700 p-10 rounded-2xl hover:border-purple-500/60 hover:bg-slate-900/80 transition-all duration-500 overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl -mr-16 -mt-16"></div>
+                    <div class="relative">
+                        <div class="text-5xl mb-4">🏦</div>
+                        <h3 class="text-2xl font-bold mb-2 group-hover:text-purple-400 transition">Schnitzel Bank</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">The Family Tree App. Secure data ownership for your ancestry and digital legacy.</p>
+                        <div class="bg-purple-500/10 text-purple-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block">Secure Access</div>
+                        <div class="block mt-4">
+                            <span class="text-xs font-bold text-purple-500 group-hover:translate-x-2 transition-transform inline-block">Explore &rarr;</span>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition">Schnitzel Bank</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">The Family Tree App. Secure data ownership for your ancestry and digital legacy.</p>
-                    <div class="bg-purple-500/10 text-purple-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Available on Nexus!</div>
-                    <div class="block">
-                        <span class="text-xs font-bold text-purple-500 group-hover:translate-x-2 transition-transform inline-block">Secure Access &rarr;</span>
+                </a>
+            </div>
+
+            <!-- Secondary Grid (3 cols on lg) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Nemo -->
+                <a href="https://downloadnemo.com" target="_blank" class="group relative bg-slate-900/60 border border-slate-700 p-8 rounded-2xl hover:border-emerald-500/60 hover:bg-slate-900/80 transition-all duration-500 overflow-hidden">
+                    <div class="absolute top-0 right-0 w-28 h-28 bg-emerald-500/5 rounded-full blur-2xl -mr-14 -mt-14"></div>
+                    <div class="relative">
+                        <div class="text-4xl mb-4">⌨️</div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-emerald-400 transition">Nemo</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Keyboard AI agent with Data Invisibility orchestration.</p>
+                        <span class="text-xs font-bold text-emerald-500 group-hover:translate-x-1 transition-transform inline-block">Download &rarr;</span>
                     </div>
                 </a>
 
-                <!-- Project: Nemo -->
-                <a href="https://downloadnemo.com" target="_blank" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-emerald-500/50 transition-all duration-500 text-center">
-                    <div class="flex justify-center mb-6">
-                        <div class="text-emerald-500 text-5xl">⌨️</div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-emerald-400 transition">Nemo</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Keyboard derived artificial intelligence agent. AI orchestration powered by Data Invisibility.</p>
-                    <div class="bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Available on Nexus!</div>
-                    <div class="block">
-                        <span class="text-xs font-bold text-emerald-500 group-hover:translate-x-2 transition-transform inline-block">Download &rarr;</span>
-                    </div>
-                </a>
-
-                <!-- Project: Artifact Scanner -->
-                <div class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-orange-500/50 transition-all duration-500 text-center">
-                    <div class="flex justify-center mb-6">
-                        <div class="text-orange-500 text-5xl">📸</div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition">Artifact Scanner</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Mobile bridge for physical artifacts. Works with Schnitzelbank to digitize and sync history.</p>
-                    <div class="bg-orange-500/10 text-orange-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Available on Nexus!</div>
-                    <div class="block">
-                        <span class="text-xs font-bold text-orange-500">Communicates with Schnitzelbank</span>
+                <!-- Artifact Scanner -->
+                <div class="group relative bg-slate-900/60 border border-slate-700 p-8 rounded-2xl hover:border-orange-500/60 transition-all duration-500 overflow-hidden">
+                    <div class="absolute top-0 right-0 w-28 h-28 bg-orange-500/5 rounded-full blur-2xl -mr-14 -mt-14"></div>
+                    <div class="relative">
+                        <div class="text-4xl mb-4">📸</div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-orange-400 transition">Artifact Scanner</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Mobile bridge for physical artifacts and Schnitzelbank sync.</p>
+                        <span class="text-xs font-bold text-orange-500">Nexus Connected</span>
                     </div>
                 </div>
 
-                <!-- Project: Aegis -->
-                <a href="/aegis" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-amber-500/50 transition-all duration-500 text-center">
-                    <div class="flex justify-center mb-6">
-                        <div class="text-amber-500 text-5xl">🔒</div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-amber-400 transition">Aegis</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">The application firewall. Visualize network traffic and block telemetry from non-sovereign apps.</p>
-                    <div class="bg-amber-500/10 text-amber-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Available on Nexus!</div>
-                    <div class="block">
-                        <span class="text-xs font-bold text-amber-500 group-hover:translate-x-2 transition-transform inline-block">Secure Your System &rarr;</span>
+                <!-- Aegis -->
+                <a href="/aegis" class="group relative bg-slate-900/60 border border-slate-700 p-8 rounded-2xl hover:border-amber-500/60 hover:bg-slate-900/80 transition-all duration-500 overflow-hidden">
+                    <div class="absolute top-0 right-0 w-28 h-28 bg-amber-500/5 rounded-full blur-2xl -mr-14 -mt-14"></div>
+                    <div class="relative">
+                        <div class="text-4xl mb-4">🔒</div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-amber-400 transition">Aegis</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Application firewall. Visualize network traffic, block telemetry.</p>
+                        <span class="text-xs font-bold text-amber-500 group-hover:translate-x-1 transition-transform inline-block">Explore &rarr;</span>
                     </div>
                 </a>
 
-                <!-- Project: Prism -->
-                <a href="/prism" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-purple-500/50 transition-all duration-500 text-center">
-                    <div class="flex justify-center mb-6">
-                        <div class="text-purple-500 text-5xl">🕶️</div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition">Prism</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">The invisible browser. Headless content fetching that strips trackers and sanitizes the web.</p>
-                    <div class="bg-purple-500/10 text-purple-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Available on Nexus!</div>
-                    <div class="block">
-                        <span class="text-xs font-bold text-purple-500 group-hover:translate-x-2 transition-transform inline-block">See Through It &rarr;</span>
-                    </div>
-                </a>
-
-                <!-- Project: SpectreID -->
-                <a href="/spectre" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-cyan-500/50 transition-all duration-500 text-center">
-                    <div class="flex justify-center mb-6">
-                        <div class="text-cyan-500 text-5xl">👻</div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-cyan-400 transition">SpectreID</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Device-based identity protocol. No passwords, just hardware-verified sovereignty.</p>
-                    <div class="bg-cyan-500/10 text-cyan-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Available on Nexus!</div>
-                    <div class="block">
-                        <span class="text-xs font-bold text-cyan-500 group-hover:translate-x-2 transition-transform inline-block">Generate Key &rarr;</span>
-                    </div>
-                </a>
-
-                <!-- Project: Ghost Mech -->
-                <a href="/ghostmech" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-green-500/50 transition-all duration-500 text-center">
-                    <div class="flex justify-center mb-6">
-                        <div class="text-green-500 text-5xl">🤖</div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-green-400 transition">Ghost Mech</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Sovereign P2P messaging. Serverless communication powered by SpectreID.</p>
-                    <div class="bg-green-500/10 text-green-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Available on Nexus!</div>
-                    <div class="block">
-                        <span class="text-xs font-bold text-green-500 group-hover:translate-x-2 transition-transform inline-block">Enter Mesh &rarr;</span>
-                    </div>
-                </a>
-
-                <!-- Project: VaultZero -->
-                <a href="/vaultzero" class="group bg-slate-900/50 border border-slate-800 p-8 rounded-2xl hover:border-slate-500/50 transition-all duration-500 text-center">
-                    <div class="flex justify-center mb-6">
-                        <div class="text-slate-400 text-5xl">🧩</div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-slate-300 transition">VaultZero</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">The Anti-Cloud. Distributed, encrypted file storage across your own devices.</p>
-                    <div class="bg-slate-500/10 text-slate-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Available on Nexus!</div>
-                    <div class="block">
-                        <span class="text-xs font-bold text-slate-400 group-hover:translate-x-2 transition-transform inline-block">Start Sharding &rarr;</span>
-                    </div>
-                </a>
             </div>
 
             <div class="mt-24 p-8 bg-slate-900/30 border border-slate-800 rounded-2xl text-center">
