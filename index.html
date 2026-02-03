@@ -81,72 +81,167 @@
             </div>
             
             <!-- Carousel Slides -->
-            <div class="carousel-container relative w-full h-screen flex items-center justify-center">
+            <div class="carousel-container relative w-full h-screen flex items-center px-6">
                 <!-- Slide 1: Shortcut CLI -->
-                <div class="carousel-slide active absolute w-full h-full flex items-center justify-center px-6">
-                    <div class="text-center max-w-3xl">
-                        <div class="text-7xl mb-8 animate-bounce">⚙️</div>
-                        <h2 class="text-6xl font-bold mb-4 gradient-text leading-tight">Shortcut CLI</h2>
-                        <p class="text-xl text-slate-300 mb-8 leading-relaxed">Unified automation platform for container orchestration, workflow scheduling, and script management.</p>
+                <div class="carousel-slide active absolute w-full h-full flex items-center px-6">
+                    <div class="max-w-2xl ml-0 lg:ml-20">
+                        <div class="text-6xl mb-6 animate-bounce">⚙️</div>
+                        <h2 class="text-7xl font-bold mb-4 gradient-text leading-tight">Shortcut CLI</h2>
+                        <p class="text-lg text-slate-300 mb-6 leading-relaxed">Unified automation platform for container orchestration, workflow scheduling, and script management. Integrated with Forge for lightning-fast execution.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-8 text-sm">
+                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
+                                <div class="text-blue-400 font-semibold">⚡ 3-5x faster</div>
+                                <div class="text-slate-400 text-xs">Than traditional shells</div>
+                            </div>
+                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
+                                <div class="text-blue-400 font-semibold">🔧 50+ Modules</div>
+                                <div class="text-slate-400 text-xs">Out of the box</div>
+                            </div>
+                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
+                                <div class="text-blue-400 font-semibold">🎯 Zero Config</div>
+                                <div class="text-slate-400 text-xs">Start immediately</div>
+                            </div>
+                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
+                                <div class="text-blue-400 font-semibold">🛡️ Private</div>
+                                <div class="text-slate-400 text-xs">Runs locally only</div>
+                            </div>
+                        </div>
                         <div class="bg-slate-800/50 backdrop-blur border border-slate-600 p-4 rounded-lg inline-block mb-8 cursor-pointer hover:border-blue-400 transition font-mono text-sm text-blue-300 relative" onclick="copyCmd(this, 'irm shortcut.cli.sh | iex')">
                             irm shortcut.cli.sh | iex
                             <span class="copy-feedback hidden absolute -top-8 left-1/2 transform -translate-x-1/2 bg-emerald-500 text-white px-2 py-1 rounded text-xs whitespace-nowrap">Copied!</span>
                         </div>
-                        <div class="flex gap-4 justify-center flex-wrap">
-                            <a href="https://scriptcommander.store" target="_blank" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-lg transition font-semibold">Learn More</a>
-                            <a href="https://github.com/torresjchristopher/ScriptCommander-Source" target="_blank" class="px-8 py-3 border-2 border-blue-500 text-blue-300 hover:bg-blue-500/10 rounded-lg transition font-semibold">GitHub</a>
+                        <div class="flex gap-3 flex-wrap">
+                            <a href="https://yukora.org/shortcut" target="_blank" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-lg transition font-semibold text-sm">Explore Shortcut</a>
+                            <a href="https://scriptcommander.store" target="_blank" class="px-6 py-2 border-2 border-blue-500 text-blue-300 hover:bg-blue-500/10 rounded-lg transition font-semibold text-sm">Learn More</a>
+                            <a href="https://github.com/torresjchristopher/ScriptCommander-Source" target="_blank" class="px-6 py-2 border-2 border-slate-600 text-slate-300 hover:border-slate-500 rounded-lg transition font-semibold text-sm">GitHub</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Slide 2: Forge -->
-                <div class="carousel-slide absolute w-full h-full flex items-center justify-center px-6">
-                    <div class="text-center max-w-3xl">
-                        <div class="text-7xl mb-8 animate-bounce">⚡</div>
-                        <h2 class="text-6xl font-bold mb-4 gradient-text leading-tight">Forge</h2>
-                        <p class="text-xl text-slate-300 mb-8 leading-relaxed">Lightning-fast container orchestration + embedded workflows. 5-10x faster than Docker, 30x leaner than Airflow.</p>
-                        <div class="flex gap-4 justify-center flex-wrap">
-                            <a href="https://yukora.org/forge/" target="_blank" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-lg transition font-semibold">View Portfolio</a>
-                            <a href="https://github.com/torresjchristopher/forge" target="_blank" class="px-8 py-3 border-2 border-blue-500 text-blue-300 hover:bg-blue-500/10 rounded-lg transition font-semibold">GitHub</a>
+                <div class="carousel-slide absolute w-full h-full flex items-center px-6">
+                    <div class="max-w-2xl ml-0 lg:ml-20">
+                        <div class="text-6xl mb-6 animate-bounce">⚡</div>
+                        <h2 class="text-7xl font-bold mb-4 gradient-text leading-tight">Forge</h2>
+                        <p class="text-lg text-slate-300 mb-6 leading-relaxed">Lightning-fast container orchestration with embedded workflows. 5-10x faster than Docker, 30x leaner than Airflow.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-8 text-sm">
+                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
+                                <div class="text-blue-400 font-semibold">245ms Startup</div>
+                                <div class="text-slate-400 text-xs">vs 2-5s Docker</div>
+                            </div>
+                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
+                                <div class="text-blue-400 font-semibold">15MB Runtime</div>
+                                <div class="text-slate-400 text-xs">vs 1GB+ containers</div>
+                            </div>
+                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
+                                <div class="text-blue-400 font-semibold">No Daemon</div>
+                                <div class="text-slate-400 text-xs">Direct execution</div>
+                            </div>
+                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
+                                <div class="text-blue-400 font-semibold">Auto-Pruning</div>
+                                <div class="text-slate-400 text-xs">Smart cleanup</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 flex-wrap">
+                            <a href="https://yukora.org/forge/" target="_blank" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-lg transition font-semibold text-sm">Explore Forge</a>
+                            <a href="https://github.com/torresjchristopher/forge" target="_blank" class="px-6 py-2 border-2 border-blue-500 text-blue-300 hover:bg-blue-500/10 rounded-lg transition font-semibold text-sm">GitHub</a>
+                            <a href="https://github.com/torresjchristopher/forge#benchmarks" target="_blank" class="px-6 py-2 border-2 border-slate-600 text-slate-300 hover:border-slate-500 rounded-lg transition font-semibold text-sm">Benchmarks</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Slide 3: Artifact Scanner -->
-                <div class="carousel-slide absolute w-full h-full flex items-center justify-center px-6">
-                    <div class="text-center max-w-3xl">
-                        <div class="text-7xl mb-8 animate-bounce">📸</div>
-                        <h2 class="text-6xl font-bold mb-4 text-orange-400 leading-tight">Artifact Scanner</h2>
-                        <p class="text-xl text-slate-300 mb-8 leading-relaxed">Mobile bridge for physical artifacts. Works with Schnitzelbank to digitize and sync history.</p>
-                        <div class="flex gap-4 justify-center flex-wrap">
-                            <a href="https://downloadnemo.com" target="_blank" class="px-8 py-3 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 rounded-lg transition font-semibold">Download</a>
-                            <a href="#projects" class="px-8 py-3 border-2 border-orange-500 text-orange-300 hover:bg-orange-500/10 rounded-lg transition font-semibold">Learn More</a>
+                <!-- Slide 3: Nemo -->
+                <div class="carousel-slide absolute w-full h-full flex items-center px-6">
+                    <div class="max-w-2xl ml-0 lg:ml-20">
+                        <div class="text-6xl mb-6 animate-bounce">⌨️</div>
+                        <h2 class="text-7xl font-bold mb-4 text-emerald-400 leading-tight">Nemo</h2>
+                        <p class="text-lg text-slate-300 mb-6 leading-relaxed">Keyboard-derived AI agent. Advanced AI orchestration powered by Data Invisibility protocol.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-8 text-sm">
+                            <div class="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-lg">
+                                <div class="text-emerald-400 font-semibold">Keyboard AI</div>
+                                <div class="text-slate-400 text-xs">Unique input paradigm</div>
+                            </div>
+                            <div class="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-lg">
+                                <div class="text-emerald-400 font-semibold">Data Invisibility</div>
+                                <div class="text-slate-400 text-xs">Privacy guaranteed</div>
+                            </div>
+                            <div class="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-lg">
+                                <div class="text-emerald-400 font-semibold">Local Processing</div>
+                                <div class="text-slate-400 text-xs">No cloud calls</div>
+                            </div>
+                            <div class="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-lg">
+                                <div class="text-emerald-400 font-semibold">Fast Execution</div>
+                                <div class="text-slate-400 text-xs">Real-time responses</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 flex-wrap">
+                            <a href="https://downloadnemo.com" target="_blank" class="px-6 py-2 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 rounded-lg transition font-semibold text-sm">Download Nemo</a>
+                            <a href="https://yukora.org/nemo" target="_blank" class="px-6 py-2 border-2 border-emerald-500 text-emerald-300 hover:bg-emerald-500/10 rounded-lg transition font-semibold text-sm">Learn More</a>
+                            <a href="#projects" class="px-6 py-2 border-2 border-slate-600 text-slate-300 hover:border-slate-500 rounded-lg transition font-semibold text-sm">Details</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Slide 4: Nemo -->
-                <div class="carousel-slide absolute w-full h-full flex items-center justify-center px-6">
-                    <div class="text-center max-w-3xl">
-                        <div class="text-7xl mb-8 animate-bounce">⌨️</div>
-                        <h2 class="text-6xl font-bold mb-4 text-emerald-400 leading-tight">Nemo</h2>
-                        <p class="text-xl text-slate-300 mb-8 leading-relaxed">Keyboard derived artificial intelligence agent. AI orchestration powered by Data Invisibility.</p>
-                        <div class="flex gap-4 justify-center flex-wrap">
-                            <a href="https://downloadnemo.com" target="_blank" class="px-8 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 rounded-lg transition font-semibold">Download</a>
-                            <a href="#projects" class="px-8 py-3 border-2 border-emerald-500 text-emerald-300 hover:bg-emerald-500/10 rounded-lg transition font-semibold">Learn More</a>
+                <!-- Slide 4: Schnitzel Bank -->
+                <div class="carousel-slide absolute w-full h-full flex items-center px-6">
+                    <div class="max-w-2xl ml-0 lg:ml-20">
+                        <div class="text-6xl mb-6 animate-bounce">🏦</div>
+                        <h2 class="text-7xl font-bold mb-4 text-purple-400 leading-tight">Schnitzel Bank</h2>
+                        <p class="text-lg text-slate-300 mb-6 leading-relaxed">The Family Tree App. Secure data ownership for your ancestry and digital legacy.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-8 text-sm">
+                            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-lg">
+                                <div class="text-purple-400 font-semibold">Your Family Tree</div>
+                                <div class="text-slate-400 text-xs">Complete lineage</div>
+                            </div>
+                            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-lg">
+                                <div class="text-purple-400 font-semibold">Data Ownership</div>
+                                <div class="text-slate-400 text-xs">You control it all</div>
+                            </div>
+                            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-lg">
+                                <div class="text-purple-400 font-semibold">Digital Legacy</div>
+                                <div class="text-slate-400 text-xs">Preserve memories</div>
+                            </div>
+                            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-lg">
+                                <div class="text-purple-400 font-semibold">Nexus Integrated</div>
+                                <div class="text-slate-400 text-xs">Part of suite</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 flex-wrap">
+                            <a href="https://schnitzelbank.org" target="_blank" class="px-6 py-2 bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 rounded-lg transition font-semibold text-sm">Access Schnitzel</a>
+                            <a href="https://yukora.org/schnitzelbank" target="_blank" class="px-6 py-2 border-2 border-purple-500 text-purple-300 hover:bg-purple-500/10 rounded-lg transition font-semibold text-sm">Learn More</a>
+                            <a href="#projects" class="px-6 py-2 border-2 border-slate-600 text-slate-300 hover:border-slate-500 rounded-lg transition font-semibold text-sm">Details</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Slide 5: Schnitzel Bank -->
-                <div class="carousel-slide absolute w-full h-full flex items-center justify-center px-6">
-                    <div class="text-center max-w-3xl">
-                        <div class="text-7xl mb-8 animate-bounce">🏦</div>
-                        <h2 class="text-6xl font-bold mb-4 text-purple-400 leading-tight">Schnitzel Bank</h2>
-                        <p class="text-xl text-slate-300 mb-8 leading-relaxed">The Family Tree App. Secure data ownership for your ancestry and digital legacy.</p>
-                        <div class="flex gap-4 justify-center flex-wrap">
-                            <a href="https://schnitzelbank.org" target="_blank" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 rounded-lg transition font-semibold">Secure Access</a>
-                            <a href="#projects" class="px-8 py-3 border-2 border-purple-500 text-purple-300 hover:bg-purple-500/10 rounded-lg transition font-semibold">Learn More</a>
+                <!-- Slide 5: Artifact Scanner -->
+                <div class="carousel-slide absolute w-full h-full flex items-center px-6">
+                    <div class="max-w-2xl ml-0 lg:ml-20">
+                        <div class="text-6xl mb-6 animate-bounce">📸</div>
+                        <h2 class="text-7xl font-bold mb-4 text-orange-400 leading-tight">Artifact Scanner</h2>
+                        <p class="text-lg text-slate-300 mb-6 leading-relaxed">Mobile bridge for physical artifacts. Digitizes and syncs history with Schnitzelbank.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-8 text-sm">
+                            <div class="bg-orange-500/10 border border-orange-500/20 p-3 rounded-lg">
+                                <div class="text-orange-400 font-semibold">Mobile Scanning</div>
+                                <div class="text-slate-400 text-xs">Capture anywhere</div>
+                            </div>
+                            <div class="bg-orange-500/10 border border-orange-500/20 p-3 rounded-lg">
+                                <div class="text-orange-400 font-semibold">Digitize Artifacts</div>
+                                <div class="text-slate-400 text-xs">Physical to digital</div>
+                            </div>
+                            <div class="bg-orange-500/10 border border-orange-500/20 p-3 rounded-lg">
+                                <div class="text-orange-400 font-semibold">Schnitzel Sync</div>
+                                <div class="text-slate-400 text-xs">Auto integration</div>
+                            </div>
+                            <div class="bg-orange-500/10 border border-orange-500/20 p-3 rounded-lg">
+                                <div class="text-orange-400 font-semibold">History Tracking</div>
+                                <div class="text-slate-400 text-xs">Timeline metadata</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 flex-wrap">
+                            <a href="https://yukora.org/artifact-scanner" target="_blank" class="px-6 py-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 rounded-lg transition font-semibold text-sm">Download Scanner</a>
+                            <a href="https://downloadnemo.com" target="_blank" class="px-6 py-2 border-2 border-orange-500 text-orange-300 hover:bg-orange-500/10 rounded-lg transition font-semibold text-sm">Mobile App</a>
+                            <a href="#projects" class="px-6 py-2 border-2 border-slate-600 text-slate-300 hover:border-slate-500 rounded-lg transition font-semibold text-sm">Details</a>
                         </div>
                     </div>
                 </div>
