@@ -40,9 +40,11 @@
         .tab-content.active { display: block; }
         .nav-link.active { color: #60a5fa; border-bottom: 2px solid #60a5fa; }
         .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .hero-glow { position: absolute; top: -10%; left: 50%; transform: translateX(-50%); width: 80%; height: 60%; background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%); z-index: -1; }
+        .hero-glow { position: absolute; top: -10%; left: 50%; transform: translateX(-50%); width: 80%; height: 60%; background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%); z-index: -1; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         .animate-float { animation: float 6s ease-in-out infinite; }
+        .spec-label { color: #64748b; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+        .spec-value { color: #f1f5f9; font-size: 1.125rem; font-weight: 800; }
     </style>
 </head>
 <body class="antialiased selection:bg-blue-500/30">
@@ -89,28 +91,52 @@
                 </div>
             </div>
 
+            <!-- Detailed Stats Section -->
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-40">
+                <div class="glass p-8 rounded-3xl border-blue-500/20">
+                    <div class="spec-label">Container Startup</div>
+                    <div class="spec-value text-blue-400">&lt;25ms</div>
+                    <div class="text-[10px] text-slate-500 font-bold mt-2">50X FASTER THAN DOCKER</div>
+                </div>
+                <div class="glass p-8 rounded-3xl border-purple-500/20">
+                    <div class="spec-label">Runtime Memory</div>
+                    <div class="spec-value text-purple-400">12.2MB</div>
+                    <div class="text-[10px] text-slate-500 font-bold mt-2">36X LEANER THAN PODMAN</div>
+                </div>
+                <div class="glass p-8 rounded-3xl border-emerald-500/20">
+                    <div class="spec-label">DAG Parsing</div>
+                    <div class="spec-value text-emerald-400">&lt;10ms</div>
+                    <div class="text-[10px] text-slate-500 font-bold mt-2">INSTANT ORCHESTRATION</div>
+                </div>
+                <div class="glass p-8 rounded-3xl border-amber-500/20">
+                    <div class="spec-label">Disk Footprint</div>
+                    <div class="spec-value text-amber-400">120MB</div>
+                    <div class="text-[10px] text-slate-500 font-bold mt-2">100X SMALLER STORAGE</div>
+                </div>
+            </div>
+
             <!-- Featured Stack -->
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-40">
                 <div class="glass p-12 rounded-[3.5rem] group hover:bg-white/5 transition-all relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
                     <div class="text-5xl mb-8 group-hover:scale-110 transition-transform">⚡</div>
                     <h3 class="text-3xl font-black mb-4 italic uppercase tracking-tighter">Forge Engine</h3>
-                    <p class="text-slate-500 text-sm font-bold leading-relaxed mb-8">50x faster container orchestration. Airflow-style DAGs integrated natively into a lightweight service.</p>
-                    <a href="https://yukora.org/forge/" target="_blank" class="text-xs font-black text-blue-500 uppercase tracking-[0.2em] group-hover:translate-x-2 transition-transform inline-block">Explore Performance &rarr;</a>
+                    <p class="text-slate-500 text-sm font-bold leading-relaxed mb-8">Lightning-fast container orchestration. Airflow-style DAGs integrated natively into a lightweight service. Prunes data effectively and runs entirely from a native TUI.</p>
+                    <a href="https://yukora.org/forge/" target="_blank" class="text-xs font-black text-blue-500 uppercase tracking-[0.2em] group-hover:translate-x-2 transition-transform inline-block">Technical Specs &rarr;</a>
                 </div>
-                <div class="glass p-12 rounded-[3.5rem] group hover:bg-white/5 transition-all relative overflow-hidden">
+                <div class="glass p-12 rounded-[3.5rem] group hover:bg-white/5 transition-all relative overflow-hidden border-yellow-500/10">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
                     <div class="text-5xl mb-8 group-hover:scale-110 transition-transform">🔄</div>
                     <h3 class="text-3xl font-black mb-4 italic uppercase tracking-tighter">Omni-Sync</h3>
-                    <p class="text-slate-500 text-sm font-bold leading-relaxed mb-8">Repos as Workflows. Automatically scaffold entire GitHub repositories into automated local environments.</p>
-                    <span class="text-xs font-black text-yellow-500 uppercase tracking-[0.2em]">Nexus Exclusive</span>
+                    <p class="text-slate-500 text-sm font-bold leading-relaxed mb-8">Repos as Workflows. Automatically scaffold entire GitHub repositories into automated local environments. Connect multiple Nexus nodes seamlessly.</p>
+                    <span class="text-xs font-black text-yellow-500 uppercase tracking-[0.2em]">P2P Orchestration</span>
                 </div>
                 <div class="glass p-12 rounded-[3.5rem] group hover:bg-white/5 transition-all relative overflow-hidden border-emerald-500/20">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
                     <div class="text-5xl mb-8 group-hover:scale-110 transition-transform">🔐</div>
                     <h3 class="text-3xl font-black mb-4 italic uppercase tracking-tighter">VaultZero</h3>
-                    <p class="text-slate-500 text-sm font-bold leading-relaxed mb-8">Hardware-rooted secret management. Securely restore sessions with Zip Keycards and encrypted context strings.</p>
-                    <span class="text-xs font-black text-emerald-500 uppercase tracking-[0.2em]">Verified Secure</span>
+                    <p class="text-slate-500 text-sm font-bold leading-relaxed mb-8">Hardware-rooted secret management. Securely restore sessions with encrypted context strings. Quantum-safe orchestration for the local machine.</p>
+                    <span class="text-xs font-black text-emerald-500 uppercase tracking-[0.2em]">TPM Integrated</span>
                 </div>
             </div>
         </div>
@@ -123,32 +149,34 @@
                         <div class="text-yellow-500 font-black text-xs uppercase tracking-[0.5em] mb-6 italic">The Master Controller</div>
                         <h2 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter italic uppercase">Nexus <br/><span class="nexus-gradient font-normal">Command.</span></h2>
                         <p class="text-lg text-slate-400 mb-10 leading-relaxed font-medium italic">Nexus is a sovereign command-line OS that amasses your tools, repos, and context into a single interactive environment. It behaves like a typical shell but executes with unheard-of caliber.</p>
-                        <div class="space-y-6">
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center shrink-0">
-                                    <span class="text-yellow-500 font-black">1</span>
+                        
+                        <!-- Technical Detail List -->
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="flex items-start gap-4 p-6 rounded-2xl bg-white/5 border border-white/5">
+                                <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                                 </div>
                                 <div>
-                                    <h4 class="text-lg font-black text-white uppercase italic tracking-tighter">Native File Traversal</h4>
-                                    <p class="text-slate-500 text-sm font-medium">Standard `cd`, `ls`, and system command support with integrated tool discovery.</p>
+                                    <h4 class="text-lg font-black text-white uppercase italic tracking-tighter">Dynamic Tool Loader</h4>
+                                    <p class="text-slate-500 text-sm font-medium">Automatic discovery of tools in `~/.nexus/tools`. Every new folder becomes a native command in the shell environment.</p>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center shrink-0">
-                                    <span class="text-yellow-500 font-black">2</span>
+                            <div class="flex items-start gap-4 p-6 rounded-2xl bg-white/5 border border-white/5">
+                                <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                                 </div>
                                 <div>
-                                    <h4 class="text-lg font-black text-white uppercase italic tracking-tighter">Folder-as-a-Tool</h4>
-                                    <p class="text-slate-500 text-sm font-medium">Add a new folder to `~/.nexus/tools` to instantly register a new native command.</p>
+                                    <h4 class="text-lg font-black text-white uppercase italic tracking-tighter">Context-Aware Shell</h4>
+                                    <p class="text-slate-500 text-sm font-medium">Intelligent file traversal that surfaces relevant Forge workflows and Shortcut modules based on your current working directory.</p>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center shrink-0">
-                                    <span class="text-yellow-500 font-black">3</span>
+                            <div class="flex items-start gap-4 p-6 rounded-2xl bg-white/5 border border-white/5">
+                                <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
                                 </div>
                                 <div>
-                                    <h4 class="text-lg font-black text-white uppercase italic tracking-tighter">Keycard Restoration</h4>
-                                    <p class="text-slate-500 text-sm font-medium">Export/Import Zip Keycards to restore full context across machines with no passwords.</p>
+                                    <h4 class="text-lg font-black text-white uppercase italic tracking-tighter">Zip Keycard Restoration</h4>
+                                    <p class="text-slate-500 text-sm font-medium">Export entire project contexts into encrypted Zip Keycards. Restore progress on any machine with zero-password login logic.</p>
                                 </div>
                             </div>
                         </div>
@@ -156,17 +184,18 @@
                     <div class="flex-1 w-full max-w-md animate-float">
                         <div class="glass rounded-3xl overflow-hidden shadow-2xl border-yellow-500/20">
                             <div class="bg-white/5 p-4 border-b border-white/5 flex items-center justify-between">
-                                <div class="text-[10px] font-black uppercase tracking-widest text-yellow-500 italic font-mono">NEXUS_SHELL v1.0</div>
+                                <div class="text-[10px] font-black uppercase tracking-widest text-yellow-500 italic font-mono">NEXUS_SHELL v1.0.0</div>
                                 <div class="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></div>
                             </div>
                             <div class="p-8 font-mono text-xs leading-relaxed">
-                                <div class="text-yellow-500 mb-2">user@nexus:~/dev$</div>
-                                <div class="text-white mb-4 italic underline underline-offset-4 decoration-yellow-500/50">nexus sync repo torresj/forge</div>
-                                <div class="text-slate-500 mb-2">[INFO] Scaffolding workflows...</div>
-                                <div class="text-emerald-400 mb-4">[SUCCESS] Restored 3 Forge containers.</div>
-                                <div class="text-yellow-500 mb-2">user@nexus:~/dev$</div>
-                                <div class="text-white italic">forge tui</div>
-                                <div class="text-slate-600 mt-4 italic">// Launching interactive dashboard...</div>
+                                <div class="text-yellow-500 mb-2">user@nexus:~/workspace$</div>
+                                <div class="text-white mb-4 italic underline underline-offset-4 decoration-yellow-500/50">nexus sync repo torresj/project-x</div>
+                                <div class="text-slate-500 mb-2">[OMNI-SYNC] Analyzing repository...</div>
+                                <div class="text-slate-500 mb-2">[INFO] Detected: Python, Forge, VaultZero</div>
+                                <div class="text-emerald-400 mb-4">[SUCCESS] Project-X registered as tool.</div>
+                                <div class="text-yellow-500 mb-2">user@nexus:~/workspace$</div>
+                                <div class="text-white italic">project-x run --ephemeral</div>
+                                <div class="text-slate-600 mt-4 italic">// Executing in GhostMech mode...</div>
                             </div>
                         </div>
                     </div>
@@ -180,13 +209,25 @@
                 <h2 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter italic uppercase">Security in the <br/><span class="ghost-gradient font-normal">Shadows.</span></h2>
                 <p class="text-lg text-slate-400 mb-16 leading-relaxed font-medium italic max-w-3xl mx-auto">You cannot hack what you cannot see. Ghost Tech provides absolute invisibility via encrypted P2P mesh and ephemeral execution.</p>
                 <div class="grid md:grid-cols-2 gap-8 text-left">
-                    <div class="glass p-10 rounded-[3rem] border-purple-500/20 group hover:bg-white/5 transition-all">
-                        <h3 class="text-2xl font-black mb-4 italic uppercase text-purple-400">GhostMech Execution</h3>
-                        <p class="text-slate-500 text-sm font-bold leading-relaxed">Extreme data pruning. Ephemeral container lifecycles that leave zero forensic traces on the host machine.</p>
+                    <div class="glass p-10 rounded-[3rem] border-purple-500/20 group hover:bg-white/5 transition-all relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl"></div>
+                        <h3 class="text-2xl font-black mb-4 italic uppercase text-purple-400 tracking-tighter">GhostMech Execution</h3>
+                        <p class="text-slate-500 text-sm font-bold leading-relaxed mb-6">Extreme data pruning. Ephemeral container lifecycles that leave zero forensic traces on the host machine.</p>
+                        <div class="space-y-2 font-mono text-[10px] text-slate-600">
+                            <div>> MOUNT RAM_DISK /rootfs</div>
+                            <div>> EXECUTE FORGE_DAG</div>
+                            <div>> WIPE BLOCK_STORAGE --SHRED</div>
+                        </div>
                     </div>
-                    <div class="glass p-10 rounded-[3rem] border-pink-500/20 group hover:bg-white/5 transition-all">
-                        <h3 class="text-2xl font-black mb-4 italic uppercase text-pink-400">Spectre Protocol</h3>
-                        <p class="text-slate-500 text-sm font-bold leading-relaxed">Hardware-locked identity. Cryptographic signatures derived from your local silicon, not your email address.</p>
+                    <div class="glass p-10 rounded-[3rem] border-pink-500/20 group hover:bg-white/5 transition-all relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/5 rounded-full blur-3xl"></div>
+                        <h3 class="text-2xl font-black mb-4 italic uppercase text-pink-400 tracking-tighter">Spectre Protocol</h3>
+                        <p class="text-slate-500 text-sm font-bold leading-relaxed mb-6">Hardware-locked identity. Cryptographic signatures derived from your local silicon, not your email address.</p>
+                        <div class="space-y-2 font-mono text-[10px] text-slate-600">
+                            <div>> CPU_ID: 0xA4F92B...</div>
+                            <div>> GPU_HASH: 0x92C11...</div>
+                            <div>> STATUS: HARDWARE_VERIFIED</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -200,11 +241,11 @@
                     "Data Invisibility means that to us, you don't exist. Yukora software is a Ghost in the Machine. No telemetry. No cloud. No ransom. Your genius is yours alone."
                 </p>
                 <div class="grid md:grid-cols-2 gap-12 text-left">
-                    <div class="glass p-10 rounded-[3rem]">
+                    <div class="glass p-10 rounded-[3rem] border-emerald-500/10">
                         <h4 class="text-emerald-400 font-black uppercase text-xs tracking-widest mb-4 italic">Privacy as Default</h4>
                         <p class="text-sm text-slate-500 leading-relaxed font-bold italic">Zero Data Collection. Every tool runs 100% locally on your verified hardware. We don't want your data—we want you to own it.</p>
                     </div>
-                    <div class="glass p-10 rounded-[3rem]">
+                    <div class="glass p-10 rounded-[3rem] border-blue-500/10">
                         <h4 class="text-blue-400 font-black uppercase text-xs tracking-widest mb-4 italic">Absolute Ownership</h4>
                         <p class="text-sm text-slate-500 leading-relaxed font-bold italic">If it's on your drive, it belongs to you. No subscriptions to your own results. No SaaS hostage situations.</p>
                     </div>
@@ -214,13 +255,36 @@
 
     </main>
 
-    <footer class="py-20 border-t border-white/5 text-center mt-40">
-        <div class="flex justify-center gap-10 text-[10px] font-black uppercase tracking-[0.5em] text-slate-600 mb-10 italic">
-            <a href="https://scriptcommander.store" class="hover:text-blue-400 transition-colors">ScriptCommander.store</a>
-            <a href="https://yukora.org/forge" class="hover:text-blue-400 transition-colors">Forge Engine</a>
-            <a href="https://github.com/torresjchristopher" class="hover:text-blue-400 transition-colors">GitHub</a>
+    <!-- Detailed Footer -->
+    <footer class="py-20 border-t border-white/5 mt-40">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+            <div>
+                <div class="text-white font-black text-lg uppercase italic mb-6 tracking-tighter">Technical Core</div>
+                <ul class="space-y-3 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                    <li>Forge Engine v3.2.4</li>
+                    <li>Nexus OS v1.0.0</li>
+                    <li>VaultZero Standard</li>
+                    <li>Omni-Sync Protocol</li>
+                </ul>
+            </div>
+            <div>
+                <div class="text-white font-black text-lg uppercase italic mb-6 tracking-tighter">Resources</div>
+                <ul class="space-y-3 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                    <li><a href="https://github.com/torresjchristopher/forge" class="hover:text-blue-400">Forge Source</a></li>
+                    <li><a href="https://github.com/torresjchristopher/ScriptCommander-Source" class="hover:text-blue-400">Shortcut Source</a></li>
+                    <li><a href="https://scriptcommander.store" class="hover:text-blue-400">Store Front</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="text-white font-black text-lg uppercase italic mb-6 tracking-tighter">Philosophy</div>
+                <p class="text-xs font-bold text-slate-600 leading-relaxed italic uppercase tracking-widest">
+                    Software designed for human autonomy. No cloud. No tracking. Pure local power.
+                </p>
+            </div>
         </div>
-        <div class="text-slate-800 text-[10px] font-bold">© 2026 YUKORA ORGANIZATION. THE SOVEREIGN SUITE.</div>
+        <div class="text-center text-slate-800 text-[10px] font-black uppercase tracking-[0.5em]">
+            © 2026 YUKORA ORGANIZATION. THE SOVEREIGN SUITE.
+        </div>
     </footer>
 
     <script>
