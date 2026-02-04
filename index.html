@@ -6,15 +6,23 @@
     <title>Yukora | Software for Sovereignty</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #020617; color: white; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .gradient-text {
-            background: linear-gradient(135deg, #60a5fa, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                }
+            }
         }
-        .ghost-gradient {
-            background: linear-gradient(135deg, #a855f7, #ec4899);
+    </script>
+    <style>
+        body { background-color: #020617; color: white; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa, #a855f7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -23,596 +31,206 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .ghost-gradient {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .nav-link.active { color: #60a5fa; border-bottom: 2px solid #60a5fa; }
-        #nav-ghost.active { color: #ec4899; border-bottom: 2px solid #ec4899; }
-        #nav-nexus.active { color: #facc15; border-bottom: 2px solid #facc15; }
-        .carousel-slide { opacity: 0 !important; transition: opacity 1s ease-in-out; pointer-events: none; }
-        .carousel-slide.active { opacity: 1 !important; pointer-events: auto; }
-        
-        /* Animated background layers */
-        @keyframes drift-slow { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -30px); } }
-        @keyframes drift-medium { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-40px, 40px); } }
-        @keyframes drift-fast { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(50px, -50px); } }
-        @keyframes pulse-glow { 0%, 100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.1); } }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-        
-        .glow-orb-1 { animation: drift-slow 20s ease-in-out infinite; }
-        .glow-orb-2 { animation: drift-medium 25s ease-in-out infinite; }
-        .glow-orb-3 { animation: drift-fast 30s ease-in-out infinite; }
-        .glow-pulse { animation: pulse-glow 4s ease-in-out infinite; }
+        .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .hero-glow { position: absolute; top: -10%; left: 50%; transform: translateX(-50%); width: 80%; height: 60%; background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%); z-index: -1; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .animate-float { animation: float 6s ease-in-out infinite; }
     </style>
 </head>
-<body class="antialiased">
-    <nav class="p-8 max-w-6xl mx-auto flex justify-between items-center">
-        <div class="flex items-center space-x-4">
-            <img src="yukora-banner.png" alt="Yukora Logo" class="h-10 w-auto">
-            <div class="text-3xl font-black tracking-tighter gradient-text">YUKORA</div>
-        </div>
-        <div class="flex space-x-10 font-semibold text-sm uppercase tracking-widest">
-            <button onclick="showTab('projects')" id="nav-projects" class="nav-link active pb-1 transition hover:text-blue-400">Projects</button>
-            <button onclick="showTab('nexus')" id="nav-nexus" class="nav-link pb-1 transition hover:text-yellow-400">Nexus</button>
-            <button onclick="showTab('ghost')" id="nav-ghost" class="nav-link pb-1 transition hover:text-pink-400">Ghost Tech</button>
-            <button onclick="showTab('philosophy')" id="nav-philosophy" class="nav-link pb-1 transition hover:text-blue-400">Philosophy</button>
+<body class="antialiased selection:bg-blue-500/30">
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
+            <div class="flex items-center space-x-4 group cursor-pointer" onclick="showTab('projects')">
+                <img src="yukora-banner.png" alt="Yukora Logo" class="h-10 w-auto group-hover:scale-110 transition-transform">
+                <div class="text-3xl font-black tracking-tighter gradient-text uppercase italic">Yukora</div>
+            </div>
+            <div class="hidden md:flex space-x-10 font-bold text-[10px] uppercase tracking-[0.2em] text-slate-400">
+                <button onclick="showTab('projects')" id="nav-projects" class="nav-link active pb-1 transition hover:text-blue-400">Projects</button>
+                <button onclick="showTab('nexus')" id="nav-nexus" class="nav-link pb-1 transition hover:text-yellow-400">Nexus</button>
+                <button onclick="showTab('ghost')" id="nav-ghost" class="nav-link pb-1 transition hover:text-purple-400">Ghost Tech</button>
+                <button onclick="showTab('philosophy')" id="nav-philosophy" class="nav-link pb-1 transition hover:text-emerald-400">Philosophy</button>
+            </div>
+            <a href="https://github.com/torresjchristopher" target="_blank" class="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-white/10 transition-all">GitHub</a>
         </div>
     </nav>
 
-    <!-- TAB: PROJECTS -->
-    <div id="projects" class="tab-content active">
-        <!-- ROTATING CAROUSEL HERO -->
-        <div class="relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center overflow-hidden border-b border-slate-700">
-            <!-- Animated Background Layers -->
-            <div class="absolute inset-0 overflow-hidden">
-                <!-- Layer 1: Primary glow orb (Blue) -->
-                <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-blue-600/25 rounded-full blur-3xl glow-orb-1 glow-pulse"></div>
-                
-                <!-- Layer 2: Secondary glow orb (Indigo) -->
-                <div class="absolute top-1/2 right-1/4 w-80 h-80 bg-indigo-600/20 rounded-full blur-3xl glow-orb-2"></div>
-                
-                <!-- Layer 3: Tertiary glow orb (Purple) -->
-                <div class="absolute bottom-1/3 left-1/2 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl glow-orb-3 glow-pulse" style="animation-delay: 2s;"></div>
-                
-                <!-- Layer 4: Gradient mesh overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-slate-900/40"></div>
-                
-                <!-- Layer 5: Animated gradient mesh -->
-                <div class="absolute inset-0 opacity-20" style="background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.3), transparent 50%), radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.3), transparent 50%); animation: drift-slow 40s ease-in-out infinite;"></div>
+    <main class="relative pt-32">
+        <div class="hero-glow"></div>
+
+        <!-- PROJECTS TAB (HOME) -->
+        <div id="projects" class="tab-content active px-8">
+            <div class="max-w-7xl mx-auto text-center mb-40">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-8">
+                    High-Caliber Software for Absolute Sovereignty
+                </div>
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[1.1] italic uppercase">
+                    Build. Secure. <br/>
+                    <span class="gradient-text">Orchestrate.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed font-medium italic">
+                    The last suite of tools you'll ever need. Redefining speed with <span class="text-white">Forge</span> and total integration with <span class="text-white font-bold">Nexus OS.</span>
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                    <button onclick="showTab('nexus')" class="px-10 py-5 bg-white text-slate-950 rounded-2xl font-black text-lg transition-all shadow-xl shadow-white/10 hover:scale-105 uppercase tracking-tighter">
+                        Launch Nexus OS
+                    </button>
+                    <a href="https://scriptcommander.store" class="px-10 py-5 border border-white/10 rounded-2xl font-black text-lg hover:bg-white/5 transition-all uppercase tracking-tighter italic">
+                        Get Shortcut CLI
+                    </a>
+                </div>
             </div>
-            
-            <!-- Carousel Slides -->
-            <div class="carousel-container relative w-full h-screen flex items-center px-6">
-                <!-- Slide 1: Shortcut CLI -->
-                <div class="carousel-slide active absolute w-full h-full flex items-center px-6">
-                    <div class="max-w-2xl ml-0 lg:ml-20">
-                        <div class="text-6xl mb-6 animate-bounce">⚙️</div>
-                        <h2 class="text-7xl font-bold mb-4 gradient-text leading-tight">Shortcut CLI</h2>
-                        <p class="text-lg text-slate-300 mb-6 leading-relaxed">Unified automation platform for container orchestration, workflow scheduling, and script management. Integrated with Forge for lightning-fast execution.</p>
-                        <div class="grid grid-cols-2 gap-3 mb-8 text-sm">
-                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
-                                <div class="text-blue-400 font-semibold">⚡ 3-5x faster</div>
-                                <div class="text-slate-400 text-xs">Than traditional shells</div>
-                            </div>
-                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
-                                <div class="text-blue-400 font-semibold">🔧 50+ Modules</div>
-                                <div class="text-slate-400 text-xs">Out of the box</div>
-                            </div>
-                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
-                                <div class="text-blue-400 font-semibold">🎯 Zero Config</div>
-                                <div class="text-slate-400 text-xs">Start immediately</div>
-                            </div>
-                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
-                                <div class="text-blue-400 font-semibold">🛡️ Private</div>
-                                <div class="text-slate-400 text-xs">Runs locally only</div>
-                            </div>
-                        </div>
-                        <div class="bg-slate-800/50 backdrop-blur border border-slate-600 p-4 rounded-lg inline-block mb-8 cursor-pointer hover:border-blue-400 transition font-mono text-sm text-blue-300 relative" onclick="copyCmd(this, 'irm shortcut.cli.sh | iex')">
-                            irm shortcut.cli.sh | iex
-                            <span class="copy-feedback hidden absolute -top-8 left-1/2 transform -translate-x-1/2 bg-emerald-500 text-white px-2 py-1 rounded text-xs whitespace-nowrap">Copied!</span>
-                        </div>
-                        <div class="flex gap-3 flex-wrap">
-                            <a href="https://yukora.org/shortcut" target="_blank" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-lg transition font-semibold text-sm">Explore Shortcut</a>
-                            <a href="https://scriptcommander.store" target="_blank" class="px-6 py-2 border-2 border-blue-500 text-blue-300 hover:bg-blue-500/10 rounded-lg transition font-semibold text-sm">Learn More</a>
-                            <a href="https://github.com/torresjchristopher/ScriptCommander-Source" target="_blank" class="px-6 py-2 border-2 border-slate-600 text-slate-300 hover:border-slate-500 rounded-lg transition font-semibold text-sm">GitHub</a>
-                        </div>
-                    </div>
+
+            <!-- Featured Stack -->
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-40">
+                <div class="glass p-12 rounded-[3.5rem] group hover:bg-white/5 transition-all relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                    <div class="text-5xl mb-8 group-hover:scale-110 transition-transform">⚡</div>
+                    <h3 class="text-3xl font-black mb-4 italic uppercase tracking-tighter">Forge Engine</h3>
+                    <p class="text-slate-500 text-sm font-bold leading-relaxed mb-8">50x faster container orchestration. Airflow-style DAGs integrated natively into a lightweight service.</p>
+                    <a href="https://yukora.org/forge/" target="_blank" class="text-xs font-black text-blue-500 uppercase tracking-[0.2em] group-hover:translate-x-2 transition-transform inline-block">Explore Performance &rarr;</a>
                 </div>
-
-                <!-- Slide 2: Forge -->
-                <div class="carousel-slide absolute w-full h-full flex items-center px-6">
-                    <div class="max-w-2xl ml-0 lg:ml-20">
-                        <div class="text-6xl mb-6 animate-bounce">⚡</div>
-                        <h2 class="text-7xl font-bold mb-4 gradient-text leading-tight">Forge</h2>
-                        <p class="text-lg text-slate-300 mb-6 leading-relaxed">Lightning-fast container orchestration with embedded workflows. 5-10x faster than Docker, 30x leaner than Airflow.</p>
-                        <div class="grid grid-cols-2 gap-3 mb-8 text-sm">
-                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
-                                <div class="text-blue-400 font-semibold">245ms Startup</div>
-                                <div class="text-slate-400 text-xs">vs 2-5s Docker</div>
-                            </div>
-                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
-                                <div class="text-blue-400 font-semibold">15MB Runtime</div>
-                                <div class="text-slate-400 text-xs">vs 1GB+ containers</div>
-                            </div>
-                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
-                                <div class="text-blue-400 font-semibold">No Daemon</div>
-                                <div class="text-slate-400 text-xs">Direct execution</div>
-                            </div>
-                            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg">
-                                <div class="text-blue-400 font-semibold">Auto-Pruning</div>
-                                <div class="text-slate-400 text-xs">Smart cleanup</div>
-                            </div>
-                        </div>
-                        <div class="flex gap-3 flex-wrap">
-                            <a href="https://yukora.org/forge/" target="_blank" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-lg transition font-semibold text-sm">Explore Forge</a>
-                            <a href="https://github.com/torresjchristopher/forge" target="_blank" class="px-6 py-2 border-2 border-blue-500 text-blue-300 hover:bg-blue-500/10 rounded-lg transition font-semibold text-sm">GitHub</a>
-                            <a href="https://github.com/torresjchristopher/forge#benchmarks" target="_blank" class="px-6 py-2 border-2 border-slate-600 text-slate-300 hover:border-slate-500 rounded-lg transition font-semibold text-sm">Benchmarks</a>
-                        </div>
-                    </div>
+                <div class="glass p-12 rounded-[3.5rem] group hover:bg-white/5 transition-all relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                    <div class="text-5xl mb-8 group-hover:scale-110 transition-transform">🔄</div>
+                    <h3 class="text-3xl font-black mb-4 italic uppercase tracking-tighter">Omni-Sync</h3>
+                    <p class="text-slate-500 text-sm font-bold leading-relaxed mb-8">Repos as Workflows. Automatically scaffold entire GitHub repositories into automated local environments.</p>
+                    <span class="text-xs font-black text-yellow-500 uppercase tracking-[0.2em]">Nexus Exclusive</span>
                 </div>
-
-                <!-- Slide 3: Nemo -->
-                <div class="carousel-slide absolute w-full h-full flex items-center px-6">
-                    <div class="max-w-2xl ml-0 lg:ml-20">
-                        <div class="text-6xl mb-6 animate-bounce">⌨️</div>
-                        <h2 class="text-7xl font-bold mb-4 text-emerald-400 leading-tight">Nemo</h2>
-                        <p class="text-lg text-slate-300 mb-6 leading-relaxed">Keyboard-derived AI agent. Advanced AI orchestration powered by Data Invisibility protocol.</p>
-                        <div class="grid grid-cols-2 gap-3 mb-8 text-sm">
-                            <div class="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-lg">
-                                <div class="text-emerald-400 font-semibold">Keyboard AI</div>
-                                <div class="text-slate-400 text-xs">Unique input paradigm</div>
-                            </div>
-                            <div class="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-lg">
-                                <div class="text-emerald-400 font-semibold">Data Invisibility</div>
-                                <div class="text-slate-400 text-xs">Privacy guaranteed</div>
-                            </div>
-                            <div class="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-lg">
-                                <div class="text-emerald-400 font-semibold">Local Processing</div>
-                                <div class="text-slate-400 text-xs">No cloud calls</div>
-                            </div>
-                            <div class="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-lg">
-                                <div class="text-emerald-400 font-semibold">Fast Execution</div>
-                                <div class="text-slate-400 text-xs">Real-time responses</div>
-                            </div>
-                        </div>
-                        <div class="flex gap-3 flex-wrap">
-                            <a href="https://downloadnemo.com" target="_blank" class="px-6 py-2 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 rounded-lg transition font-semibold text-sm">Download Nemo</a>
-                            <a href="https://yukora.org/nemo" target="_blank" class="px-6 py-2 border-2 border-emerald-500 text-emerald-300 hover:bg-emerald-500/10 rounded-lg transition font-semibold text-sm">Learn More</a>
-                            <a href="#projects" class="px-6 py-2 border-2 border-slate-600 text-slate-300 hover:border-slate-500 rounded-lg transition font-semibold text-sm">Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 4: Schnitzel Bank -->
-                <div class="carousel-slide absolute w-full h-full flex items-center px-6">
-                    <div class="max-w-2xl ml-0 lg:ml-20">
-                        <div class="text-6xl mb-6 animate-bounce">🏦</div>
-                        <h2 class="text-7xl font-bold mb-4 text-purple-400 leading-tight">Schnitzel Bank</h2>
-                        <p class="text-lg text-slate-300 mb-6 leading-relaxed">The Family Tree App. Secure data ownership for your ancestry and digital legacy.</p>
-                        <div class="grid grid-cols-2 gap-3 mb-8 text-sm">
-                            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-lg">
-                                <div class="text-purple-400 font-semibold">Your Family Tree</div>
-                                <div class="text-slate-400 text-xs">Complete lineage</div>
-                            </div>
-                            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-lg">
-                                <div class="text-purple-400 font-semibold">Data Ownership</div>
-                                <div class="text-slate-400 text-xs">You control it all</div>
-                            </div>
-                            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-lg">
-                                <div class="text-purple-400 font-semibold">Digital Legacy</div>
-                                <div class="text-slate-400 text-xs">Preserve memories</div>
-                            </div>
-                            <div class="bg-purple-500/10 border border-purple-500/20 p-3 rounded-lg">
-                                <div class="text-purple-400 font-semibold">Nexus Integrated</div>
-                                <div class="text-slate-400 text-xs">Part of suite</div>
-                            </div>
-                        </div>
-                        <div class="flex gap-3 flex-wrap">
-                            <a href="https://schnitzelbank.org" target="_blank" class="px-6 py-2 bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 rounded-lg transition font-semibold text-sm">Access Schnitzel</a>
-                            <a href="https://yukora.org/schnitzelbank" target="_blank" class="px-6 py-2 border-2 border-purple-500 text-purple-300 hover:bg-purple-500/10 rounded-lg transition font-semibold text-sm">Learn More</a>
-                            <a href="#projects" class="px-6 py-2 border-2 border-slate-600 text-slate-300 hover:border-slate-500 rounded-lg transition font-semibold text-sm">Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 5: Artifact Scanner -->
-                <div class="carousel-slide absolute w-full h-full flex items-center px-6">
-                    <div class="max-w-2xl ml-0 lg:ml-20">
-                        <div class="text-6xl mb-6 animate-bounce">📸</div>
-                        <h2 class="text-7xl font-bold mb-4 text-orange-400 leading-tight">Artifact Scanner</h2>
-                        <p class="text-lg text-slate-300 mb-6 leading-relaxed">Mobile bridge for physical artifacts. Digitizes and syncs history with Schnitzelbank.</p>
-                        <div class="grid grid-cols-2 gap-3 mb-8 text-sm">
-                            <div class="bg-orange-500/10 border border-orange-500/20 p-3 rounded-lg">
-                                <div class="text-orange-400 font-semibold">Mobile Scanning</div>
-                                <div class="text-slate-400 text-xs">Capture anywhere</div>
-                            </div>
-                            <div class="bg-orange-500/10 border border-orange-500/20 p-3 rounded-lg">
-                                <div class="text-orange-400 font-semibold">Digitize Artifacts</div>
-                                <div class="text-slate-400 text-xs">Physical to digital</div>
-                            </div>
-                            <div class="bg-orange-500/10 border border-orange-500/20 p-3 rounded-lg">
-                                <div class="text-orange-400 font-semibold">Schnitzel Sync</div>
-                                <div class="text-slate-400 text-xs">Auto integration</div>
-                            </div>
-                            <div class="bg-orange-500/10 border border-orange-500/20 p-3 rounded-lg">
-                                <div class="text-orange-400 font-semibold">History Tracking</div>
-                                <div class="text-slate-400 text-xs">Timeline metadata</div>
-                            </div>
-                        </div>
-                        <div class="flex gap-3 flex-wrap">
-                            <a href="https://yukora.org/artifact-scanner" target="_blank" class="px-6 py-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 rounded-lg transition font-semibold text-sm">Download Scanner</a>
-                            <a href="https://downloadnemo.com" target="_blank" class="px-6 py-2 border-2 border-orange-500 text-orange-300 hover:bg-orange-500/10 rounded-lg transition font-semibold text-sm">Mobile App</a>
-                            <a href="#projects" class="px-6 py-2 border-2 border-slate-600 text-slate-300 hover:border-slate-500 rounded-lg transition font-semibold text-sm">Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Progress Bar -->
-                <div class="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-600 to-blue-400 carousel-progress w-0"></div>
-
-                <!-- Carousel Dots -->
-                <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
-                    <div class="carousel-dot w-3 h-3 rounded-full bg-blue-600 cursor-pointer transition hover:scale-125" onclick="goToSlide(0)"></div>
-                    <div class="carousel-dot w-3 h-3 rounded-full bg-slate-600 cursor-pointer transition hover:scale-125" onclick="goToSlide(1)"></div>
-                    <div class="carousel-dot w-3 h-3 rounded-full bg-slate-600 cursor-pointer transition hover:scale-125" onclick="goToSlide(2)"></div>
-                    <div class="carousel-dot w-3 h-3 rounded-full bg-slate-600 cursor-pointer transition hover:scale-125" onclick="goToSlide(3)"></div>
-                    <div class="carousel-dot w-3 h-3 rounded-full bg-slate-600 cursor-pointer transition hover:scale-125" onclick="goToSlide(4)"></div>
+                <div class="glass p-12 rounded-[3.5rem] group hover:bg-white/5 transition-all relative overflow-hidden border-emerald-500/20">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                    <div class="text-5xl mb-8 group-hover:scale-110 transition-transform">🔐</div>
+                    <h3 class="text-3xl font-black mb-4 italic uppercase tracking-tighter">VaultZero</h3>
+                    <p class="text-slate-500 text-sm font-bold leading-relaxed mb-8">Hardware-rooted secret management. Securely restore sessions with Zip Keycards and encrypted context strings.</p>
+                    <span class="text-xs font-black text-emerald-500 uppercase tracking-[0.2em]">Verified Secure</span>
                 </div>
             </div>
         </div>
 
-        <!-- PROJECTS GRID (BELOW CAROUSEL) -->
-        <div class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <header class="text-center mb-20">
-                <h1 class="text-6xl font-bold mb-6 tracking-tight">The <span class="gradient-text">Yukora</span> Suite</h1>
-                <p class="text-xl text-slate-400 max-w-2xl mx-auto">A unified ecosystem of proprietary, privacy-first software designed for absolute data sovereignty.</p>
-            </header>
-
-            <!-- Premium Featured Row (Forge) -->
-            <div class="mb-16">
-                <a href="https://yukora.org/forge/" target="_blank" class="group relative block bg-gradient-to-br from-blue-600/20 to-slate-900/50 border-2 border-blue-500/40 p-12 rounded-2xl hover:border-blue-400/80 transition-all duration-500 overflow-hidden">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-400"></div>
-                    <div class="absolute top-0 right-0 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-500"></div>
-                    <div class="relative flex items-center gap-8">
-                        <div class="text-6xl">⚡</div>
-                        <div class="flex-1">
-                            <div class="bg-blue-500/20 text-blue-300 text-[11px] font-bold px-3 py-1 rounded-full uppercase inline-block mb-3 w-fit">Featured ⭐ Lightning Performance</div>
-                            <h3 class="text-4xl font-bold mb-2 text-white group-hover:text-blue-300 transition">Forge</h3>
-                            <p class="text-slate-300 text-base leading-relaxed mb-3 max-w-2xl">Lightning-fast container orchestration + embedded workflows. <span class="font-semibold text-blue-400">5-10x faster than Docker, 30x leaner than Airflow.</span></p>
-                            <span class="text-sm font-bold text-blue-400 group-hover:translate-x-2 transition-transform inline-block">Explore Forge &rarr;</span>
+        <!-- NEXUS TAB -->
+        <div id="nexus" class="tab-content py-20 px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-20 items-center mb-40">
+                    <div class="flex-1">
+                        <div class="text-yellow-500 font-black text-xs uppercase tracking-[0.5em] mb-6 italic">The Master Controller</div>
+                        <h2 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter italic uppercase">Nexus <br/><span class="nexus-gradient font-normal">Command.</span></h2>
+                        <p class="text-lg text-slate-400 mb-10 leading-relaxed font-medium italic">Nexus is a sovereign command-line OS that amasses your tools, repos, and context into a single interactive environment. It behaves like a typical shell but executes with unheard-of caliber.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="text-yellow-500 font-black">1</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-black text-white uppercase italic tracking-tighter">Native File Traversal</h4>
+                                    <p class="text-slate-500 text-sm font-medium">Standard `cd`, `ls`, and system command support with integrated tool discovery.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="text-yellow-500 font-black">2</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-black text-white uppercase italic tracking-tighter">Folder-as-a-Tool</h4>
+                                    <p class="text-slate-500 text-sm font-medium">Add a new folder to `~/.nexus/tools` to instantly register a new native command.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center shrink-0">
+                                    <span class="text-yellow-500 font-black">3</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-black text-white uppercase italic tracking-tighter">Keycard Restoration</h4>
+                                    <p class="text-slate-500 text-sm font-medium">Export/Import Zip Keycards to restore full context across machines with no passwords.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </a>
-            </div>
-
-            <!-- Primary Grid (2 cols on lg) -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                <!-- Shortcut CLI -->
-                <a href="https://scriptcommander.store" target="_blank" class="group relative bg-slate-900/60 border border-slate-700 p-10 rounded-2xl hover:border-blue-500/60 hover:bg-slate-900/80 transition-all duration-500 overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl -mr-16 -mt-16"></div>
-                    <div class="relative">
-                        <div class="text-5xl mb-4">⚙️</div>
-                        <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-400 transition">Shortcut CLI</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-5">Unified automation platform for container orchestration, workflow scheduling, and script management.</p>
-                        <div class="bg-blue-500/10 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block">On Nexus</div>
-                        <div class="block mt-4">
-                            <span class="text-xs font-bold text-blue-500 group-hover:translate-x-2 transition-transform inline-block">Launch &rarr;</span>
+                    <div class="flex-1 w-full max-w-md animate-float">
+                        <div class="glass rounded-3xl overflow-hidden shadow-2xl border-yellow-500/20">
+                            <div class="bg-white/5 p-4 border-b border-white/5 flex items-center justify-between">
+                                <div class="text-[10px] font-black uppercase tracking-widest text-yellow-500 italic font-mono">NEXUS_SHELL v1.0</div>
+                                <div class="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></div>
+                            </div>
+                            <div class="p-8 font-mono text-xs leading-relaxed">
+                                <div class="text-yellow-500 mb-2">user@nexus:~/dev$</div>
+                                <div class="text-white mb-4 italic underline underline-offset-4 decoration-yellow-500/50">nexus sync repo torresj/forge</div>
+                                <div class="text-slate-500 mb-2">[INFO] Scaffolding workflows...</div>
+                                <div class="text-emerald-400 mb-4">[SUCCESS] Restored 3 Forge containers.</div>
+                                <div class="text-yellow-500 mb-2">user@nexus:~/dev$</div>
+                                <div class="text-white italic">forge tui</div>
+                                <div class="text-slate-600 mt-4 italic">// Launching interactive dashboard...</div>
+                            </div>
                         </div>
                     </div>
-                </a>
-
-                <!-- Schnitzel Bank -->
-                <a href="https://schnitzelbank.org" target="_blank" class="group relative bg-slate-900/60 border border-slate-700 p-10 rounded-2xl hover:border-purple-500/60 hover:bg-slate-900/80 transition-all duration-500 overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl -mr-16 -mt-16"></div>
-                    <div class="relative">
-                        <div class="text-5xl mb-4">🏦</div>
-                        <h3 class="text-2xl font-bold mb-2 group-hover:text-purple-400 transition">Schnitzel Bank</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-5">The Family Tree App. Secure data ownership for your ancestry and digital legacy.</p>
-                        <div class="bg-purple-500/10 text-purple-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase inline-block">Secure Access</div>
-                        <div class="block mt-4">
-                            <span class="text-xs font-bold text-purple-500 group-hover:translate-x-2 transition-transform inline-block">Explore &rarr;</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Secondary Grid (3 cols on lg) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Nemo -->
-                <a href="https://downloadnemo.com" target="_blank" class="group relative bg-slate-900/60 border border-slate-700 p-8 rounded-2xl hover:border-emerald-500/60 hover:bg-slate-900/80 transition-all duration-500 overflow-hidden">
-                    <div class="absolute top-0 right-0 w-28 h-28 bg-emerald-500/5 rounded-full blur-2xl -mr-14 -mt-14"></div>
-                    <div class="relative">
-                        <div class="text-4xl mb-4">⌨️</div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-emerald-400 transition">Nemo</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Keyboard AI agent with Data Invisibility orchestration.</p>
-                        <span class="text-xs font-bold text-emerald-500 group-hover:translate-x-1 transition-transform inline-block">Download &rarr;</span>
-                    </div>
-                </a>
-
-                <!-- Artifact Scanner -->
-                <div class="group relative bg-slate-900/60 border border-slate-700 p-8 rounded-2xl hover:border-orange-500/60 transition-all duration-500 overflow-hidden">
-                    <div class="absolute top-0 right-0 w-28 h-28 bg-orange-500/5 rounded-full blur-2xl -mr-14 -mt-14"></div>
-                    <div class="relative">
-                        <div class="text-4xl mb-4">📸</div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-orange-400 transition">Artifact Scanner</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Mobile bridge for physical artifacts and Schnitzelbank sync.</p>
-                        <span class="text-xs font-bold text-orange-500">Nexus Connected</span>
-                    </div>
-                </div>
-
-                <!-- Aegis -->
-                <a href="/aegis" class="group relative bg-slate-900/60 border border-slate-700 p-8 rounded-2xl hover:border-amber-500/60 hover:bg-slate-900/80 transition-all duration-500 overflow-hidden">
-                    <div class="absolute top-0 right-0 w-28 h-28 bg-amber-500/5 rounded-full blur-2xl -mr-14 -mt-14"></div>
-                    <div class="relative">
-                        <div class="text-4xl mb-4">🔒</div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-amber-400 transition">Aegis</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Application firewall. Visualize network traffic, block telemetry.</p>
-                        <span class="text-xs font-bold text-amber-500 group-hover:translate-x-1 transition-transform inline-block">Explore &rarr;</span>
-                    </div>
-                </a>
-
-            </div>
-
-            <div class="mt-24 p-8 bg-slate-900/30 border border-slate-800 rounded-2xl text-center">
-                <p class="text-slate-500 text-sm italic">"All Yukora software is guaranteed data ownership and invisibility"</p>
-            </div>
-        </div>
-        </div>
-    </div>
-
-    <!-- TAB: NEXUS -->
-    <div id="nexus" class="tab-content py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <header class="text-center mb-20">
-                <h1 class="text-6xl font-bold mb-6 tracking-tight">The <span class="nexus-gradient">Nexus</span> Controller</h1>
-                <p class="text-xl text-slate-400 max-w-2xl mx-auto">The last software you'll ever download. A sovereign operating layer for the Yukora Suite.</p>
-            </header>
-
-            <div class="grid lg:grid-cols-2 gap-16 mb-24 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">One Interface. Total Authority.</h2>
-                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
-                        Nexus is the master controller for your digital sovereignty. Instead of installing dozens of fragmented apps, Nexus provides a single, unified entry point for the entire Yukora ecosystem.
-                    </p>
-                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
-                        Powered by SpectreID, Nexus ensures that every tool you run is physically bound to your hardware. No accounts. No tracking. No central authority.
-                    </p>
-                    <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-xl font-mono text-sm text-yellow-500/80">
-                        <div class="mb-2">$ yukora list</div>
-                        <div class="text-slate-500">--- YUKORA MARKETPLACE ---</div>
-                        <div class="text-slate-300">[+] SpectreID  | INSTALLED</div>
-                        <div class="text-slate-300">[+] VaultZero  | INSTALLED</div>
-                        <div class="text-slate-300">[+] Ghost Mech | INSTALLED</div>
-                        <div class="text-slate-300">[ ] Nemo AI    | AVAILABLE</div>
-                    </div>
-                </div>
-                <div class="relative">
-                     <div class="absolute -inset-4 bg-yellow-500/10 blur-3xl rounded-full opacity-50"></div>
-                     <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800 relative z-10">
-                        <h3 class="text-xl font-bold mb-4 text-white">The Nexus Promise</h3>
-                        <ul class="space-y-4 text-slate-400">
-                            <li class="flex items-start">
-                                <span class="text-yellow-500 mr-2">✔</span>
-                                <span><b>Data Invisibility:</b> Inside Nexus, your invisibility is guaranteed.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-yellow-500 mr-2">✔</span>
-                                <span><b>Zero Tracking:</b> No trackers. No advertisements. No telemetry.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-yellow-500 mr-2">✔</span>
-                                <span><b>Absolute Privacy:</b> No data visibility or submission—ever.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-yellow-500 mr-2">✔</span>
-                                <span><b>Hardware Locked:</b> Your tools only run on your verified hardware.</span>
-                            </li>
-                        </ul>
-                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- TAB: GHOST TECH -->
-    <div id="ghost" class="tab-content py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <header class="text-center mb-20">
-                <h1 class="text-6xl font-bold mb-6 tracking-tight">The <span class="ghost-gradient">Ghost Tech</span> Line</h1>
-                <p class="text-xl text-slate-400 max-w-2xl mx-auto">Security designed for the shadows. You cannot hack what you cannot see.</p>
-            </header>
-
-            <div class="grid lg:grid-cols-2 gap-16 mb-24 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6 text-cyan-400">The Core: SpectreID</h2>
-                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
-                        Traditional security relies on "Something you know" (passwords). This is flawed because knowledge can be stolen. SpectreID relies on "Something you have" (hardware). 
-                    </p>
-                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
-                        We generate a unique cryptographic signature from your CPU, GPU, and Motherboard. To impersonate you, an attacker would need to physically steal your computer.
-                    </p>
-                    <a href="/spectre" class="text-cyan-500 font-bold hover:text-cyan-400 transition">Explore Spectre Protocol &rarr;</a>
-                </div>
-                <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800">
-                    <div class="font-mono text-xs text-slate-500 mb-2">Hash Generation</div>
-                    <div class="space-y-2">
-                        <div class="h-2 bg-slate-800 rounded w-full"></div>
-                        <div class="h-2 bg-slate-800 rounded w-3/4"></div>
-                        <div class="h-2 bg-cyan-900/30 rounded w-1/2"></div>
+        <!-- GHOST TECH TAB -->
+        <div id="ghost" class="tab-content py-20 px-8">
+            <div class="max-w-6xl mx-auto text-center mb-32">
+                <h2 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter italic uppercase">Security in the <br/><span class="ghost-gradient font-normal">Shadows.</span></h2>
+                <p class="text-lg text-slate-400 mb-16 leading-relaxed font-medium italic max-w-3xl mx-auto">You cannot hack what you cannot see. Ghost Tech provides absolute invisibility via encrypted P2P mesh and ephemeral execution.</p>
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div class="glass p-10 rounded-[3rem] border-purple-500/20 group hover:bg-white/5 transition-all">
+                        <h3 class="text-2xl font-black mb-4 italic uppercase text-purple-400">GhostMech Execution</h3>
+                        <p class="text-slate-500 text-sm font-bold leading-relaxed">Extreme data pruning. Ephemeral container lifecycles that leave zero forensic traces on the host machine.</p>
                     </div>
-                </div>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-16 mb-24 items-center">
-                 <div class="order-2 lg:order-1 bg-slate-900/50 p-8 rounded-2xl border border-slate-800">
-                    <div class="font-mono text-xs text-slate-500 mb-2">P2P Routing</div>
-                    <div class="space-y-2">
-                        <div class="h-2 bg-slate-800 rounded w-full"></div>
-                        <div class="h-2 bg-green-900/30 rounded w-2/3"></div>
-                        <div class="h-2 bg-slate-800 rounded w-1/2"></div>
-                    </div>
-                </div>
-                <div class="order-1 lg:order-2">
-                    <h2 class="text-3xl font-bold mb-6 text-green-400">The Network: Ghost Mech</h2>
-                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
-                        Ghost Mech is a sovereign communication layer. It does not use central servers. It routes encrypted packets directly between devices using local Wi-Fi, Bluetooth, or encrypted relays.
-                    </p>
-                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
-                        It is metadata-free. Even if traffic is intercepted, the observer cannot see who is talking to whom.
-                    </p>
-                    <a href="/ghostmech" class="text-green-500 font-bold hover:text-green-400 transition">Enter the Mesh &rarr;</a>
-                </div>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6 text-amber-400">The Shield: Aegis</h2>
-                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
-                        Your computer is constantly "phoning home" to advertisers and telemetry servers. Aegis is the wall that stops them.
-                    </p>
-                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
-                        It visualizes every connection leaving your machine and gives you the power to sever the cord instantly. It ensures your device works for you, not them.
-                    </p>
-                    <a href="/aegis" class="text-amber-500 font-bold hover:text-amber-400 transition">Raise the Shield &rarr;</a>
-                </div>
-                <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800">
-                    <div class="font-mono text-xs text-slate-500 mb-2">Traffic Blocked</div>
-                    <div class="space-y-2">
-                        <div class="h-2 bg-amber-900/30 rounded w-full"></div>
-                        <div class="h-2 bg-slate-800 rounded w-5/6"></div>
-                        <div class="h-2 bg-slate-800 rounded w-1/2"></div>
+                    <div class="glass p-10 rounded-[3rem] border-pink-500/20 group hover:bg-white/5 transition-all">
+                        <h3 class="text-2xl font-black mb-4 italic uppercase text-pink-400">Spectre Protocol</h3>
+                        <p class="text-slate-500 text-sm font-bold leading-relaxed">Hardware-locked identity. Cryptographic signatures derived from your local silicon, not your email address.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- TAB: PHILOSOPHY -->
-    <div id="philosophy" class="tab-content py-20">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-16 text-center tracking-tight">Our Promise: <span class="text-emerald-400">Total Sovereignty</span></h2>
-            
-            <div class="grid gap-12">
-                <section>
-                    <h3 class="text-2xl font-bold mb-4 text-blue-400">What is Data Invisibility?</h3>
-                    <p class="text-slate-400 text-lg leading-relaxed">
-                        Data Invisibility means that to us, you don't exist. Yukora software is built to be a "Ghost in the Machine." We do not use telemetry, we do not track usage patterns, and we do not have a "backdoor" to your activities. Our software functions entirely on your local hardware, making your digital life invisible to third-party observers.
-                    </p>
-                </section>
-
-                <section>
-                    <h3 class="text-2xl font-bold mb-4 text-emerald-400">The Principle of Data Ownership</h3>
-                    <p class="text-slate-400 text-lg leading-relaxed">
-                        We believe that if it's on your drive, it belongs to you. Yukora software never claims ownership of the scripts you write, the data you process, or the results you generate. We provide the tools; you provide the genius. There are no cloud syncs that hold your work hostage and no subscriptions that lock you out of your own data.
-                    </p>
-                </section>
-
-                <div class="bg-slate-900/80 border border-slate-800 p-8 rounded-xl mt-8">
-                    <h4 class="font-bold mb-4 flex items-center">
-                        <svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        The Yukora Guarantee
-                    </h4>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li>• Zero Data Collection</li>
-                        <li>• Zero Cloud Storage</li>
-                        <li>• Local-First Execution</li>
-                        <li>• Complete User Autonomy</li>
-                    </ul>
+        <!-- PHILOSOPHY TAB -->
+        <div id="philosophy" class="tab-content py-20 px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-5xl font-black text-white mb-12 tracking-tighter italic uppercase underline decoration-emerald-500 underline-offset-8">Sovereignty First.</h2>
+                <p class="text-2xl text-slate-400 leading-relaxed font-medium mb-12 italic">
+                    "Data Invisibility means that to us, you don't exist. Yukora software is a Ghost in the Machine. No telemetry. No cloud. No ransom. Your genius is yours alone."
+                </p>
+                <div class="grid md:grid-cols-2 gap-12 text-left">
+                    <div class="glass p-10 rounded-[3rem]">
+                        <h4 class="text-emerald-400 font-black uppercase text-xs tracking-widest mb-4 italic">Privacy as Default</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed font-bold italic">Zero Data Collection. Every tool runs 100% locally on your verified hardware. We don't want your data—we want you to own it.</p>
+                    </div>
+                    <div class="glass p-10 rounded-[3rem]">
+                        <h4 class="text-blue-400 font-black uppercase text-xs tracking-widest mb-4 italic">Absolute Ownership</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed font-bold italic">If it's on your drive, it belongs to you. No subscriptions to your own results. No SaaS hostage situations.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <footer class="py-12 border-t border-slate-900 text-center text-slate-600 text-xs tracking-widest uppercase">
-        <div class="mb-4">
-            <a href="/beta" class="text-red-900 hover:text-red-500 transition-colors mx-2">Beta Program</a>
-            <span class="text-slate-800">|</span>
-            <a href="https://github.com/torresjchristopher/Yukora-Portfolio" class="text-slate-700 hover:text-slate-400 transition-colors mx-2">Source</a>
+    </main>
+
+    <footer class="py-20 border-t border-white/5 text-center mt-40">
+        <div class="flex justify-center gap-10 text-[10px] font-black uppercase tracking-[0.5em] text-slate-600 mb-10 italic">
+            <a href="https://scriptcommander.store" class="hover:text-blue-400 transition-colors">ScriptCommander.store</a>
+            <a href="https://yukora.org/forge" class="hover:text-blue-400 transition-colors">Forge Engine</a>
+            <a href="https://github.com/torresjchristopher" class="hover:text-blue-400 transition-colors">GitHub</a>
         </div>
-        &copy; 2026 Yukora Organization. All Rights Reserved.
+        <div class="text-slate-800 text-[10px] font-bold">© 2026 YUKORA ORGANIZATION. THE SOVEREIGN SUITE.</div>
     </footer>
 
     <script>
-        let currentSlide = 0;
-        const slides = 5;
-        let autoplayInterval;
-        const slideInterval = 8000; // 8 seconds for more immersive
-
-        function showSlide(n) {
-            const carouselSlides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.carousel-dot');
-            
-            carouselSlides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('bg-blue-600'));
-            dots.forEach(dot => dot.classList.add('bg-slate-600'));
-            
-            carouselSlides[n].classList.add('active');
-            dots[n].classList.remove('bg-slate-600');
-            dots[n].classList.add('bg-blue-600');
-            
-            // Reset progress bar animation
-            const progress = document.querySelector('.carousel-progress');
-            progress.style.animation = 'none';
-            setTimeout(() => {
-                progress.style.animation = 'carouselProgress 8s linear forwards';
-            }, 10);
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides;
-            showSlide(currentSlide);
-        }
-
-        function goToSlide(n) {
-            currentSlide = n;
-            showSlide(currentSlide);
-            clearInterval(autoplayInterval);
-            autoplayInterval = setInterval(nextSlide, slideInterval);
-        }
-
-        function copyCmd(element, text) {
-            navigator.clipboard.writeText(text).then(() => {
-                const feedback = element.querySelector('.copy-feedback');
-                feedback.classList.remove('hidden');
-                setTimeout(() => feedback.classList.add('hidden'), 2000);
-            });
-        }
-
-        // Initialize carousel
-        function initCarousel() {
-            showSlide(0);
-            autoplayInterval = setInterval(nextSlide, slideInterval);
-            
-            // Pause on hover
-            const container = document.querySelector('.carousel-container');
-            container.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-            container.addEventListener('mouseleave', () => {
-                autoplayInterval = setInterval(nextSlide, slideInterval);
-            });
-        }
-
-        // Add CSS for progress animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes carouselProgress {
-                from { width: 0%; }
-                to { width: 100%; }
-            }
-            @keyframes bounce {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-10px); }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Start on page load
-        document.addEventListener('DOMContentLoaded', initCarousel);
-
         function showTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            document.getElementById('nav-' + tabId).classList.add('active');
+            const content = document.getElementById(tabId);
+            if (content) content.classList.add('active');
+            const nav = document.getElementById('nav-' + tabId);
+            if (nav) nav.classList.add('active');
             window.scrollTo(0, 0);
         }
     </script>
