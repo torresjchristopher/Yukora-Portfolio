@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-dark: #020617;
+  --color-primary: #3b82f6;
+  --color-secondary: #a855f7;
+  --color-accent: #10b981;
+}
 
 @layer base {
   body {
@@ -8,19 +16,19 @@
   }
 }
 
-.glass {
+@utility glass {
   @apply bg-white/5 backdrop-blur-xl border border-white/10;
 }
 
-.gradient-text {
+@utility gradient-text {
   @apply bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-purple-500;
 }
 
-.nexus-gradient {
+@utility nexus-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 to-orange-500;
 }
 
-.ghost-gradient {
+@utility ghost-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-br from-pink-500 to-purple-600;
 }
 
