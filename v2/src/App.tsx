@@ -7,21 +7,12 @@ import {
   Database, Gauge, RefreshCw
 } from 'lucide-react';
 
-// --- Animated Background ---
-const RadarBackground = () => (
-  <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
-    <div className="absolute inset-0 grid-bg opacity-20" />
-    <div className="absolute inset-0 bg-gradient-radial from-transparent via-dark/50 to-dark" />
-    <div className="scanline" />
-    <motion.div 
-      animate={{ 
-        rotate: 360,
-      }}
-      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vmax] h-[150vmax] border-[1px] border-blue-500/5 rounded-full"
-    >
-      <div className="absolute top-0 left-1/2 w-px h-1/2 bg-gradient-to-b from-blue-500/20 to-transparent" />
-    </motion.div>
+// --- Subtle Static Background ---
+const StaticBackground = () => (
+  <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none bg-[#020617]">
+    <div className="absolute inset-0 grid-bg" />
+    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full" />
+    <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full" />
   </div>
 );
 
@@ -91,7 +82,6 @@ const Hero = () => (
           Initialize Detonation
         </button>
         <div className="px-10 py-6 glass rounded-sm font-mono text-[11px] text-blue-400 flex items-center gap-6 border-white/5 group overflow-hidden relative">
-          <div className="absolute inset-0 radar-sweep opacity-50" />
           <span className="text-slate-600 relative z-10">$</span> 
           <span className="relative z-10 group-hover:text-white transition-colors tracking-widest">pip install forge-sovereign</span>
         </div>
@@ -383,7 +373,7 @@ const Footer = () => (
 export default function App() {
   return (
     <div className="min-h-screen relative selection:bg-white selection:text-dark">
-      <RadarBackground />
+      <StaticBackground />
       <Navbar />
       <Hero />
       <TechGrid />
