@@ -34,20 +34,14 @@ const Navbar = () => (
 );
 
 const Hero = () => (
-  <section className="relative pt-48 pb-32 px-8 overflow-hidden">
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
-      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[80%] h-[60%] bg-blue-500/10 blur-[120px] rounded-full" />
-      <div className="absolute bottom-0 right-0 w-[40%] h-[40%] bg-purple-500/5 blur-[100px] rounded-full" />
-    </div>
-
-    <div className="max-w-7xl mx-auto text-center">
+  <section className="relative pt-48 pb-32 px-8 overflow-hidden text-center">
+    <div className="max-w-7xl mx-auto">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-8"
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-8"
       >
-        <Activity size={12} className="animate-pulse" />
-        Sovereign Intelligence Systems v4.0.2
+        Nexus OS | The Sovereign Shell v4.0.0
       </motion.div>
       
       <motion.h1 
@@ -56,32 +50,28 @@ const Hero = () => (
         transition={{ delay: 0.1 }}
         className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9] italic uppercase"
       >
-        Orchestrate <br/>
-        <span className="gradient-text">Intelligence.</span>
+        The Future is <br/>
+        <span className="gradient-text">Propagative.</span>
       </motion.h1>
 
       <motion.p 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed font-medium italic"
+        className="text-xl md:text-2xl text-slate-400 max-w-4xl mx-auto mb-12 leading-relaxed font-medium italic"
       >
-        A self-recursive ecosystem where <span className="text-white">Forge</span> orchestrates the physical and <span className="text-white">Nemo A.I.</span> masters the temporal. Built on zero-label distillation and axiomatic attribution.
+        Replace the bloat of traditional infrastructure with the **Sovereign Suite**. 
+        <span className="text-white"> Shortcut</span> provides the shell, <span className="text-white">Forge</span> detonates the logic, and <span className="text-white">Nemo A.I.</span> masters the context.
       </motion.p>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="flex flex-col md:flex-row items-center justify-center gap-6"
-      >
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6">
         <button className="px-10 py-5 bg-white text-slate-950 rounded-2xl font-black text-lg transition-all shadow-xl shadow-white/10 hover:scale-105 uppercase tracking-tighter">
-          Explore Nemo A.I.
+          Detonate Your First Tool
         </button>
-        <button className="px-10 py-5 border border-white/10 rounded-2xl font-black text-lg hover:bg-white/5 transition-all uppercase tracking-tighter italic group flex items-center gap-2">
-          View Technical Specs <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-        </button>
-      </motion.div>
+        <div className="px-8 py-5 glass rounded-2xl font-mono text-sm text-blue-400 flex items-center gap-4 border-blue-500/20">
+          <span className="text-slate-600">$</span> curl -sSL nexus.yukora.org | bash
+        </div>
+      </div>
     </div>
   </section>
 );
@@ -89,26 +79,26 @@ const Hero = () => (
 const TechGrid = () => {
   const features = [
     {
-      title: "Recursive Tree-Logic",
-      description: "Self-consuming DAGs that prune their own execution paths in real-time. Nodes destroy themselves upon completion to maintain a O(1) memory footprint.",
-      icon: <RefreshCw className="text-blue-400" />,
+      title: "Nexus OS (Shortcut)",
+      description: "A dataless, shell-based operating system that treats repositories as workflows. No UI. No bloat. Pure command-caliber execution.",
+      icon: <Terminal className="text-blue-400" />,
       gradient: "from-blue-500/20 to-transparent"
     },
     {
-      title: "Zip-and-Detonate",
-      description: "Ephemeral deployment where the runtime exists as a compressed seed, propagates into RAM-only context on call, and implodes on exit.",
+      title: "Forge Engine",
+      description: "Zip-and-Detonate orchestration. JIT-hydrated images that exist in RAM only for the duration of the call. 50x faster than Docker.",
       icon: <Zap className="text-purple-400" />,
       gradient: "from-purple-500/20 to-transparent"
     },
     {
-      title: "Dataless Propagation",
-      description: "Replacing storage with state-tokens. Workflow results propagate forward via volatile snapshots that are shredded immediately after hand-off.",
+      title: "Nemo Intelligence",
+      description: "Self-supervised relational telemetry. Uses DINOv2 to understand context without storage, ensuring your data never leaves your machine.",
       icon: <Activity className="text-emerald-400" />,
       gradient: "from-emerald-500/20 to-transparent"
     },
     {
-      title: "Zero-Inertia Baselines",
-      description: "Strict baseline enforcement where Forge monitors its own repository size and process handles to ensure absolute return to a zero-state.",
+      title: "VaultZero Security",
+      description: "Hardware-rooted identity. Your intelligence and keys are derived from local silicon, ensuring absolute sovereignty.",
       icon: <Gauge className="text-amber-400" />,
       gradient: "from-amber-500/20 to-transparent"
     }
