@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { 
   Activity, 
   ChevronRight, Github, 
-  Eye, RefreshCw,
-  Brain, Clock, Database, Gauge
+  RefreshCw, Zap,
+  Database, Gauge
 } from 'lucide-react';
 
 // --- Components ---
