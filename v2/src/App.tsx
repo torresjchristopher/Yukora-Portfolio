@@ -132,43 +132,43 @@ const TechGrid = () => {
 const BenchmarkSection = () => (
   <section className="max-w-7xl mx-auto px-8 mb-40">
     <div className="text-center mb-16">
-      <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter">Scientific Rigor.</h2>
-      <p className="text-slate-500 uppercase tracking-[0.4em] text-[10px] font-bold mt-2">Forge vs. Industry Standards (Phase 7 Data)</p>
+      <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter text-center">Scientific Rigor.</h2>
+      <p className="text-slate-500 uppercase tracking-[0.4em] text-[10px] font-bold mt-2 text-center">6-Task Radar Benchmark vs. Legacy Stacks</p>
     </div>
     <div className="glass rounded-[3rem] overflow-hidden border-white/5">
       <table className="w-full text-left border-collapse">
         <thead>
           <tr className="border-b border-white/5 bg-white/[0.02]">
             <th className="p-8 text-[10px] font-black uppercase tracking-widest text-slate-500">Operation</th>
-            <th className="p-8 text-[10px] font-black uppercase tracking-widest text-slate-500">Podman/Docker</th>
+            <th className="p-8 text-[10px] font-black uppercase tracking-widest text-slate-500">Legacy (Docker/Airflow)</th>
             <th className="p-8 text-[10px] font-black uppercase tracking-widest text-blue-400">Forge Engine</th>
-            <th className="p-8 text-[10px] font-black uppercase tracking-widest text-emerald-400">Gain</th>
+            <th className="p-8 text-[10px] font-black uppercase tracking-widest text-emerald-400">Efficiency Gain</th>
           </tr>
         </thead>
         <tbody className="text-sm font-medium">
           <tr className="border-b border-white/5 hover:bg-white/[0.01] transition-colors">
-            <td className="p-8 text-white font-bold italic">Container Startup</td>
-            <td className="p-8 text-slate-500">1200ms</td>
-            <td className="p-8 text-white">245ms</td>
-            <td className="p-8"><span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black italic">4.9X FASTER</span></td>
+            <td className="p-8 text-white font-bold italic">Pipeline Runtime (6-Task)</td>
+            <td className="p-8 text-slate-500">10.90s</td>
+            <td className="p-8 text-white">1.04s</td>
+            <td className="p-8"><span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black italic">10.5X FASTER</span></td>
           </tr>
           <tr className="border-b border-white/5 hover:bg-white/[0.01] transition-colors">
-            <td className="p-8 text-white font-bold italic">Memory Footprint (Idle)</td>
-            <td className="p-8 text-slate-500">85.2MB</td>
-            <td className="p-8 text-white">18.5MB</td>
-            <td className="p-8"><span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black italic">4.6X LEANER</span></td>
+            <td className="p-8 text-white font-bold italic">Storage Footprint</td>
+            <td className="p-8 text-slate-500">900.0MB</td>
+            <td className="p-8 text-white">0.0MB</td>
+            <td className="p-8"><span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black italic">∞ EFFICIENT</span></td>
           </tr>
           <tr className="border-b border-white/5 hover:bg-white/[0.01] transition-colors">
-            <td className="p-8 text-white font-bold italic">Disk Accumulation (30d)</td>
-            <td className="p-8 text-slate-500">3840MB</td>
-            <td className="p-8 text-white">1248MB</td>
-            <td className="p-8"><span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black italic">3.1X SMALLER</span></td>
+            <td className="p-8 text-white font-bold italic">Residual Data (Logs/Metadata)</td>
+            <td className="p-8 text-slate-500">1500KB</td>
+            <td className="p-8 text-white">0KB</td>
+            <td className="p-8"><span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black italic">100% CLEAN</span></td>
           </tr>
           <tr className="hover:bg-white/[0.01] transition-colors">
-            <td className="p-8 text-white font-bold italic">DAG Parsing Latency</td>
-            <td className="p-8 text-slate-500">2-10s</td>
-            <td className="p-8 text-white">&lt;100ms</td>
-            <td className="p-8"><span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black italic">100X FASTER</span></td>
+            <td className="p-8 text-white font-bold italic">System Inertia Drift</td>
+            <td className="p-8 text-slate-500">High (Dangling Artifacts)</td>
+            <td className="p-8 text-white">0 Bytes</td>
+            <td className="p-8"><span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black italic">ZERO DRIFT</span></td>
           </tr>
         </tbody>
       </table>
