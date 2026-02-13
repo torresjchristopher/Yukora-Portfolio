@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { 
   Activity, 
   ChevronRight, Github, 
-  RefreshCw, Zap,
+  RefreshCw, Zap, Terminal,
   Database, Gauge
 } from 'lucide-react';
 
@@ -238,47 +238,90 @@ const NemoDeepDive = () => (
   </section>
 );
 
-const ForgeSection = () => (
-  <section id="orchestration" className="max-w-7xl mx-auto px-8 mb-40">
-    <div className="grid lg:grid-cols-3 gap-12 items-center">
-      <div className="lg:col-span-1">
-        <h2 className="text-4xl font-black text-white mb-6 italic uppercase tracking-tighter">Detonate <br/>The Stack.</h2>
-        <p className="text-slate-400 font-medium italic mb-8">
-          Forge Engine replaces the "Installation" with "Propagation." Use JIT-hydrated images that exist only for the duration of a specific Airflow task.
-        </p>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="glass p-4 rounded-2xl border-blue-500/20">
-            <div className="text-2xl font-black text-white italic">O(1)</div>
-            <div className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Storage Scalability</div>
-          </div>
-          <div className="glass p-4 rounded-2xl border-purple-500/20">
-            <div className="text-2xl font-black text-white italic">Zero</div>
-            <div className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Leftover Data</div>
-          </div>
-        </div>
-      </div>
-      <div className="lg:col-span-2">
-        <div className="bg-[#0a0f1e] border border-white/10 rounded-[2.5rem] p-8 font-mono text-sm overflow-hidden relative group">
-          <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
-            <Activity size={24} className="text-blue-500" />
-          </div>
-          <div className="space-y-2">
-            <div className="text-slate-600 italic"># Detonate a Recursive Workflow</div>
-            <div className="flex gap-2 text-blue-400">
-              <span>$</span>
-              <span className="text-white">forge recursive run --seed etl_logic.zip</span>
+const ForgeSection = () => {
+  const [status, setStatus] = React.useState('idle');
+  const [logs, setLogs] = React.useState<string[]>([]);
+
+  const runDemo = () => {
+    setStatus('running');
+    setLogs([]);
+    const sequence = [
+      { msg: "> forge recursive run --seed etl_logic.zip", color: "text-white" },
+      { msg: "[DETONATE] Propagating runtime from seed...", color: "text-slate-500", delay: 800 },
+      { msg: "[HYDRATE] Mounting volatile RAM_DISK at 0x8F2...", color: "text-slate-500", delay: 600 },
+      { msg: "[EXEC] Running Task: Extract_Data", color: "text-blue-400", delay: 1000 },
+      { msg: "[PRUNE] Extract complete. Shredding Node...", color: "text-slate-600", delay: 500 },
+      { msg: "[EXEC] Running Task: Transform_Relational", color: "text-blue-400", delay: 1000 },
+      { msg: "[PRUNE] Transform complete. Shredding Node...", color: "text-slate-600", delay: 500 },
+      { msg: "[BASELINE] Verifying repo footprint: 0B Drift.", color: "text-emerald-400", delay: 800 },
+      { msg: "// Implosion complete. System at Zero Baseline.", color: "text-purple-400", delay: 500 },
+    ];
+
+    sequence.forEach((step, i) => {
+      setTimeout(() => {
+        setLogs(prev => [...prev, step.msg]);
+        if (i === sequence.length - 1) setStatus('idle');
+      }, sequence.slice(0, i + 1).reduce((acc, s) => acc + (s.delay || 0), 0));
+    });
+  };
+
+  return (
+    <section id="orchestration" className="max-w-7xl mx-auto px-8 mb-40">
+      <div className="grid lg:grid-cols-3 gap-12 items-center">
+        <div className="lg:col-span-1">
+          <h2 className="text-4xl font-black text-white mb-6 italic uppercase tracking-tighter">Detonate <br/>The Stack.</h2>
+          <p className="text-slate-400 font-medium italic mb-8">
+            Forge Engine replaces the "Installation" with "Propagation." Use JIT-hydrated images that exist only for the duration of a specific Airflow task.
+          </p>
+          <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="glass p-4 rounded-2xl border-blue-500/20">
+              <div className="text-2xl font-black text-white italic">O(1)</div>
+              <div className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Storage Scalability</div>
             </div>
-            <div className="text-slate-500 mt-4">[DETONATE] Propagating runtime from seed...</div>
-            <div className="text-slate-500">[PRUNE] Task:Extract complete. Node shredded.</div>
-            <div className="text-slate-500">[PRUNE] Task:Transform complete. Node shredded.</div>
-            <div className="text-emerald-400">[BASELINE] Verifying repo footprint: 0B Drift.</div>
-            <div className="text-purple-400 italic">// Implosion complete. System at Zero Baseline.</div>
+            <div className="glass p-4 rounded-2xl border-purple-500/20">
+              <div className="text-2xl font-black text-white italic">Zero</div>
+              <div className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Leftover Data</div>
+            </div>
+          </div>
+          <button 
+            onClick={runDemo}
+            disabled={status === 'running'}
+            className="w-full py-4 bg-blue-600 hover:bg-blue-500 disabled:bg-slate-800 text-white rounded-xl font-black text-xs uppercase tracking-widest transition-all shadow-xl shadow-blue-600/20 italic"
+          >
+            {status === 'running' ? 'Detonating...' : 'Trigger Propagation Demo'}
+          </button>
+        </div>
+        <div className="lg:col-span-2">
+          <div className="bg-[#0a0f1e] border border-white/10 rounded-[2.5rem] p-8 font-mono text-sm overflow-hidden relative group min-h-[350px]">
+            <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+              <Terminal size={24} className="text-blue-500" />
+            </div>
+            <div className="space-y-2">
+              <div className="text-slate-600 italic"># Nexus OS - Forge Recursive Engine v4.0</div>
+              {logs.length === 0 && <div className="text-slate-500 animate-pulse">_ Waiting for trigger...</div>}
+              {logs.map((log, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, x: -10 }} 
+                  animate={{ opacity: 1, x: 0 }}
+                  className={
+                    log.includes('[PRUNE]') ? 'text-slate-600' : 
+                    log.includes('[BASELINE]') ? 'text-emerald-400' :
+                    log.includes('//') ? 'text-purple-400 italic' :
+                    log.startsWith('>') ? 'text-white font-bold' : 'text-slate-400'
+                  }
+                >
+                  {log}
+                </motion.div>
+              ))}
+              {status === 'running' && <div className="text-blue-400 animate-pulse">_</div>}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Footer = () => (
   <footer className="py-20 border-t border-white/5 bg-dark">
