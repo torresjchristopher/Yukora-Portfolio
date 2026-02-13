@@ -4,7 +4,7 @@ import {
   Activity, 
   Github, 
   Zap, Terminal,
-  Database, Gauge
+  Database, Gauge, RefreshCw
 } from 'lucide-react';
 
 // --- Components ---
