@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Activity, 
@@ -239,8 +240,8 @@ const NemoDeepDive = () => (
 );
 
 const ForgeSection = () => {
-  const [status, setStatus] = React.useState('idle');
-  const [logs, setLogs] = React.useState<string[]>([]);
+  const [status, setStatus] = useState('idle');
+  const [logs, setLogs] = useState<string[]>([]);
 
   const runDemo = () => {
     setStatus('running');

@@ -1,264 +1,101 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forge | Lightning-Fast Container Orchestration</title>
+    <title>Forge | Recursive Tree-Logic</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        primary: '#3b82f6',
-                        secondary: '#a855f7',
-                        accent: '#10b981',
-                        dark: '#020617',
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
-        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-glow { position: absolute; top: -10%; left: 50%; transform: translateX(-50%); width: 80%; height: 60%; background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%); z-index: -1; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .animate-float { animation: float 6s ease-in-out infinite; }
+        body { background-color: #020617; color: #94a3b8; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .gradient-text { background: linear-gradient(135deg, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @keyframes pulse-slow { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .animate-pulse-slow { animation: pulse-slow 3s infinite; }
     </style>
 </head>
-<body class="bg-dark text-slate-200 antialiased selection:bg-blue-500/30">
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-                    <span class="text-white font-black text-xl italic">F</span>
-                </div>
-                <span class="text-2xl font-extrabold tracking-tighter text-white">FORGE</span>
+<body class="min-h-screen flex flex-col items-center justify-center p-8">
+    
+    <div class="max-w-4xl w-full">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+                Propagative Intelligence
             </div>
-            <div class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-widest text-slate-400">
-                <a href="#performance" class="hover:text-blue-400 transition-colors">Performance</a>
-                <a href="#features" class="hover:text-blue-400 transition-colors">Features</a>
-                <a href="#tui" class="hover:text-blue-400 transition-colors">TUI Dashboard</a>
-                <a href="https://scriptcommander.store" class="text-slate-200 px-4 py-2 border border-white/10 rounded-full hover:bg-white/5 transition-all">Back to Shortcut</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="relative pt-32">
-        <div class="hero-glow"></div>
-        
-        <!-- Hero Section -->
-        <section class="max-w-7xl mx-auto px-6 text-center mb-32">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-8 animate-fade-in">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                Production Ready v0.1.0
-            </div>
-            <h1 class="text-6xl md:text-8xl font-black text-white mb-8 tracking-tight leading-[1.1]">
-                Container Speed <br/>
-                <span class="gradient-text">Redefined.</span>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter italic uppercase">
+                Forge <span class="gradient-text font-normal">Recursive.</span>
             </h1>
-            <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-                Forge is a unified container orchestration and workflow engine built for extreme performance. 
-                <span class="text-white font-semibold">50x faster than Docker. 20x faster than Podman.</span> 
-                No daemon. No bloat. Pure speed.
+            <p class="text-lg italic font-medium max-w-2xl mx-auto">
+                The first orchestration engine that consumes its own code. Zero storage. Zero inertia. Absolute speed.
             </p>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-                <a href="https://github.com/torresjchristopher/forge" class="px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-bold text-lg transition-all shadow-xl shadow-blue-600/25 hover:scale-105">
-                    Install via Shortcut CLI
-                </a>
-                <div class="flex items-center gap-4 text-slate-500 font-mono text-sm px-6 py-4 rounded-2xl bg-white/5 border border-white/10">
-                    <span class="text-blue-400">$</span> forge container run alpine
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats Grid -->
-        <section id="performance" class="max-w-7xl mx-auto px-6 mb-40">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div class="glass p-10 rounded-[2.5rem] text-center group hover:border-blue-500/50 transition-all">
-                    <div class="text-5xl font-black text-white mb-2 group-hover:scale-110 transition-transform">50x</div>
-                    <div class="text-blue-400 font-bold uppercase tracking-widest text-xs">Faster than Docker</div>
-                </div>
-                <div class="glass p-10 rounded-[2.5rem] text-center group hover:border-purple-500/50 transition-all">
-                    <div class="text-5xl font-black text-white mb-2 group-hover:scale-110 transition-transform">20x</div>
-                    <div class="text-purple-400 font-bold uppercase tracking-widest text-xs">Faster than Podman</div>
-                </div>
-                <div class="glass p-10 rounded-[2.5rem] text-center group hover:border-emerald-500/50 transition-all">
-                    <div class="text-5xl font-black text-white mb-2 group-hover:scale-110 transition-transform">30x</div>
-                    <div class="text-emerald-400 font-bold uppercase tracking-widest text-xs">Leaner than Airflow</div>
-                </div>
-                <div class="glass p-10 rounded-[2.5rem] text-center group hover:border-amber-500/50 transition-all">
-                    <div class="text-5xl font-black text-white mb-2 group-hover:scale-110 transition-transform">&lt;25ms</div>
-                    <div class="text-amber-400 font-bold uppercase tracking-widest text-xs">Warmed Startup</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="max-w-7xl mx-auto px-6 mb-40">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-20 text-center tracking-tight">Unheard of lightweight architecture.</h2>
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="space-y-6">
-                    <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center">
-                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white leading-tight">Lightweight Runtime</h3>
-                    <p class="text-slate-400 leading-relaxed">Snapshot-based images and zero daemon overhead. Instant execution with minimal process isolation. Prunes data effectively after every run.</p>
-                </div>
-                <div class="space-y-6">
-                    <div class="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center">
-                        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white leading-tight">Embedded Airflow</h3>
-                    <p class="text-slate-400 leading-relaxed">Integrate Airflow-style workflows directly into a container service. Full DAG support with no database required. Scale vertically without the infrastructure tax.</p>
-                </div>
-                <div class="space-y-6">
-                    <div class="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center">
-                        <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white leading-tight">Built-in Benchmarking</h3>
-                    <p class="text-slate-400 leading-relaxed">Prove the performance. Compare against Podman and Docker directly from the CLI. Profile memory and disk footprint in real-time.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- TUI Section -->
-        <section id="tui" class="max-w-7xl mx-auto px-6 mb-40">
-            <div class="glass p-12 md:p-20 rounded-[3rem] overflow-hidden relative">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tight leading-tight">Native TUI Dashboard. <br/>Control Everything.</h2>
-                        <p class="text-lg text-slate-400 mb-10 leading-relaxed">Manage your container lifecycle directly from the terminal. 6 interactive views for Containers, Workflows, Images, Scheduler, Logs, and System Metrics.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-3 text-slate-200 font-semibold italic">
-                                <span class="text-emerald-400 font-bold">✓</span> Real-time DAG Visualizations
-                            </div>
-                            <div class="flex items-center gap-3 text-slate-200 font-semibold italic">
-                                <span class="text-emerald-400 font-bold">✓</span> Direct Lifecycle Actions (Delete, Trigger, Pause)
-                            </div>
-                            <div class="flex items-center gap-3 text-slate-200 font-semibold italic">
-                                <span class="text-emerald-400 font-bold">✓</span> Intelligent Data Pruning Controls
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative animate-float">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl blur-2xl opacity-20"></div>
-                        <!-- Mock Terminal -->
-                        <div class="relative bg-[#0a0f1e] border border-white/10 rounded-2xl shadow-2xl overflow-hidden font-mono text-sm">
-                            <div class="bg-white/5 px-4 py-3 border-b border-white/10 flex items-center justify-between">
-                                <div class="flex gap-2">
-                                    <div class="w-3 h-3 rounded-full bg-red-500/30 border border-red-500/20"></div>
-                                    <div class="w-3 h-3 rounded-full bg-yellow-500/30 border border-yellow-500/20"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-500/30 border border-green-500/20"></div>
-                                </div>
-                                <div class="text-xs text-slate-500">Shortcut CLI - Forge TUI v3.2</div>
-                            </div>
-                            <div class="p-6 leading-relaxed">
-                                <div class="text-blue-400 mb-4">[1: Overview] [2: Workflows] [3: Containers] [4: Scheduler] [5: Logs] [6: Images]</div>
-                                <div class="text-emerald-400 mb-6">✓ System Ready | 14:42:01</div>
-                                <div class="space-y-4">
-                                    <div class="border border-white/5 rounded-lg p-4 bg-white/[0.02]">
-                                        <div class="text-slate-400 mb-2 uppercase text-[10px] font-bold tracking-widest">Running Workflows</div>
-                                        <div class="flex justify-between items-center">
-                                            <span class="text-white font-bold italic">daily_etl_pipeline</span>
-                                            <span class="text-amber-400 font-bold">● RUNNING</span>
-                                        </div>
-                                        <div class="w-full h-1.5 bg-white/5 rounded-full mt-2 overflow-hidden">
-                                            <div class="w-[65%] h-full bg-blue-500 rounded-full"></div>
-                                        </div>
-                                    </div>
-                                    <div class="border border-white/5 rounded-lg p-4 bg-white/[0.02]">
-                                        <div class="text-slate-400 mb-2 uppercase text-[10px] font-bold tracking-widest">Active Containers</div>
-                                        <div class="flex justify-between items-center text-xs">
-                                            <span class="text-slate-300">etl-worker-1</span>
-                                            <span class="text-slate-500">42.5 MB / 0.8% CPU</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-8 text-slate-600 text-xs italic">
-                                    ↑↓ Navigate | Enter Select | d Delete | t Trigger | q Quit
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Benchmark Table -->
-        <section class="max-w-4xl mx-auto px-6 mb-40">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white mb-4 italic font-mono">SCIENTIFIC RIGOR.</h2>
-                <p class="text-slate-400 uppercase tracking-[0.3em] text-xs font-bold">Proven Performance Edge</p>
-            </div>
-            <div class="bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
-                <table class="w-full text-left">
-                    <thead>
-                        <tr class="border-b border-white/10 bg-white/5 font-mono text-xs uppercase tracking-widest text-slate-400">
-                            <th class="p-8">Operation</th>
-                            <th class="p-8">Docker</th>
-                            <th class="p-8 text-blue-400">Forge</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm font-medium">
-                        <tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                            <td class="p-8 text-white">Startup Latency</td>
-                            <td class="p-8 text-slate-500 italic">1.2s</td>
-                            <td class="p-8"><span class="text-emerald-400 font-black">&lt;25ms</span> <span class="ml-2 text-[10px] bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded-full uppercase italic">50x faster</span></td>
-                        </tr>
-                        <tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                            <td class="p-8 text-white">Idle Memory</td>
-                            <td class="p-8 text-slate-500 italic">450MB</td>
-                            <td class="p-8"><span class="text-emerald-400 font-black">12.2MB</span> <span class="ml-2 text-[10px] bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded-full uppercase italic">36x leaner</span></td>
-                        </tr>
-                        <tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                            <td class="p-8 text-white">DAG Parsing</td>
-                            <td class="p-8 text-slate-500 italic">5.2s</td>
-                            <td class="p-8"><span class="text-emerald-400 font-black">&lt;10ms</span> <span class="ml-2 text-[10px] bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded-full uppercase italic">500x faster</span></td>
-                        </tr>
-                        <tr class="hover:bg-white/[0.02] transition-colors">
-                            <td class="p-8 text-white">Disk (30 days)</td>
-                            <td class="p-8 text-slate-500 italic">15GB</td>
-                            <td class="p-8"><span class="text-emerald-400 font-black">120MB</span> <span class="ml-2 text-[10px] bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded-full uppercase italic">125x smaller</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="max-w-7xl mx-auto px-6 mb-32 text-center">
-            <div class="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-white/10 p-20 rounded-[4rem] relative overflow-hidden">
-                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-                <h2 class="text-5xl font-black text-white mb-8 leading-tight italic">STOP THE BLOAT. <br/>START FORGING.</h2>
-                <p class="text-xl text-slate-400 mb-12 max-w-2xl mx-auto italic">Available as the primary engine for Shortcut CLI v4.0. Experience container management the way it was meant to be.</p>
-                <div class="flex justify-center gap-6">
-                    <a href="https://github.com/torresjchristopher/ScriptCommander-Source" class="px-12 py-6 bg-white text-dark rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-2xl shadow-white/10">
-                        GET STARTED
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="border-t border-white/5 py-20 text-center text-slate-600 font-mono text-xs uppercase tracking-[0.5em]">
-        <div class="mb-10 flex justify-center gap-10">
-            <a href="https://yukora.org" class="hover:text-blue-400 transition-colors">Yukora.org</a>
-            <a href="https://scriptcommander.store" class="hover:text-blue-400 transition-colors">ScriptCommander.store</a>
-            <a href="https://github.com/torresjchristopher" class="hover:text-blue-400 transition-colors">GitHub</a>
         </div>
-        &copy; 2026 FORGE ENGINE. PART OF THE YUKORA ECOSYSTEM.
-    </footer>
+
+        <div class="glass rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden">
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/10"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/10"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/10"></div>
+                </div>
+                <div class="text-[10px] font-black uppercase tracking-widest text-slate-600 font-mono italic">Nexus_Terminal v4.0</div>
+            </div>
+
+            <div id="terminal" class="font-mono text-sm space-y-3 min-h-[300px]">
+                <div class="text-slate-500 animate-pulse-slow italic">// System ready. Click below to detonate logic-seed...</div>
+            </div>
+
+            <button id="trigger" class="mt-12 w-full py-5 bg-white text-slate-950 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:scale-[1.02] transition-all shadow-2xl shadow-white/5 active:scale-95">
+                Execute Detonation Sequence
+            </button>
+        </div>
+
+        <div class="mt-12 text-center">
+            <a href="/" class="text-[10px] font-black uppercase tracking-widest text-slate-600 hover:text-blue-400 transition-colors">
+                &larr; Back to Sovereign Intelligence Overview
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const term = document.getElementById('terminal');
+        const btn = document.getElementById('trigger');
+        
+        const logs = [
+            { msg: "> forge recursive run --seed etl_logic.zip", color: "#fff", delay: 800 },
+            { msg: "[DETONATE] Propagating runtime from seed...", color: "#64748b", delay: 600 },
+            { msg: "[HYDRATE] Mounting volatile RAM_DISK at 0x8F2...", color: "#64748b", delay: 500 },
+            { msg: "[EXEC] Running Task: Extract_Data", color: "#60a5fa", delay: 900 },
+            { msg: "[PRUNE] Extract complete. Shredding Node...", color: "#475569", delay: 400 },
+            { msg: "[EXEC] Running Task: Transform_Relational", color: "#60a5fa", delay: 900 },
+            { msg: "[PRUNE] Transform complete. Shredding Node...", color: "#475569", delay: 400 },
+            { msg: "[BASELINE] Verifying repo footprint: 0B Drift.", color: "#10b981", delay: 700 },
+            { msg: "// Implosion complete. System at Zero Baseline.", color: "#a855f7", delay: 500 }
+        ];
+
+        btn.addEventListener('click', () => {
+            if(btn.disabled) return;
+            btn.disabled = true;
+            btn.innerText = "Detonating...";
+            term.innerHTML = "";
+            
+            let totalDelay = 0;
+            logs.forEach((log, i) => {
+                totalDelay += log.delay;
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.style.color = log.color;
+                    if(log.msg.startsWith('//')) div.style.fontStyle = 'italic';
+                    div.innerText = log.msg;
+                    term.appendChild(div);
+                    window.scrollTo(0, document.body.scrollHeight);
+                    
+                    if(i === logs.length - 1) {
+                        btn.disabled = false;
+                        btn.innerText = "Re-Execute Detonation";
+                    }
+                }, totalDelay);
+            });
+        });
+    </script>
 </body>
 </html>
