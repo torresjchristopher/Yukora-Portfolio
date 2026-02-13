@@ -12,17 +12,17 @@ import {
 const Navbar = () => (
   <nav className="fixed top-0 w-full z-50 glass border-b border-white/5">
     <div className="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
-      <div className="flex items-center space-x-4 group cursor-pointer">
+      <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
         <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform">
           <span className="text-white font-black text-xl italic">Y</span>
         </div>
         <div className="text-2xl font-black tracking-tighter text-white uppercase italic">Yukora</div>
       </div>
       <div className="hidden md:flex space-x-10 font-bold text-[10px] uppercase tracking-[0.2em] text-slate-400">
-        <a href="#intelligence" className="hover:text-blue-400 transition-colors">Intelligence</a>
-        <a href="#orchestration" className="hover:text-blue-400 transition-colors">Orchestration</a>
-        <a href="#security" className="hover:text-blue-400 transition-colors">Security</a>
-        <a href="#philosophy" className="hover:text-blue-400 transition-colors">Philosophy</a>
+        <a href="#intelligence" onClick={(e) => { e.preventDefault(); document.getElementById('intelligence')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-blue-400 transition-colors">Intelligence</a>
+        <a href="#orchestration" onClick={(e) => { e.preventDefault(); document.getElementById('orchestration')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-blue-400 transition-colors">Orchestration</a>
+        <a href="#dataless" onClick={(e) => { e.preventDefault(); document.getElementById('dataless')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-blue-400 transition-colors">Zero-Inertia</a>
+        <a href="#philosophy" onClick={(e) => { e.preventDefault(); document.getElementById('philosophy')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-blue-400 transition-colors">Philosophy</a>
       </div>
       <div className="flex items-center gap-4">
         <a href="https://github.com/torresjchristopher" target="_blank" rel="noreferrer" className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-white/10 transition-all flex items-center gap-2">
@@ -65,11 +65,14 @@ const Hero = () => (
       </motion.p>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-        <button className="px-10 py-5 bg-white text-slate-950 rounded-2xl font-black text-lg transition-all shadow-xl shadow-white/10 hover:scale-105 uppercase tracking-tighter">
+        <button 
+          onClick={() => document.getElementById('orchestration')?.scrollIntoView({behavior: 'smooth'})}
+          className="px-10 py-5 bg-white text-slate-950 rounded-2xl font-black text-lg transition-all shadow-xl shadow-white/10 hover:scale-105 uppercase tracking-tighter"
+        >
           Detonate Your First Tool
         </button>
         <div className="px-8 py-5 glass rounded-2xl font-mono text-sm text-blue-400 flex items-center gap-4 border-blue-500/20">
-          <span className="text-slate-600">$</span> curl -sSL nexus.yukora.org | bash
+          <span className="text-slate-600">$</span> pip install forge-sovereign
         </div>
       </div>
     </div>
@@ -314,6 +317,79 @@ const ForgeSection = () => {
   );
 };
 
+const DatalessVisualizer = () => (
+  <section id="dataless" className="max-w-7xl mx-auto px-8 mb-40">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter text-center">Dataless at Rest.</h2>
+      <p className="text-slate-500 uppercase tracking-[0.4em] text-[10px] font-bold mt-2 text-center">The Zero-Inertia Lifecycle</p>
+    </div>
+    
+    <div className="grid md:grid-cols-3 gap-8 relative">
+      <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent -z-10 hidden md:block" />
+      
+      <div className="glass p-10 rounded-[3rem] text-center relative group">
+        <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-blue-500/20 group-hover:scale-110 transition-transform">
+          <Database size={32} className="text-blue-400" />
+        </div>
+        <h4 className="text-white font-black uppercase italic mb-4">1. The Seed</h4>
+        <p className="text-slate-500 text-xs font-bold leading-relaxed">System exists as a compressed, encrypted manifest. **0MB active footprint.**</p>
+      </div>
+
+      <div className="glass p-10 rounded-[3rem] text-center relative border-purple-500/30 scale-105 shadow-2xl shadow-purple-500/10 group">
+        <div className="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-purple-500/20 group-hover:scale-110 transition-transform">
+          <Zap size={32} className="text-purple-400" />
+        </div>
+        <h4 className="text-white font-black uppercase italic mb-4">2. Detonation</h4>
+        <p className="text-slate-500 text-xs font-bold leading-relaxed">On-call propagation into volatile RAM. Logic hydrates, executes, and prunes in real-time.</p>
+      </div>
+
+      <div className="glass p-10 rounded-[3rem] text-center relative group">
+        <div className="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-emerald-500/20 group-hover:scale-110 transition-transform">
+          <RefreshCw size={32} className="text-emerald-400" />
+        </div>
+        <h4 className="text-white font-black uppercase italic mb-4">3. Implosion</h4>
+        <p className="text-slate-500 text-xs font-bold leading-relaxed">Instant shredding of all runtime artifacts. System reverts to baseline. **No leftover logs.**</p>
+      </div>
+    </div>
+  </section>
+);
+
+const TopTenGrid = () => {
+  const techniques = [
+    { name: "Self-Distillation", desc: "DINOv2 student-teacher loops for zero-label spatial awareness." },
+    { name: "Momentum Contrast", desc: "MoCo v3 dynamic dictionary scaling for million-feature sessions." },
+    { name: "Axiomatic Attribution", desc: "Integrated Gradients for 100% mathematical decision transparency." },
+    { name: "Game-Theoretic SHAP", desc: "Fair feature importance ranking for local & global explanations." },
+    { name: "Recursive Tokenization", desc: "Self-optimizing internal context paths for token efficiency." },
+    { name: "Transformer Embeddings", desc: "Global spatial awareness beyond legacy CNN limitations." },
+    { name: "Centering & Sharpening", desc: "Critical techniques to prevent latent representation collapse." },
+    { name: "Counterfactual Logic", desc: "Understanding outcomes by exploring rejected alternate paths." },
+    { name: "Quantized Introspection", desc: "Noise-pruning from model thoughts via 4-bit precision." },
+    { name: "Hardware-Rooted ID", desc: "Spectre Protocol signatures derived from local silicon." }
+  ];
+
+  return (
+    <section id="intelligence" className="max-w-7xl mx-auto px-8 mb-40">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl font-black text-white italic uppercase tracking-widest text-center">The Intelligence Engine.</h2>
+        <p className="text-slate-500 uppercase tracking-[0.4em] text-[10px] font-bold mt-2 text-center">10 Core Sovereign Paradigms</p>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+        {techniques.map((t, i) => (
+          <motion.div 
+            key={i} 
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.05)" }}
+            className="glass p-6 rounded-3xl border-white/5 cursor-help group transition-all"
+          >
+            <div className="text-xs font-black text-white mb-2 uppercase italic leading-tight group-hover:text-blue-400 transition-colors">{t.name}</div>
+            <div className="text-[10px] text-slate-500 font-bold leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">{t.desc}</div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 const Footer = () => (
   <footer className="py-20 border-t border-white/5 bg-dark">
     <div className="max-w-7xl mx-auto px-8">
@@ -364,7 +440,9 @@ export default function App() {
       <TechGrid />
       <BenchmarkSection />
       <ForgeSection />
+      <DatalessVisualizer />
       <NemoDeepDive />
+      <TopTenGrid />
       
       <section id="philosophy" className="max-w-4xl mx-auto px-8 mb-40 text-center">
         <motion.div
