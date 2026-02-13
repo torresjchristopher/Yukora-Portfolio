@@ -88,27 +88,27 @@ const Hero = () => (
 const TechGrid = () => {
   const features = [
     {
-      title: "Self-Recursive Learning",
-      description: "Models that analyze their own inference paths to optimize token efficiency and spatial awareness.",
+      title: "Recursive Tree-Logic",
+      description: "Self-consuming DAGs that prune their own execution paths in real-time. Nodes destroy themselves upon completion to maintain a O(1) memory footprint.",
       icon: <RefreshCw className="text-blue-400" />,
       gradient: "from-blue-500/20 to-transparent"
     },
     {
-      title: "Temporal Computing",
-      description: "Nemo's proprietary reversal engine allows for 100% accurate state recovery across 7-day windows.",
-      icon: <Clock className="text-purple-400" />,
+      title: "Zip-and-Detonate",
+      description: "Ephemeral deployment where the runtime exists as a compressed seed, propagates into RAM-only context on call, and implodes on exit.",
+      icon: <Zap className="text-purple-400" />,
       gradient: "from-purple-500/20 to-transparent"
     },
     {
-      title: "Axiomatic Attribution",
-      description: "Using Integrated Gradients to map every output back to input features with mathematical certainty.",
-      icon: <Eye className="text-emerald-400" />,
+      title: "Dataless Propagation",
+      description: "Replacing storage with state-tokens. Workflow results propagate forward via volatile snapshots that are shredded immediately after hand-off.",
+      icon: <Activity className="text-emerald-400" />,
       gradient: "from-emerald-500/20 to-transparent"
     },
     {
-      title: "Zero-Label Distillation",
-      description: "Leveraging DINOv2 and MoCo v3 for object-centric representation learning without human intervention.",
-      icon: <Brain className="text-amber-400" />,
+      title: "Zero-Inertia Baselines",
+      description: "Strict baseline enforcement where Forge monitors its own repository size and process handles to ensure absolute return to a zero-state.",
+      icon: <Gauge className="text-amber-400" />,
       gradient: "from-amber-500/20 to-transparent"
     }
   ];
@@ -238,6 +238,48 @@ const NemoDeepDive = () => (
   </section>
 );
 
+const ForgeSection = () => (
+  <section id="orchestration" className="max-w-7xl mx-auto px-8 mb-40">
+    <div className="grid lg:grid-cols-3 gap-12 items-center">
+      <div className="lg:col-span-1">
+        <h2 className="text-4xl font-black text-white mb-6 italic uppercase tracking-tighter">Detonate <br/>The Stack.</h2>
+        <p className="text-slate-400 font-medium italic mb-8">
+          Forge Engine replaces the "Installation" with "Propagation." Use JIT-hydrated images that exist only for the duration of a specific Airflow task.
+        </p>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="glass p-4 rounded-2xl border-blue-500/20">
+            <div className="text-2xl font-black text-white italic">O(1)</div>
+            <div className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Storage Scalability</div>
+          </div>
+          <div className="glass p-4 rounded-2xl border-purple-500/20">
+            <div className="text-2xl font-black text-white italic">Zero</div>
+            <div className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Leftover Data</div>
+          </div>
+        </div>
+      </div>
+      <div className="lg:col-span-2">
+        <div className="bg-[#0a0f1e] border border-white/10 rounded-[2.5rem] p-8 font-mono text-sm overflow-hidden relative group">
+          <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+            <Activity size={24} className="text-blue-500" />
+          </div>
+          <div className="space-y-2">
+            <div className="text-slate-600 italic"># Detonate a Recursive Workflow</div>
+            <div className="flex gap-2 text-blue-400">
+              <span>$</span>
+              <span className="text-white">forge recursive run --seed etl_logic.zip</span>
+            </div>
+            <div className="text-slate-500 mt-4">[DETONATE] Propagating runtime from seed...</div>
+            <div className="text-slate-500">[PRUNE] Task:Extract complete. Node shredded.</div>
+            <div className="text-slate-500">[PRUNE] Task:Transform complete. Node shredded.</div>
+            <div className="text-emerald-400">[BASELINE] Verifying repo footprint: 0B Drift.</div>
+            <div className="text-purple-400 italic">// Implosion complete. System at Zero Baseline.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const Footer = () => (
   <footer className="py-20 border-t border-white/5 bg-dark">
     <div className="max-w-7xl mx-auto px-8">
@@ -287,6 +329,7 @@ export default function App() {
       <Hero />
       <TechGrid />
       <BenchmarkSection />
+      <ForgeSection />
       <NemoDeepDive />
       
       <section id="philosophy" className="max-w-4xl mx-auto px-8 mb-40 text-center">
