@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Activity, 
-  ChevronRight, Github, 
-  RefreshCw, Zap, Terminal,
+  Github, 
+  Zap, Terminal,
   Database, Gauge
 } from 'lucide-react';
 
