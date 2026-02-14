@@ -234,17 +234,15 @@ const InteractiveTerminal = () => {
     setRunning(true);
     setLogs([]);
     const steps = [
-      { t: "> nexus unpack enterprise_etl.nxs --detonate", c: "text-white" },
-      { t: "[NEXUS] Authenticating via VaultZero (Hardware ID)...", c: "text-slate-500", d: 500 },
-      { t: "[FORGE] Hydrating Logic-Seed into RAM...", c: "text-blue-400", d: 800 },
-      { t: "[NEMO] Pattern Analysis: Learning authentic context...", c: "text-slate-500", d: 400 },
-      { t: "[SCRUB] Traversing FORWARD into Synthetic Future...", c: "text-purple-400", d: 800 },
-      { t: "[SHADOW] Repository Forked (Synthetic Mode)", c: "text-purple-600", d: 300 },
-      { t: "[FUTURE] Prediction +1: nexus pack", c: "text-purple-400", d: 500 },
-      { t: "[FUTURE] Prediction +2: forge detonate", c: "text-purple-400", d: 500 },
-      { t: "[SCRUB] Traversing BACKWARD to Present Baseline...", c: "text-white", d: 1000 },
-      { t: "[SHADOW] Synthetic Future Imploded. Zero Drift.", c: "text-emerald-500", d: 400 },
-      { t: "[EXIT] System Sovereign State Maintained.", c: "text-slate-400", d: 400 },
+      { t: "> nexus enter", c: "text-white" },
+      { t: "[NEXUS] Sovereign State Active.", c: "text-slate-500", d: 500 },
+      { t: "> query: explain Forge and Speed", c: "text-white", d: 800 },
+      { t: "[CCP] Compounding (FORGE + SPEED)...", c: "text-blue-400", d: 400 },
+      { t: ":: Forge achieves 10.5x velocity via Recursive DAG Pruning.", c: "text-emerald-400", d: 600 },
+      { t: "> query: context on Nemo and Privacy", c: "text-white", d: 1000 },
+      { t: "[CCP] Compounding (NEMO + PRIVACY)...", c: "text-purple-400", d: 400 },
+      { t: ":: Local-only telemetry via DINOv2. No data egress.", c: "text-emerald-400", d: 600 },
+      { t: "[EXIT] Session Complete.", c: "text-slate-400", d: 400 },
     ];
 
     let delay = 0;
