@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus OS | The Sovereign Shell</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #020617;
+        }
+        body { 
+            background-color: var(--dark); 
+            color: #94a3b8; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+        }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+        }
+        .gradient-text { 
+            background: linear-gradient(135deg, #fff 0%, #3b82f6 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        .bento-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .bento-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="selection:bg-blue-500/30">
+    <!-- Corporate Header -->
+    <nav class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <a href="/" class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                    <span class="text-black font-black text-sm tracking-tighter">Y</span>
+                </a>
+                <span class="text-sm font-bold tracking-tight text-white uppercase">Nexus OS</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+                <a href="#workflow" class="hover:text-white transition-colors">Workflow</a>
+                <a href="#artifacts" class="hover:text-white transition-colors">Artifacts</a>
+                <a href="#security" class="hover:text-white transition-colors">Security</a>
+            </div>
+            <a href="https://github.com/torresjchristopher/shortcut-cli" target="_blank" class="px-5 py-2 text-[10px] font-black text-white border border-white/10 rounded-lg hover:bg-white/5 transition-all uppercase tracking-widest">
+                Get Nexus
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-40 pb-32 px-8">
+        <!-- Hero Section -->
+        <div class="max-w-7xl mx-auto mb-32">
+            <div class="max-w-3xl">
+                <div class="mb-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-bold text-blue-400 uppercase tracking-widest">
+                    Enterprise Sovereign Shell
+                </div>
+                <h1 class="text-6xl md:text-8xl font-bold text-white tracking-tight mb-8 leading-[1.05]">
+                    Context-First <br/><span class="gradient-text">Computing.</span>
+                </h1>
+                <p class="text-xl text-slate-400 leading-relaxed mb-12">
+                    Nexus OS is the unified interface for the Sovereign Suite. It transforms repositories into <strong>ephemeral artifacts</strong> and messages into <strong>compute contexts</strong>, allowing you to send and execute entire environments with O(1) storage overhead.
+                </p>
+                <div class="flex gap-4">
+                    <button class="px-8 py-4 bg-white text-black rounded-xl font-bold text-sm hover:bg-slate-200 transition-all">
+                        Enter the Shell
+                    </button>
+                    <div class="px-6 py-4 glass rounded-xl font-mono text-sm text-blue-400 flex items-center gap-4">
+                        <span class="text-slate-600">$</span> nexus enter
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bento Workflow -->
+        <section id="workflow" class="max-w-7xl mx-auto mb-48">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px]">
+                
+                <!-- Main Workflow -->
+                <div class="md:col-span-2 bento-card glass rounded-[2.5rem] p-12 flex flex-col justify-between overflow-hidden relative">
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-4">The Pidgeon Mesh</h3>
+                        <p class="text-slate-400 max-w-md">The future of secure communication isn't just text—it's context. Nexus uses the Pidgeon Mesh to transmit signed `.nxs` artifacts that hydrate into full functional windows on the receiving end.</p>
+                    </div>
+                    <div class="bg-black/40 border border-white/5 rounded-2xl p-6 font-mono text-xs">
+                        <div class="text-blue-400">nexus pack ./analysis --output etl.nxs</div>
+                        <div class="text-blue-400 mt-1">nexus send etl.nxs --to user@sovereign</div>
+                        <div class="text-slate-600 mt-4">// Destination: user@sovereign</div>
+                        <div class="text-slate-600">// Payload: 12.5MB Seed (Signed)</div>
+                        <div class="text-emerald-500 mt-1">// Status: TRANSMITTED via Pidgeon</div>
+                    </div>
+                </div>
+
+                <!-- Detonation card -->
+                <div class="bento-card glass rounded-[2.5rem] p-10 flex flex-col justify-center items-center text-center">
+                    <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center text-blue-400 mb-6">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Auto-Hydration</h4>
+                    <p class="text-slate-500 text-sm">Artifacts received via Nexus auto-detonate into a Forge container, ready for immediate interaction.</p>
+                </div>
+
+                <!-- VaultZero card -->
+                <div class="bento-card glass rounded-[2.5rem] p-10 flex flex-col justify-center items-center text-center border-blue-500/10">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center text-purple-400 mb-6">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Hardware Identity</h4>
+                    <p class="text-slate-500 text-sm">VaultZero ensures that only your local silicon can decrypt and detonate incoming contexts.</p>
+                </div>
+
+                <!-- CLI Detail -->
+                <div class="md:col-span-2 bento-card glass rounded-[2.5rem] p-12 flex items-center justify-between gap-12">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-4">Propagative CLI Environment</h3>
+                        <p class="text-slate-400">The Nexus Shell is a dataless terminal where every command is a potential detonation. It replaces persistent file trees with on-call temporal windows.</p>
+                    </div>
+                    <div class="hidden md:block w-48 h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl" />
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="max-w-4xl mx-auto text-center py-32 border-t border-white/5">
+            <h2 class="text-5xl font-bold text-white mb-12 tracking-tight">One Shell. <br/>Absolute Sovereignty.</h2>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <button class="px-10 py-5 bg-white text-black rounded-2xl font-bold text-lg hover:bg-slate-200 transition-all">
+                    Download for Windows
+                </button>
+                <button class="px-10 py-5 bg-white/5 text-white border border-white/10 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all">
+                    View Mesh Protocol
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 border-t border-white/5 text-center text-[10px] font-black uppercase tracking-[0.5em] text-slate-700">
+        © 2026 YUKORA ORGANIZATION. NEXUS OS CORE.
+    </footer>
+</body>
+</html>

@@ -3,112 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forge | The Developer Bridge</title>
+    <title>Forge Engine | Sovereign Execution</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #020617; color: #94a3b8; font-family: 'Plus Jakarta Sans', sans-serif; }
+        :root {
+            --dark: #020617;
+        }
+        body { 
+            background-color: var(--dark); 
+            color: #94a3b8; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+        }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gradient-text { background: linear-gradient(135deg, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+        }
+        .gradient-text { 
+            background: linear-gradient(135deg, #fff 0%, #3b82f6 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        .bento-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .bento-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
     </style>
 </head>
-<body class="p-8 md:p-20">
-    <nav class="max-w-6xl mx-auto flex justify-between items-center mb-24">
-        <a href="/" class="text-white font-black italic tracking-tighter text-2xl">YUKORA</a>
-        <div class="flex gap-8 text-[10px] font-black uppercase tracking-widest">
-            <a href="#migration" class="hover:text-blue-400">Migration</a>
-            <a href="#benchmarks" class="hover:text-blue-400">Benchmarks</a>
-            <a href="https://github.com/torresjchristopher/forge" class="px-4 py-2 border border-white/10 rounded-full hover:bg-white/5">GitHub</a>
+<body class="selection:bg-blue-500/30">
+    <!-- Corporate Header -->
+    <nav class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <a href="/" class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                    <span class="text-black font-black text-sm tracking-tighter">Y</span>
+                </a>
+                <span class="text-sm font-bold tracking-tight text-white uppercase">Forge Engine</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+                <a href="#architecture" class="hover:text-white transition-colors">Architecture</a>
+                <a href="#benchmarks" class="hover:text-white transition-colors">Benchmarks</a>
+                <a href="https://github.com/torresjchristopher/forge" class="hover:text-white transition-colors">Documentation</a>
+            </div>
+            <a href="https://github.com/torresjchristopher/forge" target="_blank" class="px-5 py-2 text-[10px] font-black text-white border border-white/10 rounded-lg hover:bg-white/5 transition-all uppercase tracking-widest">
+                GitHub
+            </a>
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto">
-        <header class="mb-32">
-            <h1 class="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9] italic uppercase">
-                Bridge the <br/><span class="gradient-text">Gap.</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-400 max-w-3xl leading-relaxed font-medium italic">
-                Forge isn't just a new tool—it's a high-speed exit from legacy bloat. Ingest your Docker images and Airflow DAGs into a recursive, RAM-only execution engine.
-            </p>
-        </header>
-
-        <!-- Migration Section -->
-        <section id="migration" class="grid md:grid-cols-2 gap-12 mb-40">
-            <div class="glass p-12 rounded-[3rem] border-blue-500/20">
-                <h3 class="text-2xl font-black text-white mb-6 italic uppercase tracking-tighter">Docker Shim</h3>
-                <p class="text-slate-500 text-sm font-bold mb-8 italic">Convert static layers into O(1) detonation seeds. No Docker daemon required for runtime.</p>
-                <div class="bg-dark/50 p-6 rounded-2xl font-mono text-xs text-blue-400 border border-white/5">
-                    <div># Ingest legacy image</div>
-                    <div class="text-white">$ forge ingest redis:latest</div>
-                    <div class="text-slate-600 mt-2">// Flattening layers... Done.</div>
-                    <div class="text-slate-600">// Seed created: redis_latest.tar.gz</div>
-                    <div class="text-white mt-4">$ forge detonate redis_latest</div>
+    <main class="pt-40 pb-32 px-8">
+        <!-- Hero Section -->
+        <div class="max-w-7xl mx-auto mb-32">
+            <div class="max-w-3xl">
+                <div class="mb-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-bold text-blue-400 uppercase tracking-widest">
+                    Recursive Execution Layer
                 </div>
-            </div>
-            <div class="glass p-12 rounded-[3rem] border-purple-500/20">
-                <h3 class="text-2xl font-black text-white mb-6 italic uppercase tracking-tighter">Airflow Bridge</h3>
-                <p class="text-slate-500 text-sm font-bold mb-8 italic">Wrap your existing Python DAGs. Forge shreds metadata and logs in real-time as tasks complete.</p>
-                <div class="bg-dark/50 p-6 rounded-2xl font-mono text-xs text-purple-400 border border-white/5">
-                    <div>from forge.bridge import AirflowBridge</div>
-                    <div>from my_legacy_dags import etl_dag</div>
-                    <div class="text-white mt-4"># Transform to Recursive DAG</div>
-                    <div class="text-white">recursive_dag = AirflowBridge.wrap(etl_dag)</div>
-                    <div class="text-white">recursive_dag.execute_with_pruning()</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Benchmark Section -->
-        <section id="benchmarks" class="mb-40">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-black text-white italic uppercase tracking-tighter">Verified Performance.</h2>
-                <p class="text-slate-500 uppercase tracking-[0.4em] text-[10px] font-bold mt-2">Replace your stack, keep your performance.</p>
-            </div>
-            <div class="glass rounded-[3rem] overflow-hidden">
-                <table class="w-full text-left">
-                    <thead>
-                        <tr class="bg-white/5 text-[10px] font-black uppercase tracking-widest text-slate-500">
-                            <th class="p-8">Legacy Operation</th>
-                            <th class="p-8">Traditional Stack</th>
-                            <th class="p-8 text-blue-400">Forge Engine</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm font-medium">
-                        <tr class="border-b border-white/5">
-                            <td class="p-8 text-white font-bold italic">Image Storage</td>
-                            <td class="p-8 text-slate-500 italic">Persistent (GBs)</td>
-                            <td class="p-8 text-emerald-400 font-black">Zero-Inertia (Propagative)</td>
-                        </tr>
-                        <tr class="border-b border-white/5">
-                            <td class="p-8 text-white font-bold italic">Process Lifecycle</td>
-                            <td class="p-8 text-slate-500 italic">Daemon-backed</td>
-                            <td class="p-8 text-emerald-400 font-black">Detonate & Shred</td>
-                        </tr>
-                        <tr class="border-b border-white/5">
-                            <td class="p-8 text-white font-bold italic">Memory Overhead</td>
-                            <td class="p-8 text-slate-500 italic">450MB+</td>
-                            <td class="p-8 text-emerald-400 font-black">&lt;20MB</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <div class="text-center py-20 bg-gradient-to-br from-blue-600/10 to-purple-600/10 rounded-[4rem] border border-white/5">
-            <h2 class="text-4xl font-black text-white mb-8 italic uppercase tracking-tighter">Ready to Detonate?</h2>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-                <a href="https://github.com/torresjchristopher/forge" class="px-10 py-4 bg-white text-slate-950 rounded-2xl font-black text-xs uppercase tracking-widest">View Forge Core</a>
-                <div class="px-8 py-4 glass rounded-2xl font-mono text-xs text-blue-400 border-blue-500/20">
-                    pip install forge-sovereign
+                <h1 class="text-6xl md:text-8xl font-bold text-white tracking-tight mb-8 leading-[1.05]">
+                    Ephemeral <br/><span class="gradient-text">Orchestration.</span>
+                </h1>
+                <p class="text-xl text-slate-400 leading-relaxed mb-12">
+                    Forge is the computational heart of the Sovereign Suite. It replaces persistent container daemons with a high-performance, <strong>Zip-and-Detonate</strong> engine that exists only in RAM and shreds execution artifacts in real-time.
+                </p>
+                <div class="flex gap-4">
+                    <div class="px-6 py-4 glass rounded-xl font-mono text-sm text-blue-400 flex items-center gap-4">
+                        <span class="text-slate-600">$</span> pip install forge-sovereign
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Architecture Grid -->
+        <section id="architecture" class="max-w-7xl mx-auto mb-48">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px]">
+                
+                <!-- Main Feature -->
+                <div class="md:col-span-2 bento-card glass rounded-[2.5rem] p-12 flex flex-col justify-between overflow-hidden relative">
+                    <div class="absolute top-0 right-0 p-12 opacity-10">
+                        <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500"><path d="M12 2v20M2 12h20M5.07 5.07l13.86 13.86M18.93 5.07L5.07 18.93"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-4">Recursive DAG Pruning</h3>
+                        <p class="text-slate-400 max-w-md">Forge doesn't just run tasks—it consumes them. Our recursive engine shreds node metadata and execution artifacts the microsecond a dependency is satisfied, maintaining absolute zero-drift.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="px-4 py-2 bg-white/5 rounded-lg text-[10px] font-bold text-blue-500 uppercase tracking-widest">O(1) Storage</span>
+                        <span class="px-4 py-2 bg-white/5 rounded-lg text-[10px] font-bold text-purple-500 uppercase tracking-widest">Volatile Context</span>
+                    </div>
+                </div>
+
+                <!-- Snapshot card -->
+                <div class="bento-card glass rounded-[2.5rem] p-10 flex flex-col justify-center text-center">
+                    <div class="text-5xl font-bold text-white mb-4">0B</div>
+                    <div class="text-[10px] font-black text-blue-500 uppercase tracking-[0.3em] mb-4">Active Drift</div>
+                    <p class="text-slate-500 text-sm">Every execution is a clean-slate detonation. No residual logs, no hidden layers.</p>
+                </div>
+
+                <!-- Docker Shim -->
+                <div class="bento-card glass rounded-[2.5rem] p-12 flex flex-col justify-between">
+                    <h3 class="text-xl font-bold text-white">Legacy Ingestion</h3>
+                    <p class="text-slate-400 text-sm">Convert Docker images into Forge seeds. Flattened layers, zero daemon overhead, 100% compatibility.</p>
+                    <div class="font-mono text-[10px] text-blue-400/70">
+                        forge ingest redis:latest<br/>
+                        // Seed created: 12.4MB
+                    </div>
+                </div>
+
+                <!-- Performance -->
+                <div class="md:col-span-2 bento-card glass rounded-[2.5rem] p-12 flex items-center justify-between gap-12">
+                    <div class="flex-1">
+                        <h3 class="text-3xl font-bold text-white mb-4">10.5x Delta.</h3>
+                        <p class="text-slate-400">In enterprise ETL benchmarks, Forge outpaces traditional Airflow/Docker stacks by an order of magnitude. 1.04s vs 10.90s for a 6-task recursive workflow.</p>
+                    </div>
+                    <div class="hidden md:block w-48 h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Deep Dive -->
+        <section class="max-w-7xl mx-auto mb-48">
+            <div class="border-t border-white/5 pt-24 grid md:grid-cols-2 gap-24">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-8 tracking-tight">The Detonation Lifecycle</h2>
+                    <div class="space-y-12">
+                        <div class="flex gap-6">
+                            <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-white font-bold text-xs">1</div>
+                            <div>
+                                <h4 class="text-white font-bold mb-2">Seed Acquisition</h4>
+                                <p class="text-slate-500 text-sm leading-relaxed">Nexus OS delivers a .nxs artifact. Forge verifies the hardware-rooted signature via VaultZero before ingestion.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-white font-bold text-xs">2</div>
+                            <div>
+                                <h4 class="text-white font-bold mb-2">RAM Hydration</h4>
+                                <p class="text-slate-500 text-sm leading-relaxed">The logic-seed is propagated into a volatile RAM disk. No disk I/O occurs during the initialization phase.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-white font-bold text-xs">3</div>
+                            <div>
+                                <h4 class="text-white font-bold mb-2">Atomic Implosion</h4>
+                                <p class="text-slate-500 text-sm leading-relaxed">As the recursive engine completes the final task, the entire memory context is shredded. The system returns to a zero-inertia baseline.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-black/40 border border-white/5 rounded-3xl p-8 font-mono text-xs">
+                    <div class="flex justify-between items-center mb-8 pb-4 border-b border-white/5">
+                        <span class="text-slate-500">forge_recursive_engine.log</span>
+                        <span class="text-emerald-500">● LIVE</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="text-slate-500">[0.00s] INIT: Detonating seed_0x8F...</div>
+                        <div class="text-blue-400">[0.04s] HYDRATE: RAM_FS mounted</div>
+                        <div class="text-white">[0.12s] EXEC: Node_01 (Extract)</div>
+                        <div class="text-slate-600">[0.15s] PRUNE: Node_01 metadata shredded</div>
+                        <div class="text-white">[0.45s] EXEC: Node_02 (Transform)</div>
+                        <div class="text-slate-600">[0.48s] PRUNE: Node_02 metadata shredded</div>
+                        <div class="text-emerald-500">[1.04s] SUCCESS: Delta 10.5x vs baseline</div>
+                        <div class="text-purple-500">[1.05s] IMPLODE: Baseline restored.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="max-w-4xl mx-auto text-center py-32 border-t border-white/5">
+            <h2 class="text-5xl font-bold text-white mb-12 tracking-tight">Enterprise Orchestration, <br/>Redefined.</h2>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <button class="px-10 py-5 bg-white text-black rounded-2xl font-bold text-lg hover:bg-slate-200 transition-all">
+                    Contact Sales
+                </button>
+                <button class="px-10 py-5 bg-white/5 text-white border border-white/10 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all">
+                    Technical Specs
+                </button>
+            </div>
+        </section>
     </main>
 
-    <footer class="mt-40 text-center py-20 border-t border-white/5 text-[10px] font-black uppercase tracking-[0.5em] text-slate-700">
-        © 2026 YUKORA ORGANIZATION. THE SOVEREIGN SUITE.
+    <footer class="py-20 border-t border-white/5 text-center text-[10px] font-black uppercase tracking-[0.5em] text-slate-700">
+        © 2026 YUKORA ORGANIZATION. SOVEREIGN COMPUTE PROTOCOL.
     </footer>
 </body>
 </html>

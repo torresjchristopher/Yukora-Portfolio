@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nemo A.I. | Relational Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #020617;
+        }
+        body { 
+            background-color: var(--dark); 
+            color: #94a3b8; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+        }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+        }
+        .gradient-text { 
+            background: linear-gradient(135deg, #fff 0%, #10b981 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        .bento-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .bento-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="selection:bg-emerald-500/30">
+    <!-- Corporate Header -->
+    <nav class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <a href="/" class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                    <span class="text-black font-black text-sm tracking-tighter">Y</span>
+                </a>
+                <span class="text-sm font-bold tracking-tight text-white uppercase">Nemo Intelligence</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+                <a href="#temporal" class="hover:text-white transition-colors">Temporal Computing</a>
+                <a href="#vision" class="hover:text-white transition-colors">Vision</a>
+                <a href="#privacy" class="hover:text-white transition-colors">Privacy</a>
+            </div>
+            <a href="https://github.com/torresjchristopher/nemo" target="_blank" class="px-5 py-2 text-[10px] font-black text-white border border-white/10 rounded-lg hover:bg-white/5 transition-all uppercase tracking-widest text-emerald-500 border-emerald-500/20">
+                Join Beta
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-40 pb-32 px-8">
+        <!-- Hero Section -->
+        <div class="max-w-7xl mx-auto mb-32">
+            <div class="max-w-3xl">
+                <div class="mb-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-bold text-emerald-400 uppercase tracking-widest">
+                    Self-Supervised Intelligence
+                </div>
+                <h1 class="text-6xl md:text-8xl font-bold text-white tracking-tight mb-8 leading-[1.05]">
+                    Relational <br/><span class="gradient-text">Awareness.</span>
+                </h1>
+                <p class="text-xl text-slate-400 leading-relaxed mb-12">
+                    Nemo is the final piece of the Sovereign Trinity. It observes your work environment in total silence, using <strong>self-supervised relational telemetry</strong> to build a temporal understanding of your workflow without ever storing sensitive data.
+                </p>
+                <div class="flex gap-4">
+                    <button class="px-8 py-4 bg-emerald-600 text-white rounded-xl font-bold text-sm hover:bg-emerald-500 transition-all">
+                        Initialize Nemo
+                    </button>
+                    <div class="px-6 py-4 glass rounded-xl font-mono text-sm text-emerald-400 flex items-center gap-4">
+                        <span class="text-slate-600">$</span> python -m nemo
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bento Features -->
+        <section id="temporal" class="max-w-7xl mx-auto mb-48">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px]">
+                
+                <!-- Main Feature -->
+                <div class="md:col-span-2 bento-card glass rounded-[2.5rem] p-12 flex flex-col justify-between overflow-hidden relative">
+                    <div class="absolute top-0 right-0 p-12 opacity-10">
+                        <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-4">TimeVault Architecture</h3>
+                        <p class="text-slate-400 max-w-md">Every 15 minutes, Nemo creates a relational snapshot of your sovereign state. This isn't just a record—it's a navigable temporal git history of your entire desktop existence.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="px-4 py-2 bg-white/5 rounded-lg text-[10px] font-bold text-emerald-500 uppercase tracking-widest">15-Min Intervals</span>
+                        <span class="px-4 py-2 bg-white/5 rounded-lg text-[10px] font-bold text-emerald-500 uppercase tracking-widest">~2MB / Day</span>
+                    </div>
+                </div>
+
+                <!-- Snapshot card -->
+                <div class="bento-card glass rounded-[2.5rem] p-10 flex flex-col justify-center items-center text-center">
+                    <div class="w-16 h-16 bg-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-400 mb-6">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Netflix Scrubbing</h4>
+                    <p class="text-slate-500 text-sm">A visual, horizontal timeline of your week. Hover to preview, click to jump, detonate to restore.</p>
+                </div>
+
+                <!-- DINOv2 card -->
+                <div class="bento-card glass rounded-[2.5rem] p-10 flex flex-col justify-center items-center text-center border-emerald-500/10">
+                    <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center text-blue-400 mb-6">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Relational Telemetry</h4>
+                    <p class="text-slate-500 text-sm">Using DINOv2 self-distillation, Nemo understands context relations without ever seeing your actual data.</p>
+                </div>
+
+                <!-- Privacy Detail -->
+                <div class="md:col-span-2 bento-card glass rounded-[2.5rem] p-12 flex items-center justify-between gap-12">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-4">Privacy by Design.</h3>
+                        <p class="text-slate-400">Nemo is local-first and local-only. Telemetry never leaves your silicon, ensuring that your relational intelligence remains entirely your own.</p>
+                    </div>
+                    <div class="hidden md:block w-48 h-48 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 rounded-full blur-3xl" />
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="max-w-4xl mx-auto text-center py-32 border-t border-white/5">
+            <h2 class="text-5xl font-bold text-white mb-12 tracking-tight">Intelligence Without <br/>Liability.</h2>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <button class="px-10 py-5 bg-white text-black rounded-2xl font-bold text-lg hover:bg-slate-200 transition-all">
+                    Request Early Access
+                </button>
+                <button class="px-10 py-5 bg-white/5 text-white border border-white/10 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all">
+                    View Technical Vision
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 border-t border-white/5 text-center text-[10px] font-black uppercase tracking-[0.5em] text-slate-700">
+        © 2026 YUKORA ORGANIZATION. NEMO INTELLIGENCE PROTOCOL.
+    </footer>
+</body>
+</html>

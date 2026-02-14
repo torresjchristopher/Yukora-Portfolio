@@ -284,6 +284,37 @@ const InteractiveTerminal = () => {
   );
 };
 
+const ArchiveSection = () => {
+  const archives = [
+    { name: "Spectre", desc: "Hardware-rooted identity protocol.", path: "/spectre" },
+    { name: "Prism", desc: "Volatile UI visualization layer.", path: "/prism" },
+    { name: "Aegis", desc: "Legacy encryption shims.", path: "/aegis" },
+    { name: "GhostMech", desc: "Robotic process automation research.", path: "/ghostmech" },
+    { name: "VaultZero", desc: "Foundational local-first storage.", path: "/vaultzero" }
+  ];
+
+  return (
+    <section id="archives" className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
+      <div className="mb-16">
+        <h2 className="text-2xl font-bold text-white mb-2">Experimental & Legacy Research</h2>
+        <p className="text-slate-500 text-sm">Foundational projects that informed the Sovereign Trinity architecture.</p>
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {archives.map((a, i) => (
+          <a 
+            key={i} 
+            href={a.path}
+            className="p-6 rounded-2xl bg-white/[0.01] border border-white/5 hover:border-white/10 hover:bg-white/[0.02] transition-all group"
+          >
+            <h4 className="text-white font-bold text-sm mb-2 group-hover:text-blue-400 transition-colors">{a.name}</h4>
+            <p className="text-slate-600 text-[10px] leading-relaxed uppercase tracking-wider">{a.desc}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 const EnterpriseCTA = () => (
   <section id="enterprise" className="py-32 px-6 text-center">
     <div className="max-w-4xl mx-auto">
@@ -349,6 +380,7 @@ export default function App() {
       <ArchitectureDiagram />
       <BentoGrid />
       <InteractiveTerminal />
+      <ArchiveSection />
       <EnterpriseCTA />
       <Footer />
     </div>
