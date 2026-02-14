@@ -197,6 +197,16 @@ const BentoGrid = () => (
         <p className="text-slate-500 text-sm">Benchmarks confirm Forge outpaces Docker/Airflow stacks by an order of magnitude.</p>
       </div>
 
+      {/* Future Vision Feature */}
+      <div className="rounded-3xl bg-[#0a0f1e] border border-white/10 p-8 flex flex-col justify-center items-center text-center relative overflow-hidden hover:border-purple-500/30 transition-all group">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="mb-6 p-4 bg-purple-500/10 rounded-2xl text-purple-400">
+          <Activity size={32} />
+        </div>
+        <h4 className="text-xl font-bold text-white mb-2">Future Vision</h4>
+        <p className="text-slate-500 text-sm">Synthetic Git: Simulate workflow trajectories forward in time before committing to reality.</p>
+      </div>
+
       {/* Integration Feature */}
       <div className="md:col-span-2 rounded-3xl bg-[#0a0f1e] border border-white/10 p-10 flex items-center justify-between relative overflow-hidden group">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5" />
@@ -227,12 +237,14 @@ const InteractiveTerminal = () => {
       { t: "> nexus unpack enterprise_etl.nxs --detonate", c: "text-white" },
       { t: "[NEXUS] Authenticating via VaultZero (Hardware ID)...", c: "text-slate-500", d: 500 },
       { t: "[FORGE] Hydrating Logic-Seed into RAM...", c: "text-blue-400", d: 800 },
-      { t: "[EXEC] Task 1: Ingest_Stream [SUCCESS]", c: "text-emerald-400", d: 600 },
-      { t: "[PRUNE] Task 1 Artifacts Shredded.", c: "text-slate-600", d: 300 },
-      { t: "[EXEC] Task 2: Transform_Vector [SUCCESS]", c: "text-emerald-400", d: 700 },
-      { t: "[PRUNE] Task 2 Artifacts Shredded.", c: "text-slate-600", d: 300 },
-      { t: "[NEMO] Context Token Generated: 0x4A9...", c: "text-purple-400", d: 500 },
-      { t: "[EXIT] System Imploded. Zero Drift Verified.", c: "text-slate-400", d: 400 },
+      { t: "[NEMO] Pattern Analysis: Learning authentic context...", c: "text-slate-500", d: 400 },
+      { t: "[SCRUB] Traversing FORWARD into Synthetic Future...", c: "text-purple-400", d: 800 },
+      { t: "[SHADOW] Repository Forked (Synthetic Mode)", c: "text-purple-600", d: 300 },
+      { t: "[FUTURE] Prediction +1: nexus pack", c: "text-purple-400", d: 500 },
+      { t: "[FUTURE] Prediction +2: forge detonate", c: "text-purple-400", d: 500 },
+      { t: "[SCRUB] Traversing BACKWARD to Present Baseline...", c: "text-white", d: 1000 },
+      { t: "[SHADOW] Synthetic Future Imploded. Zero Drift.", c: "text-emerald-500", d: 400 },
+      { t: "[EXIT] System Sovereign State Maintained.", c: "text-slate-400", d: 400 },
     ];
 
     let delay = 0;
