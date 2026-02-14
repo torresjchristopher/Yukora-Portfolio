@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import { 
   Zap, 
   Layers, ArrowRight, 
-  Settings, Code, ZapOff
+  Settings, Code, ZapOff,
+  Shield, Gauge, RefreshCw
 } from 'lucide-react';
 
 // --- Components ---
@@ -167,6 +168,63 @@ const DeveloperBridge = () => (
   </section>
 );
 
+const BentoGrid = () => (
+  <section id="solutions" className="max-w-7xl mx-auto px-6 mb-32">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+      
+      {/* Unified Modernization Feature */}
+      <div className="md:col-span-2 rounded-3xl bg-[#0a0f1e] border border-white/10 p-10 flex items-center justify-between relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="relative z-10">
+          <h3 className="text-2xl font-bold text-white mb-4">Unified Modernization Loop</h3>
+          <p className="text-slate-400 max-w-sm mb-6">Ingest legacy code, auto-scaffold Forge DAGs, and transmit full functional contexts natively through the Pidgeon Mesh.</p>
+          <div className="flex gap-4">
+            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-blue-400 uppercase tracking-widest">Auto-Scaffolding</span>
+            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-emerald-400 uppercase tracking-widest">P2P Transfer</span>
+          </div>
+        </div>
+        <div className="hidden md:block relative z-10 p-8 bg-blue-500/10 rounded-full">
+          <RefreshCw size={60} className="text-blue-400 group-hover:rotate-180 transition-transform duration-1000" />
+        </div>
+      </div>
+
+      {/* Security Feature */}
+      <div className="rounded-3xl bg-[#0a0f1e] border border-white/10 p-8 flex flex-col justify-center items-center text-center relative overflow-hidden hover:border-emerald-500/30 transition-all">
+        <div className="mb-6 p-4 bg-emerald-500/10 rounded-2xl text-emerald-400">
+          <Shield size={32} />
+        </div>
+        <h4 className="text-xl font-bold text-white mb-2">GDPR Zero-Touch</h4>
+        <p className="text-slate-500 text-sm">Because data is never stored at rest, compliance is automatic.</p>
+      </div>
+
+      {/* Speed Feature */}
+      <div className="rounded-3xl bg-[#0a0f1e] border border-white/10 p-8 flex flex-col justify-center items-center text-center relative overflow-hidden hover:border-amber-500/30 transition-all">
+        <div className="mb-6 p-4 bg-amber-500/10 rounded-2xl text-amber-400">
+          <Gauge size={32} />
+        </div>
+        <h4 className="text-xl font-bold text-white mb-2">10.5x Faster</h4>
+        <p className="text-slate-500 text-sm">Benchmarks confirm Forge outpaces Docker/Airflow stacks by an order of magnitude.</p>
+      </div>
+
+      {/* Integration Feature */}
+      <div className="md:col-span-2 rounded-3xl bg-[#0a0f1e] border border-white/10 p-10 flex items-center justify-between relative overflow-hidden group">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5" />
+        <div className="relative z-10">
+          <h3 className="text-2xl font-bold text-white mb-4">Legacy Bridge Technology</h3>
+          <p className="text-slate-400 max-w-sm mb-6">Don't rewrite. Ingest. Our shims convert standard Docker containers and Airflow DAGs into Sovereign Artifacts instantly.</p>
+          <a href="/forge" className="text-blue-400 text-sm font-bold flex items-center gap-2 hover:text-blue-300">
+            View Migration Guide <ArrowRight size={14} />
+          </a>
+        </div>
+        <div className="hidden md:block relative z-10">
+          <Layers size={120} className="text-slate-800 group-hover:text-slate-700 transition-colors" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+);
+
 const ArchiveSection = () => {
   const archives = [
     { name: "Project Nemo", desc: "Volatile Intelligence & Pattern Memory.", path: "/nemo" },
@@ -261,6 +319,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <ForgeCore />
+      <BentoGrid />
       <DeveloperBridge />
       <ArchiveSection />
       <EnterpriseCTA />
