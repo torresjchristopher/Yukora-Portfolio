@@ -2,10 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Activity, 
-  Github, 
   Zap, Terminal,
-  Database, Gauge, RefreshCw, 
-  Shield, Cpu, Layers, ArrowRight, 
+  Shield, Layers, ArrowRight, 
   CheckCircle
 } from 'lucide-react';
 
