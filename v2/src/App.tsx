@@ -4,7 +4,7 @@ import {
   Activity, 
   Zap, Terminal,
   Shield, Layers, ArrowRight, 
-  CheckCircle
+  CheckCircle, Gauge
 } from 'lucide-react';
 
 // --- Components ---
