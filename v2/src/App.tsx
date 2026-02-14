@@ -4,277 +4,281 @@ import {
   Activity, 
   Github, 
   Zap, Terminal,
-  Database, Gauge, RefreshCw
+  Database, Gauge, RefreshCw, 
+  Shield, Cpu, Layers, ArrowRight, 
+  CheckCircle
 } from 'lucide-react';
 
-// --- Subtle Static Background ---
-const StaticBackground = () => (
-  <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none bg-[#020617]">
-    <div className="absolute inset-0 grid-bg" />
-    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full" />
-    <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full" />
-  </div>
-);
+// --- Components ---
 
 const Navbar = () => (
-  <nav className="fixed top-0 w-full z-50 glass border-b border-white/5">
-    <div className="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
-      <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-        <div className="w-10 h-10 bg-white rounded-sm flex items-center justify-center group-hover:invert transition-all duration-500">
-          <span className="text-dark font-black text-xl italic">Y</span>
+  <nav className="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
+    <div className="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+      <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+        <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+          <span className="text-black font-black text-xl tracking-tighter">Y</span>
         </div>
-        <div className="text-2xl font-black tracking-[0.2em] text-white uppercase italic">Yukora</div>
+        <span className="text-xl font-bold tracking-tight text-white">YUKORA</span>
       </div>
-      <div className="hidden md:flex space-x-12 font-bold text-[9px] uppercase tracking-[0.3em] text-slate-500">
-        <a href="#intelligence" onClick={(e) => { e.preventDefault(); document.getElementById('intelligence')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Intelligence</a>
-        <a href="#orchestration" onClick={(e) => { e.preventDefault(); document.getElementById('orchestration')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Orchestration</a>
-        <a href="#dataless" onClick={(e) => { e.preventDefault(); document.getElementById('dataless')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Zero-Inertia</a>
-        <a href="#philosophy" onClick={(e) => { e.preventDefault(); document.getElementById('philosophy')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Philosophy</a>
+      
+      <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+        <a href="#platform" onClick={(e) => { e.preventDefault(); document.getElementById('platform')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Platform</a>
+        <a href="#solutions" onClick={(e) => { e.preventDefault(); document.getElementById('solutions')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Solutions</a>
+        <a href="#technology" onClick={(e) => { e.preventDefault(); document.getElementById('technology')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Technology</a>
+        <a href="#enterprise" onClick={(e) => { e.preventDefault(); document.getElementById('enterprise')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Enterprise</a>
       </div>
-      <a href="https://github.com/torresjchristopher" target="_blank" rel="noreferrer" className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-dark transition-all duration-500">
-        <Github size={18} />
-      </a>
+
+      <div className="flex gap-4">
+        <a href="https://github.com/torresjchristopher" target="_blank" rel="noreferrer" className="px-5 py-2.5 text-xs font-bold text-white border border-white/10 rounded-lg hover:bg-white/5 transition-all">
+          GitHub
+        </a>
+        <button className="px-5 py-2.5 text-xs font-bold bg-white text-black rounded-lg hover:bg-slate-200 transition-all">
+          Get Started
+        </button>
+      </div>
     </div>
   </nav>
 );
 
 const Hero = () => (
-  <section className="relative pt-64 pb-48 px-8 overflow-hidden text-center min-h-screen flex flex-col justify-center">
-    <div className="max-w-7xl mx-auto relative">
-      <motion.div 
-        initial={{ opacity: 0, letterSpacing: "0.5em" }}
-        animate={{ opacity: 1, letterSpacing: "0.3em" }}
-        transition={{ duration: 1.5 }}
-        className="text-blue-500 text-[10px] font-black uppercase mb-12 tracking-[0.5em]"
-      >
-        Nexus OS | Absolute Sovereignty
-      </motion.div>
-      
-      <motion.h1 
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="text-7xl md:text-[10rem] font-black text-white mb-12 tracking-[-0.05em] leading-[0.85] italic uppercase"
-      >
-        Data is <br/>
-        <span className="gradient-text drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]">Propagative.</span>
-      </motion.h1>
+  <section className="relative pt-48 pb-32 px-6 min-h-[90vh] flex flex-col justify-center items-center text-center overflow-hidden">
+    <div className="absolute inset-0 -z-10">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-500/10 blur-[120px] rounded-full opacity-50" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+    </div>
 
-      <motion.p 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 1 }}
-        className="text-xl md:text-2xl text-slate-500 max-w-3xl mx-auto mb-16 leading-relaxed font-medium italic"
-      >
-        A post-infrastructure era has arrived. Replace persistent bloat with the **Sovereign Suite**. Zero inertia at rest. Lightning detonation on call.
-      </motion.p>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="mb-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-slate-300"
+    >
+      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+      Nexus OS v4.0 Enterprise Release
+    </motion.div>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 }}
-        className="flex flex-col md:flex-row items-center justify-center gap-8"
-      >
-        <button 
-          onClick={() => document.getElementById('orchestration')?.scrollIntoView({behavior: 'smooth'})}
-          className="px-12 py-6 bg-white text-dark rounded-sm font-black text-xs uppercase tracking-[0.2em] transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.1)]"
-        >
-          Initialize Detonation
-        </button>
-        <div className="px-10 py-6 glass rounded-sm font-mono text-[11px] text-blue-400 flex items-center gap-6 border-white/5 group overflow-hidden relative">
-          <span className="text-slate-600 relative z-10">$</span> 
-          <span className="relative z-10 group-hover:text-white transition-colors tracking-widest">pip install forge-sovereign</span>
+    <motion.h1 
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.1 }}
+      className="text-6xl md:text-8xl font-bold text-white tracking-tight mb-8 leading-[1.1]"
+    >
+      Compute without <br/>
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Liability.</span>
+    </motion.h1>
+
+    <motion.p 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2 }}
+      className="text-xl text-slate-400 max-w-3xl mb-12 leading-relaxed"
+    >
+      The first <strong>Sovereign Intelligence Platform</strong>. We replace persistent cloud infrastructure with ephemeral, zero-inertia local execution. Zero data retention. Zero drift.
+    </motion.p>
+
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3 }}
+      className="flex flex-col sm:flex-row gap-4"
+    >
+      <button className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm transition-all flex items-center gap-2">
+        Deploy Nexus OS <ArrowRight size={16} />
+      </button>
+      <button className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-xl font-bold text-sm transition-all">
+        Read the Whitepaper
+      </button>
+    </motion.div>
+  </section>
+);
+
+const ArchitectureDiagram = () => (
+  <section id="platform" className="max-w-7xl mx-auto px-6 py-32">
+    <div className="text-center mb-24">
+      <h2 className="text-4xl font-bold text-white mb-6">The Sovereign Trinity</h2>
+      <p className="text-slate-400 max-w-2xl mx-auto">
+        A unified ecosystem designed to eliminate infrastructure bloat. Three components working in perfect synchronization to deliver secure, ephemeral compute.
+      </p>
+    </div>
+
+    <div className="grid lg:grid-cols-3 gap-8">
+      {/* Nexus OS */}
+      <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 relative group hover:bg-white/[0.04] transition-all">
+        <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 text-blue-400">
+          <Terminal size={24} />
         </div>
-      </motion.div>
-    </div>
-  </section>
-);
-
-const TechGrid = () => {
-  const features = [
-    {
-      title: "Nexus OS",
-      description: "A dataless shell that treats repositories as workflows. No UI. No bloat. Pure command-caliber execution.",
-      icon: <Terminal className="text-white" />,
-      tag: "SHELL"
-    },
-    {
-      title: "Forge Engine",
-      description: "Zip-and-Detonate orchestration. JIT-hydrated images that exist in RAM only. 10.5x faster than legacy stacks.",
-      icon: <Zap className="text-white" />,
-      tag: "COMPUTE"
-    },
-    {
-      title: "Nemo Intelligence",
-      description: "Self-supervised relational telemetry. Uses DINOv2 to understand context without data collection.",
-      icon: <Activity className="text-white" />,
-      tag: "A.I."
-    },
-    {
-      title: "VaultZero",
-      description: "Hardware-rooted identity. Intelligence and keys derived from local silicon. Absolute ownership.",
-      icon: <Gauge className="text-white" />,
-      tag: "SEC"
-    }
-  ];
-
-  return (
-    <section id="intelligence" className="max-w-7xl mx-auto px-8 mb-64">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {features.map((f, i) => (
-          <motion.div 
-            key={i}
-            whileHover={{ y: -5 }}
-            className="glass p-10 rounded-sm border-white/[0.03] group transition-all duration-500 hover:border-white/20 relative overflow-hidden"
-          >
-            <div className="text-[8px] font-black text-slate-600 mb-12 tracking-[0.4em]">{f.tag}</div>
-            <div className="w-12 h-12 rounded-sm bg-white/5 flex items-center justify-center mb-8 group-hover:bg-white group-hover:text-dark transition-all duration-500">
-              {f.icon}
-            </div>
-            <h3 className="text-xl font-black mb-4 uppercase tracking-tighter text-white italic">{f.title}</h3>
-            <p className="text-slate-500 text-[11px] font-bold leading-relaxed uppercase tracking-wider">{f.description}</p>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-const BenchmarkSection = () => (
-  <section className="max-w-7xl mx-auto px-8 mb-64">
-    <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-      <div>
-        <h2 className="text-5xl font-black text-white italic uppercase tracking-tighter">Scientific <br/>Rigor.</h2>
-        <p className="text-blue-500 uppercase tracking-[0.4em] text-[10px] font-black mt-4">Verified Phase 7 Metrics</p>
-      </div>
-      <div className="text-slate-600 font-mono text-[10px] uppercase tracking-widest">Target: Legacy Replacement</div>
-    </div>
-    
-    <div className="glass rounded-sm overflow-hidden border-white/[0.03]">
-      <table className="w-full text-left border-collapse">
-        <thead>
-          <tr className="border-b border-white/5 bg-white/[0.01]">
-            <th className="p-10 text-[9px] font-black uppercase tracking-[0.3em] text-slate-600">Metric</th>
-            <th className="p-10 text-[9px] font-black uppercase tracking-[0.3em] text-slate-600">Legacy Stack</th>
-            <th className="p-10 text-[9px] font-black uppercase tracking-[0.3em] text-white">Forge Recursive</th>
-            <th className="p-10 text-[9px] font-black uppercase tracking-[0.3em] text-blue-500">Delta</th>
-          </tr>
-        </thead>
-        <tbody className="text-[11px] font-bold uppercase tracking-widest">
-          <tr className="border-b border-white/[0.02] hover:bg-white/[0.01] transition-colors">
-            <td className="p-10 text-slate-400 italic">6-Task Runtime</td>
-            <td className="p-10 text-slate-600">10.90s</td>
-            <td className="p-10 text-white">1.04s</td>
-            <td className="p-10 text-emerald-500">10.5x Faster</td>
-          </tr>
-          <tr className="border-b border-white/[0.02] hover:bg-white/[0.01] transition-colors">
-            <td className="p-10 text-slate-400 italic">Storage Inertia</td>
-            <td className="p-10 text-slate-600">900MB</td>
-            <td className="p-10 text-white">0.0MB</td>
-            <td className="p-10 text-emerald-500">Infinite</td>
-          </tr>
-          <tr className="hover:bg-white/[0.01] transition-colors">
-            <td className="p-10 text-slate-400 italic">System Drift</td>
-            <td className="p-10 text-slate-600">High</td>
-            <td className="p-10 text-white">0 Bytes</td>
-            <td className="p-10 text-emerald-500">Fixed</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-);
-
-const DatalessVisualizer = () => (
-  <section id="dataless" className="max-w-7xl mx-auto px-8 mb-64">
-    <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-sm overflow-hidden">
-      {[
-        { step: "01", title: "THE SEED", desc: "Compressed encrypted manifest. Zero byte active footprint at rest.", icon: <Database /> },
-        { step: "02", title: "DETONATION", desc: "On-call propagation into volatile RAM context. No disk I/O latency.", icon: <Zap /> },
-        { step: "03", title: "IMPLOSION", desc: "Real-time shredding of execution artifacts. Absolute zero drift.", icon: <RefreshCw /> }
-      ].map((s, i) => (
-        <div key={i} className="glass p-16 group relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-8 text-4xl font-black text-white/5 italic">{s.step}</div>
-          <div className="w-12 h-12 mb-12 text-slate-500 group-hover:text-blue-400 transition-colors duration-500">
-            {s.icon}
+        <h3 className="text-xl font-bold text-white mb-3">Nexus OS</h3>
+        <div className="text-xs font-bold text-blue-500 mb-6 tracking-wider uppercase">The Interface</div>
+        <p className="text-slate-400 text-sm leading-relaxed mb-8">
+          The sovereign shell. It manages the "Context Messaging" workflow, allowing you to pack, send, and detonate logic-seeds (`.nxs` artifacts) as easily as sending an email.
+        </p>
+        <div className="space-y-3">
+          <div className="flex items-center gap-3 text-xs text-slate-300">
+            <CheckCircle size={14} className="text-blue-500" /> Dataless Shell Environment
           </div>
-          <h4 className="text-xl font-black text-white mb-6 tracking-tighter italic">{s.title}</h4>
-          <p className="text-slate-500 text-[11px] font-bold uppercase tracking-[0.2em] leading-relaxed">{s.desc}</p>
+          <div className="flex items-center gap-3 text-xs text-slate-300">
+            <CheckCircle size={14} className="text-blue-500" /> Artifact Transport Layer
+          </div>
         </div>
-      ))}
+      </div>
+
+      {/* Forge Engine */}
+      <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 relative group hover:bg-white/[0.04] transition-all">
+        <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6 text-purple-400">
+          <Zap size={24} />
+        </div>
+        <h3 className="text-xl font-bold text-white mb-3">Forge Engine</h3>
+        <div className="text-xs font-bold text-purple-500 mb-6 tracking-wider uppercase">The Execution</div>
+        <p className="text-slate-400 text-sm leading-relaxed mb-8">
+          Recursive orchestration. Forge hydrates the logic-seeds from Nexus into volatile RAM-only containers, executes the task, and shreds the environment upon completion.
+        </p>
+        <div className="space-y-3">
+          <div className="flex items-center gap-3 text-xs text-slate-300">
+            <CheckCircle size={14} className="text-purple-500" /> Zero-Inertia Runtime
+          </div>
+          <div className="flex items-center gap-3 text-xs text-slate-300">
+            <CheckCircle size={14} className="text-purple-500" /> O(1) Storage Footprint
+          </div>
+        </div>
+      </div>
+
+      {/* Nemo A.I. */}
+      <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 relative group hover:bg-white/[0.04] transition-all">
+        <div className="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center mb-6 text-emerald-400">
+          <Activity size={24} />
+        </div>
+        <h3 className="text-xl font-bold text-white mb-3">Nemo A.I.</h3>
+        <div className="text-xs font-bold text-emerald-500 mb-6 tracking-wider uppercase">The Context</div>
+        <p className="text-slate-400 text-sm leading-relaxed mb-8">
+          Relational telemetry. Nemo observes the detonation process using self-supervised models to generate understanding without ever storing specific data.
+        </p>
+        <div className="space-y-3">
+          <div className="flex items-center gap-3 text-xs text-slate-300">
+            <CheckCircle size={14} className="text-emerald-500" /> Screen-to-Token Telemetry
+          </div>
+          <div className="flex items-center gap-3 text-xs text-slate-300">
+            <CheckCircle size={14} className="text-emerald-500" /> Local-Only Inference
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 );
 
-const ForgeSection = () => {
-  const [status, setStatus] = useState('idle');
-  const [logs, setLogs] = useState<string[]>([]);
+const BentoGrid = () => (
+  <section id="solutions" className="max-w-7xl mx-auto px-6 mb-32">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+      
+      {/* Large Feature */}
+      <div className="md:col-span-2 rounded-3xl bg-gradient-to-br from-blue-900/20 to-slate-900/50 border border-white/10 p-10 flex flex-col justify-between relative overflow-hidden group">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full group-hover:bg-blue-500/20 transition-all" />
+        <div>
+          <h3 className="text-3xl font-bold text-white mb-4">Zip-and-Detonate Deployment</h3>
+          <p className="text-slate-400 max-w-md">Replace your "installed" software with logic-seeds. Applications propagate into existence only when called and vanish immediately after use.</p>
+        </div>
+        <div className="flex gap-4">
+          <div className="px-4 py-2 bg-white/5 rounded-lg text-xs font-mono text-blue-300">nexus pack ./app</div>
+          <div className="px-4 py-2 bg-white/5 rounded-lg text-xs font-mono text-purple-300">nexus send app.nxs</div>
+        </div>
+      </div>
 
-  const runDemo = () => {
-    setStatus('running');
+      {/* Security Feature */}
+      <div className="rounded-3xl bg-[#0a0f1e] border border-white/10 p-8 flex flex-col justify-center items-center text-center relative overflow-hidden hover:border-emerald-500/30 transition-all">
+        <div className="mb-6 p-4 bg-emerald-500/10 rounded-2xl text-emerald-400">
+          <Shield size={32} />
+        </div>
+        <h4 className="text-xl font-bold text-white mb-2">GDPR Zero-Touch</h4>
+        <p className="text-slate-500 text-sm">Because data is never stored at rest, compliance is automatic.</p>
+      </div>
+
+      {/* Speed Feature */}
+      <div className="rounded-3xl bg-[#0a0f1e] border border-white/10 p-8 flex flex-col justify-center items-center text-center relative overflow-hidden hover:border-amber-500/30 transition-all">
+        <div className="mb-6 p-4 bg-amber-500/10 rounded-2xl text-amber-400">
+          <Gauge size={32} />
+        </div>
+        <h4 className="text-xl font-bold text-white mb-2">10.5x Faster</h4>
+        <p className="text-slate-500 text-sm">Benchmarks confirm Forge outpaces Docker/Airflow stacks by an order of magnitude.</p>
+      </div>
+
+      {/* Integration Feature */}
+      <div className="md:col-span-2 rounded-3xl bg-[#0a0f1e] border border-white/10 p-10 flex items-center justify-between relative overflow-hidden group">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5" />
+        <div className="relative z-10">
+          <h3 className="text-2xl font-bold text-white mb-4">Legacy Bridge Technology</h3>
+          <p className="text-slate-400 max-w-sm mb-6">Don't rewrite. Ingest. Our shims convert standard Docker containers and Airflow DAGs into Sovereign Artifacts instantly.</p>
+          <a href="/forge" className="text-blue-400 text-sm font-bold flex items-center gap-2 hover:text-blue-300">
+            View Migration Guide <ArrowRight size={14} />
+          </a>
+        </div>
+        <div className="hidden md:block relative z-10">
+          <Layers size={120} className="text-slate-800 group-hover:text-slate-700 transition-colors" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+);
+
+const InteractiveTerminal = () => {
+  const [logs, setLogs] = useState<string[]>([]);
+  const [running, setRunning] = useState(false);
+
+  const runSim = () => {
+    setRunning(true);
     setLogs([]);
-    const sequence = [
-      { msg: "> forge recursive run --seed etl_logic.zip", color: "text-white" },
-      { msg: "[DETONATE] Propagating runtime from seed...", color: "text-slate-600", delay: 800 },
-      { msg: "[HYDRATE] RAM_DISK mounted at 0x8F2", color: "text-slate-600", delay: 600 },
-      { msg: "[EXEC] Task: Extract_Data", color: "text-blue-400", delay: 1000 },
-      { msg: "[PRUNE] Node Shredded.", color: "text-slate-700", delay: 500 },
-      { msg: "[EXEC] Task: Transform_Relational", color: "text-blue-400", delay: 1000 },
-      { msg: "[PRUNE] Node Shredded.", color: "text-slate-700", delay: 500 },
-      { msg: "[BASELINE] Footprint: 0B Drift.", color: "text-emerald-400", delay: 800 },
-      { msg: "// System Reverted to Zero.", color: "text-purple-400", delay: 500 },
+    const steps = [
+      { t: "> nexus unpack enterprise_etl.nxs --detonate", c: "text-white" },
+      { t: "[NEXUS] Authenticating via VaultZero (Hardware ID)...", c: "text-slate-500", d: 500 },
+      { t: "[FORGE] Hydrating Logic-Seed into RAM...", c: "text-blue-400", d: 800 },
+      { t: "[EXEC] Task 1: Ingest_Stream [SUCCESS]", c: "text-emerald-400", d: 600 },
+      { t: "[PRUNE] Task 1 Artifacts Shredded.", c: "text-slate-600", d: 300 },
+      { t: "[EXEC] Task 2: Transform_Vector [SUCCESS]", c: "text-emerald-400", d: 700 },
+      { t: "[PRUNE] Task 2 Artifacts Shredded.", c: "text-slate-600", d: 300 },
+      { t: "[NEMO] Context Token Generated: 0x4A9...", c: "text-purple-400", d: 500 },
+      { t: "[EXIT] System Imploded. Zero Drift Verified.", c: "text-slate-400", d: 400 },
     ];
 
-    sequence.forEach((step, i) => {
+    let delay = 0;
+    steps.forEach((s, i) => {
+      delay += (s.d || 0);
       setTimeout(() => {
-        setLogs(prev => [...prev, step.msg]);
-        if (i === sequence.length - 1) setStatus('idle');
-      }, sequence.slice(0, i + 1).reduce((acc, s) => acc + (s.delay || 0), 0));
+        setLogs(prev => [...prev, s.t]); // Simplification: just pushing text for now
+        if (i === steps.length - 1) setRunning(false);
+      }, delay);
     });
   };
 
   return (
-    <section id="orchestration" className="max-w-7xl mx-auto px-8 mb-64">
-      <div className="grid lg:grid-cols-2 gap-24 items-center">
-        <div>
-          <div className="text-purple-500 text-[9px] font-black uppercase tracking-[0.5em] mb-12 italic">Real-Time Simulation</div>
-          <h2 className="text-6xl font-black text-white mb-12 tracking-tighter italic uppercase leading-[0.9]">Destroy <br/>The Stack.</h2>
-          <p className="text-slate-500 font-bold uppercase text-[11px] tracking-widest mb-12 leading-relaxed">
-            Forge replaces traditional "Images" with logic-seeds. Watch the recursive engine consume its own execution path in real-time.
+    <section id="technology" className="max-w-7xl mx-auto px-6 mb-32">
+      <div className="bg-[#0f111a] rounded-3xl border border-white/10 overflow-hidden flex flex-col md:flex-row">
+        <div className="p-12 md:w-1/2 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/5">
+          <div className="inline-flex items-center gap-2 text-emerald-500 font-bold text-xs uppercase tracking-widest mb-6">
+            <Activity size={14} /> Live Simulation
+          </div>
+          <h3 className="text-4xl font-bold text-white mb-6">See It In Action.</h3>
+          <p className="text-slate-400 mb-8 leading-relaxed">
+            Experience the "Zip-and-Detonate" lifecycle. Watch as Nexus OS receives a secure context artifact, detonates it using Forge, and allows Nemo to observe the result—all without leaving a footprint.
           </p>
           <button 
-            onClick={runDemo}
-            disabled={status === 'running'}
-            className="px-12 py-6 border border-white/10 text-white rounded-sm font-black text-[10px] uppercase tracking-[0.3em] transition-all hover:bg-white hover:text-dark disabled:opacity-50"
+            onClick={runSim} 
+            disabled={running}
+            className="self-start px-6 py-3 bg-white text-black font-bold rounded-lg text-sm hover:bg-slate-200 disabled:opacity-50 transition-all"
           >
-            {status === 'running' ? 'Processing...' : 'Trigger Detonation'}
+            {running ? "Processing..." : "Run Detonation"}
           </button>
         </div>
-        <div className="relative">
-          <div className="absolute -inset-1 bg-white/5 blur-2xl rounded-full opacity-20" />
-          <div className="bg-black/40 border border-white/5 rounded-sm p-12 font-mono text-[12px] min-h-[450px] relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-8 opacity-10">
-              <Terminal size={40} className="text-white" />
-            </div>
-            <div className="space-y-4">
-              {logs.length === 0 && <div className="text-slate-700 animate-pulse tracking-[0.2em] uppercase text-[9px]">_ Awaiting Seed Instruction</div>}
-              {logs.map((log, i) => (
-                <motion.div 
-                  key={i} 
-                  initial={{ opacity: 0, x: -5 }} 
-                  animate={{ opacity: 1, x: 0 }}
-                  className={
-                    log.includes('[PRUNE]') ? 'text-slate-700' : 
-                    log.includes('[BASELINE]') ? 'text-emerald-500' :
-                    log.includes('//') ? 'text-purple-500 italic' :
-                    log.startsWith('>') ? 'text-white font-bold' : 'text-slate-500'
-                  }
-                >
-                  {log}
-                </motion.div>
-              ))}
-              {status === 'running' && <div className="text-blue-500 animate-pulse text-lg">_</div>}
-            </div>
+        <div className="p-8 md:w-1/2 bg-black font-mono text-xs overflow-y-auto min-h-[400px]">
+          <div className="flex gap-2 mb-4">
+            <div className="w-3 h-3 rounded-full bg-red-500/20"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500/20"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500/20"></div>
+          </div>
+          <div className="space-y-2">
+            <div className="text-slate-600"># Nexus Sovereign Shell v4.0.2</div>
+            <div className="text-slate-600"># Waiting for input...</div>
+            {logs.map((l, i) => (
+              <div key={i} className="text-slate-300">{l}</div>
+            ))}
+            {running && <div className="animate-pulse text-blue-500">_</div>}
           </div>
         </div>
       </div>
@@ -282,130 +286,72 @@ const ForgeSection = () => {
   );
 };
 
-const NemoDeepDive = () => (
-  <section className="max-w-7xl mx-auto px-8 mb-64">
-    <div className="grid lg:grid-cols-2 gap-32 items-center">
-      <div className="relative group">
-        <div className="absolute -inset-20 bg-blue-500/5 blur-[120px] rounded-full group-hover:bg-blue-500/10 transition-all duration-1000" />
-        <div className="glass rounded-sm p-16 relative border-white/[0.03]">
-          <div className="flex justify-between items-center mb-16">
-            <div className="text-blue-500 text-[9px] font-black uppercase tracking-[0.4em] italic">Temporal Core</div>
-            <div className="text-slate-700 font-mono text-[9px] tracking-widest uppercase">Encryption: VaultZero</div>
-          </div>
-          
-          <div className="space-y-12">
-            {[
-              { icon: <Database />, title: "15-Min Snapshots", desc: "96 daily snapshots. Full week under 15MB." },
-              { icon: <Gauge />, title: "Netflix-Scrubbing", desc: "Moment previews with instant restoration." }
-            ].map((item, i) => (
-              <div key={i} className="flex gap-8 items-start">
-                <div className="w-12 h-12 bg-white/5 flex items-center justify-center shrink-0 border border-white/5">
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 className="text-white font-black uppercase italic tracking-tighter text-lg mb-2">{item.title}</h4>
-                  <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-16 pt-12 border-t border-white/5 font-mono text-[10px] text-emerald-500/50 uppercase tracking-widest">
-            <div>{">"} identity_match: verified</div>
-            <div>{">"} state_restoration: 100%</div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div className="text-slate-600 text-[9px] font-black uppercase tracking-[0.5em] mb-12 italic">Relational Intelligence</div>
-        <h2 className="text-7xl font-black text-white mb-12 tracking-tighter italic uppercase leading-[0.85]">Nemo <br/><span className="gradient-text">A.I.</span></h2>
-        <p className="text-lg text-slate-500 mb-16 leading-relaxed font-bold uppercase tracking-wider italic">
-          Intelligence without the cloud. By utilizing self-distillation frameworks, Nemo builds its own understanding of your workspace in total silence.
-        </p>
-        <div className="flex gap-8">
-          <div className="text-[9px] font-black text-white uppercase tracking-[0.3em] border-b border-blue-500 pb-2 cursor-pointer hover:text-blue-400 transition-colors">DINOv2 Integration</div>
-          <div className="text-[9px] font-black text-white uppercase tracking-[0.3em] border-b border-purple-500 pb-2 cursor-pointer hover:text-purple-400 transition-colors">Local-First</div>
-        </div>
+const EnterpriseCTA = () => (
+  <section id="enterprise" className="py-32 px-6 text-center">
+    <div className="max-w-4xl mx-auto">
+      <h2 className="text-5xl font-bold text-white mb-8">Ready to reclaim your infrastructure?</h2>
+      <p className="text-xl text-slate-400 mb-12">
+        Join the organizations moving to Sovereign Intelligence. Reduce liability, increase speed, and own your compute.
+      </p>
+      <div className="flex flex-col sm:flex-row justify-center gap-6">
+        <button className="px-10 py-5 bg-white text-black rounded-xl font-bold text-lg hover:bg-slate-200 transition-all">
+          Contact Sales
+        </button>
+        <button className="px-10 py-5 bg-transparent border border-white/20 text-white rounded-xl font-bold text-lg hover:bg-white/5 transition-all">
+          View Documentation
+        </button>
       </div>
     </div>
   </section>
 );
 
 const Footer = () => (
-  <footer className="py-32 border-t border-white/5 bg-black/20">
-    <div className="max-w-7xl mx-auto px-8">
-      <div className="grid md:grid-cols-4 gap-24 mb-32">
-        <div className="col-span-2">
-          <div className="flex items-center space-x-4 mb-12">
-            <div className="w-8 h-8 bg-white rounded-sm flex items-center justify-center">
-              <span className="text-dark font-black text-sm italic">Y</span>
-            </div>
-            <div className="text-2xl font-black tracking-widest text-white uppercase italic">Yukora</div>
+  <footer className="py-20 border-t border-white/5 bg-[#020617]">
+    <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 text-sm">
+      <div className="col-span-2">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
+            <span className="text-black font-black text-lg">Y</span>
           </div>
-          <p className="text-slate-600 font-bold uppercase text-[10px] tracking-widest max-w-sm leading-relaxed">
-            Building the infrastructure for human autonomy. No cloud. No tracking. Pure local power.
-          </p>
+          <span className="text-lg font-bold text-white">YUKORA</span>
         </div>
-        <div>
-          <h4 className="text-white font-black uppercase italic text-[9px] tracking-[0.4em] mb-12">Technologies</h4>
-          <ul className="space-y-6 text-[9px] font-black uppercase tracking-[0.3em] text-slate-600">
-            <li><a href="#" className="hover:text-white transition-colors">Forge Engine</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Nemo A.I.</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Nexus OS</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="text-white font-black uppercase italic text-[9px] tracking-[0.4em] mb-12">Ecosystem</h4>
-          <ul className="space-y-6 text-[9px] font-black uppercase tracking-[0.3em] text-slate-600">
-            <li><a href="https://github.com/torresjchristopher" className="hover:text-white transition-colors">GitHub</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Manifesto</a></li>
-          </ul>
-        </div>
+        <p className="text-slate-500 max-w-sm">
+          The Enterprise OS for Sovereign Compute. Replacing cloud dependency with local, ephemeral intelligence.
+        </p>
       </div>
-      <div className="pt-16 border-t border-white/5 flex justify-between items-center text-slate-800 text-[8px] font-black uppercase tracking-[0.5em]">
-        <div>© 2026 YUKORA ORGANIZATION</div>
-        <div className="text-slate-900">SOVEREIGN_SYSTEMS_VERIFIED</div>
+      <div>
+        <h4 className="font-bold text-white mb-6">Platform</h4>
+        <ul className="space-y-4 text-slate-500">
+          <li><a href="#" className="hover:text-blue-400">Nexus OS</a></li>
+          <li><a href="#" className="hover:text-blue-400">Forge Engine</a></li>
+          <li><a href="#" className="hover:text-blue-400">Nemo Intelligence</a></li>
+        </ul>
       </div>
+      <div>
+        <h4 className="font-bold text-white mb-6">Resources</h4>
+        <ul className="space-y-4 text-slate-500">
+          <li><a href="#" className="hover:text-blue-400">Documentation</a></li>
+          <li><a href="#" className="hover:text-blue-400">GitHub</a></li>
+          <li><a href="#" className="hover:text-blue-400">Enterprise Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div className="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/5 flex justify-between text-xs text-slate-600">
+      <div>© 2026 Yukora Organization</div>
+      <div>Privacy Policy • Terms of Service</div>
     </div>
   </footer>
 );
 
 export default function App() {
   return (
-    <div className="min-h-screen relative selection:bg-white selection:text-dark">
-      <StaticBackground />
+    <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-blue-500/30">
       <Navbar />
       <Hero />
-      <TechGrid />
-      <BenchmarkSection />
-      <ForgeSection />
-      <DatalessVisualizer />
-      <NemoDeepDive />
-      
-      <section id="philosophy" className="max-w-5xl mx-auto px-8 py-64 text-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 2 }}
-        >
-          <h2 className="text-7xl md:text-9xl font-black text-white mb-16 tracking-tighter italic uppercase opacity-10">Data Invisibility.</h2>
-          <p className="text-2xl md:text-4xl text-slate-500 leading-tight font-black uppercase italic mb-24 max-w-4xl mx-auto">
-            "The goal of intelligence is not to be seen, but to be effective."
-          </p>
-          <div className="flex justify-center gap-24">
-            <div className="text-center">
-              <div className="text-blue-500 font-black text-[9px] uppercase tracking-[0.5em] mb-4">Privacy</div>
-              <div className="text-slate-700 text-[10px] font-black uppercase tracking-[0.2em]">Zero Telemetry</div>
-            </div>
-            <div className="text-center">
-              <div className="text-purple-500 font-black text-[9px] uppercase tracking-[0.5em] mb-4">Ownership</div>
-              <div className="text-slate-700 text-[10px] font-black uppercase tracking-[0.2em]">Local-First</div>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-      
+      <ArchitectureDiagram />
+      <BentoGrid />
+      <InteractiveTerminal />
+      <EnterpriseCTA />
       <Footer />
     </div>
   );
