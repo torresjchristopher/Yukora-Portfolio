@@ -178,10 +178,10 @@ const BentoGrid = () => (
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         <div className="relative z-10">
           <h3 className="text-2xl font-bold text-white mb-4">Bridge Logistics Engine</h3>
-          <p className="text-slate-400 max-w-sm mb-6">Inspired by Netflix's internal orchestration. Bridge coordinates the logistics between Forge compute and Pidgeon transport for seamless context shipments.</p>
+          <p className="text-slate-400 max-w-sm mb-6">START: Nexus & Bridge. PRIME: Forge & Pidgeon. A refined logistical sequence that enables native context pulling and peer-to-peer file referencing without web-based overhead.</p>
           <div className="flex gap-4">
-            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-blue-400 uppercase tracking-widest">Orchestration</span>
-            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Logistics</span>
+            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-blue-400 uppercase tracking-widest">Nexus Core</span>
+            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Pidgeon Mesh</span>
           </div>
         </div>
         <div className="hidden md:block relative z-10 p-8 bg-blue-500/10 rounded-full">
@@ -355,13 +355,15 @@ const InteractiveTerminal = () => {
     setLogs([]);
     const steps = [
       { t: "> nexus enter", c: "text-white" },
-      { t: "[NEXUS] Sovereign Shell Active.", c: "text-slate-500", d: 500 },
-      { t: "> bridge ship ./analytics --to peer_01", c: "text-white", d: 800 },
-      { t: "[BRIDGE] Coordinating shipment...", c: "text-blue-400", d: 400 },
-      { t: "[FORGE] Ingesting & Scaffolding DAG...", c: "text-slate-500", d: 600 },
-      { t: "[PIDGEON] Transmitting .nxs via Mesh...", c: "text-purple-400", d: 1000 },
-      { t: "[SUCCESS] Shipment coordinated. Peer notified.", c: "text-emerald-400", d: 600 },
-      { t: "[EXIT] System Baseline Maintained.", c: "text-slate-400", d: 400 },
+      { t: "[NEXUS] START: Sovereign Shell v4.0.2", c: "text-slate-500", d: 400 },
+      { t: "[BRIDGE] START: Logistics Manager Active.", c: "text-blue-400", d: 400 },
+      { t: "> bridge ship ./bug_fix --to collaborator_01", c: "text-white", d: 800 },
+      { t: "[PRIME] Forge: Hydrating Ingestion Compactor...", c: "text-slate-500", d: 600 },
+      { t: "[PRIME] Pidgeon: Opening Native Context Bridge...", c: "text-purple-400", d: 1000 },
+      { t: "[SUCCESS] Context available for Native Pull by Collaborator.", c: "text-emerald-400", d: 600 },
+      { t: " Collaborator :: bridge pull bug_fix.nxs --inspect", c: "text-slate-400 italic", d: 1200 },
+      { t: "[FORGE] Detonating shared context in collaborator RAM...", c: "text-blue-400", d: 800 },
+      { t: "[EXIT] Work Synchronized. Baseline Maintained.", c: "text-slate-400", d: 400 },
     ];
 
     let delay = 0;
