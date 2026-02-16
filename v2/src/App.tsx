@@ -173,19 +173,19 @@ const BentoGrid = () => (
   <section id="solutions" className="max-w-7xl mx-auto px-6 mb-32">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
       
-      {/* Bridge Logistics Feature */}
+      {/* Bridge Sync Feature */}
       <div className="md:col-span-2 rounded-3xl bg-[#0a0f1e] border border-white/10 p-10 flex items-center justify-between relative overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         <div className="relative z-10">
-          <h3 className="text-2xl font-bold text-white mb-4">Bridge Logistics Engine</h3>
-          <p className="text-slate-400 max-w-sm mb-6">START: Nexus & Bridge. PRIME: Forge & Pidgeon. A refined logistical sequence that enables native context pulling and peer-to-peer file referencing without web-based overhead.</p>
+          <h3 className="text-2xl font-bold text-white mb-4">Ambient Synchronization</h3>
+          <p className="text-slate-400 max-w-sm mb-6">Beyond shipment. Bridge maintains a live, sovereign link between co-creators, ambiently priming the Forge buffer as work evolves in real-time.</p>
           <div className="flex gap-4">
-            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-blue-400 uppercase tracking-widest">Nexus Core</span>
-            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Pidgeon Mesh</span>
+            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Live Mirroring</span>
+            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-blue-400 uppercase tracking-widest">Delta Tracking</span>
           </div>
         </div>
-        <div className="hidden md:block relative z-10 p-8 bg-blue-500/10 rounded-full">
-          <Layers size={60} className="text-blue-400 group-hover:scale-110 transition-transform duration-500" />
+        <div className="hidden md:block relative z-10 p-8 bg-emerald-500/10 rounded-full">
+          <Activity size={60} className="text-emerald-400 animate-pulse" />
         </div>
       </div>
 
@@ -356,15 +356,14 @@ const InteractiveTerminal = () => {
     const steps = [
       { t: "> nexus enter", c: "text-white" },
       { t: "[NEXUS] START: Sovereign Shell v4.1.0", c: "text-slate-500", d: 400 },
-      { t: "[BRIDGE] START: Logistics Engine Active.", c: "text-blue-400", d: 400 },
-      { t: "> bri[dge ship ./bug_fix --to collaborator_01]", c: "text-blue-400 italic", d: 800 },
-      { t: "[PRIME] Forge: Hydrating Ingestion Compactor...", c: "text-slate-500", d: 600 },
-      { t: "[PRIME] Pidgeon: Opening Native Context Bridge...", c: "text-purple-400", d: 1000 },
-      { t: "[SUCCESS] Context available for Native Pull.", c: "text-emerald-400", d: 600 },
-      { t: "> bridge pull bug_fix.nxs --inspect", c: "text-white", d: 1200 },
-      { t: "[X-RAY] Manifest: Python 3.11 | Signed: YES | Nodes: 3", c: "text-yellow-500", d: 800 },
-      { t: "[FORGE] Detonating shared context in volatile RAM...", c: "text-blue-400", d: 800 },
-      { t: "[EXIT] Session Complete. Zero Forensic Trace.", c: "text-emerald-500", d: 600 },
+      { t: "> bridge follow collaborator_01", c: "text-white", d: 800 },
+      { t: "[BRIDGE] Establishing live sovereign link...", c: "text-blue-400", d: 400 },
+      { t: "[PIDGEON] Subscribing to delta context stream...", c: "text-emerald-400", d: 600 },
+      { t: "[PRIME] Forge: Pre-hydrating incoming RAM buffer...", c: "text-slate-500", d: 1000 },
+      { t: "[STATUS] Mirroring Active. Work Synchronized.", c: "text-emerald-500", d: 600 },
+      { t: " Collaborator :: push mod_v2", c: "text-slate-400 italic", d: 1200 },
+      { t: "[DETONATE] bridge pull mod_v2 --instant", c: "text-blue-400", d: 800 },
+      { t: "[EXIT] System Baseline Maintained. Zero Drift.", c: "text-slate-400", d: 400 },
     ];
 
     let delay = 0;
