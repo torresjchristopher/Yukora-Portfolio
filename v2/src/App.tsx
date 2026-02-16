@@ -310,6 +310,41 @@ const SystemMetrics = () => {
   );
 };
 
+const WorkflowMapping = () => {
+  const mappings = [
+    { legacy: "Docker / Podman", sovereign: "Forge Ingestion", desc: "Flattened logic-seeds replace heavy multi-layer images." },
+    { legacy: "Airflow / Prefect", sovereign: "Recursive DAGs", desc: "Self-consuming task graphs eliminate log & metadata bloat." },
+    { legacy: "Kubernetes (K8s)", sovereign: "Nexus Artifact Mesh", desc: "Peer-to-peer context sharing replaces centralized cluster overhead." },
+    { legacy: "CI/CD Runners", sovereign: "Sovereign Detonation", desc: "Immediate execution in RAM with absolute zero forensic footprint." }
+  ];
+
+  return (
+    <section className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
+      <div className="mb-24">
+        <h2 className="text-4xl font-bold text-white mb-4 italic uppercase">The Great Mapping.</h2>
+        <p className="text-slate-400 max-w-2xl">Forge and Nexus OS are architecturally designed to replace the entire legacy container stack. Here is how your current workflow translates to Sovereign Intelligence.</p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-px bg-white/5 border border-white/5 rounded-[3rem] overflow-hidden">
+        {mappings.map((m, i) => (
+          <div key={i} className="bg-[#020617] p-12 hover:bg-white/[0.02] transition-all group">
+            <div className="flex justify-between items-start mb-8">
+              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest">Legacy Target</div>
+              <div className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Sovereign Equivalent</div>
+            </div>
+            <div className="flex items-center gap-6 mb-8">
+              <span className="text-xl font-bold text-slate-500 line-through decoration-red-500/50">{m.legacy}</span>
+              <ArrowRight size={20} className="text-blue-500 group-hover:translate-x-2 transition-transform" />
+              <span className="text-2xl font-bold text-white italic">{m.sovereign}</span>
+            </div>
+            <p className="text-slate-500 text-sm leading-relaxed">{m.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 const ArchiveSection = () => {
   const archives = [
     { name: "Project Nemo", desc: "Volatile Intelligence & Pattern Memory.", path: "/nemo" },
@@ -407,6 +442,7 @@ export default function App() {
       <BentoGrid />
       <DeveloperBridge />
       <SystemMetrics />
+      <WorkflowMapping />
       <ArchiveSection />
       <EnterpriseCTA />
       <Footer />
