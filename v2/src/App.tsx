@@ -311,6 +311,194 @@ const SystemMetrics = () => {
   );
 };
 
+const WorkingDemos = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const demos = [
+    {
+      title: "Enterprise ETL",
+      subtitle: "Airflow Replacement",
+      context: "A complex financial data pipeline defined in Python.",
+      legacy: "Requires Airflow Scheduler + Workers + Redis + Postgres.",
+      sovereign: "Nexus ingests the script, Bridge orchestrates dependencies, Forge executes recursively.",
+      cmd: "bridge ship ./finance_etl --type recursive-dag",
+      logs: [
+        "[NEXUS] Ingesting 'finance_etl.py'...",
+        "[BRIDGE] Dependency Graph: 4 Nodes detected.",
+        "[FORGE] Detonating Node A (Extract_S3)... [SUCCESS]",
+        "[FORGE] Pruning Node A metadata. Memory freed.",
+        "[FORGE] Detonating Node B (Transform_Spark)... [SUCCESS]",
+        "[EXIT] Pipeline complete. 0.00B Drift."
+      ]
+    },
+    {
+      title: "Microservices",
+      subtitle: "K8s Replacement",
+      context: "A typical Web + API + DB stack defined in Docker Compose.",
+      legacy: "Requires K8s Cluster, Ingress Controller, Persistent Volumes.",
+      sovereign: "Forge hydrates the entire stack into a single volatile RAM context with internal networking.",
+      cmd: "forge ingest ./webapp --stack",
+      logs: [
+        "[FORGE] Parsing docker-compose.yml...",
+        "[FORGE] Flattening 3 services into Logic Seed.",
+        "[DETONATE] Hydrating RAM-Mesh network...",
+        "[SVC] Postgres:5432 [ACTIVE]",
+        "[SVC] Redis:6379 [ACTIVE]",
+        "[SVC] Node_API:3000 [ACTIVE]",
+        "[STATUS] Stack running. JIT Latency: 1.2s"
+      ]
+    },
+    {
+      title: "Sovereign ML",
+      subtitle: "Secure MLOps",
+      context: "Fine-tuning a Llama-3 model on sensitive private data.",
+      legacy: "Risk of data leakage to cloud providers or persistent logs.",
+      sovereign: "Data decrypts ONLY in RAM. Model weights saved to Vault. Execution context incinerated.",
+      cmd: "nexus pack ./training --encrypt --hardware-lock",
+      logs: [
+        "[NEXUS] Locking context to Local Silicon ID.",
+        "[BRIDGE] Transporting encrypted seed to GPU Node...",
+        "[FORGE] Detonating with GPU Passthrough...",
+        "[TRAIN] Epoch 1/5 complete. Loss: 0.42",
+        "[VAULT] Model weights secured to VaultZero.",
+        "[SHRED] Training data incineration... [COMPLETE]"
+      ]
+    },
+    {
+      title: "Live Hotfix",
+      subtitle: "Pidgeon Sync",
+      context: "Critical bug fix requiring immediate peer review.",
+      legacy: "Git push -> CI/CD Build -> Staging Deploy -> URL sharing.",
+      sovereign: "Direct P2P context streaming. Collaborator detonates the patch locally in seconds.",
+      cmd: "bridge follow incident_response --mode hot-reload",
+      logs: [
+        "[PIDGEON] Subscribed to 'incident_response' stream.",
+        "[BRIDGE] Delta received: auth_patch.ts (4KB)",
+        "[FORGE] Hot-swapping logic in running context...",
+        "[TEST] Running verification suite... [PASS]",
+        "[SYNC] Patch verified. Committing to reality."
+      ]
+    },
+    {
+      title: "Legacy Monolith",
+      subtitle: "Binary Ingestion",
+      context: "A 10-year-old Java billing system running on bare metal.",
+      legacy: "Fragile 'Pet' server that cannot be rebooted.",
+      sovereign: "Forge wraps the binary and libs into a portable seed. Runs anywhere, cleans up after itself.",
+      cmd: "forge ingest /opt/billing --sanitize",
+      logs: [
+        "[FORGE] Scanning binary dependencies (ldd)...",
+        "[INGEST] Captured 14 shared libraries.",
+        "[SANITIZE] Stripping absolute paths and temp files...",
+        "[SEED] Generated: billing_legacy.nxs (45MB)",
+        "[TEST] Detonating in Alpine shim... [SUCCESS]"
+      ]
+    }
+  ];
+
+  return (
+    <section id="demos" className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
+      <div className="mb-16">
+        <h2 className="text-4xl font-bold text-white mb-4 italic uppercase">Proven Workflows.</h2>
+        <p className="text-slate-400 max-w-2xl">Real-world scenarios where the Sovereign Suite replaces legacy infrastructure with speed, security, and zero inertia.</p>
+      </div>
+
+      <div className="flex flex-col lg:flex-row gap-12">
+        {/* Sidebar Navigation */}
+        <div className="lg:w-1/3 space-y-2">
+          {demos.map((d, i) => (
+            <button 
+              key={i}
+              onClick={() => setActiveTab(i)}
+              className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 group ${
+                activeTab === i 
+                  ? "bg-white/10 border-white/20" 
+                  : "bg-transparent border-transparent hover:bg-white/5"
+              }`}
+            >
+              <div className="flex justify-between items-center mb-2">
+                <span className={`text-sm font-bold uppercase tracking-widest ${activeTab === i ? "text-white" : "text-slate-500"}`}>
+                  {d.title}
+                </span>
+                {activeTab === i && <ArrowRight size={14} className="text-blue-400" />}
+              </div>
+              <div className="text-xs text-slate-400 font-mono">{d.subtitle}</div>
+            </button>
+          ))}
+        </div>
+
+        {/* Display Area */}
+        <div className="lg:w-2/3">
+          <div className="bg-[#0a0f1e] border border-white/10 rounded-[2.5rem] p-10 h-full flex flex-col">
+            <div className="mb-8">
+              <div className="flex gap-2 mb-6">
+                <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[10px] font-bold uppercase tracking-wider">
+                  {demos[activeTab].subtitle}
+                </span>
+                <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">
+                  Verified
+                </span>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-2">Legacy Workflow</div>
+                  <p className="text-slate-500 text-sm">{demos[activeTab].legacy}</p>
+                </div>
+                <div>
+                  <div className="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-2">Sovereign Workflow</div>
+                  <p className="text-slate-300 text-sm">{demos[activeTab].sovereign}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Terminal Simulation */}
+            <div className="bg-black/50 rounded-2xl border border-white/5 p-6 font-mono text-xs flex-grow overflow-hidden flex flex-col">
+              <div className="flex items-center gap-2 mb-4 pb-4 border-b border-white/5">
+                <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
+                <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
+                <div className="ml-auto text-slate-700">nexus_os_v4.1</div>
+              </div>
+              
+              <div className="space-y-3">
+                <div className="flex gap-3 text-white">
+                  <span className="text-blue-500">➜</span>
+                  <span>{demos[activeTab].cmd}</span>
+                </div>
+                {demos[activeTab].logs.map((log, i) => (
+                  <motion.div 
+                    key={`${activeTab}-${i}`}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className={`${
+                      log.includes('[ERROR]') ? 'text-red-400' :
+                      log.includes('[SUCCESS]') || log.includes('[PASS]') ? 'text-emerald-400' :
+                      log.includes('[BRIDGE]') || log.includes('[NEXUS]') ? 'text-blue-300' :
+                      'text-slate-500'
+                    }`}
+                  >
+                    {log}
+                  </motion.div>
+                ))}
+                <motion.div 
+                  initial={{ opacity: 0 }} 
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: demos[activeTab].logs.length * 0.1 + 0.5, repeat: Infinity, repeatType: "reverse" }}
+                  className="text-blue-500"
+                >
+                  _
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const WorkflowMapping = () => {
   const mappings = [
     { legacy: "Docker / Podman", sovereign: "Forge Ingestion", desc: "Flattened logic-seeds replace heavy multi-layer images." },
@@ -563,6 +751,7 @@ export default function App() {
       <BentoGrid />
       <DeveloperBridge />
       <SystemMetrics />
+      <WorkingDemos />
       <WorkflowMapping />
       <InteractiveTerminal />
       <EmergentRelationships />
