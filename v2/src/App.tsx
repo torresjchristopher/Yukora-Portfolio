@@ -4,7 +4,7 @@ import {
   Zap, 
   Layers, ArrowRight, 
   Settings, Code, ZapOff,
-  Shield, Gauge, RefreshCw, Activity
+  Shield, Gauge, Activity
 } from 'lucide-react';
 
 // --- Components ---
