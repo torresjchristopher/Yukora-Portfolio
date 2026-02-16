@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Zap, 
@@ -172,19 +173,19 @@ const BentoGrid = () => (
   <section id="solutions" className="max-w-7xl mx-auto px-6 mb-32">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
       
-      {/* Unified Modernization Feature */}
+      {/* Bridge Logistics Feature */}
       <div className="md:col-span-2 rounded-3xl bg-[#0a0f1e] border border-white/10 p-10 flex items-center justify-between relative overflow-hidden group">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         <div className="relative z-10">
-          <h3 className="text-2xl font-bold text-white mb-4">Unified Modernization Loop</h3>
-          <p className="text-slate-400 max-w-sm mb-6">Ingest legacy code, auto-scaffold Forge DAGs, and transmit full functional contexts natively through the Pidgeon Mesh.</p>
+          <h3 className="text-2xl font-bold text-white mb-4">Bridge Logistics Engine</h3>
+          <p className="text-slate-400 max-w-sm mb-6">Inspired by Netflix's internal orchestration. Bridge coordinates the logistics between Forge compute and Pidgeon transport for seamless context shipments.</p>
           <div className="flex gap-4">
-            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-blue-400 uppercase tracking-widest">Auto-Scaffolding</span>
-            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-emerald-400 uppercase tracking-widest">P2P Transfer</span>
+            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-blue-400 uppercase tracking-widest">Orchestration</span>
+            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Logistics</span>
           </div>
         </div>
         <div className="hidden md:block relative z-10 p-8 bg-blue-500/10 rounded-full">
-          <RefreshCw size={60} className="text-blue-400 group-hover:rotate-180 transition-transform duration-1000" />
+          <Layers size={60} className="text-blue-400 group-hover:scale-110 transition-transform duration-500" />
         </div>
       </div>
 
@@ -345,6 +346,73 @@ const WorkflowMapping = () => {
   );
 };
 
+const InteractiveTerminal = () => {
+  const [logs, setLogs] = useState<string[]>([]);
+  const [running, setRunning] = useState(false);
+
+  const runSim = () => {
+    setRunning(true);
+    setLogs([]);
+    const steps = [
+      { t: "> nexus enter", c: "text-white" },
+      { t: "[NEXUS] Sovereign Shell Active.", c: "text-slate-500", d: 500 },
+      { t: "> bridge ship ./analytics --to peer_01", c: "text-white", d: 800 },
+      { t: "[BRIDGE] Coordinating shipment...", c: "text-blue-400", d: 400 },
+      { t: "[FORGE] Ingesting & Scaffolding DAG...", c: "text-slate-500", d: 600 },
+      { t: "[PIDGEON] Transmitting .nxs via Mesh...", c: "text-purple-400", d: 1000 },
+      { t: "[SUCCESS] Shipment coordinated. Peer notified.", c: "text-emerald-400", d: 600 },
+      { t: "[EXIT] System Baseline Maintained.", c: "text-slate-400", d: 400 },
+    ];
+
+    let delay = 0;
+    steps.forEach((s, i) => {
+      delay += (s.d || 0);
+      setTimeout(() => {
+        setLogs(prev => [...prev, s.t]);
+        if (i === steps.length - 1) setRunning(false);
+      }, delay);
+    });
+  };
+
+  return (
+    <section id="technology" className="max-w-7xl mx-auto px-6 mb-32">
+      <div className="bg-[#0f111a] rounded-3xl border border-white/10 overflow-hidden flex flex-col md:flex-row">
+        <div className="p-12 md:w-1/2 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/5">
+          <div className="inline-flex items-center gap-2 text-blue-500 font-bold text-xs uppercase tracking-widest mb-6">
+            <Layers size={14} /> Bridge Logistics
+          </div>
+          <h3 className="text-4xl font-bold text-white mb-6">See It In Action.</h3>
+          <p className="text-slate-400 mb-8 leading-relaxed">
+            Experience the "Ship-and-Detonate" lifecycle. Watch as Bridge coordinates Forge and Pidgeon to move functional contexts across the mesh instantly.
+          </p>
+          <button 
+            onClick={runSim} 
+            disabled={running}
+            className="self-start px-6 py-3 bg-white text-black font-bold rounded-lg text-sm hover:bg-slate-200 disabled:opacity-50 transition-all"
+          >
+            {running ? "Processing..." : "Run Shipment"}
+          </button>
+        </div>
+        <div className="p-8 md:w-1/2 bg-black font-mono text-xs overflow-y-auto min-h-[400px]">
+          <div className="flex gap-2 mb-4">
+            <div className="w-3 h-3 rounded-full bg-red-500/20"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500/20"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500/20"></div>
+          </div>
+          <div className="space-y-2">
+            <div className="text-slate-600"># Nexus Sovereign Shell v4.0.2</div>
+            <div className="text-slate-600"># Waiting for input...</div>
+            {logs.map((l, i) => (
+              <div key={i} className="text-slate-300">{l}</div>
+            ))}
+            {running && <div className="animate-pulse text-blue-500">_</div>}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const ArchiveSection = () => {
   const archives = [
     { name: "Project Nemo", desc: "Volatile Intelligence & Pattern Memory.", path: "/nemo" },
@@ -443,6 +511,7 @@ export default function App() {
       <DeveloperBridge />
       <SystemMetrics />
       <WorkflowMapping />
+      <InteractiveTerminal />
       <ArchiveSection />
       <EnterpriseCTA />
       <Footer />
