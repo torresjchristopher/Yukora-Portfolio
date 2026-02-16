@@ -355,15 +355,16 @@ const InteractiveTerminal = () => {
     setLogs([]);
     const steps = [
       { t: "> nexus enter", c: "text-white" },
-      { t: "[NEXUS] START: Sovereign Shell v4.0.2", c: "text-slate-500", d: 400 },
-      { t: "[BRIDGE] START: Logistics Manager Active.", c: "text-blue-400", d: 400 },
-      { t: "> bridge ship ./bug_fix --to collaborator_01", c: "text-white", d: 800 },
+      { t: "[NEXUS] START: Sovereign Shell v4.1.0", c: "text-slate-500", d: 400 },
+      { t: "[BRIDGE] START: Logistics Engine Active.", c: "text-blue-400", d: 400 },
+      { t: "> bri[dge ship ./bug_fix --to collaborator_01]", c: "text-blue-400 italic", d: 800 },
       { t: "[PRIME] Forge: Hydrating Ingestion Compactor...", c: "text-slate-500", d: 600 },
       { t: "[PRIME] Pidgeon: Opening Native Context Bridge...", c: "text-purple-400", d: 1000 },
-      { t: "[SUCCESS] Context available for Native Pull by Collaborator.", c: "text-emerald-400", d: 600 },
-      { t: " Collaborator :: bridge pull bug_fix.nxs --inspect", c: "text-slate-400 italic", d: 1200 },
-      { t: "[FORGE] Detonating shared context in collaborator RAM...", c: "text-blue-400", d: 800 },
-      { t: "[EXIT] Work Synchronized. Baseline Maintained.", c: "text-slate-400", d: 400 },
+      { t: "[SUCCESS] Context available for Native Pull.", c: "text-emerald-400", d: 600 },
+      { t: "> bridge pull bug_fix.nxs --inspect", c: "text-white", d: 1200 },
+      { t: "[X-RAY] Manifest: Python 3.11 | Signed: YES | Nodes: 3", c: "text-yellow-500", d: 800 },
+      { t: "[FORGE] Detonating shared context in volatile RAM...", c: "text-blue-400", d: 800 },
+      { t: "[EXIT] Session Complete. Zero Forensic Trace.", c: "text-emerald-500", d: 600 },
     ];
 
     let delay = 0;
