@@ -685,20 +685,71 @@ const ArchiveSection = () => {
   );
 };
 
-const EnterpriseCTA = () => (
-  <section id="enterprise" className="py-32 px-6 text-center border-t border-white/5">
+const EnterpriseROI = () => (
+  <section className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
+    <div className="grid lg:grid-cols-2 gap-24 items-center">
+      <div>
+        <div className="text-[10px] font-black text-blue-500 uppercase tracking-[0.4em] mb-6">Business Intelligence</div>
+        <h2 className="text-4xl font-bold text-white mb-8 tracking-tight">The ROI of Zero-Inertia.</h2>
+        <p className="text-slate-400 text-lg mb-12 leading-relaxed">
+          Legacy infrastructure carries "Inertia Costs"—persistent storage, background daemons, and forensic liability. Forge Enterprise eliminates these costs by moving to an on-demand, volatile model.
+        </p>
+        <div className="grid grid-cols-2 gap-8">
+          <div>
+            <div className="text-3xl font-bold text-white mb-2">96%</div>
+            <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Storage Reduction</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-white mb-2">10.5x</div>
+            <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Ops Velocity</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-white mb-2">Zero</div>
+            <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Forensic Surface</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-white mb-2">O(1)</div>
+            <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Scaling Linear</div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 rounded-[3rem] border border-white/10 p-12 relative overflow-hidden">
+        <div className="absolute top-0 right-0 p-12 opacity-5">
+          <Settings size={120} />
+        </div>
+        <h3 className="text-xl font-bold text-white mb-6">Efficiency Audit</h3>
+        <div className="space-y-6">
+          <div className="p-6 rounded-2xl bg-black/40 border border-white/5">
+            <div className="text-xs text-slate-500 mb-2">Legacy K8s Overhead (Monthly)</div>
+            <div className="text-xl font-bold text-red-400/80">$4,200 <span className="text-xs font-normal text-slate-600">per cluster node</span></div>
+          </div>
+          <div className="p-6 rounded-2xl bg-blue-500/10 border border-blue-500/20">
+            <div className="text-xs text-blue-400 mb-2">Sovereign Detonation (Monthly)</div>
+            <div className="text-xl font-bold text-emerald-400">$380 <span className="text-xs font-normal text-slate-600">per 10k detonations</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const DeploymentCTA = () => (
+  <section id="enterprise" className="py-48 px-6 text-center border-t border-white/5 bg-gradient-to-b from-transparent to-blue-900/10">
     <div className="max-w-4xl mx-auto">
-      <h2 className="text-5xl font-bold text-white mb-8">Modernize Infrastructure without the Bloat.</h2>
-      <p className="text-xl text-slate-400 mb-12">
-        Forge Enterprise is the solution for organizations that need high-caliber modifications with zero forensic trace.
+      <h2 className="text-6xl font-bold text-white mb-8 tracking-tighter">Ready to Ingest?</h2>
+      <p className="text-xl text-slate-400 mb-16 max-w-2xl mx-auto">
+        Download the **Sovereign Sandbox**—a pre-built context seed that demonstrates the 10.5x performance delta on your local machine.
       </p>
       <div className="flex flex-col sm:flex-row justify-center gap-6">
-        <button className="px-10 py-5 bg-white text-black rounded-xl font-bold text-lg hover:bg-slate-200 transition-all">
-          Contact Sales
+        <button className="px-12 py-6 bg-white text-black rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-slate-200 transition-all shadow-[0_0_50px_rgba(255,255,255,0.1)]">
+          Download Sandbox (.nxs)
         </button>
-        <button className="px-10 py-5 bg-transparent border border-white/20 text-white rounded-xl font-bold text-lg hover:bg-white/5 transition-all">
-          Download Case Study
+        <button className="px-12 py-6 bg-white/5 text-white border border-white/10 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all">
+          Contact Enterprise Sales
         </button>
+      </div>
+      <div className="mt-16 text-[10px] font-mono text-slate-600 uppercase tracking-[0.3em]">
+        Verified for Windows 11 / Linux (Kernel 5.15+) / macOS (M1/M2/M3)
       </div>
     </div>
   </section>
@@ -755,8 +806,9 @@ export default function App() {
       <WorkflowMapping />
       <InteractiveTerminal />
       <EmergentRelationships />
+      <EnterpriseROI />
       <ArchiveSection />
-      <EnterpriseCTA />
+      <DeploymentCTA />
       <Footer />
     </div>
   );
