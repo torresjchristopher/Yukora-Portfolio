@@ -738,15 +738,21 @@ const DeploymentCTA = () => (
     <div className="max-w-4xl mx-auto">
       <h2 className="text-6xl font-bold text-white mb-8 tracking-tighter">Ready to Ingest?</h2>
       <p className="text-xl text-slate-400 mb-16 max-w-2xl mx-auto">
-        Download the **Sovereign Sandbox**—a pre-built context seed that demonstrates the 10.5x performance delta on your local machine.
+        Run the **Sovereign Suite** on your local silicon. Experience the 10.5x velocity gain with a single command.
       </p>
-      <div className="flex flex-col sm:flex-row justify-center gap-6">
-        <button className="px-12 py-6 bg-white text-black rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-slate-200 transition-all shadow-[0_0_50px_rgba(255,255,255,0.1)]">
-          Download Sandbox (.nxs)
-        </button>
-        <button className="px-12 py-6 bg-white/5 text-white border border-white/10 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all">
-          Contact Enterprise Sales
-        </button>
+      <div className="flex flex-col items-center gap-8">
+        <div className="w-full max-w-2xl px-8 py-6 glass rounded-2xl font-mono text-sm text-blue-400 flex items-center justify-between group">
+          <span>irm get.yukora.org | iex</span>
+          <button className="text-[10px] font-bold text-slate-500 uppercase hover:text-white transition-colors">Copy</button>
+        </div>
+        <div className="flex flex-col sm:flex-row justify-center gap-6">
+          <button className="px-12 py-6 bg-white text-black rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-slate-200 transition-all shadow-[0_0_50px_rgba(255,255,255,0.1)]">
+            Download Nexus OS
+          </button>
+          <button className="px-12 py-6 bg-white/5 text-white border border-white/10 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all">
+            Contact Enterprise Sales
+          </button>
+        </div>
       </div>
       <div className="mt-16 text-[10px] font-mono text-slate-600 uppercase tracking-[0.3em]">
         Verified for Windows 11 / Linux (Kernel 5.15+) / macOS (M1/M2/M3)
