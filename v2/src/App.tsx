@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Zap, 
   Layers,
-  Activity, MessageSquare
+  MessageSquare
 } from 'lucide-react';
 
 // --- Cinematic Background ---
