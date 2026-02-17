@@ -4,7 +4,7 @@ import {
   Zap, 
   Layers, ArrowRight, 
   Settings, Code, ZapOff,
-  Shield, Gauge, Activity
+  Shield, Gauge, Activity, Download, Globe, MessageSquare, RefreshCw
 } from 'lucide-react';
 
 // --- Components ---
@@ -20,18 +20,15 @@ const Navbar = () => (
       </div>
       
       <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-        <a href="#forge" onClick={(e) => { e.preventDefault(); document.getElementById('forge')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Forge Engine</a>
-        <a href="#bridge" onClick={(e) => { e.preventDefault(); document.getElementById('bridge')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Developer Bridge</a>
+        <a href="#suite" onClick={(e) => { e.preventDefault(); document.getElementById('suite')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">The Suite</a>
+        <a href="#demos" onClick={(e) => { e.preventDefault(); document.getElementById('demos')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Demos</a>
         <a href="#benchmarks" onClick={(e) => { e.preventDefault(); document.getElementById('benchmarks')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Performance</a>
         <a href="#archives" onClick={(e) => { e.preventDefault(); document.getElementById('archives')?.scrollIntoView({behavior: 'smooth'}); }} className="hover:text-white transition-colors">Research</a>
       </div>
 
       <div className="flex gap-4">
-        <a href="https://github.com/torresjchristopher" target="_blank" rel="noreferrer" className="px-5 py-2.5 text-xs font-bold text-white border border-white/10 rounded-lg hover:bg-white/5 transition-all">
-          GitHub
-        </a>
-        <button className="px-5 py-2.5 text-xs font-bold bg-white text-black rounded-lg hover:bg-slate-200 transition-all">
-          Get Forge
+        <button className="px-5 py-2.5 text-xs font-bold bg-white text-black rounded-lg hover:bg-slate-200 transition-all flex items-center gap-2">
+          <Download size={14} /> Get Nexus OS
         </button>
       </div>
     </div>
@@ -39,7 +36,7 @@ const Navbar = () => (
 );
 
 const Hero = () => (
-  <section className="relative pt-48 pb-32 px-6 min-h-[80vh] flex flex-col justify-center items-center text-center overflow-hidden">
+  <section className="relative pt-48 pb-32 px-6 min-h-[90vh] flex flex-col justify-center items-center text-center overflow-hidden">
     <div className="absolute inset-0 -z-10">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-500/10 blur-[120px] rounded-full opacity-50" />
     </div>
@@ -49,8 +46,8 @@ const Hero = () => (
       animate={{ opacity: 1, y: 0 }}
       className="mb-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-medium text-blue-400"
     >
-      <Zap size={14} />
-      Forge Enterprise: System Modernization Layer
+      <Globe size={14} />
+      Yukora: The Access Point for Sovereign Intelligence
     </motion.div>
 
     <motion.h1 
@@ -59,8 +56,8 @@ const Hero = () => (
       transition={{ delay: 0.1 }}
       className="text-6xl md:text-8xl font-bold text-white tracking-tight mb-8 leading-[1.1]"
     >
-      Modify Everything. <br/>
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-500">Keep Nothing.</span>
+      Sovereignty as a <br/>
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Service.</span>
     </motion.h1>
 
     <motion.p 
@@ -69,7 +66,7 @@ const Hero = () => (
       transition={{ delay: 0.2 }}
       className="text-xl text-slate-400 max-w-3xl mb-12 leading-relaxed"
     >
-      Forge Engine allows enterprises to ingest legacy infrastructure and transform it into <strong>ephemeral, high-speed execution paths</strong>. Zero-inertia compute for the modern age.
+      Yukora is the definitive gateway to the <strong>Sovereign Suite</strong>. Access Nexus OS, detonate contexts with Forge, and communicate natively with Pidgeon.
     </motion.p>
 
     <motion.div 
@@ -78,13 +75,75 @@ const Hero = () => (
       transition={{ delay: 0.3 }}
       className="flex flex-col sm:flex-row gap-4"
     >
-      <button className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm transition-all flex items-center gap-2">
-        Deploy Forge Core <ArrowRight size={16} />
+      <button className="px-10 py-5 bg-white text-black rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-slate-200 transition-all shadow-[0_0_50px_rgba(255,255,255,0.1)] flex items-center gap-3">
+        <Download size={18} /> Download Nexus & Suite
       </button>
-      <button className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-xl font-bold text-sm transition-all">
-        Ingestion Guide
+      <button className="px-10 py-5 bg-white/5 text-white border border-white/10 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all">
+        View Installation Guide
       </button>
     </motion.div>
+    
+    <div className="mt-12 font-mono text-[10px] text-blue-400/60 uppercase tracking-[0.3em]">
+      irm get.yukora.org | iex
+    </div>
+  </section>
+);
+
+const TheSuite = () => (
+  <section id="suite" className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
+    <div className="text-center mb-24">
+      <h2 className="text-4xl font-bold text-white mb-6">The Sovereign Suite</h2>
+      <p className="text-slate-400 max-w-2xl mx-auto">
+        A unified ecosystem of functional relationships, distributed through Yukora.
+      </p>
+    </div>
+
+    <div className="grid lg:grid-cols-3 gap-8">
+      {/* Forge */}
+      <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-10 relative group hover:bg-white/[0.04] transition-all">
+        <div className="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-8 text-blue-400">
+          <Zap size={28} />
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-2">Forge Engine</h3>
+        <div className="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-6">Ephemeral Power</div>
+        <p className="text-slate-400 text-sm leading-relaxed mb-8">
+          The muscle of the trinity. Forge handles all compute via <strong>Zip-and-Detonate</strong> logic, ensuring logic exists only in RAM and shreds itself post-execution.
+        </p>
+        <div className="p-4 rounded-xl bg-blue-500/5 border border-blue-500/10 font-mono text-[10px] text-blue-400">
+          [FORGE] Detonating... [SUCCESS]
+        </div>
+      </div>
+
+      {/* Pidgeon */}
+      <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-10 relative group hover:bg-white/[0.04] transition-all">
+        <div className="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center mb-8 text-emerald-400">
+          <MessageSquare size={28} />
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-2">Pidgeon Mesh</h3>
+        <div className="text-[10px] font-black text-emerald-500 uppercase tracking-widest mb-6">Secure Contexts</div>
+        <p className="text-slate-400 text-sm leading-relaxed mb-8">
+          The memory of the system. Pidgeon provides native, encrypted command-line communication, negating web-based file sharing through direct peer context pulling.
+        </p>
+        <div className="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/10 font-mono text-[10px] text-emerald-400">
+          [PIDGEON] Native Pull: analytics.nxs
+        </div>
+      </div>
+
+      {/* Bridge / Nexus */}
+      <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-10 relative group hover:bg-white/[0.04] transition-all">
+        <div className="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-8 text-purple-400">
+          <Layers size={28} />
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-2">Bridge Logistics</h3>
+        <div className="text-[10px] font-black text-purple-500 uppercase tracking-widest mb-6">The Logic Layer</div>
+        <p className="text-slate-400 text-sm leading-relaxed mb-8">
+          Where Nexus OS runs. Bridge orchestrates the logistics between Forge compute and Pidgeon transport, coordinating the life-cycle of every sovereign shipment.
+        </p>
+        <div className="p-4 rounded-xl bg-purple-500/5 border border-purple-500/10 font-mono text-[10px] text-purple-400">
+          [BRIDGE] START: Nexus OS active.
+        </div>
+      </div>
+    </div>
   </section>
 );
 
@@ -129,41 +188,6 @@ const ForgeCore = () => (
           <div className="text-emerald-500">// Task: Audit_Cleanup [SUCCESS]</div>
           <div className="text-purple-500">// Final State: Baseline Restored (0B Drift)</div>
         </div>
-      </div>
-    </div>
-  </section>
-);
-
-const DeveloperBridge = () => (
-  <section id="bridge" className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
-    <div className="text-center mb-24">
-      <h2 className="text-4xl font-bold text-white mb-6">The Developer Bridge</h2>
-      <p className="text-slate-400 max-w-2xl mx-auto">
-        Don't rewrite your infrastructure. Bridge it. Forge provides native shims for the industry's most popular tools.
-      </p>
-    </div>
-
-    <div className="grid md:grid-cols-2 gap-8">
-      <div className="p-10 rounded-[2.5rem] bg-gradient-to-br from-blue-900/20 to-slate-900/50 border border-white/10 group hover:bg-white/[0.04] transition-all">
-        <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-8 text-blue-400">
-          <Settings size={24} />
-        </div>
-        <h3 className="text-2xl font-bold text-white mb-4">Docker Shim</h3>
-        <p className="text-slate-400 text-sm leading-relaxed mb-8">
-          Flatten Docker layers into single-detonation seeds. Eliminate the Docker daemon at runtime and run containers with 10.5x less overhead.
-        </p>
-        <div className="text-[10px] font-bold text-blue-500 uppercase tracking-widest">Available Now</div>
-      </div>
-
-      <div className="p-10 rounded-[2.5rem] bg-gradient-to-br from-purple-900/20 to-slate-900/50 border border-white/10 group hover:bg-white/[0.04] transition-all">
-        <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-8 text-purple-400">
-          <Code size={24} />
-        </div>
-        <h3 className="text-2xl font-bold text-white mb-4">Airflow Bridge</h3>
-        <p className="text-slate-400 text-sm leading-relaxed mb-8">
-          Wrap existing Airflow DAGs. Forge transforms them into Recursive Graphs that automatically prune metadata as tasks complete.
-        </p>
-        <div className="text-[10px] font-bold text-purple-500 uppercase tracking-widest">Available Now</div>
       </div>
     </div>
   </section>
@@ -222,6 +246,41 @@ const BentoGrid = () => (
         </div>
       </div>
 
+    </div>
+  </section>
+);
+
+const DeveloperBridge = () => (
+  <section id="bridge" className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
+    <div className="text-center mb-24">
+      <h2 className="text-4xl font-bold text-white mb-6">The Developer Bridge</h2>
+      <p className="text-slate-400 max-w-2xl mx-auto">
+        Don't rewrite your infrastructure. Bridge it. Forge provides native shims for the industry's most popular tools.
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-8">
+      <div className="p-10 rounded-[2.5rem] bg-gradient-to-br from-blue-900/20 to-slate-900/50 border border-white/10 group hover:bg-white/[0.04] transition-all">
+        <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-8 text-blue-400">
+          <Settings size={24} />
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-4">Docker Shim</h3>
+        <p className="text-slate-400 text-sm leading-relaxed mb-8">
+          Flatten Docker layers into single-detonation seeds. Eliminate the Docker daemon at runtime and run containers with 10.5x less overhead.
+        </p>
+        <div className="text-[10px] font-bold text-blue-500 uppercase tracking-widest">Available Now</div>
+      </div>
+
+      <div className="p-10 rounded-[2.5rem] bg-gradient-to-br from-purple-900/20 to-slate-900/50 border border-white/10 group hover:bg-white/[0.04] transition-all">
+        <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-8 text-purple-400">
+          <Code size={24} />
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-4">Airflow Bridge</h3>
+        <p className="text-slate-400 text-sm leading-relaxed mb-8">
+          Wrap existing Airflow DAGs. Forge transforms them into Recursive Graphs that automatically prune metadata as tasks complete.
+        </p>
+        <div className="text-[10px] font-bold text-purple-500 uppercase tracking-widest">Available Now</div>
+      </div>
     </div>
   </section>
 );
@@ -404,7 +463,6 @@ const WorkingDemos = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-12">
-        {/* Sidebar Navigation */}
         <div className="lg:w-1/3 space-y-2">
           {demos.map((d, i) => (
             <button 
@@ -427,7 +485,6 @@ const WorkingDemos = () => {
           ))}
         </div>
 
-        {/* Display Area */}
         <div className="lg:w-2/3">
           <div className="bg-[#0a0f1e] border border-white/10 rounded-[2.5rem] p-10 h-full flex flex-col">
             <div className="mb-8">
@@ -452,7 +509,6 @@ const WorkingDemos = () => {
               </div>
             </div>
 
-            {/* Terminal Simulation */}
             <div className="bg-black/50 rounded-2xl border border-white/5 p-6 font-mono text-xs flex-grow overflow-hidden flex flex-col">
               <div className="flex items-center gap-2 mb-4 pb-4 border-b border-white/5">
                 <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
@@ -475,7 +531,7 @@ const WorkingDemos = () => {
                     className={`${
                       log.includes('[ERROR]') ? 'text-red-400' :
                       log.includes('[SUCCESS]') || log.includes('[PASS]') ? 'text-emerald-400' :
-                      log.includes('[BRIDGE]') || log.includes('[NEXUS]') ? 'text-blue-300' :
+                      log.includes('[BRIDGE]') || log.includes('[NEXUS]') || log.includes('[FORGE]') || log.includes('[PIDGEON]') ? 'text-blue-300' :
                       'text-slate-500'
                     }`}
                   >
@@ -654,37 +710,6 @@ const EmergentRelationships = () => (
   </section>
 );
 
-const ArchiveSection = () => {
-  const archives = [
-    { name: "Project Nemo", desc: "Volatile Intelligence & Pattern Memory.", path: "/nemo" },
-    { name: "Nexus OS", desc: "Sovereign Shell & Artifact Mesh.", path: "/nexus" },
-    { name: "Spectre", desc: "Hardware-rooted identity protocol.", path: "/spectre" },
-    { name: "Prism", desc: "Volatile UI visualization layer.", path: "/prism" },
-    { name: "VaultZero", desc: "Foundational local-first storage.", path: "/vaultzero" }
-  ];
-
-  return (
-    <section id="archives" className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
-      <div className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-2">Experimental Research & Core Prototypes</h2>
-        <p className="text-slate-500 text-sm">High-threshold initiatives currently in active R&D. Developed for future collaboration.</p>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {archives.map((a, i) => (
-          <a 
-            key={i} 
-            href={a.path}
-            className="p-6 rounded-2xl bg-white/[0.01] border border-white/5 hover:border-white/10 hover:bg-white/[0.02] transition-all group"
-          >
-            <h4 className="text-white font-bold text-sm mb-2 group-hover:text-blue-400 transition-colors">{a.name}</h4>
-            <p className="text-slate-600 text-[10px] leading-relaxed uppercase tracking-wider">{a.desc}</p>
-          </a>
-        ))}
-      </div>
-    </section>
-  );
-};
-
 const EnterpriseROI = () => (
   <section className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
     <div className="grid lg:grid-cols-2 gap-24 items-center">
@@ -732,6 +757,37 @@ const EnterpriseROI = () => (
     </div>
   </section>
 );
+
+const ArchiveSection = () => {
+  const archives = [
+    { name: "Project Nemo", desc: "Volatile Intelligence & Pattern Memory.", path: "/nemo" },
+    { name: "Nexus OS", desc: "Sovereign Shell & Artifact Mesh.", path: "/nexus" },
+    { name: "Spectre", desc: "Hardware-rooted identity protocol.", path: "/spectre" },
+    { name: "Prism", desc: "Volatile UI visualization layer.", path: "/prism" },
+    { name: "VaultZero", desc: "Foundational local-first storage.", path: "/vaultzero" }
+  ];
+
+  return (
+    <section id="archives" className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
+      <div className="mb-16">
+        <h2 className="text-2xl font-bold text-white mb-2">Experimental Research & Core Prototypes</h2>
+        <p className="text-slate-500 text-sm">High-threshold initiatives currently in active R&D. Developed for future collaboration.</p>
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {archives.map((a, i) => (
+          <a 
+            key={i} 
+            href={a.path}
+            className="p-6 rounded-2xl bg-white/[0.01] border border-white/5 hover:border-white/10 hover:bg-white/[0.02] transition-all group"
+          >
+            <h4 className="text-white font-bold text-sm mb-2 group-hover:text-blue-400 transition-colors">{a.name}</h4>
+            <p className="text-slate-600 text-[10px] leading-relaxed uppercase tracking-wider">{a.desc}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 const DeploymentCTA = () => (
   <section id="enterprise" className="py-48 px-6 text-center border-t border-white/5 bg-gradient-to-b from-transparent to-blue-900/10">
@@ -804,6 +860,7 @@ export default function App() {
     <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-blue-500/30">
       <Navbar />
       <Hero />
+      <TheSuite />
       <ForgeCore />
       <BentoGrid />
       <DeveloperBridge />
