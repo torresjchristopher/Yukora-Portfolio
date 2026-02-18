@@ -201,12 +201,23 @@ const WorkingDemos = () => {
       ]
     },
     {
+      title: "Inertia Audit",
+      subtitle: "System Reclamation",
+      logs: [
+        "[NEXUS] START: Sovereign Shell Active.",
+        "[LENS] Deciphering NX- Protocol codes...",
+        "[INERTIA] 4.2GB Legacy Bloat Detected!",
+        "[RECLAIM] forge reclaim --all",
+        "[SUCCESS] Baseline Restored. 0B Drift."
+      ]
+    },
+    {
       title: "Live Hotfix",
       subtitle: "Pidgeon Sync",
       logs: [
         "[BRIDGE] bridge follow collaborator_01",
-        "[PIDGEON] Subscribed to delta stream...",
-        "[PRIME] Forge: Pre-hydrating RAM buffer...",
+        "[PIDGEON] Masked Route: phantom-node-882",
+        "[PRIME] Pre-hydrating incoming buffer...",
         "[STATUS] Mirroring Active. Work Synchronized."
       ]
     }
