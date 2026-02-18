@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { 
   Zap, 
   Layers,
-  MessageSquare
+  MessageSquare,
+  Eye
 } from 'lucide-react';
 
 // --- Cinematic Background ---
@@ -125,31 +126,38 @@ const ProofOfZero = () => {
 
 const TheSuite = () => (
   <section id="suite" className="max-w-7xl mx-auto px-8 py-48 border-t border-white/[0.03]">
-    <div className="grid lg:grid-cols-3 gap-px bg-white/[0.03] border border-white/[0.03] rounded-sm overflow-hidden shadow-2xl">
+    <div className="grid lg:grid-cols-2 gap-px bg-white/[0.03] border border-white/[0.03] rounded-sm overflow-hidden shadow-2xl">
       {[
         { 
           title: "Forge Engine", 
-          label: "The Muscle", 
-          desc: "Recursive RAM-only detonation. 10.5x faster than legacy Docker/Airflow stacks.",
+          label: "Ephemeral Power", 
+          desc: "Recursive RAM-only detonation. 10.5x faster than legacy stacks. Shreds forensics in real-time.",
           icon: <Zap size={32} />,
           color: "group-hover:text-blue-400"
         },
         { 
           title: "Pidgeon Mesh", 
-          label: "The Memory", 
-          desc: "Native context sharing. Negates web-based file transfers via direct peer pulling.",
+          label: "Secure Contexts", 
+          desc: "Native peer-to-peer file organization. Negates web-based sharing via direct context pulling.",
           icon: <MessageSquare size={32} />,
           color: "group-hover:text-emerald-400"
         },
         { 
-          title: "Nexus OS", 
-          label: "The Will", 
-          desc: "Deep-autofill shell environment. The command-caliber gateway for the trinity.",
+          title: "Ghost Identity", 
+          label: "Illusive Masking", 
+          desc: "Masked Spectre IDs for anonymous co-creation. Resolves real-world pointers in silence.",
+          icon: <Eye size={32} />,
+          color: "group-hover:text-blue-500"
+        },
+        { 
+          title: "The Nexus Lens", 
+          label: "Spatial HUD", 
+          desc: "A spatial workspace overlay. Maps your local file tree to the Sovereign Mesh in real-time.",
           icon: <Layers size={32} />,
           color: "group-hover:text-purple-400"
         }
       ].map((item, i) => (
-        <div key={i} className="illusive-card p-16 group relative h-[450px] flex flex-col justify-between">
+        <div key={i} className="illusive-card p-16 group relative h-[400px] flex flex-col justify-between">
           <div className="absolute top-0 right-0 p-12 text-6xl font-black text-white/[0.02] italic">{i+1}</div>
           <div>
             <div className={`mb-12 transition-colors duration-700 ${item.color}`}>
@@ -160,7 +168,7 @@ const TheSuite = () => (
             <p className="text-slate-500 text-xs leading-relaxed max-w-xs">{item.desc}</p>
           </div>
           <div className="text-[9px] font-mono text-slate-800 uppercase tracking-widest group-hover:text-slate-600 transition-colors">
-            Verified_Protocol_Active
+            Protocol_Iteration_Ready
           </div>
         </div>
       ))}
