@@ -45,9 +45,9 @@ const Navbar = () => (
       
       <div className="hidden md:flex gap-12 text-slate-500">
         <a href="#suite" className="hover:text-white transition-colors">The Suite</a>
+        <a href="#updates" className="hover:text-white transition-colors">Updates</a>
         <a href="#demos" className="hover:text-white transition-colors">Demos</a>
         <a href="#benchmarks" className="hover:text-white transition-colors">Performance</a>
-        <a href="#archives" className="hover:text-white transition-colors">Archives</a>
       </div>
 
       <button className="px-6 py-3 border border-white/10 rounded-sm hover:bg-white hover:text-black transition-all duration-700">
@@ -172,6 +172,68 @@ const TheSuite = () => (
           </div>
         </div>
       ))}
+    </div>
+  </section>
+);
+
+const IntelligenceReports = () => (
+  <section id="updates" className="max-w-7xl mx-auto px-8 py-48 border-t border-white/[0.03]">
+    <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+      <div>
+        <h2 className="text-4xl font-bold text-white mb-4 italic uppercase">Intelligence Reports.</h2>
+        <p className="text-slate-400 max-w-xl">Architectural records of the Sovereign Trinity evolution.</p>
+      </div>
+      <div className="text-[10px] font-black text-slate-700 uppercase tracking-[0.4em]">Official_Release_Stream</div>
+    </div>
+
+    <div className="grid lg:grid-cols-1 gap-12">
+      <div className="glass rounded-[2rem] p-16 border-blue-500/10 relative overflow-hidden group hover:border-blue-500/30 transition-all duration-1000">
+        <div className="absolute top-0 right-0 p-16 text-[10rem] font-black text-white/[0.01] pointer-events-none group-hover:text-blue-500/[0.02] transition-colors">1.1</div>
+        
+        <div className="max-w-4xl">
+          <div className="flex items-center gap-4 mb-12">
+            <span className="px-3 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold uppercase tracking-widest">Release 1.1</span>
+            <span className="text-slate-600 text-[10px] font-mono">Feb 13, 2026</span>
+          </div>
+          
+          <h3 className="text-5xl font-black text-white mb-12 italic tracking-tighter leading-tight">Nexus 1.1: Ambient <br/><span className="text-blue-500">Logistical Fusion.</span></h3>
+          
+          <div className="grid md:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <div>
+                <h4 className="text-blue-400 font-bold text-sm uppercase tracking-widest mb-4">Project Evolution</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  The Sovereign Trinity (Nexus, Forge, Pidgeon) has transitioned from discrete command-line tools into a unified, ambient ecosystem. Our foundation is built on <strong>Zero-Inertia</strong> principles—ensuring that data only exists in RAM during detonation and leaves no forensic trace upon completion.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-blue-400 font-bold text-sm uppercase tracking-widest mb-4">The Synthesis So Far</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Nexus OS now deciphers the workspace using the <strong>NX- Protocol</strong>, while Bridge coordinates peer-to-peer "Shipments" through the Pidgeon mesh. This negates traditional file-sharing overhead and secures co-creation natively.
+                </p>
+              </div>
+            </div>
+            
+            <div className="space-y-8">
+              <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
+                <h4 className="text-white font-bold text-sm mb-4">Latest Thinking: Anticipatory Detonation</h4>
+                <p className="text-slate-500 text-xs leading-relaxed mb-6">
+                  Nexus 1.1 introduces <strong>Heuristic Context Gravity</strong>. The OS now assigns 'Mass' to your files and sequences, allowing Forge to pre-hydrate high-gravity buffers in RAM before you even type a command.
+                </p>
+                <div className="font-mono text-[9px] text-blue-500/60 uppercase">
+                  Status: Fusing Gravity + Streaming... [STABLE]
+                </div>
+              </div>
+              <div>
+                <h4 className="text-blue-400 font-bold text-sm uppercase tracking-widest mb-4">Future Trajectory</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  The next logical innovation is <strong>Predictive Scaffolding</strong>. Nemo's pattern memory will move beyond simple autofill, using 'Synthetic Git' to suggest and build entire environments before you commit to reality.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 );
@@ -336,6 +398,7 @@ export default function App() {
       <Hero />
       <ProofOfZero />
       <TheSuite />
+      <IntelligenceReports />
       <WorkingDemos />
       <SystemMetrics />
       
