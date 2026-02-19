@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Zap, 
@@ -18,7 +19,7 @@ const NeuralBackground = () => (
         y: [0, -20, 0]
       }}
       transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-      className="absolute top-[-15%] right-[-15%] w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[120px]"
+      className="absolute top-[-15%] right-[-15%] w-[800px] h-[800px] bg-slate-500/5 rounded-full blur-[120px]"
     />
     <motion.div 
       animate={{ 
@@ -27,34 +28,34 @@ const NeuralBackground = () => (
         y: [0, 40, 0]
       }}
       transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-      className="absolute bottom-[-20%] left-[-10%] w-[700px] h-[700px] bg-indigo-500/5 rounded-full blur-[120px]"
+      className="absolute bottom-[-20%] left-[-10%] w-[700px] h-[700px] bg-slate-600/5 rounded-full blur-[120px]"
     />
   </div>
 );
 
 const Navbar = () => (
-  <nav className="fixed top-0 w-full z-50 bg-slate-900/40 backdrop-blur-xl border-b border-slate-700/30">
+  <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-xl border-b border-slate-800/50">
     <div className="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
       <div className="flex items-center gap-8">
         <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-          <div className="w-7 h-7 bg-gradient-to-br from-blue-400 to-indigo-600 rounded flex items-center justify-center group-hover:shadow-lg transition-all duration-300 shadow-md">
-            <span className="text-white font-black text-sm">E</span>
+          <div className="w-7 h-7 bg-gradient-to-br from-slate-300 to-slate-600 rounded flex items-center justify-center group-hover:shadow-lg transition-all duration-300 shadow-md">
+            <span className="text-slate-950 font-black text-sm">E</span>
           </div>
           <div className="flex flex-col leading-tight">
             <span className="text-white font-bold text-base tracking-tight">Ethereal</span>
-            <span className="text-slate-400 text-xs font-medium">by Yukora AI Lab</span>
+            <span className="text-slate-500 text-xs font-medium">by Yukora AI Lab</span>
           </div>
         </div>
       </div>
       
-      <div className="hidden md:flex gap-16 text-sm text-slate-300">
-        <a href="#suite" className="hover:text-white transition-colors font-medium">Platform</a>
-        <a href="#updates" className="hover:text-white transition-colors font-medium">Research</a>
-        <a href="#demos" className="hover:text-white transition-colors font-medium">Use Cases</a>
-        <a href="#interactive" className="hover:text-white transition-colors font-medium">Demo</a>
+      <div className="hidden md:flex gap-16 text-sm text-slate-400">
+        <a href="#suite" className="hover:text-slate-200 transition-colors font-medium">Platform</a>
+        <a href="#updates" className="hover:text-slate-200 transition-colors font-medium">Research</a>
+        <a href="#demos" className="hover:text-slate-200 transition-colors font-medium">Use Cases</a>
+        <a href="#interactive" className="hover:text-slate-200 transition-colors font-medium">Demo</a>
       </div>
 
-      <button className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 font-medium text-sm shadow-md hover:scale-105">
+      <button className="px-6 py-2.5 bg-gradient-to-r from-slate-300 to-slate-500 text-slate-950 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-sm shadow-md hover:scale-105">
         Get Started
       </button>
     </div>
@@ -67,7 +68,7 @@ const Hero = () => (
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-      className="mb-8 text-sm text-blue-400 font-semibold uppercase tracking-wider"
+      className="mb-8 text-sm text-slate-400 font-semibold uppercase tracking-wider"
     >
       Enterprise Infrastructure Platform
     </motion.div>
@@ -96,10 +97,10 @@ const Hero = () => (
       transition={{ delay: 0.6 }}
       className="flex flex-col md:flex-row items-center justify-center gap-6"
     >
-      <button className="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-xl transition-all shadow-lg hover:scale-105">
+      <button className="px-8 py-3.5 bg-gradient-to-r from-slate-300 to-slate-500 text-slate-950 font-semibold rounded-lg hover:shadow-xl transition-all shadow-lg hover:scale-105">
         Start Free Trial
       </button>
-      <button className="px-8 py-3.5 border-2 border-slate-600 text-white font-semibold rounded-lg hover:border-slate-500 hover:bg-slate-800/50 transition-all">
+      <button className="px-8 py-3.5 border-2 border-slate-600 text-white font-semibold rounded-lg hover:border-slate-400 hover:bg-slate-800/50 transition-all">
         View Docs
       </button>
     </motion.div>
@@ -152,7 +153,7 @@ const TheSuite = () => (
           label: "Memory-First Execution", 
           desc: "Task execution in isolated, ephemeral memory buffers. All computation occurs in RAM during runtime with guaranteed cleanup. Zero infrastructure footprint post-execution. 10x faster than persistent stacks.",
           icon: <Zap size={28} />,
-          color: "text-blue-400"
+          color: "text-slate-300"
         },
         { 
           title: "Pidgeon", 
@@ -203,11 +204,11 @@ const IntelligenceReports = () => (
 
     <div className="grid lg:grid-cols-1 gap-8">
       <div className="relative group">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
-        <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-md border border-slate-700/40 rounded-2xl p-12 hover:border-slate-600/60 transition-all group-hover:shadow-xl group-hover:shadow-blue-500/10">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-500/10 to-slate-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+        <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-md border border-slate-700/40 rounded-2xl p-12 hover:border-slate-600/60 transition-all group-hover:shadow-xl group-hover:shadow-slate-500/10">
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-8">
-              <span className="px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-semibold uppercase tracking-wider rounded-lg">Release 1.1</span>
+              <span className="px-4 py-2 bg-gradient-to-r from-slate-300 to-slate-500 text-slate-950 text-xs font-semibold uppercase tracking-wider rounded-lg">Release 1.1</span>
               <span className="text-slate-400 text-sm font-mono">February 13, 2026</span>
             </div>
             
@@ -216,13 +217,13 @@ const IntelligenceReports = () => (
             <div className="grid md:grid-cols-2 gap-12">
               <div className="space-y-8">
                 <div>
-                  <h4 className="text-sm font-bold text-blue-400 uppercase tracking-wider mb-3">Research Foundation</h4>
+                  <h4 className="text-sm font-bold text-slate-300 uppercase tracking-wider mb-3">Research Foundation</h4>
                   <p className="text-slate-300 leading-relaxed">
                     Built on principles from <strong>serverless architecture</strong> (Baldini et al., 2017) and <strong>ephemeral computing</strong> (Pearce et al., 2019). Nexus 1.1 synthesizes Forge Engine (task execution), Pidgeon (P2P sync), and Nexus Lens (context orchestration) into a <strong>zero-residue compute platform</strong>.
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-blue-400 uppercase tracking-wider mb-3">How It Works</h4>
+                  <h4 className="text-sm font-bold text-slate-300 uppercase tracking-wider mb-3">How It Works</h4>
                   <p className="text-slate-300 leading-relaxed">
                     Nexus Lens learns workspace patterns. Forge Engine allocates ephemeral buffers with guaranteed cleanup. Pidgeon handles encrypted sync. Implementation follows <strong>zero-knowledge proof principles</strong> (Ben-Sasson et al., 2014) for collaborative identity masking.
                   </p>
@@ -235,12 +236,12 @@ const IntelligenceReports = () => (
                   <p className="text-slate-300 text-sm leading-relaxed mb-6">
                     Predictive buffer pre-allocation using pattern recognition. 65% latency reduction through anticipatory memory hydration (inspired by Müller et al., 2020).
                   </p>
-                  <div className="font-mono text-xs text-blue-400 bg-black/30 p-3 rounded border border-slate-700/50">
+                  <div className="font-mono text-xs text-slate-300 bg-black/30 p-3 rounded border border-slate-700/50">
                     [NEXUS] Context Pattern: 98.4% accuracy | Pre-hydration active
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-blue-400 uppercase tracking-wider mb-3">Key References</h4>
+                  <h4 className="text-sm font-bold text-slate-300 uppercase tracking-wider mb-3">Key References</h4>
                   <ul className="text-slate-400 text-xs space-y-2 font-mono">
                     <li>• Baldini et al., "Serverless Computing..." (2017)</li>
                     <li>• Ben-Sasson et al., "Zerocash..." (2014)</li>
@@ -352,11 +353,11 @@ const InteractiveDemo = () => {
             {/* Terminal Output */}
             <div className="font-mono text-sm p-8 h-96 overflow-y-auto space-y-1 bg-gradient-to-b from-slate-950 to-black">
               {output.map((line, i) => (
-                <div key={i} className={line.startsWith("$") ? "text-blue-400" : line.includes("SUCCESS") ? "text-green-400" : line.includes("ERROR") ? "text-red-400" : "text-slate-300"}>
+                <div key={i} className={line.startsWith("$") ? "text-slate-300" : line.includes("SUCCESS") ? "text-green-400" : line.includes("ERROR") ? "text-red-400" : "text-slate-300"}>
                   {line}
                 </div>
               ))}
-              {isExecuting && <div className="text-blue-400 animate-pulse">▸ Executing...</div>}
+              {isExecuting && <div className="text-slate-300 animate-pulse">▸ Executing...</div>}
             </div>
 
             {/* Input Area */}
@@ -387,7 +388,7 @@ const InteractiveDemo = () => {
                   key={i}
                   onClick={() => executeCommand(suggestion)}
                   disabled={isExecuting}
-                  className="w-full text-left text-xs text-blue-400 hover:text-blue-300 font-mono p-3 rounded bg-slate-900/50 hover:bg-slate-900 transition-colors border border-slate-700/30 hover:border-blue-500/30 disabled:opacity-50"
+                  className="w-full text-left text-xs text-slate-300 hover:text-slate-200 font-mono p-3 rounded bg-slate-900/50 hover:bg-slate-900 transition-colors border border-slate-700/30 hover:border-slate-500/30 disabled:opacity-50"
                 >
                   {suggestion}
                 </button>
@@ -474,8 +475,8 @@ const WorkingDemos = () => {
             onClick={() => setExpandedCase(expandedCase === i ? null : i)}
             className="group cursor-pointer relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
-            <div className="relative bg-slate-800/30 backdrop-blur-md border border-slate-700/40 rounded-2xl p-8 hover:border-slate-600/60 transition-all group-hover:shadow-xl group-hover:shadow-blue-500/10">
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-500/10 to-slate-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+            <div className="relative bg-slate-800/30 backdrop-blur-md border border-slate-700/40 rounded-2xl p-8 hover:border-slate-600/60 transition-all group-hover:shadow-xl group-hover:shadow-slate-500/10">
               {/* Header Row */}
               <div className="flex items-start justify-between mb-6">
                 <div>
@@ -488,7 +489,7 @@ const WorkingDemos = () => {
               {/* Metrics Row */}
               <div className="grid grid-cols-3 gap-6 mb-6 pb-6 border-b border-slate-700/30">
                 <div>
-                  <div className="text-xs text-blue-400 font-semibold uppercase mb-1">Throughput</div>
+                  <div className="text-xs text-slate-300 font-semibold uppercase mb-1">Throughput</div>
                   <div className="text-2xl font-bold text-white">{study.metric}</div>
                 </div>
                 <div>
@@ -534,10 +535,10 @@ const WorkingDemos = () => {
 
                     {/* Tech Stack */}
                     <div>
-                      <div className="text-xs font-semibold text-blue-400 uppercase mb-3">Technologies</div>
+                      <div className="text-xs font-semibold text-slate-300 uppercase mb-3">Technologies</div>
                       <div className="flex flex-wrap gap-2">
                         {study.tech.map((t, j) => (
-                          <span key={j} className="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-xs text-blue-300">
+                          <span key={j} className="px-3 py-1 bg-slate-600/20 border border-slate-600/30 rounded-full text-xs text-slate-300">
                             {t}
                           </span>
                         ))}
@@ -569,7 +570,7 @@ const SystemMetrics = () => (
       ].map((s, i) => (
         <div key={i} className="bg-slate-800/30 backdrop-blur-md border border-slate-700/40 rounded-xl p-8 hover:border-slate-600/60 transition-all">
           <div className="text-4xl font-bold text-white mb-3">{s.val}</div>
-          <div className="text-xs font-semibold text-blue-400 uppercase tracking-wider mb-3">{s.label}</div>
+          <div className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3">{s.label}</div>
           <p className="text-slate-400 text-sm">{s.desc}</p>
         </div>
       ))}
@@ -578,12 +579,12 @@ const SystemMetrics = () => (
 );
 
 const DeploymentCTA = () => (
-  <section className="py-24 px-8 border-t border-slate-700/50 bg-gradient-to-r from-blue-600/20 via-indigo-600/20 to-purple-600/20 backdrop-blur-md">
+  <section className="py-24 px-8 border-t border-slate-700/50 bg-gradient-to-r from-slate-700/20 via-slate-600/20 to-slate-700/20 backdrop-blur-md">
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-5xl font-bold text-white mb-8">Ready to Deploy?</h2>
       <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">Join enterprises optimizing infrastructure without infrastructure footprint.</p>
       <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-        <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold rounded-lg hover:shadow-xl transition-all shadow-lg">
+        <button className="px-8 py-4 bg-gradient-to-r from-slate-300 to-slate-500 text-slate-950 font-bold rounded-lg hover:shadow-xl transition-all shadow-lg">
           Start Free Trial
         </button>
         <button className="px-8 py-4 border-2 border-slate-600 text-white font-bold rounded-lg hover:border-slate-500 hover:bg-slate-800/30 transition-all">
@@ -605,8 +606,8 @@ const Footer = () => (
       <div className="grid md:grid-cols-3 gap-12 mb-12">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-indigo-600 rounded flex items-center justify-center">
-              <span className="text-white font-black text-xs">Y</span>
+            <div className="w-6 h-6 bg-gradient-to-br from-slate-300 to-slate-500 rounded flex items-center justify-center">
+              <span className="text-slate-950 font-black text-xs">Y</span>
             </div>
             <span className="text-lg font-bold text-white">Yukora</span>
           </div>
@@ -616,18 +617,18 @@ const Footer = () => (
         </div>
         <div>
           <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h4>
-          <div className="space-y-2 text-sm text-slate-400">
-            <a href="#" className="hover:text-white transition-colors">Ethereal Platform</a>
-            <a href="#" className="hover:text-white transition-colors">Documentation</a>
-            <a href="#" className="hover:text-white transition-colors">API Reference</a>
-            <a href="#" className="hover:text-white transition-colors">GitHub</a>
+          <div className="space-y-3 text-sm text-slate-400">
+            <Link to="/#suite" className="hover:text-slate-300 transition-colors block">Ethereal Platform</Link>
+            <Link to="/docs" className="hover:text-slate-300 transition-colors block">Documentation</Link>
+            <Link to="/api" className="hover:text-slate-300 transition-colors block">API Reference</Link>
+            <a href="https://github.com/torresjchristopher/forge" target="_blank" rel="noopener noreferrer" className="hover:text-slate-300 transition-colors block">GitHub</a>
           </div>
         </div>
         <div>
           <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact</h4>
           <div className="space-y-2">
             <p className="text-sm text-slate-400">
-              <a href="mailto:inquiries@yukora.org" className="hover:text-blue-400 transition-colors">inquiries@yukora.org</a>
+              <a href="mailto:inquiries@yukora.org" className="hover:text-slate-300 transition-colors">inquiries@yukora.org</a>
             </p>
             <p className="text-xs text-slate-500">Enterprise inquiries & partnerships</p>
           </div>
