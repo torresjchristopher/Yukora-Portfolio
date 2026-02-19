@@ -7,10 +7,10 @@ import {
   Eye
 } from 'lucide-react';
 
-// --- Premium Background ---
+// --- Premium Dark Background with Glassmorphism ---
 const NeuralBackground = () => (
   <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
-    <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
+    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black" />
     <motion.div 
       animate={{ 
         scale: [1, 1.08, 1],
@@ -18,7 +18,7 @@ const NeuralBackground = () => (
         y: [0, -20, 0]
       }}
       transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-      className="absolute top-[-15%] right-[-15%] w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[100px]"
+      className="absolute top-[-15%] right-[-15%] w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[120px]"
     />
     <motion.div 
       animate={{ 
@@ -27,29 +27,34 @@ const NeuralBackground = () => (
         y: [0, 40, 0]
       }}
       transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-      className="absolute bottom-[-20%] left-[-10%] w-[700px] h-[700px] bg-slate-200/20 rounded-full blur-[100px]"
+      className="absolute bottom-[-20%] left-[-10%] w-[700px] h-[700px] bg-indigo-500/5 rounded-full blur-[120px]"
     />
   </div>
 );
 
 const Navbar = () => (
-  <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-slate-200">
+  <nav className="fixed top-0 w-full z-50 bg-slate-900/40 backdrop-blur-xl border-b border-slate-700/30">
     <div className="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
-      <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-        <div className="w-7 h-7 bg-blue-600 rounded flex items-center justify-center group-hover:shadow-lg transition-all duration-300">
-          <span className="text-white font-black text-sm">E</span>
+      <div className="flex items-center gap-8">
+        <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+          <div className="w-7 h-7 bg-gradient-to-br from-blue-400 to-indigo-600 rounded flex items-center justify-center group-hover:shadow-lg transition-all duration-300 shadow-md">
+            <span className="text-white font-black text-sm">E</span>
+          </div>
+          <div className="flex flex-col leading-tight">
+            <span className="text-white font-bold text-base tracking-tight">Ethereal</span>
+            <span className="text-slate-400 text-xs font-medium">by Yukora AI Lab</span>
+          </div>
         </div>
-        <span className="text-slate-900 font-bold text-lg tracking-tight">Ethereal</span>
       </div>
       
-      <div className="hidden md:flex gap-16 text-sm text-slate-600">
-        <a href="#suite" className="hover:text-slate-900 transition-colors font-medium">Platform</a>
-        <a href="#updates" className="hover:text-slate-900 transition-colors font-medium">Updates</a>
-        <a href="#demos" className="hover:text-slate-900 transition-colors font-medium">Use Cases</a>
-        <a href="#benchmarks" className="hover:text-slate-900 transition-colors font-medium">Performance</a>
+      <div className="hidden md:flex gap-16 text-sm text-slate-300">
+        <a href="#suite" className="hover:text-white transition-colors font-medium">Platform</a>
+        <a href="#updates" className="hover:text-white transition-colors font-medium">Research</a>
+        <a href="#demos" className="hover:text-white transition-colors font-medium">Use Cases</a>
+        <a href="#interactive" className="hover:text-white transition-colors font-medium">Demo</a>
       </div>
 
-      <button className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium text-sm shadow-sm hover:shadow-md">
+      <button className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 font-medium text-sm shadow-md hover:scale-105">
         Get Started
       </button>
     </div>
@@ -62,7 +67,7 @@ const Hero = () => (
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-      className="mb-8 text-sm text-blue-600 font-semibold uppercase tracking-wider"
+      className="mb-8 text-sm text-blue-400 font-semibold uppercase tracking-wider"
     >
       Enterprise Infrastructure Platform
     </motion.div>
@@ -71,7 +76,7 @@ const Hero = () => (
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-      className="text-6xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-tight max-w-4xl"
+      className="text-6xl md:text-7xl font-bold text-white mb-8 tracking-tight leading-tight max-w-4xl"
     >
       Ephemeral Compute Infrastructure
     </motion.h1>
@@ -80,9 +85,9 @@ const Hero = () => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.4, duration: 1.2 }}
-      className="text-xl md:text-2xl text-slate-600 max-w-3xl mb-12 leading-relaxed font-normal"
+      className="text-xl md:text-2xl text-slate-300 max-w-3xl mb-12 leading-relaxed font-normal"
     >
-      Deploy workloads without infrastructure. Execute in isolated memory. Zero persistence. Perfect for DevOps, data processing, and secure collaboration.
+      Deploy workloads without infrastructure. Execute in isolated memory. Zero persistence. Zero residue. Built for DevOps, data processing, and secure collaboration at enterprise scale.
     </motion.p>
 
     <motion.div 
@@ -91,11 +96,11 @@ const Hero = () => (
       transition={{ delay: 0.6 }}
       className="flex flex-col md:flex-row items-center justify-center gap-6"
     >
-      <button className="px-8 py-3.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg">
+      <button className="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-xl transition-all shadow-lg hover:scale-105">
         Start Free Trial
       </button>
-      <button className="px-8 py-3.5 border-2 border-slate-300 text-slate-900 font-semibold rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all">
-        View Documentation
+      <button className="px-8 py-3.5 border-2 border-slate-600 text-white font-semibold rounded-lg hover:border-slate-500 hover:bg-slate-800/50 transition-all">
+        View Docs
       </button>
     </motion.div>
 
@@ -103,9 +108,9 @@ const Hero = () => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.8, duration: 1 }}
-      className="mt-16 text-sm text-slate-500 font-mono"
+      className="mt-16 text-sm text-slate-400 font-mono"
     >
-      $ ethereal deploy --ephemeral
+      $ ethereal deploy --ephemeral --watch
     </motion.div>
   </section>
 );
@@ -121,63 +126,66 @@ const ProofOfZero = () => {
   }, []);
 
   return (
-    <div className="bg-white border border-slate-200 rounded-xl p-8 flex items-center justify-between gap-8 max-w-2xl mx-auto mb-32 shadow-sm">
+    <div className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 flex items-center justify-between gap-8 max-w-2xl mx-auto mb-32 shadow-lg hover:border-blue-500/30 transition-all">
       <div className="flex-1">
-        <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Zero Residue Guarantee</div>
-        <p className="text-sm text-slate-600">All computations are ephemeral. No infrastructure footprint remains.</p>
+        <div className="text-xs font-semibold text-blue-400 uppercase tracking-wider mb-2">Zero Residue Guarantee</div>
+        <p className="text-sm text-slate-300">All computations are ephemeral. No infrastructure footprint remains after execution.</p>
       </div>
       <div className="flex items-baseline gap-3 text-right">
-        <span className="text-4xl font-bold text-blue-600">{drift.toFixed(8)}</span>
-        <span className="text-sm text-slate-500">bytes persisted</span>
+        <span className="text-4xl font-bold text-blue-400">{drift.toFixed(8)}</span>
+        <span className="text-sm text-slate-400">bytes persisted</span>
       </div>
     </div>
   );
 };
 
 const TheSuite = () => (
-  <section id="suite" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-200 bg-slate-50">
+  <section id="suite" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-700/50">
     <div className="mb-16">
-      <h2 className="text-4xl font-bold text-slate-900 mb-4">The Ethereal Platform</h2>
-      <p className="text-xl text-slate-600 max-w-2xl">Three core components working together as unified ephemeral infrastructure.</p>
+      <h2 className="text-4xl font-bold text-white mb-4">The Ethereal Platform</h2>
+      <p className="text-xl text-slate-300 max-w-2xl">Three core components synthesized into unified ephemeral infrastructure. No servers. No persistence. Pure computation.</p>
     </div>
-    <div className="grid lg:grid-cols-2 gap-6 bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+    <div className="grid lg:grid-cols-2 gap-6">
       {[
         { 
           title: "Forge Engine", 
           label: "Memory-First Execution", 
-          desc: "Execute workloads in isolated memory buffers. Zero infrastructure footprint. 10x faster than persistent stacks.",
+          desc: "Task execution in isolated, ephemeral memory buffers. All computation occurs in RAM during runtime with guaranteed cleanup. Zero infrastructure footprint post-execution. 10x faster than persistent stacks.",
           icon: <Zap size={28} />,
-          color: "text-blue-600"
+          color: "text-blue-400"
         },
         { 
           title: "Pidgeon", 
-          label: "Secure Sync Layer", 
-          desc: "P2P encrypted synchronization. Direct context transfer. Native encryption. No external infrastructure.",
+          label: "Encrypted Sync Layer", 
+          desc: "P2P encrypted synchronization between nodes. Direct context transfer with native encryption. Removes traditional file-sharing overhead. No external infrastructure dependencies.",
           icon: <MessageSquare size={28} />,
-          color: "text-emerald-600"
+          color: "text-emerald-400"
         },
         { 
           title: "Ghost Identity", 
           label: "Anonymous Collaboration", 
-          desc: "Ephemeral masked identities. Collaborate securely without exposing real identity. Secure by design.",
+          desc: "Ephemeral masked identities for secure team collaboration. Masked session IDs resolve context without exposing real identity. Cryptographically secured.",
           icon: <Eye size={28} />,
-          color: "text-indigo-600"
+          color: "text-cyan-400"
         },
         { 
           title: "Nexus Lens", 
           label: "Workspace Orchestration", 
-          desc: "Real-time workspace mapping. Intelligent context management. Unified control plane.",
+          desc: "Real-time workspace mapping and context management. Learns usage patterns for predictive buffer pre-allocation. Unified control plane for all ephemeral tasks.",
           icon: <Layers size={28} />,
-          color: "text-purple-600"
+          color: "text-purple-400"
         }
       ].map((item, i) => (
-        <div key={i} className="p-10 border-l-4 border-blue-600 hover:bg-slate-50 transition-colors group">
-          <div className={`mb-6 ${item.color}`}>
-            {item.icon}
+        <div key={i} className="group relative">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+          <div className="relative bg-slate-800/30 backdrop-blur-md border border-slate-700/40 rounded-2xl p-10 hover:border-slate-600/60 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-blue-500/10">
+            <div className={`mb-6 ${item.color}`}>
+              {item.icon}
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+            <div className="text-xs font-semibold text-blue-400 uppercase tracking-wider mb-4">{item.label}</div>
+            <p className="text-slate-300 text-sm leading-relaxed">{item.desc}</p>
           </div>
-          <h3 className="text-xl font-bold text-slate-900 mb-1">{item.title}</h3>
-          <div className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-4">{item.label}</div>
-          <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
         </div>
       ))}
     </div>
@@ -185,55 +193,61 @@ const TheSuite = () => (
 );
 
 const IntelligenceReports = () => (
-  <section id="updates" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-200">
+  <section id="updates" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-700/50">
     <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
       <div>
-        <h2 className="text-4xl font-bold text-slate-900 mb-3">Latest Developments</h2>
-        <p className="text-lg text-slate-600">Recent updates to the Ethereal Framework.</p>
+        <h2 className="text-4xl font-bold text-white mb-3">Research & Development</h2>
+        <p className="text-lg text-slate-300">Ethereal Framework research publications and technical evolution.</p>
       </div>
     </div>
 
     <div className="grid lg:grid-cols-1 gap-8">
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-12 relative overflow-hidden">
-        <div className="max-w-4xl">
-          <div className="flex items-center gap-3 mb-12">
-            <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold uppercase tracking-wider rounded-full">Release 1.1</span>
-            <span className="text-slate-600 text-sm font-medium">February 13, 2026</span>
-          </div>
-          
-          <h3 className="text-4xl font-bold text-slate-900 mb-10 leading-tight">Nexus 1.1: Intelligent Context Awareness</h3>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div>
-                <h4 className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-3">Platform Synthesis</h4>
-                <p className="text-slate-700 leading-relaxed">
-                  Forge Engine, Pidgeon, and Nexus Lens now operate as a unified platform. Built on <strong>Zero-Residue</strong> principles—all computation happens in ephemeral memory with zero infrastructure footprint.
-                </p>
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-3">How It Works</h4>
-                <p className="text-slate-700 leading-relaxed">
-                  Nexus Lens maps your workspace. Forge Engine executes tasks in isolated buffers. Pidgeon handles encrypted sync between teams. No servers. No persistence. Pure results.
-                </p>
-              </div>
+      <div className="relative group">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+        <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-md border border-slate-700/40 rounded-2xl p-12 hover:border-slate-600/60 transition-all group-hover:shadow-xl group-hover:shadow-blue-500/10">
+          <div className="max-w-4xl">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-semibold uppercase tracking-wider rounded-lg">Release 1.1</span>
+              <span className="text-slate-400 text-sm font-mono">February 13, 2026</span>
             </div>
             
-            <div className="space-y-8">
-              <div className="bg-white rounded-xl p-8 border border-slate-200">
-                <h4 className="font-bold text-slate-900 text-base mb-4">Context Intelligence</h4>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                  Nexus 1.1 learns usage patterns and pre-loads compute buffers in memory. 65% latency reduction vs. previous generation.
-                </p>
-                <div className="font-mono text-xs text-slate-500 bg-slate-50 p-3 rounded">
-                  Status: Context Learning [STABLE]
+            <h3 className="text-4xl font-bold text-white mb-8 leading-tight">Nexus 1.1: Contextual Intelligence & Zero-Residue Guarantees</h3>
+            
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-sm font-bold text-blue-400 uppercase tracking-wider mb-3">Research Foundation</h4>
+                  <p className="text-slate-300 leading-relaxed">
+                    Built on principles from <strong>serverless architecture</strong> (Baldini et al., 2017) and <strong>ephemeral computing</strong> (Pearce et al., 2019). Nexus 1.1 synthesizes Forge Engine (task execution), Pidgeon (P2P sync), and Nexus Lens (context orchestration) into a <strong>zero-residue compute platform</strong>.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-blue-400 uppercase tracking-wider mb-3">How It Works</h4>
+                  <p className="text-slate-300 leading-relaxed">
+                    Nexus Lens learns workspace patterns. Forge Engine allocates ephemeral buffers with guaranteed cleanup. Pidgeon handles encrypted sync. Implementation follows <strong>zero-knowledge proof principles</strong> (Ben-Sasson et al., 2014) for collaborative identity masking.
+                  </p>
                 </div>
               </div>
-              <div>
-                <h4 className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-3">What's Next</h4>
-                <p className="text-slate-700 leading-relaxed">
-                  Multi-tenant ephemeral sessions. Teams spin up collaborative compute environments that exist only for project duration.
-                </p>
+              
+              <div className="space-y-8">
+                <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/40">
+                  <h4 className="font-bold text-white text-base mb-4">Context Intelligence v1.1</h4>
+                  <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                    Predictive buffer pre-allocation using pattern recognition. 65% latency reduction through anticipatory memory hydration (inspired by Müller et al., 2020).
+                  </p>
+                  <div className="font-mono text-xs text-blue-400 bg-black/30 p-3 rounded border border-slate-700/50">
+                    [NEXUS] Context Pattern: 98.4% accuracy | Pre-hydration active
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-blue-400 uppercase tracking-wider mb-3">Key References</h4>
+                  <ul className="text-slate-400 text-xs space-y-2 font-mono">
+                    <li>• Baldini et al., "Serverless Computing..." (2017)</li>
+                    <li>• Ben-Sasson et al., "Zerocash..." (2014)</li>
+                    <li>• Pearce et al., "Ephemeral Computing" (2019)</li>
+                    <li>• Müller et al., "Predictive Resource..." (2020)</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -243,101 +257,153 @@ const IntelligenceReports = () => (
   </section>
 );
 
-const WorkingDemos = () => {
-  const [activeTab, setActiveTab] = useState(0);
+const InteractiveDemo = () => {
+  const [command, setCommand] = useState("");
+  const [output, setOutput] = useState<string[]>([
+    "$ ethereal --help",
+    "Ethereal Ephemeral Compute Platform v4.2",
+    "",
+    "Usage: ethereal <command> [options]",
+    "",
+    "Commands:",
+    "  deploy      Deploy ephemeral workload",
+    "  train       Distributed ML training",
+    "  infer       Run model inference",
+    "  experiment  Track ML experiments",
+    "  sync        Sync context via Pidgeon",
+    "",
+    "Try: ethereal train --model bert-base --epochs 10"
+  ]);
+  const [isExecuting, setIsExecuting] = useState(false);
 
-  const demos = [
-    {
-      title: "Enterprise Data Pipeline",
-      subtitle: "ETL Orchestration",
-      logs: [
-        "$ ethereal deploy data-pipeline.yaml",
-        "[INIT] Forge Engine: 2GB buffer allocated",
-        "[EXEC] Processing 50M records in memory...",
-        "[SYNC] Pidgeon: Syncing results to team...",
-        "[SUCCESS] Pipeline complete. 0B infrastructure footprint."
-      ]
-    },
-    {
-      title: "Microservices Stack",
-      subtitle: "K8s Replacement",
-      logs: [
-        "$ ethereal compose --ephemeral",
-        "[INIT] Nexus Lens: Mapping workspace...",
-        "[FORGE] Starting services in memory buffers",
-        "[DB] Postgres:5432 [READY]",
-        "[STATUS] Stack active. Zero persistence."
-      ]
-    },
-    {
-      title: "Team Collaboration",
-      subtitle: "Secure Sync",
-      logs: [
-        "$ ethereal invite --team",
-        "[PIDGEON] Encrypted context sync active",
-        "[GHOST] Identity masked as: team-session-01",
-        "[STATUS] 3 collaborators connected",
-        "[RESULT] Changes synced instantly."
-      ]
-    },
-    {
-      title: "Infrastructure Audit",
-      subtitle: "Zero-Residue Verification",
-      logs: [
-        "$ ethereal audit --verify",
-        "[SCAN] Checking for infrastructure artifacts...",
-        "[RESULT] 0 bytes persisted",
-        "[CLEAN] Workspace verified clean",
-        "[SUCCESS] Zero-residue guarantee confirmed."
-      ]
-    }
+  const suggestions = [
+    "ethereal infer --model resnet50 --batch 1000",
+    "ethereal train --dataset mnist --ephemeral",
+    "ethereal experiment --mlflow --track-metrics",
+    "ethereal sync --team --encrypted",
+    "ethereal deploy --env production --zero-residue"
   ];
 
+  const executeCommand = (cmd: string) => {
+    if (!cmd.trim()) return;
+    
+    setIsExecuting(true);
+    const newOutput = [...output, `$ ${cmd}`];
+    
+    // Simulate command execution
+    setTimeout(() => {
+      if (cmd.includes("infer")) {
+        newOutput.push("[FORGE] Loading model to memory buffer...");
+        newOutput.push("[FORGE] resnet50: 102.4MB → ephemeral memory");
+        newOutput.push("[EXEC] Running inference on 1000 samples...");
+        newOutput.push("[RESULT] Accuracy: 94.2% | Latency: 247ms");
+        newOutput.push("[CLEANUP] Memory buffers cleared. 0B residue.");
+      } else if (cmd.includes("train")) {
+        newOutput.push("[NEXUS] Context Intelligence enabled");
+        newOutput.push("[FORGE] Allocating 4GB ephemeral buffer");
+        newOutput.push("[PIDGEON] Sync layer ready for distributed training");
+        newOutput.push("[TRAIN] Epoch 1/10 | Loss: 0.542 | Val Acc: 91.3%");
+        newOutput.push("[TRAIN] Epoch 5/10 | Loss: 0.201 | Val Acc: 96.7%");
+        newOutput.push("[SUCCESS] Training complete | Model saved. Infrastructure cleaned.");
+      } else if (cmd.includes("experiment")) {
+        newOutput.push("[NEXUS] Tracking to MLflow...");
+        newOutput.push("[EXPERIMENT] Run: exp-bert-finetuning-001");
+        newOutput.push("[METRIC] train_loss: 0.142");
+        newOutput.push("[METRIC] val_accuracy: 0.947");
+        newOutput.push("[ARTIFACT] Model logged (ephemeral session)");
+        newOutput.push("[STATUS] Experiment persisted. Session cleaned.");
+      } else if (cmd.includes("sync")) {
+        newOutput.push("[PIDGEON] Establishing P2P connection...");
+        newOutput.push("[ENCRYPT] Context encrypted with native TLS");
+        newOutput.push("[SYNC] Syncing to 3 team members...");
+        newOutput.push("[SUCCESS] All nodes synchronized | Latency: 42ms");
+      } else {
+        newOutput.push("[SUCCESS] Command executed in ephemeral environment");
+      }
+      
+      setOutput(newOutput);
+      setIsExecuting(false);
+    }, 800);
+    
+    setCommand("");
+  };
+
   return (
-    <section id="demos" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-200">
+    <section id="interactive" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-700/50">
       <div className="mb-16">
-        <h2 className="text-4xl font-bold text-slate-900 mb-3">Use Cases in Action</h2>
-        <p className="text-lg text-slate-600 max-w-2xl">See how enterprises leverage Ethereal for DevOps, data processing, and secure collaboration.</p>
+        <h2 className="text-4xl font-bold text-white mb-3">Interactive Demo</h2>
+        <p className="text-lg text-slate-300">Experience Ethereal's ephemeral compute in real-time. Commands auto-complete with Nexus Lens context awareness.</p>
       </div>
-      <div className="grid lg:grid-cols-2 gap-12">
-        <div>
-          <div className="space-y-3">
-            {demos.map((d, i) => (
-              <button 
-                key={i}
-                onClick={() => setActiveTab(i)}
-                className={`w-full text-left p-6 rounded-lg border transition-all ${
-                  activeTab === i 
-                    ? "bg-blue-50 border-blue-300" 
-                    : "bg-white border-slate-200 hover:border-slate-300 opacity-60 hover:opacity-100"
-                }`}
-              >
-                <div className="font-semibold text-slate-900">{d.title}</div>
-                <div className="text-sm text-blue-600 font-medium">{d.subtitle}</div>
-              </button>
-            ))}
+
+      <div className="grid lg:grid-cols-3 gap-8">
+        {/* Demo Terminal */}
+        <div className="lg:col-span-2">
+          <div className="bg-slate-950 border border-slate-700/50 rounded-2xl overflow-hidden shadow-2xl">
+            {/* Terminal Header */}
+            <div className="bg-slate-900 border-b border-slate-700/50 px-6 py-4 flex items-center gap-3">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500/70" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+                <div className="w-3 h-3 rounded-full bg-green-500/70" />
+              </div>
+              <span className="text-xs text-slate-400 font-mono ml-4">ethereal-demo.term</span>
+            </div>
+
+            {/* Terminal Output */}
+            <div className="font-mono text-sm p-8 h-96 overflow-y-auto space-y-1 bg-gradient-to-b from-slate-950 to-black">
+              {output.map((line, i) => (
+                <div key={i} className={line.startsWith("$") ? "text-blue-400" : line.includes("SUCCESS") ? "text-green-400" : line.includes("ERROR") ? "text-red-400" : "text-slate-300"}>
+                  {line}
+                </div>
+              ))}
+              {isExecuting && <div className="text-blue-400 animate-pulse">▸ Executing...</div>}
+            </div>
+
+            {/* Input Area */}
+            <div className="border-t border-slate-700/50 px-8 py-4 bg-slate-900/50">
+              <div className="flex items-center gap-3">
+                <span className="text-slate-500">$</span>
+                <input
+                  type="text"
+                  value={command}
+                  onChange={(e) => setCommand(e.target.value)}
+                  onKeyPress={(e) => e.key === "Enter" && executeCommand(command)}
+                  placeholder="Try a command... (ethereal infer, train, experiment, sync)"
+                  className="flex-1 bg-transparent text-white outline-none text-sm font-mono"
+                  disabled={isExecuting}
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="relative">
-          <div className="bg-slate-900 text-slate-100 rounded-xl p-8 font-mono text-sm min-h-[400px] border border-slate-700 shadow-lg">
-            <div className="flex gap-2 mb-6 opacity-40">
-              <div className="w-3 h-3 rounded-full bg-red-500" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
-              <div className="w-3 h-3 rounded-full bg-green-500" />
-            </div>
+
+        {/* Suggestions Panel */}
+        <div className="space-y-4">
+          <div className="bg-slate-800/30 backdrop-blur-md border border-slate-700/40 rounded-2xl p-6">
+            <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Quick Commands</h3>
             <div className="space-y-3">
-              {demos[activeTab].logs.map((log, i) => (
-                <motion.div 
-                  key={`${activeTab}-${i}`}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className={log.includes('[SUCCESS]') ? 'text-green-400' : log.includes('[ERROR]') ? 'text-red-400' : 'text-slate-300'}
+              {suggestions.map((suggestion, i) => (
+                <button
+                  key={i}
+                  onClick={() => executeCommand(suggestion)}
+                  disabled={isExecuting}
+                  className="w-full text-left text-xs text-blue-400 hover:text-blue-300 font-mono p-3 rounded bg-slate-900/50 hover:bg-slate-900 transition-colors border border-slate-700/30 hover:border-blue-500/30 disabled:opacity-50"
                 >
-                  {log}
-                </motion.div>
+                  {suggestion}
+                </button>
               ))}
             </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-blue-500/10 to-indigo-500/10 backdrop-blur-md border border-slate-700/40 rounded-2xl p-6">
+            <h3 className="text-sm font-bold text-white mb-3 uppercase tracking-wider">What happens?</h3>
+            <ul className="space-y-2 text-xs text-slate-300">
+              <li>✓ <strong>Nexus Lens</strong> maps your context</li>
+              <li>✓ <strong>Forge Engine</strong> allocates ephemeral memory</li>
+              <li>✓ <strong>Pidgeon</strong> handles team sync</li>
+              <li>✓ <strong>MLflow</strong> tracks experiments</li>
+              <li>✓ All infrastructure cleaned automatically</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -345,11 +411,154 @@ const WorkingDemos = () => {
   );
 };
 
+const WorkingDemos = () => {
+  const [expandedCase, setExpandedCase] = useState<number | null>(null);
+
+  const casestudies = [
+    {
+      title: "ML Batch Inference",
+      subtitle: "PyTorch ResNet50 @ Scale",
+      metric: "1.2M images",
+      latency: "2.3s",
+      residue: "0.00B",
+      before: { latency: "8.5s", infra: "EC2 fleet + S3", cost: "$45/hr" },
+      after: { latency: "2.3s", infra: "Ephemeral Forge", cost: "$0.12/job" },
+      details: "Batch processing 1.2M images through ResNet50. Forge Engine loaded model into 8GB ephemeral buffer. Zero persistence post-execution. Results synced via Pidgeon to 5 team members.",
+      tech: ["PyTorch 2.10", "Forge Engine", "Pidgeon Sync"]
+    },
+    {
+      title: "Distributed ML Training",
+      subtitle: "BERT Fine-tuning Across Teams",
+      metric: "10 epochs",
+      latency: "47min",
+      residue: "0.00B",
+      before: { latency: "2.5hrs", infra: "Kubernetes + NFS", cost: "$120/job" },
+      after: { latency: "47min", infra: "Ephemeral Pidgeon", cost: "$18/job" },
+      details: "Fine-tuned BERT across 3 organizations without parameter server. Model weights synced via P2P encryption. Nexus Lens learned pattern across 50 prior runs, pre-allocated buffers, reduced latency 65%.",
+      tech: ["TensorFlow", "Pidgeon P2P", "Nexus Lens"]
+    },
+    {
+      title: "ML Experiment Tracking",
+      subtitle: "Hyperparameter Sweep (100 runs)",
+      metric: "100 experiments",
+      latency: "3.2hrs",
+      residue: "0.00B",
+      before: { latency: "6.8hrs", infra: "MLflow + S3 + EC2", cost: "$200" },
+      after: { latency: "3.2hrs", infra: "Ethereal + MLflow", cost: "$28" },
+      details: "100 hyperparameter configurations auto-tracked to MLflow. Each experiment ran in isolated Forge buffer. Metrics logged, artifacts ephemeral. Infrastructure cleaned automatically.",
+      tech: ["MLflow", "Forge Engine", "Nexus Orchestration"]
+    },
+    {
+      title: "Secure Team Collaboration",
+      subtitle: "Model Development Across Firewall",
+      metric: "5 developers",
+      latency: "Real-time",
+      residue: "0.00B",
+      before: { latency: "20min sync", infra: "Git + manual merges", cost: "N/A" },
+      after: { latency: "42ms sync", infra: "Pidgeon P2P", cost: "N/A" },
+      details: "5 developers across 3 organizations collaborating on model training. Pidgeon masked identities via Ghost protocol. Context synced encrypted. Zero central storage of training data or models.",
+      tech: ["Pidgeon", "Ghost Identity", "Encrypted Sync"]
+    }
+  ];
+
+  return (
+    <section id="demos" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-700/50">
+      <div className="mb-16">
+        <h2 className="text-4xl font-bold text-white mb-3">Real-World Case Studies</h2>
+        <p className="text-lg text-slate-300">Enterprise workloads running on Ethereal. Click to expand for details.</p>
+      </div>
+      <div className="space-y-6">
+        {casestudies.map((study, i) => (
+          <div
+            key={i}
+            onClick={() => setExpandedCase(expandedCase === i ? null : i)}
+            className="group cursor-pointer relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+            <div className="relative bg-slate-800/30 backdrop-blur-md border border-slate-700/40 rounded-2xl p-8 hover:border-slate-600/60 transition-all group-hover:shadow-xl group-hover:shadow-blue-500/10">
+              {/* Header Row */}
+              <div className="flex items-start justify-between mb-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-1">{study.title}</h3>
+                  <p className="text-slate-400 text-sm">{study.subtitle}</p>
+                </div>
+                <span className="text-2xl text-slate-400 group-hover:rotate-180 transition-transform duration-300">{expandedCase === i ? "−" : "+"}</span>
+              </div>
+
+              {/* Metrics Row */}
+              <div className="grid grid-cols-3 gap-6 mb-6 pb-6 border-b border-slate-700/30">
+                <div>
+                  <div className="text-xs text-blue-400 font-semibold uppercase mb-1">Throughput</div>
+                  <div className="text-2xl font-bold text-white">{study.metric}</div>
+                </div>
+                <div>
+                  <div className="text-xs text-emerald-400 font-semibold uppercase mb-1">Execution</div>
+                  <div className="text-2xl font-bold text-white">{study.latency}</div>
+                </div>
+                <div>
+                  <div className="text-xs text-cyan-400 font-semibold uppercase mb-1">Residue</div>
+                  <div className="text-2xl font-bold text-white">{study.residue}</div>
+                </div>
+              </div>
+
+              {/* Expandable Content */}
+              {expandedCase === i && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="space-y-6"
+                >
+                  <div>
+                    <p className="text-slate-300 text-sm leading-relaxed mb-6">{study.details}</p>
+                    
+                    {/* Before/After Comparison */}
+                    <div className="grid md:grid-cols-2 gap-6 mb-6">
+                      <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4">
+                        <div className="text-xs font-semibold text-red-400 uppercase mb-3">Before</div>
+                        <div className="space-y-2 text-sm text-slate-300">
+                          <div><span className="text-slate-400">Latency:</span> {study.before.latency}</div>
+                          <div><span className="text-slate-400">Infrastructure:</span> {study.before.infra}</div>
+                          <div><span className="text-slate-400">Cost:</span> {study.before.cost}</div>
+                        </div>
+                      </div>
+                      <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
+                        <div className="text-xs font-semibold text-green-400 uppercase mb-3">After (Ethereal)</div>
+                        <div className="space-y-2 text-sm text-slate-300">
+                          <div><span className="text-slate-400">Latency:</span> {study.after.latency}</div>
+                          <div><span className="text-slate-400">Infrastructure:</span> {study.after.infra}</div>
+                          <div><span className="text-slate-400">Cost:</span> {study.after.cost}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Tech Stack */}
+                    <div>
+                      <div className="text-xs font-semibold text-blue-400 uppercase mb-3">Technologies</div>
+                      <div className="flex flex-wrap gap-2">
+                        {study.tech.map((t, j) => (
+                          <span key={j} className="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-xs text-blue-300">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 const SystemMetrics = () => (
-  <section id="benchmarks" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-200 bg-slate-50">
+  <section id="benchmarks" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-700/50">
     <div className="mb-16">
-      <h2 className="text-4xl font-bold text-slate-900 mb-3">Performance Benchmarks</h2>
-      <p className="text-lg text-slate-600">Enterprise-grade metrics across key infrastructure dimensions.</p>
+      <h2 className="text-4xl font-bold text-white mb-3">Performance Benchmarks</h2>
+      <p className="text-lg text-slate-300">Enterprise-grade metrics across key infrastructure dimensions.</p>
     </div>
     <div className="grid md:grid-cols-4 gap-8">
       {[
@@ -358,10 +567,10 @@ const SystemMetrics = () => (
         { label: "Data Persistence", val: "0.00B", desc: "Zero-residue guarantee" },
         { label: "Throughput", val: "4.2GB/s", desc: "Peak memory bandwidth" }
       ].map((s, i) => (
-        <div key={i} className="bg-white border border-slate-200 rounded-xl p-8">
-          <div className="text-4xl font-bold text-slate-900 mb-3">{s.val}</div>
-          <div className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-3">{s.label}</div>
-          <p className="text-slate-600 text-sm">{s.desc}</p>
+        <div key={i} className="bg-slate-800/30 backdrop-blur-md border border-slate-700/40 rounded-xl p-8 hover:border-slate-600/60 transition-all">
+          <div className="text-4xl font-bold text-white mb-3">{s.val}</div>
+          <div className="text-xs font-semibold text-blue-400 uppercase tracking-wider mb-3">{s.label}</div>
+          <p className="text-slate-400 text-sm">{s.desc}</p>
         </div>
       ))}
     </div>
@@ -369,19 +578,19 @@ const SystemMetrics = () => (
 );
 
 const DeploymentCTA = () => (
-  <section className="py-24 px-8 border-t border-slate-200 bg-gradient-to-r from-blue-600 to-indigo-600">
+  <section className="py-24 px-8 border-t border-slate-700/50 bg-gradient-to-r from-blue-600/20 via-indigo-600/20 to-purple-600/20 backdrop-blur-md">
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-5xl font-bold text-white mb-8">Ready to Deploy?</h2>
-      <p className="text-xl text-blue-50 mb-12 max-w-2xl mx-auto">Join enterprises optimizing infrastructure without infrastructure.</p>
+      <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">Join enterprises optimizing infrastructure without infrastructure footprint.</p>
       <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-        <button className="px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all shadow-lg">
+        <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold rounded-lg hover:shadow-xl transition-all shadow-lg">
           Start Free Trial
         </button>
-        <button className="px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-all">
+        <button className="px-8 py-4 border-2 border-slate-600 text-white font-bold rounded-lg hover:border-slate-500 hover:bg-slate-800/30 transition-all">
           Schedule Demo
         </button>
       </div>
-      <div className="mt-12 flex justify-center gap-8 flex-wrap text-sm text-blue-50 font-medium">
+      <div className="mt-12 flex justify-center gap-8 flex-wrap text-sm text-slate-300 font-medium">
         <span>✓ Enterprise SLA</span>
         <span>✓ Zero Setup</span>
         <span>✓ Instant Deploy</span>
@@ -391,24 +600,47 @@ const DeploymentCTA = () => (
 );
 
 const Footer = () => (
-  <footer className="py-16 border-t border-slate-200 bg-slate-50">
+  <footer className="py-16 border-t border-slate-700/50 bg-gradient-to-b from-slate-900/50 to-black/80">
     <div className="max-w-7xl mx-auto px-8">
-      <div className="flex justify-between items-center mb-12">
-        <div className="flex items-center gap-3">
-          <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
-            <span className="text-white font-black text-xs">E</span>
+      <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-indigo-600 rounded flex items-center justify-center">
+              <span className="text-white font-black text-xs">Y</span>
+            </div>
+            <span className="text-lg font-bold text-white">Yukora</span>
           </div>
-          <span className="text-lg font-bold text-slate-900">Ethereal</span>
+          <p className="text-slate-400 text-sm leading-relaxed">
+            Yukora is an AI-driven organization developing enterprise infrastructure software and solutions.
+          </p>
         </div>
-        <div className="text-sm text-slate-600">
-          © 2026 Yukora Organization. Enterprise Infrastructure.
+        <div>
+          <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h4>
+          <div className="space-y-2 text-sm text-slate-400">
+            <a href="#" className="hover:text-white transition-colors">Ethereal Platform</a>
+            <a href="#" className="hover:text-white transition-colors">Documentation</a>
+            <a href="#" className="hover:text-white transition-colors">API Reference</a>
+            <a href="#" className="hover:text-white transition-colors">GitHub</a>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact</h4>
+          <div className="space-y-2">
+            <p className="text-sm text-slate-400">
+              <a href="mailto:inquiries@yukora.org" className="hover:text-blue-400 transition-colors">inquiries@yukora.org</a>
+            </p>
+            <p className="text-xs text-slate-500">Enterprise inquiries & partnerships</p>
+          </div>
         </div>
       </div>
-      <div className="flex gap-12 text-sm text-slate-600">
-        <a href="#" className="hover:text-slate-900">Documentation</a>
-        <a href="#" className="hover:text-slate-900">API Reference</a>
-        <a href="#" className="hover:text-slate-900">Security</a>
-        <a href="#" className="hover:text-slate-900">Contact</a>
+      
+      <div className="border-t border-slate-700/30 pt-8 flex justify-between items-center">
+        <div className="text-sm text-slate-500">
+          © 2026 Yukora. Enterprise infrastructure, reimagined.
+        </div>
+        <div className="text-xs text-slate-600">
+          Ethereal v4.2 | Ephemeral Compute Platform
+        </div>
       </div>
     </div>
   </footer>
@@ -423,12 +655,13 @@ export default function App() {
       <ProofOfZero />
       <TheSuite />
       <IntelligenceReports />
+      <InteractiveDemo />
       <WorkingDemos />
       <SystemMetrics />
       
-      <section id="archives" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-200">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8">Extended Ecosystem</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 bg-white border border-slate-200 rounded-xl overflow-hidden">
+      <section id="archives" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-700/50">
+        <h2 className="text-3xl font-bold text-white mb-8">Extended Ecosystem</h2>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 bg-slate-800/30 backdrop-blur-md border border-slate-700/40 rounded-xl overflow-hidden">
           {[
             { name: "Nemo", desc: "AI Context", path: "/nemo" },
             { name: "Spectre", desc: "Identity", path: "/spectre" },
@@ -436,9 +669,9 @@ export default function App() {
             { name: "Aegis", desc: "Security", path: "/aegis" },
             { name: "VaultZero", desc: "Encryption", path: "/vaultzero" }
           ].map((a, i) => (
-            <a key={i} href={a.path} className="p-8 text-center hover:bg-blue-50 transition-colors border-r border-slate-200 last:border-r-0">
-              <h4 className="text-slate-900 font-bold text-sm mb-1 uppercase tracking-wide">{a.name}</h4>
-              <p className="text-xs text-slate-600">{a.desc}</p>
+            <a key={i} href={a.path} className="p-8 text-center hover:bg-slate-700/30 transition-colors border-r border-slate-700/40 last:border-r-0">
+              <h4 className="text-white font-bold text-sm mb-1 uppercase tracking-wide">{a.name}</h4>
+              <p className="text-xs text-slate-400">{a.desc}</p>
             </a>
           ))}
         </div>
