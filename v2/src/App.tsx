@@ -7,98 +7,105 @@ import {
   Eye
 } from 'lucide-react';
 
-// --- Cinematic Background ---
+// --- Premium Background ---
 const NeuralBackground = () => (
   <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
-    <div className="grain-overlay" />
+    <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
     <motion.div 
       animate={{ 
-        scale: [1, 1.2, 1],
-        x: [0, 50, 0],
-        y: [0, -30, 0]
-      }}
-      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      className="glow-orb top-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-600/20"
-    />
-    <motion.div 
-      animate={{ 
-        scale: [1.2, 1, 1.2],
-        x: [0, -40, 0],
-        y: [0, 60, 0]
+        scale: [1, 1.08, 1],
+        x: [0, 30, 0],
+        y: [0, -20, 0]
       }}
       transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-      className="glow-orb bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-purple-600/20"
+      className="absolute top-[-15%] right-[-15%] w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[100px]"
     />
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_100%)]" />
+    <motion.div 
+      animate={{ 
+        scale: [1.1, 0.9, 1.1],
+        x: [0, -35, 0],
+        y: [0, 40, 0]
+      }}
+      transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+      className="absolute bottom-[-20%] left-[-10%] w-[700px] h-[700px] bg-slate-200/20 rounded-full blur-[100px]"
+    />
   </div>
 );
 
 const Navbar = () => (
-  <nav className="fixed top-0 w-full z-50 bg-[#020617]/40 backdrop-blur-xl border-b border-white/[0.03]">
-    <div className="max-w-7xl mx-auto px-8 h-24 flex justify-between items-center text-xs font-bold uppercase tracking-[0.3em]">
-      <div className="flex items-center gap-4 cursor-pointer group" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-        <div className="w-8 h-8 bg-white rounded-sm flex items-center justify-center group-hover:invert transition-all duration-700">
-          <span className="text-black font-black text-lg italic">Y</span>
+  <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-slate-200">
+    <div className="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
+      <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+        <div className="w-7 h-7 bg-blue-600 rounded flex items-center justify-center group-hover:shadow-lg transition-all duration-300">
+          <span className="text-white font-black text-sm">E</span>
         </div>
-        <span className="text-white opacity-80 group-hover:opacity-100 transition-opacity">Yukora</span>
+        <span className="text-slate-900 font-bold text-lg tracking-tight">Ethereal</span>
       </div>
       
-      <div className="hidden md:flex gap-12 text-slate-500">
-        <a href="#suite" className="hover:text-white transition-colors">The Suite</a>
-        <a href="#updates" className="hover:text-white transition-colors">Updates</a>
-        <a href="#demos" className="hover:text-white transition-colors">Demos</a>
-        <a href="#benchmarks" className="hover:text-white transition-colors">Performance</a>
+      <div className="hidden md:flex gap-16 text-sm text-slate-600">
+        <a href="#suite" className="hover:text-slate-900 transition-colors font-medium">Platform</a>
+        <a href="#updates" className="hover:text-slate-900 transition-colors font-medium">Updates</a>
+        <a href="#demos" className="hover:text-slate-900 transition-colors font-medium">Use Cases</a>
+        <a href="#benchmarks" className="hover:text-slate-900 transition-colors font-medium">Performance</a>
       </div>
 
-      <button className="px-6 py-3 border border-white/10 rounded-sm hover:bg-white hover:text-black transition-all duration-700">
-        Access Suite
+      <button className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 font-medium text-sm shadow-sm hover:shadow-md">
+        Get Started
       </button>
     </div>
   </nav>
 );
 
 const Hero = () => (
-  <section className="relative pt-64 pb-48 px-8 min-h-screen flex flex-col justify-center items-center text-center">
+  <section className="relative pt-40 pb-32 px-8 min-h-screen flex flex-col justify-center items-center text-center">
     <motion.div 
-      initial={{ opacity: 0, letterSpacing: "1em" }}
-      animate={{ opacity: 1, letterSpacing: "0.5em" }}
-      transition={{ duration: 2 }}
-      className="mb-12 text-[10px] text-blue-500 font-black uppercase"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      className="mb-8 text-sm text-blue-600 font-semibold uppercase tracking-wider"
     >
-      Sovereign Standard v4.2
+      Enterprise Infrastructure Platform
     </motion.div>
 
     <motion.h1 
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-      className="text-7xl md:text-[10rem] font-black text-white mb-12 tracking-[-0.05em] leading-[0.85] italic uppercase"
+      className="text-6xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-tight max-w-4xl"
     >
-      Logic at <br/>
-      <span className="gradient-text drop-shadow-[0_0_50px_rgba(59,130,246,0.2)]">Zero.</span>
+      Ephemeral Compute Infrastructure
     </motion.h1>
 
     <motion.p 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 0.5, duration: 1.5 }}
-      className="text-xl md:text-2xl text-slate-500 max-w-3xl mb-20 leading-relaxed font-medium italic"
+      transition={{ delay: 0.4, duration: 1.2 }}
+      className="text-xl md:text-2xl text-slate-600 max-w-3xl mb-12 leading-relaxed font-normal"
     >
-      A post-installation era has arrived. Replace persistent infrastructure with high-caliber, **Zip-and-Detonate** workflows.
+      Deploy workloads without infrastructure. Execute in isolated memory. Zero persistence. Perfect for DevOps, data processing, and secure collaboration.
     </motion.p>
 
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.8 }}
-      className="flex flex-col md:flex-row items-center justify-center gap-12"
+      transition={{ delay: 0.6 }}
+      className="flex flex-col md:flex-row items-center justify-center gap-6"
     >
-      <button className="px-12 py-6 bg-white text-black font-black text-[10px] uppercase tracking-[0.3em] hover:scale-105 active:scale-95 transition-all shadow-[0_0_60px_rgba(255,255,255,0.1)] rounded-sm">
-        Initialize Ingestion
+      <button className="px-8 py-3.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg">
+        Start Free Trial
       </button>
-      <div className="font-mono text-[11px] text-blue-400/60 tracking-[0.2em]">
-        $ irm get.yukora.org | iex
-      </div>
+      <button className="px-8 py-3.5 border-2 border-slate-300 text-slate-900 font-semibold rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all">
+        View Documentation
+      </button>
+    </motion.div>
+
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.8, duration: 1 }}
+      className="mt-16 text-sm text-slate-500 font-mono"
+    >
+      $ ethereal deploy --ephemeral
     </motion.div>
   </section>
 );
@@ -114,62 +121,63 @@ const ProofOfZero = () => {
   }, []);
 
   return (
-    <div className="glass rounded-xl p-6 border-blue-500/10 flex items-center justify-between gap-8 max-w-sm mx-auto mb-32">
-      <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest">System Drift Audit</div>
-      <div className="flex items-baseline gap-2">
-        <span className="text-2xl font-mono font-bold text-emerald-400">{drift.toFixed(8)}</span>
-        <span className="text-[10px] text-slate-600">BYTES</span>
+    <div className="bg-white border border-slate-200 rounded-xl p-8 flex items-center justify-between gap-8 max-w-2xl mx-auto mb-32 shadow-sm">
+      <div className="flex-1">
+        <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Zero Residue Guarantee</div>
+        <p className="text-sm text-slate-600">All computations are ephemeral. No infrastructure footprint remains.</p>
+      </div>
+      <div className="flex items-baseline gap-3 text-right">
+        <span className="text-4xl font-bold text-blue-600">{drift.toFixed(8)}</span>
+        <span className="text-sm text-slate-500">bytes persisted</span>
       </div>
     </div>
   );
 };
 
 const TheSuite = () => (
-  <section id="suite" className="max-w-7xl mx-auto px-8 py-48 border-t border-white/[0.03]">
-    <div className="grid lg:grid-cols-2 gap-px bg-white/[0.03] border border-white/[0.03] rounded-sm overflow-hidden shadow-2xl">
+  <section id="suite" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-200 bg-slate-50">
+    <div className="mb-16">
+      <h2 className="text-4xl font-bold text-slate-900 mb-4">The Ethereal Platform</h2>
+      <p className="text-xl text-slate-600 max-w-2xl">Three core components working together as unified ephemeral infrastructure.</p>
+    </div>
+    <div className="grid lg:grid-cols-2 gap-6 bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
       {[
         { 
           title: "Forge Engine", 
-          label: "Ephemeral Power", 
-          desc: "Recursive RAM-only detonation. 10.5x faster than legacy stacks. Shreds forensics in real-time.",
-          icon: <Zap size={32} />,
-          color: "group-hover:text-blue-400"
+          label: "Memory-First Execution", 
+          desc: "Execute workloads in isolated memory buffers. Zero infrastructure footprint. 10x faster than persistent stacks.",
+          icon: <Zap size={28} />,
+          color: "text-blue-600"
         },
         { 
-          title: "Pidgeon Mesh", 
-          label: "Secure Contexts", 
-          desc: "Native peer-to-peer file organization. Negates web-based sharing via direct context pulling.",
-          icon: <MessageSquare size={32} />,
-          color: "group-hover:text-emerald-400"
+          title: "Pidgeon", 
+          label: "Secure Sync Layer", 
+          desc: "P2P encrypted synchronization. Direct context transfer. Native encryption. No external infrastructure.",
+          icon: <MessageSquare size={28} />,
+          color: "text-emerald-600"
         },
         { 
           title: "Ghost Identity", 
-          label: "Illusive Masking", 
-          desc: "Masked Spectre IDs for anonymous co-creation. Resolves real-world pointers in silence.",
-          icon: <Eye size={32} />,
-          color: "group-hover:text-blue-500"
+          label: "Anonymous Collaboration", 
+          desc: "Ephemeral masked identities. Collaborate securely without exposing real identity. Secure by design.",
+          icon: <Eye size={28} />,
+          color: "text-indigo-600"
         },
         { 
-          title: "The Nexus Lens", 
-          label: "Spatial HUD", 
-          desc: "A spatial workspace overlay. Maps your local file tree to the Sovereign Mesh in real-time.",
-          icon: <Layers size={32} />,
-          color: "group-hover:text-purple-400"
+          title: "Nexus Lens", 
+          label: "Workspace Orchestration", 
+          desc: "Real-time workspace mapping. Intelligent context management. Unified control plane.",
+          icon: <Layers size={28} />,
+          color: "text-purple-600"
         }
       ].map((item, i) => (
-        <div key={i} className="illusive-card p-16 group relative h-[400px] flex flex-col justify-between">
-          <div className="absolute top-0 right-0 p-12 text-6xl font-black text-white/[0.02] italic">{i+1}</div>
-          <div>
-            <div className={`mb-12 transition-colors duration-700 ${item.color}`}>
-              {item.icon}
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-2 italic uppercase tracking-tighter">{item.title}</h3>
-            <div className="text-[9px] font-black text-slate-600 uppercase tracking-[0.4em] mb-8">{item.label}</div>
-            <p className="text-slate-500 text-xs leading-relaxed max-w-xs">{item.desc}</p>
+        <div key={i} className="p-10 border-l-4 border-blue-600 hover:bg-slate-50 transition-colors group">
+          <div className={`mb-6 ${item.color}`}>
+            {item.icon}
           </div>
-          <div className="text-[9px] font-mono text-slate-800 uppercase tracking-widest group-hover:text-slate-600 transition-colors">
-            Protocol_Iteration_Ready
-          </div>
+          <h3 className="text-xl font-bold text-slate-900 mb-1">{item.title}</h3>
+          <div className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-4">{item.label}</div>
+          <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
         </div>
       ))}
     </div>
@@ -177,57 +185,54 @@ const TheSuite = () => (
 );
 
 const IntelligenceReports = () => (
-  <section id="updates" className="max-w-7xl mx-auto px-8 py-48 border-t border-white/[0.03]">
-    <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+  <section id="updates" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-200">
+    <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
       <div>
-        <h2 className="text-4xl font-bold text-white mb-4 italic uppercase">Intelligence Reports.</h2>
-        <p className="text-slate-400 max-w-xl">Architectural records of the Sovereign Trinity evolution.</p>
+        <h2 className="text-4xl font-bold text-slate-900 mb-3">Latest Developments</h2>
+        <p className="text-lg text-slate-600">Recent updates to the Ethereal Framework.</p>
       </div>
-      <div className="text-[10px] font-black text-slate-700 uppercase tracking-[0.4em]">Official_Release_Stream</div>
     </div>
 
-    <div className="grid lg:grid-cols-1 gap-12">
-      <div className="glass rounded-[2rem] p-16 border-blue-500/10 relative overflow-hidden group hover:border-blue-500/30 transition-all duration-1000">
-        <div className="absolute top-0 right-0 p-16 text-[10rem] font-black text-white/[0.01] pointer-events-none group-hover:text-blue-500/[0.02] transition-colors">1.1</div>
-        
+    <div className="grid lg:grid-cols-1 gap-8">
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-12 relative overflow-hidden">
         <div className="max-w-4xl">
-          <div className="flex items-center gap-4 mb-12">
-            <span className="px-3 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold uppercase tracking-widest">Release 1.1</span>
-            <span className="text-slate-600 text-[10px] font-mono">Feb 13, 2026</span>
+          <div className="flex items-center gap-3 mb-12">
+            <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold uppercase tracking-wider rounded-full">Release 1.1</span>
+            <span className="text-slate-600 text-sm font-medium">February 13, 2026</span>
           </div>
           
-          <h3 className="text-5xl font-black text-white mb-12 italic tracking-tighter leading-tight">Nexus 1.1: Ambient <br/><span className="text-blue-500">Logistical Fusion.</span></h3>
+          <h3 className="text-4xl font-bold text-slate-900 mb-10 leading-tight">Nexus 1.1: Intelligent Context Awareness</h3>
           
-          <div className="grid md:grid-cols-2 gap-16">
+          <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>
-                <h4 className="text-blue-400 font-bold text-sm uppercase tracking-widest mb-4">Project Evolution</h4>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  The Sovereign Trinity (Nexus, Forge, Pidgeon) has transitioned from discrete command-line tools into a unified, ambient ecosystem. Our foundation is built on <strong>Zero-Inertia</strong> principles—ensuring that data only exists in RAM during detonation and leaves no forensic trace upon completion.
+                <h4 className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-3">Platform Synthesis</h4>
+                <p className="text-slate-700 leading-relaxed">
+                  Forge Engine, Pidgeon, and Nexus Lens now operate as a unified platform. Built on <strong>Zero-Residue</strong> principles—all computation happens in ephemeral memory with zero infrastructure footprint.
                 </p>
               </div>
               <div>
-                <h4 className="text-blue-400 font-bold text-sm uppercase tracking-widest mb-4">The Synthesis So Far</h4>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  Nexus OS now deciphers the workspace using the <strong>NX- Protocol</strong>, while Bridge coordinates peer-to-peer "Shipments" through the Pidgeon mesh. This negates traditional file-sharing overhead and secures co-creation natively.
+                <h4 className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-3">How It Works</h4>
+                <p className="text-slate-700 leading-relaxed">
+                  Nexus Lens maps your workspace. Forge Engine executes tasks in isolated buffers. Pidgeon handles encrypted sync between teams. No servers. No persistence. Pure results.
                 </p>
               </div>
             </div>
             
             <div className="space-y-8">
-              <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
-                <h4 className="text-white font-bold text-sm mb-4">Latest Thinking: Anticipatory Detonation</h4>
-                <p className="text-slate-500 text-xs leading-relaxed mb-6">
-                  Nexus 1.1 introduces <strong>Heuristic Context Gravity</strong>. The OS now assigns 'Mass' to your files and sequences, allowing Forge to pre-hydrate high-gravity buffers in RAM before you even type a command.
+              <div className="bg-white rounded-xl p-8 border border-slate-200">
+                <h4 className="font-bold text-slate-900 text-base mb-4">Context Intelligence</h4>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  Nexus 1.1 learns usage patterns and pre-loads compute buffers in memory. 65% latency reduction vs. previous generation.
                 </p>
-                <div className="font-mono text-[9px] text-blue-500/60 uppercase">
-                  Status: Fusing Gravity + Streaming... [STABLE]
+                <div className="font-mono text-xs text-slate-500 bg-slate-50 p-3 rounded">
+                  Status: Context Learning [STABLE]
                 </div>
               </div>
               <div>
-                <h4 className="text-blue-400 font-bold text-sm uppercase tracking-widest mb-4">Future Trajectory</h4>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  The next logical innovation is <strong>Predictive Scaffolding</strong>. Nemo's pattern memory will move beyond simple autofill, using 'Synthetic Git' to suggest and build entire environments before you commit to reality.
+                <h4 className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-3">What's Next</h4>
+                <p className="text-slate-700 leading-relaxed">
+                  Multi-tenant ephemeral sessions. Teams spin up collaborative compute environments that exist only for project duration.
                 </p>
               </div>
             </div>
@@ -243,91 +248,95 @@ const WorkingDemos = () => {
 
   const demos = [
     {
-      title: "Enterprise ETL",
-      subtitle: "Airflow Replacement",
+      title: "Enterprise Data Pipeline",
+      subtitle: "ETL Orchestration",
       logs: [
-        "[BRIDGE] START: Logistics Manager Active.",
-        "[PRIME] Forge: Hydrating Ingestion Compactor...",
-        "[DETONATE] finance_etl.nxs [SUCCESS]",
-        "[EXIT] Session Complete. 0.00B Drift."
+        "$ ethereal deploy data-pipeline.yaml",
+        "[INIT] Forge Engine: 2GB buffer allocated",
+        "[EXEC] Processing 50M records in memory...",
+        "[SYNC] Pidgeon: Syncing results to team...",
+        "[SUCCESS] Pipeline complete. 0B infrastructure footprint."
       ]
     },
     {
-      title: "Microservices",
+      title: "Microservices Stack",
       subtitle: "K8s Replacement",
       logs: [
-        "[FORGE] Parsing docker-compose.yml...",
-        "[DETONATE] Hydrating RAM-Mesh network...",
-        "[SVC] Postgres:5432 [ACTIVE]",
-        "[STATUS] Stack running. JIT Latency: 1.2s"
+        "$ ethereal compose --ephemeral",
+        "[INIT] Nexus Lens: Mapping workspace...",
+        "[FORGE] Starting services in memory buffers",
+        "[DB] Postgres:5432 [READY]",
+        "[STATUS] Stack active. Zero persistence."
       ]
     },
     {
-      title: "Inertia Audit",
-      subtitle: "System Reclamation",
+      title: "Team Collaboration",
+      subtitle: "Secure Sync",
       logs: [
-        "[NEXUS] START: Sovereign Shell Active.",
-        "[LENS] Deciphering NX- Protocol codes...",
-        "[INERTIA] 4.2GB Legacy Bloat Detected!",
-        "[RECLAIM] forge reclaim --all",
-        "[SUCCESS] Baseline Restored. 0B Drift."
+        "$ ethereal invite --team",
+        "[PIDGEON] Encrypted context sync active",
+        "[GHOST] Identity masked as: team-session-01",
+        "[STATUS] 3 collaborators connected",
+        "[RESULT] Changes synced instantly."
       ]
     },
     {
-      title: "Live Hotfix",
-      subtitle: "Pidgeon Sync",
+      title: "Infrastructure Audit",
+      subtitle: "Zero-Residue Verification",
       logs: [
-        "[BRIDGE] bridge follow collaborator_01",
-        "[PIDGEON] Masked Route: phantom-node-882",
-        "[PRIME] Pre-hydrating incoming buffer...",
-        "[STATUS] Mirroring Active. Work Synchronized."
+        "$ ethereal audit --verify",
+        "[SCAN] Checking for infrastructure artifacts...",
+        "[RESULT] 0 bytes persisted",
+        "[CLEAN] Workspace verified clean",
+        "[SUCCESS] Zero-residue guarantee confirmed."
       ]
     }
   ];
 
   return (
-    <section id="demos" className="max-w-7xl mx-auto px-8 py-48 border-t border-white/[0.03]">
-      <div className="grid lg:grid-cols-2 gap-32 items-center">
+    <section id="demos" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-200">
+      <div className="mb-16">
+        <h2 className="text-4xl font-bold text-slate-900 mb-3">Use Cases in Action</h2>
+        <p className="text-lg text-slate-600 max-w-2xl">See how enterprises leverage Ethereal for DevOps, data processing, and secure collaboration.</p>
+      </div>
+      <div className="grid lg:grid-cols-2 gap-12">
         <div>
-          <h2 className="text-5xl font-black text-white italic uppercase mb-12 tracking-tighter">Market <br/>Readiness.</h2>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {demos.map((d, i) => (
               <button 
                 key={i}
                 onClick={() => setActiveTab(i)}
-                className={`w-full text-left p-10 border transition-all duration-700 ${
+                className={`w-full text-left p-6 rounded-lg border transition-all ${
                   activeTab === i 
-                    ? "bg-white/[0.03] border-white/10" 
-                    : "bg-transparent border-transparent opacity-40 hover:opacity-100"
+                    ? "bg-blue-50 border-blue-300" 
+                    : "bg-white border-slate-200 hover:border-slate-300 opacity-60 hover:opacity-100"
                 }`}
               >
-                <div className="text-lg font-bold text-white mb-1">{d.title}</div>
-                <div className="text-[10px] font-black text-blue-500 uppercase tracking-widest">{d.subtitle}</div>
+                <div className="font-semibold text-slate-900">{d.title}</div>
+                <div className="text-sm text-blue-600 font-medium">{d.subtitle}</div>
               </button>
             ))}
           </div>
         </div>
-        <div className="relative group">
-          <div className="absolute -inset-10 bg-blue-500/5 blur-[100px] rounded-full group-hover:bg-blue-500/10 transition-all duration-1000" />
-          <div className="glass rounded-sm p-12 font-mono text-xs relative border-white/[0.05] min-h-[400px]">
-            <div className="flex gap-2 mb-8 opacity-20">
-              <div className="w-2 h-2 rounded-full bg-white" />
-              <div className="w-2 h-2 rounded-full bg-white" />
-              <div className="w-2 h-2 rounded-full bg-white" />
+        <div className="relative">
+          <div className="bg-slate-900 text-slate-100 rounded-xl p-8 font-mono text-sm min-h-[400px] border border-slate-700 shadow-lg">
+            <div className="flex gap-2 mb-6 opacity-40">
+              <div className="w-3 h-3 rounded-full bg-red-500" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500" />
+              <div className="w-3 h-3 rounded-full bg-green-500" />
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {demos[activeTab].logs.map((log, i) => (
                 <motion.div 
                   key={`${activeTab}-${i}`}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className={log.includes('[EXIT]') || log.includes('[SUCCESS]') ? 'text-emerald-400' : 'text-slate-400'}
+                  className={log.includes('[SUCCESS]') ? 'text-green-400' : log.includes('[ERROR]') ? 'text-red-400' : 'text-slate-300'}
                 >
                   {log}
                 </motion.div>
               ))}
-              <div className="text-blue-500 animate-pulse">_</div>
             </div>
           </div>
         </div>
@@ -337,18 +346,22 @@ const WorkingDemos = () => {
 };
 
 const SystemMetrics = () => (
-  <section id="benchmarks" className="max-w-7xl mx-auto px-8 py-48 border-t border-white/[0.03]">
-    <div className="grid md:grid-cols-4 gap-16 text-center">
+  <section id="benchmarks" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-200 bg-slate-50">
+    <div className="mb-16">
+      <h2 className="text-4xl font-bold text-slate-900 mb-3">Performance Benchmarks</h2>
+      <p className="text-lg text-slate-600">Enterprise-grade metrics across key infrastructure dimensions.</p>
+    </div>
+    <div className="grid md:grid-cols-4 gap-8">
       {[
-        { label: "Detonation Latency", val: "1.04s", desc: "90% reduction vs legacy" },
-        { label: "Memory Footprint", val: "18.2MB", desc: "Runtime hydration ceiling" },
-        { label: "System Drift", val: "0.00B", desc: "Absolute zero forenisc trace" },
-        { label: "Propagation", val: "4.2GB/s", desc: "Peak NVMe/DDR5 hydration" }
+        { label: "Startup Latency", val: "1.04s", desc: "Time to first execution" },
+        { label: "Memory Footprint", val: "18.2MB", desc: "Runtime allocation ceiling" },
+        { label: "Data Persistence", val: "0.00B", desc: "Zero-residue guarantee" },
+        { label: "Throughput", val: "4.2GB/s", desc: "Peak memory bandwidth" }
       ].map((s, i) => (
-        <div key={i}>
-          <div className="text-4xl font-black text-white mb-4 italic tracking-tighter">{s.val}</div>
-          <div className="text-[9px] font-black text-blue-500 uppercase tracking-[0.3em] mb-4">{s.label}</div>
-          <p className="text-slate-600 text-[10px] uppercase font-bold tracking-widest">{s.desc}</p>
+        <div key={i} className="bg-white border border-slate-200 rounded-xl p-8">
+          <div className="text-4xl font-bold text-slate-900 mb-3">{s.val}</div>
+          <div className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-3">{s.label}</div>
+          <p className="text-slate-600 text-sm">{s.desc}</p>
         </div>
       ))}
     </div>
@@ -356,35 +369,46 @@ const SystemMetrics = () => (
 );
 
 const DeploymentCTA = () => (
-  <section className="py-64 px-8 text-center border-t border-white/[0.03] bg-gradient-to-b from-transparent to-blue-950/10">
-    <div className="max-w-4xl mx-auto">
-      <h2 className="text-6xl font-black text-white mb-12 italic uppercase tracking-tighter leading-tight">Ready to <br/>Detonate?</h2>
-      <div className="inline-flex items-center gap-8 p-1 glass border-white/5 rounded-full mb-16 pl-8">
-        <div className="font-mono text-sm text-blue-400">irm get.yukora.org | iex</div>
-        <button className="px-8 py-4 bg-white text-black rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-slate-200 transition-all">
-          Copy Command
+  <section className="py-24 px-8 border-t border-slate-200 bg-gradient-to-r from-blue-600 to-indigo-600">
+    <div className="max-w-4xl mx-auto text-center">
+      <h2 className="text-5xl font-bold text-white mb-8">Ready to Deploy?</h2>
+      <p className="text-xl text-blue-50 mb-12 max-w-2xl mx-auto">Join enterprises optimizing infrastructure without infrastructure.</p>
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+        <button className="px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all shadow-lg">
+          Start Free Trial
+        </button>
+        <button className="px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-all">
+          Schedule Demo
         </button>
       </div>
-      <div className="flex justify-center gap-12 text-[10px] font-black text-slate-700 uppercase tracking-[0.4em]">
-        <span>Enterprise v4.2</span>
-        <span>Hardware Verified</span>
-        <span>Local-Only</span>
+      <div className="mt-12 flex justify-center gap-8 flex-wrap text-sm text-blue-50 font-medium">
+        <span>✓ Enterprise SLA</span>
+        <span>✓ Zero Setup</span>
+        <span>✓ Instant Deploy</span>
       </div>
     </div>
   </section>
 );
 
 const Footer = () => (
-  <footer className="py-32 border-t border-white/[0.03] bg-black/20">
-    <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
-      <div className="flex items-center gap-4">
-        <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-          <span className="text-black font-black text-xs italic">Y</span>
+  <footer className="py-16 border-t border-slate-200 bg-slate-50">
+    <div className="max-w-7xl mx-auto px-8">
+      <div className="flex justify-between items-center mb-12">
+        <div className="flex items-center gap-3">
+          <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
+            <span className="text-white font-black text-xs">E</span>
+          </div>
+          <span className="text-lg font-bold text-slate-900">Ethereal</span>
         </div>
-        <span className="text-lg font-bold text-white tracking-tighter">YUKORA</span>
+        <div className="text-sm text-slate-600">
+          © 2026 Yukora Organization. Enterprise Infrastructure.
+        </div>
       </div>
-      <div className="text-[9px] font-black text-slate-800 uppercase tracking-[0.5em]">
-        © 2026 YUKORA ORGANIZATION. SOVEREIGN_SYSTEMS_ACTIVE.
+      <div className="flex gap-12 text-sm text-slate-600">
+        <a href="#" className="hover:text-slate-900">Documentation</a>
+        <a href="#" className="hover:text-slate-900">API Reference</a>
+        <a href="#" className="hover:text-slate-900">Security</a>
+        <a href="#" className="hover:text-slate-900">Contact</a>
       </div>
     </div>
   </footer>
@@ -392,7 +416,7 @@ const Footer = () => (
 
 export default function App() {
   return (
-    <div className="min-h-screen relative selection:bg-white selection:text-black">
+    <div className="min-h-screen relative selection:bg-blue-600 selection:text-white">
       <NeuralBackground />
       <Navbar />
       <Hero />
@@ -402,17 +426,19 @@ export default function App() {
       <WorkingDemos />
       <SystemMetrics />
       
-      <section id="archives" className="max-w-7xl mx-auto px-8 py-48 border-t border-white/[0.03]">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-white/[0.03] border border-white/[0.03] rounded-sm overflow-hidden">
+      <section id="archives" className="max-w-7xl mx-auto px-8 py-24 border-t border-slate-200">
+        <h2 className="text-3xl font-bold text-slate-900 mb-8">Extended Ecosystem</h2>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 bg-white border border-slate-200 rounded-xl overflow-hidden">
           {[
-            { name: "Nemo", path: "/nemo" },
-            { name: "Spectre", path: "/spectre" },
-            { name: "Prism", path: "/prism" },
-            { name: "Aegis", path: "/aegis" },
-            { name: "VaultZero", path: "/vaultzero" }
+            { name: "Nemo", desc: "AI Context", path: "/nemo" },
+            { name: "Spectre", desc: "Identity", path: "/spectre" },
+            { name: "Prism", desc: "Analytics", path: "/prism" },
+            { name: "Aegis", desc: "Security", path: "/aegis" },
+            { name: "VaultZero", desc: "Encryption", path: "/vaultzero" }
           ].map((a, i) => (
-            <a key={i} href={a.path} className="illusive-card p-12 text-center group">
-              <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em] group-hover:text-blue-400 transition-colors">{a.name}</h4>
+            <a key={i} href={a.path} className="p-8 text-center hover:bg-blue-50 transition-colors border-r border-slate-200 last:border-r-0">
+              <h4 className="text-slate-900 font-bold text-sm mb-1 uppercase tracking-wide">{a.name}</h4>
+              <p className="text-xs text-slate-600">{a.desc}</p>
             </a>
           ))}
         </div>
