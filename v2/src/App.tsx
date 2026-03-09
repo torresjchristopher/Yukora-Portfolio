@@ -1,12 +1,35 @@
 import { useState, type FormEvent } from 'react';
+import yukoraPortrait from './assets/yukora-portrait.jpeg';
 
 const requestRecipient = 'inquiries@yukora.org';
 const requestEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(requestRecipient)}`;
+
+const destinationTabs = [
+  {
+    label: 'Aegis',
+    href: 'https://yukora.org/aegis/',
+  },
+  {
+    label: 'Forge',
+    href: 'https://yukora.org/forge',
+  },
+  {
+    label: 'Nemo',
+    href: 'https://yukora.org/nemo',
+  },
+  {
+    label: 'Shortcut',
+    href: 'https://yukora.org/shortcut',
+  },
+];
 
 const portfolioLinks = [
   {
     label: 'dreastaruniverse.com',
     href: 'https://dreastaruniverse.com',
+    status: 'Live destination',
+    description:
+      'A public Yukora build with room beside it for more managed websites to follow.',
   },
 ];
 
@@ -111,12 +134,28 @@ export default function App() {
       </div>
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-8 sm:px-8 lg:px-12">
-        <header className="flex items-center justify-between pb-10">
-          <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[11px] uppercase tracking-[0.35em] text-slate-400">
-            <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(103,232,249,0.8)]" />
-            Yukora
+        <header className="flex flex-col gap-4 pb-10 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-4">
+            <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[11px] uppercase tracking-[0.35em] text-slate-400">
+              <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(103,232,249,0.8)]" />
+              Yukora
+            </div>
+            <nav
+              aria-label="Existing Yukora destinations"
+              className="flex flex-wrap items-center gap-2"
+            >
+              {destinationTabs.map((tab) => (
+                <a
+                  key={tab.href}
+                  href={tab.href}
+                  className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 text-[11px] uppercase tracking-[0.28em] text-slate-300 transition hover:border-cyan-300/40 hover:bg-white/[0.05] hover:text-cyan-100"
+                >
+                  {tab.label}
+                </a>
+              ))}
+            </nav>
           </div>
-          <p className="hidden text-[11px] uppercase tracking-[0.35em] text-slate-500 md:block">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-slate-500">
             Direct requests only
           </p>
         </header>
@@ -130,24 +169,47 @@ export default function App() {
               <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
                 A quiet front door for new builds.
               </h1>
-              <p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
-                Send your email and describe the website you want. Yukora will review the request
-                and follow up directly.
+              <p className="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+                Send your email and describe the website you want. Yukora offers website design,
+                direct follow-up, and custom builds shaped around the feel and function each client
+                needs.
+              </p>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
+                Yukora also purchases domain names and manages brands or company portfolios across
+                software uniquely developed for each client.
               </p>
 
               <div className="mt-10 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl">
                   <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Access</p>
                   <p className="mt-3 text-sm leading-6 text-slate-300">
-                    Existing Yukora destinations remain live, but this landing page no longer
-                    routes visitors into them.
+                    Existing Yukora destinations remain live through the direct-access tabs above,
+                    while new website requests still begin here.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl">
-                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Delivery</p>
+                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Design</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">
+                    Yukora offers website design for brands that need a distinct visual direction,
+                    clear structure, and tailored functionality.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl">
+                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">
+                    Brand management
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">
+                    Yukora manages brands and company portfolios across software that is uniquely
+                    developed for each client.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl">
+                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">
+                    Domains & delivery
+                  </p>
                   <p className="mt-3 text-sm leading-6 text-slate-300">
                     Requests are delivered by email so replies can happen from the address you
-                    submit here.
+                    submit here, and Yukora can purchase the domain names needed for the build.
                   </p>
                 </div>
               </div>
@@ -229,46 +291,69 @@ export default function App() {
           </section>
         </main>
 
-        <footer className="mt-16 border-t border-white/10 pt-10">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <div className="flex items-center gap-5">
-              <div className="brand-mark flex h-20 w-20 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] shadow-[0_0_40px_rgba(56,189,248,0.16)]">
-                <span className="brand-glyph text-4xl font-semibold text-white">Y</span>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Portfolio</p>
-                <p className="mt-2 max-w-md text-sm leading-6 text-slate-300">
-                  Public destinations live here. More websites can be added to this list as the
-                  portfolio grows.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[420px]">
-              {portfolioLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 transition hover:border-cyan-300/40 hover:bg-white/[0.05]"
-                >
-                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Website</p>
-                  <p className="mt-2 text-sm font-medium text-white transition group-hover:text-cyan-100">
-                    {link.label}
+        <footer className="mt-16">
+          <div className="rounded-[2.25rem] border border-white/10 bg-white/[0.03] p-6 shadow-[0_28px_90px_rgba(2,6,23,0.45)] backdrop-blur-2xl sm:p-8">
+            <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] xl:items-end">
+              <div className="flex items-center gap-5">
+                <div className="brand-mark h-24 w-24 overflow-hidden rounded-full border border-white/10 bg-white/[0.04] shadow-[0_0_40px_rgba(56,189,248,0.16)]">
+                  <img
+                    src={yukoraPortrait}
+                    alt="Yukora portrait"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Portfolio</p>
+                  <h2 className="mt-3 text-2xl font-semibold text-white">
+                    Managed destinations live here.
+                  </h2>
+                  <p className="mt-3 max-w-lg text-sm leading-6 text-slate-300">
+                    Public destinations remain direct-access, and this section gives each website
+                    more room as the Yukora portfolio grows.
                   </p>
-                </a>
-              ))}
-              <div className="rounded-2xl border border-dashed border-white/10 bg-white/[0.02] px-5 py-4">
-                <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Next</p>
-                <p className="mt-2 text-sm text-slate-400">More destinations soon.</p>
+                </div>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-[minmax(0,1.5fr)_minmax(220px,0.85fr)]">
+                {portfolioLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex min-h-[220px] flex-col justify-between rounded-[2rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-400/10 via-white/[0.04] to-fuchsia-500/10 p-6 shadow-[0_20px_60px_rgba(8,145,178,0.16)] transition hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-[0_28px_80px_rgba(8,145,178,0.24)] sm:p-8"
+                  >
+                    <p className="text-xs uppercase tracking-[0.35em] text-cyan-100/80">
+                      {link.status}
+                    </p>
+                    <p className="mt-4 text-2xl font-semibold text-white transition group-hover:text-cyan-100 sm:text-3xl">
+                      {link.label}
+                    </p>
+                    <p className="mt-3 max-w-md text-sm leading-6 text-slate-300">
+                      {link.description}
+                    </p>
+                    <span className="mt-6 inline-flex items-center text-xs font-semibold uppercase tracking-[0.28em] text-cyan-100">
+                      Visit website
+                    </span>
+                  </a>
+                ))}
+                <div className="flex min-h-[220px] flex-col justify-between rounded-[2rem] border border-dashed border-white/10 bg-white/[0.02] p-6 sm:p-8">
+                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Next</p>
+                  <div className="mt-4">
+                    <p className="text-lg font-medium text-white">More destinations soon.</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-400">
+                      Additional Yukora builds will expand this list as new brands and companies
+                      come online.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="mt-8 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} Yukora</p>
-            <p>Legacy paths remain direct-access only.</p>
+            <div className="mt-8 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+              <p>© {new Date().getFullYear()} Yukora</p>
+              <p>Legacy paths remain direct-access only.</p>
+            </div>
           </div>
         </footer>
       </div>
