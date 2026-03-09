@@ -221,8 +221,12 @@ export default function App() {
                   <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Intake</p>
                   <h2 className="mt-3 text-2xl font-semibold text-white">Website request form</h2>
                 </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-lg text-cyan-100 shadow-[0_0_32px_rgba(34,211,238,0.18)]">
-                  Y
+                <div className="h-14 w-14 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-[0_0_32px_rgba(34,211,238,0.18)]">
+                  <img
+                    src={yukoraPortrait}
+                    alt="Yukora portrait"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
               </div>
 
@@ -293,54 +297,58 @@ export default function App() {
 
         <footer className="mt-16">
           <div className="rounded-[2.25rem] border border-white/10 bg-white/[0.03] p-6 shadow-[0_28px_90px_rgba(2,6,23,0.45)] backdrop-blur-2xl sm:p-8">
-            <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] xl:items-end">
-              <div className="flex items-center gap-5">
-                <div className="brand-mark h-24 w-24 overflow-hidden rounded-full border border-white/10 bg-white/[0.04] shadow-[0_0_40px_rgba(56,189,248,0.16)]">
-                  <img
-                    src={yukoraPortrait}
-                    alt="Yukora portrait"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Portfolio</p>
-                  <h2 className="mt-3 text-2xl font-semibold text-white">
-                    Managed destinations live here.
-                  </h2>
-                  <p className="mt-3 max-w-lg text-sm leading-6 text-slate-300">
-                    Public destinations remain direct-access, and this section gives each website
-                    more room as the Yukora portfolio grows.
-                  </p>
+            <div className="flex flex-col gap-8 lg:gap-10">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div className="flex items-start gap-5">
+                  <div className="brand-mark h-24 w-24 overflow-hidden rounded-full border border-white/10 bg-white/[0.04] shadow-[0_0_40px_rgba(56,189,248,0.16)]">
+                    <img
+                      src={yukoraPortrait}
+                      alt="Yukora portrait"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Portfolio</p>
+                    <h2 className="mt-3 text-2xl font-semibold text-white">
+                      Managed destinations live here.
+                    </h2>
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300">
+                      Public destinations remain direct-access, and this section gives each website
+                      more room as the Yukora portfolio grows.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-[minmax(0,1.5fr)_minmax(220px,0.85fr)]">
+              <div className="grid gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(280px,0.8fr)] xl:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.8fr)]">
                 {portfolioLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex min-h-[220px] flex-col justify-between rounded-[2rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-400/10 via-white/[0.04] to-fuchsia-500/10 p-6 shadow-[0_20px_60px_rgba(8,145,178,0.16)] transition hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-[0_28px_80px_rgba(8,145,178,0.24)] sm:p-8"
+                    className="group flex min-h-[240px] flex-col justify-between rounded-[2rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-400/10 via-white/[0.04] to-fuchsia-500/10 p-6 shadow-[0_20px_60px_rgba(8,145,178,0.16)] transition hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-[0_28px_80px_rgba(8,145,178,0.24)] sm:p-8"
                   >
-                    <p className="text-xs uppercase tracking-[0.35em] text-cyan-100/80">
-                      {link.status}
-                    </p>
-                    <p className="mt-4 text-2xl font-semibold text-white transition group-hover:text-cyan-100 sm:text-3xl">
-                      {link.label}
-                    </p>
-                    <p className="mt-3 max-w-md text-sm leading-6 text-slate-300">
-                      {link.description}
-                    </p>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.35em] text-cyan-100/80">
+                        {link.status}
+                      </p>
+                      <p className="mt-4 text-2xl font-semibold text-white transition group-hover:text-cyan-100 sm:text-3xl">
+                        {link.label}
+                      </p>
+                      <p className="mt-3 max-w-xl text-sm leading-6 text-slate-300">
+                        {link.description}
+                      </p>
+                    </div>
                     <span className="mt-6 inline-flex items-center text-xs font-semibold uppercase tracking-[0.28em] text-cyan-100">
                       Visit website
                     </span>
                   </a>
                 ))}
-                <div className="flex min-h-[220px] flex-col justify-between rounded-[2rem] border border-dashed border-white/10 bg-white/[0.02] p-6 sm:p-8">
-                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Next</p>
-                  <div className="mt-4">
-                    <p className="text-lg font-medium text-white">More destinations soon.</p>
+                <div className="flex min-h-[240px] flex-col justify-between rounded-[2rem] border border-dashed border-white/10 bg-white/[0.02] p-6 sm:p-8">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Next</p>
+                    <p className="mt-4 text-lg font-medium text-white">More destinations soon.</p>
                     <p className="mt-2 text-sm leading-6 text-slate-400">
                       Additional Yukora builds will expand this list as new brands and companies
                       come online.
