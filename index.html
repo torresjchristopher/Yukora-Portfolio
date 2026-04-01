@@ -106,69 +106,36 @@
 
   <!-- Multi-Agentic Workflows -->
    <!-- Multi-Agentic Workflows — Glossy Benchmark Dashboard -->
-<section id="metrics" class="py-24 bg-white/5">
+  <section id="metrics" class="py-24 bg-white/5">
     <div class="max-w-screen-2xl mx-auto px-8">
-      <h2 class="text-4xl font-semibold mb-10 text-white">Multi-Agentic Workflows — Benchmark</h2>
-      
+      <h2 class="text-4xl font-semibold mb-12 text-white">Multi-Agentic Workflows — Benchmark</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <!-- Runtime -->
-        <div class="glass rounded-3xl p-8 border border-white/10 hover:border-emerald-400/50 transition-all">
-          <div class="flex items-baseline justify-between">
-            <div>
-              <div class="text-5xl font-mono font-bold text-emerald-400">2.31</div>
-              <div class="text-white/70 text-sm tracking-widest">SECONDS</div>
-            </div>
-            <div class="text-right">
-              <div class="text-emerald-400 text-xl font-medium">8.2×</div>
-              <div class="text-white/60 text-xs">faster than Docker</div>
-            </div>
-          </div>
-          <div class="mt-6 text-white/70 text-base">Total runtime for 1,000 tasks</div>
+        <div class="glass rounded-3xl p-10 border border-white/10 backdrop-blur-md text-center hover:border-emerald-400/30 transition">
+          <div class="text-6xl font-mono font-bold text-emerald-400 mb-2">2.31 s</div>
+          <div class="text-white/70 text-lg">Total runtime</div>
+          <div class="text-emerald-400 text-sm mt-6">8.2× faster than Docker</div>
         </div>
-
-        <!-- Peak Memory -->
-        <div class="glass rounded-3xl p-8 border border-white/10 hover:border-emerald-400/50 transition-all">
-          <div class="flex items-baseline justify-between">
-            <div>
-              <div class="text-5xl font-mono font-bold text-emerald-400">18.7</div>
-              <div class="text-white/70 text-sm tracking-widest">MB</div>
-            </div>
-            <div class="text-right">
-              <div class="text-emerald-400 text-xl font-medium">24×</div>
-              <div class="text-white/60 text-xs">leaner</div>
-            </div>
-          </div>
-          <div class="mt-6 text-white/70 text-base">Peak memory usage</div>
+        <div class="glass rounded-3xl p-10 border border-white/10 backdrop-blur-md text-center hover:border-emerald-400/30 transition">
+          <div class="text-6xl font-mono font-bold text-emerald-400 mb-2">18.7 MB</div>
+          <div class="text-white/70 text-lg">Peak memory</div>
+          <div class="text-emerald-400 text-sm mt-6">24× leaner</div>
         </div>
-
-        <!-- Residue -->
-        <div class="glass rounded-3xl p-8 border border-white/10 hover:border-emerald-400/50 transition-all">
-          <div class="flex items-baseline justify-between">
-            <div>
-              <div class="text-5xl font-mono font-bold text-emerald-400">4.2</div>
-              <div class="text-white/70 text-sm tracking-widest">MB</div>
-            </div>
-            <div class="text-right">
-              <div class="text-emerald-400 text-xl font-medium">96.5%</div>
-              <div class="text-white/60 text-xs">reduction</div>
-            </div>
-          </div>
-          <div class="mt-4 text-emerald-400 text-sm">99.7% exact zero residue</div>
-          <div class="mt-6 text-white/70 text-base">After detonation</div>
+        <div class="glass rounded-3xl p-10 border border-white/10 backdrop-blur-md text-center hover:border-emerald-400/30 transition">
+          <div class="text-6xl font-mono font-bold text-emerald-400 mb-2">4.2 MB</div>
+          <div class="text-white/70 text-lg">Residue after detonation</div>
+          <div class="text-emerald-400 text-sm mt-6">96.5% reduction • 99.7% exact zero</div>
         </div>
-
-        <!-- Throughput -->
-        <div class="glass rounded-3xl p-8 border border-white/10 hover:border-emerald-400/50 transition-all">
-          <div class="flex items-baseline justify-between">
-            <div>
-              <div class="text-5xl font-mono font-bold text-emerald-400">8.2×</div>
-              <div class="text-white/70 text-sm tracking-widest">THROUGHPUT</div>
-            </div>
-          </div>
-          <div class="mt-8 text-white/70 text-base">Self-optimizing every cycle</div>
-          <div class="text-emerald-400 text-sm mt-2">Agents compare runtimes live inside nested capsules</div>
+        <div class="glass rounded-3xl p-10 border border-white/10 backdrop-blur-md text-center hover:border-emerald-400/30 transition">
+          <div class="text-6xl font-mono font-bold text-emerald-400 mb-2">8.2×</div>
+          <div class="text-white/70 text-lg">Throughput</div>
+          <div class="text-emerald-400 text-sm mt-6">Self-optimizing every cycle</div>
         </div>
       </div>
+      <p class="text-center text-white/70 text-base mt-16 max-w-2xl mx-auto">
+        Agents compare runtimes live inside nested capsules. After 5 runs the model learns better capsule sizing — residue drops another 18%.
+      </p>
+    </div>
+  </section>
 
   <!-- Data Pipelines — Broader Conversion Tactic -->
   <section id="demo" class="py-24 border-t border-white/10 relative overflow-hidden">
