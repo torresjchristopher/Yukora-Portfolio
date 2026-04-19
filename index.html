@@ -106,23 +106,176 @@
       Architecting the Yukora Engine.
     </h2>
 
-    <div class="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
-      <div class="bg-black/60 px-8 py-10">
+    <div class="flex items-stretch gap-4">
+
+      <div class="bg-black/60 border border-white/10 px-8 py-10 max-w-lg w-full">
         <div class="text-xs text-white/40 tracking-widest uppercase mb-4">Intelligent classification</div>
         <p class="text-white/70 text-base leading-relaxed">
           Modular architectures serve as intelligent keycards to the core processing logic — classifying each business process through T.C.A.P., identifying where artificial reasoning creates leverage, and determining the optimal intelligence layer for each.
         </p>
       </div>
-      <div class="bg-black/60 px-8 py-10">
-        <div class="text-xs text-white/40 tracking-widest uppercase mb-4">Serverless by design</div>
-        <p class="text-white/70 text-base leading-relaxed">
-          All of this takes place in a serverless black-box — full context, no vision. Yukora then optimizes self-recursively against its own localized metrics, refreshing on every scan cycle at enterprise scale.
-        </p>
+
+      <button onclick="advanceCard()"
+        class="flex items-center justify-center w-12 shrink-0 border border-white/10 bg-black/40 hover:bg-white/10 transition text-white/40 hover:text-white text-2xl"
+        style="cursor:pointer;">
+        ›
+      </button>
+
+      <div id="pipeline-card" class="bg-black/60 border border-white/10 px-8 py-10 max-w-lg w-full transition-all duration-300">
+        <div id="card-label" class="text-xs text-white/40 tracking-widest uppercase mb-4">01 / 20</div>
+        <div id="card-title" class="text-white text-sm font-semibold mb-3"></div>
+        <p id="card-body" class="text-white/70 text-base leading-relaxed"></p>
       </div>
+
+    </div>
+
+    <div class="flex gap-1.5 mt-6 ml-0">
+      <div id="pip-track" class="flex gap-1.5"></div>
     </div>
 
   </div>
 </section>
+
+<script>
+var cards = [
+  {
+    label: "01 / 20 — Process discovery",
+    title: "Scanning the full compute surface",
+    body: "Before any optimization can occur, T.C.A.P. performs a complete inventory of every process consuming compute within the business. No process is assumed necessary. This is analogous to static analysis before compilation — you cannot optimize what you haven't fully enumerated."
+  },
+  {
+    label: "02 / 20 — Redundancy elimination",
+    title: "Merge or discard before you optimize",
+    body: "Overlapping processes are identified and flagged for consolidation. Processes that consume compute without producing business value are marked for elimination. A significant portion of overhead reduction happens here — before a single agent is spawned."
+  },
+  {
+    label: "03 / 20 — Time complexity profiling",
+    title: "Measuring algorithmic runtime per process",
+    body: "Each surviving process is profiled for its time complexity class. T.C.A.P. asks: is this O(1), O(n), O(n log n), or worse? This is not approximation — it is formal classification using the same asymptotic analysis taught in any algorithms course, applied to live business operations."
+  },
+  {
+    label: "04 / 20 — The classification decision",
+    title: "Traditional compute vs. agentic reasoning",
+    body: "O(1) and O(n) processes with high predictability route directly to deterministic algorithms — sorting, mapping, rule evaluation. No language model is involved. O(n log n) and above, or any process requiring contextual judgment, is flagged for agentic handling. This boundary is where most AI cost waste originates."
+  },
+  {
+    label: "05 / 20 — Traditional compute path",
+    title: "Deterministic logic where it already wins",
+    body: "Processes classified as traditional compute are handled entirely by optimized algorithms. No API call, no token cost, no inference latency. A binary search does not benefit from a language model. T.C.A.P. enforces this rigorously — intelligence is withheld, not applied by default."
+  },
+  {
+    label: "06 / 20 — Agentic compute path",
+    title: "Spawning an ephemeral local agent",
+    body: "For processes that clear the complexity threshold, an ephemeral agent is instantiated. It is localized entirely to that one process. Its context window contains only what is relevant to the task it governs. It has no awareness of other agents, other processes, or the broader system."
+  },
+  {
+    label: "07 / 20 — Context locality",
+    title: "Why narrow context produces better models",
+    body: "A model given a single, well-defined objective with a bounded context performs measurably better than a generalist model handling a broad surface area. T.C.A.P. exploits this deliberately — each agent is an expert at exactly one thing because its entire world is that one thing."
+  },
+  {
+    label: "08 / 20 — The efficiency score",
+    title: "Defining the metric each agent optimizes",
+    body: "Each agent is assigned an efficiency score — a numerical measure of how well its governed process is performing relative to theoretical optimum. This score accounts for latency, memory footprint, throughput, and error rate. It is the only number the agent is trained to care about."
+  },
+  {
+    label: "09 / 20 — Score as input",
+    title: "The closed-loop feedback architecture",
+    body: "Here is the architectural innovation: the agent's score output becomes its next input. The agent recurses against its own performance measurement. There is no external optimizer, no human adjustment between cycles. This is a self-referential optimization loop — the agent is both the system being measured and the system doing the measuring."
+  },
+  {
+    label: "10 / 20 — Recursive descent",
+    title: "Finding a new floor on every cycle",
+    body: "With each recursive pass, the agent finds a new efficiency floor. The first cycle establishes a baseline. The second cycle treats that baseline as the problem to beat. Gains compound — a 3% improvement in cycle one does not disappear; it becomes the starting condition for cycle two."
+  },
+  {
+    label: "11 / 20 — Ephemeral execution",
+    title: "Zero residue after each cycle",
+    body: "Agents do not persist between cycles in memory. Each execution is fully encapsulated, run, scored, and removed. The only artifact that carries forward is the updated score — what T.C.A.P. calls the living-memory trajectory. The repo is the only state."
+  },
+  {
+    label: "12 / 20 — Parallel swarm execution",
+    title: "Hundreds of agents running simultaneously",
+    body: "Because each agent is local and isolated, they can run in parallel without interference. A business with 200 classified processes can have 200 agents recursively optimizing in the same cycle. There is no coordination cost between agents at this layer — that is handled one level up."
+  },
+  {
+    label: "13 / 20 — The executive model",
+    title: "Coordinating the swarm from above",
+    body: "A central executive model holds read access across all agent scores simultaneously. It does not interfere with individual agent loops — it operates at the system level, identifying coordination opportunities that no single agent can see from inside its local context."
+  },
+  {
+    label: "14 / 20 — Cross-process synthesis",
+    title: "Where enterprise efficiency emerges",
+    body: "The executive model identifies cases where two separately optimized processes can be merged into a single more efficient one. The sum of two locally optimal processes is not always globally optimal. Synthesis at this layer produces gains that local recursion alone cannot reach."
+  },
+  {
+    label: "15 / 20 — Process elimination",
+    title: "Removing what optimization cannot fix",
+    body: "Some processes, once fully measured under T.C.A.P., are found to contribute no business value commensurate with their compute cost. The correct outcome for these is not optimization — it is elimination. The executive model governs this decision. Overhead that existed before Yukora simply ceases to run."
+  },
+  {
+    label: "16 / 20 — Score aggregation",
+    title: "Composing the Yukora Score",
+    body: "The Yukora Score is the aggregate efficiency state of the entire system — a weighted composition of every agent's current floor score, adjusted for process criticality and resource cost. It is updated on every scan cycle. It only moves in one direction."
+  },
+  {
+    label: "17 / 20 — Overhead as a function of cycles",
+    title: "Why efficiency compounds over time",
+    body: "Each cycle, agents find lower floors. The executive model finds new merge and elimination candidates. The Yukora Score reflects the accumulated result of all prior cycles. This is not linear improvement — it is compounding, because each cycle's gains become the baseline conditions for the next."
+  },
+  {
+    label: "18 / 20 — Intelligence allocation",
+    title: "The financial logic of selective AI deployment",
+    body: "Every token processed by a language model has a cost. T.C.A.P. minimizes the surface area over which that cost is incurred. AI is deployed only where it cannot be replaced by deterministic logic. The financial consequence is direct: the same business outcome at a fraction of the inference cost."
+  },
+  {
+    label: "19 / 20 — System self-description",
+    title: "The architecture articulates itself",
+    body: "As the system matures across cycles, the accumulated score trajectory becomes a precise description of the business's compute surface — what runs, what it costs, how efficient each process is, and what has been eliminated. The architecture documents itself through the act of optimizing itself."
+  },
+  {
+    label: "20 / 20 — The lightest software ever built",
+    title: "What remains when the system is done",
+    body: "A business run through a mature T.C.A.P. cycle carries only the processes it cannot function without, each running at or near theoretical optimum, each governed by an agent that has spent every prior cycle finding a lower floor. What remains is the minimum viable compute surface for maximum business output. That is the Yukora thesis."
+  }
+];
+
+var current = 0;
+
+function renderCard(idx) {
+  var c = cards[idx];
+  document.getElementById('card-label').textContent = c.label;
+  document.getElementById('card-title').textContent = c.title;
+  document.getElementById('card-body').textContent = c.body;
+  var pips = document.getElementById('pip-track').children;
+  for (var i = 0; i < pips.length; i++) {
+    pips[i].style.background = i === idx ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.2)';
+  }
+}
+
+function advanceCard() {
+  current = (current + 1) % cards.length;
+  var card = document.getElementById('pipeline-card');
+  card.style.opacity = '0';
+  card.style.transform = 'translateX(12px)';
+  setTimeout(function() {
+    renderCard(current);
+    card.style.opacity = '1';
+    card.style.transform = 'translateX(0)';
+  }, 180);
+}
+
+(function init() {
+  var track = document.getElementById('pip-track');
+  for (var i = 0; i < cards.length; i++) {
+    var d = document.createElement('div');
+    d.style.cssText = 'width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background 0.3s;';
+    track.appendChild(d);
+  }
+  document.getElementById('pipeline-card').style.transition = 'opacity 0.18s ease, transform 0.18s ease';
+  renderCard(0);
+})();
+</script>
   
 <section id="metrics" class="py-24 bg-white/5 border-t border-white/10">
   <div class="max-w-screen-2xl mx-auto px-8">
@@ -172,7 +325,7 @@
     </div>
   </section>
 
-  <section id="money" class="py-24 border-t border-white/10 relative overflow-hidden">
+<section id="money" class="py-24 border-t border-white/10 relative overflow-hidden">
   <div class="absolute inset-0 bg-cover bg-center opacity-30"
        style="background-image: url('https://raw.githubusercontent.com/torresjchristopher/Yukora-Portfolio/main/7WxeA.jpg');"></div>
   <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
@@ -181,20 +334,24 @@
       Performance metric
     </p>
 
-    <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter leading-none mb-16 max-w-2xl"
+    <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter leading-none mb-6 max-w-2xl"
         style="color: #facc15;">
       The Yukora Score.
     </h2>
 
-    <div class="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
-      <div class="bg-black/60 px-8 py-10">
-        <div class="text-xs text-white/40 tracking-widest uppercase mb-4">Selective deployment</div>
+    <p class="text-white/40 text-base max-w-2xl leading-relaxed mb-16">
+      A single compounding metric that reflects the efficiency state of every process in your business — updated on every scan cycle, driven lower by every agent, coordinated by the executive model.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl">
+      <div class="border-l-2 pl-6" style="border-color: #facc15;">
+        <div class="text-xs text-white/40 tracking-widest uppercase mb-3">Selective deployment</div>
         <p class="text-white/70 text-base leading-relaxed">
           Yukora applies its engine selectively — leaving traditional computation exactly where it already works perfectly. Localized intelligences are deployed native to the context of your systems, only where artificial reasoning delivers genuine leverage.
         </p>
       </div>
-      <div class="bg-black/60 px-8 py-10">
-        <div class="text-xs text-white/40 tracking-widest uppercase mb-4">Compounding efficiency</div>
+      <div class="border-l border-white/20 pl-6">
+        <div class="text-xs text-white/40 tracking-widest uppercase mb-3">Compounding efficiency</div>
         <p class="text-white/70 text-base leading-relaxed">
           The more stable the resources, the more stable the results. The greater the resources, the greater the growth. Daily efficiency compounds — architectural overhead shrinks while the processes powering the business grow faster and more intelligent with every cycle.
         </p>
