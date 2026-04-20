@@ -25,6 +25,16 @@
     .gold { color: #facc15; }
   </style>
 </head>
+
+<style>
+  @media (min-width: 768px) {
+    #pipeline-card {
+      min-height: 320px !important;
+      height: 320px !important;
+    }
+  }
+</style>
+  
 <body class="bg-black text-white">
 
   <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur-md">
@@ -105,7 +115,7 @@
   Architecting the Yukora Engine.
 </h2>
 <div class="flex items-stretch gap-4">
- <div id="pipeline-card" class="bg-black/60 border border-white/10 px-8 py-10 w-full transition-all duration-300" style="max-width:32rem; min-height:320px; height:320px; overflow:hidden;">
+<div id="pipeline-card" class="bg-black/60 border border-white/10 px-8 py-10 w-full transition-all duration-300" style="max-width:32rem; overflow:hidden; min-height:420px; height:420px;">
     <div id="card-label" class="text-xs text-white/40 tracking-widest uppercase mb-4">01 / 20</div>
     <div id="card-title" class="text-white text-sm font-semibold mb-3"></div>
     <p id="card-body" class="text-white/70 text-base leading-relaxed"></p>
@@ -418,16 +428,18 @@ function advanceCard() {
     </div>
   </section>
 
-  <footer class="py-12 border-t border-white/10 text-white/40 text-sm">
-    <div class="max-w-screen-2xl mx-auto px-8 flex flex-wrap justify-between items-center">
-      <div>© 2026 Yukora. All rights reserved.</div>
+<footer class="py-12 border-t border-white/10 text-white/40 text-sm">
+  <div class="max-w-screen-2xl mx-auto px-8 flex flex-wrap justify-between items-center">
+    <div>© 2026 Yukora. All rights reserved.</div>
+    <div class="flex flex-col md:flex-row md:gap-8 mt-4 md:mt-0">
       <div class="flex gap-8">
         <a href="https://linkedin.com/in/Torres-J-Christopher" target="_blank">LinkedIn</a>
         <a href="https://github.com/torresjchristopher/Yukora-Portfolio" target="_blank">GitHub</a>
-        <a href="mailto:torresjchristopher@yukora.org">TorresJChristopher@yukora.org</a>
       </div>
+      <a href="mailto:torresjchristopher@yukora.org" class="mt-2 md:mt-0">TorresJChristopher@yukora.org</a>
     </div>
-  </footer>
+  </div>
+</footer>
 
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
