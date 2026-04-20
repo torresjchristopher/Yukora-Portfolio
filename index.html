@@ -138,27 +138,27 @@ var cards = [
   {
     label: "01 / 20 — Process discovery",
     title: "Scanning the full compute surface",
-    body: "Before any optimization can occur, T.C.A.P. performs a complete inventory of every process consuming compute within the business. No process is assumed necessary. This is analogous to static analysis before compilation — you cannot optimize what you haven't fully enumerated."
+    body: "Before any optimization can occur, T.C.A.P. performs a complete inventory of every process consuming compute within the business. No process is assumed necessary. This is analogous to static analysis before compilation. You cannot optimize what you haven't fully enumerated."
   },
   {
     label: "02 / 20 — Redundancy elimination",
     title: "Merge or discard before you optimize",
-    body: "Overlapping processes are identified and flagged for consolidation. Processes that consume compute without producing business value are marked for elimination. A significant portion of overhead reduction happens here — before a single agent is spawned."
+    body: "Overlapping processes are identified and flagged for consolidation. Processes that consume compute without producing business value are marked for elimination. A significant portion of overhead reduction happens here before a single agent is spawned."
   },
   {
     label: "03 / 20 — Time complexity profiling",
     title: "Measuring algorithmic runtime per process",
-    body: "Each surviving process is profiled for its time complexity class. T.C.A.P. asks: is this O(1), O(n), O(n log n), or worse? This is not approximation — it is formal classification using the same asymptotic analysis taught in any algorithms course, applied to live business operations."
+    body: "Each surviving process is profiled for its time complexity class. T.C.A.P. asks: is this O(1), O(n), O(n log n), or worse? This is not approximation. It is formal classification using the same asymptotic analysis taught in any algorithms course, applied to live business operations."
   },
   {
     label: "04 / 20 — The classification decision",
     title: "Traditional compute vs. agentic reasoning",
-    body: "O(1) and O(n) processes with high predictability route directly to deterministic algorithms — sorting, mapping, rule evaluation. No language model is involved. O(n log n) and above, or any process requiring contextual judgment, is flagged for agentic handling. This boundary is where most AI cost waste originates."
+    body: "O(1) and O(n) processes with high predictability route directly to deterministic algorithms: sorting, mapping, rule evaluation. No language model is involved. O(n log n) and above, or any process requiring contextual judgment, is flagged for agentic handling. This boundary is where most AI cost waste originates."
   },
   {
     label: "05 / 20 — Traditional compute path",
     title: "Deterministic logic where it already wins",
-    body: "Processes classified as traditional compute are handled entirely by optimized algorithms. No API call, no token cost, no inference latency. A binary search does not benefit from a language model. T.C.A.P. enforces this rigorously — intelligence is withheld, not applied by default."
+    body: "Processes classified as traditional compute are handled entirely by optimized algorithms. No API call, no token cost, no inference latency. A binary search does not benefit from a language model. T.C.A.P. enforces this rigorously. Intelligence is withheld, not applied by default."
   },
   {
     label: "06 / 20 — Agentic compute path",
@@ -168,7 +168,7 @@ var cards = [
   {
     label: "07 / 20 — Context locality",
     title: "Why narrow context produces better models",
-    body: "A model given a single, well-defined objective with a bounded context performs measurably better than a generalist model handling a broad surface area. T.C.A.P. exploits this deliberately — each agent is an expert at exactly one thing because its entire world is that one thing."
+    body: "A model given a single, well-defined objective with a bounded context performs measurably better than a generalist model handling a broad surface area. T.C.A.P. exploits this deliberately. Each agent is an expert at exactly one thing because its entire world is that one thing."
   },
   {
     label: "08 / 20 — The efficiency score",
@@ -178,27 +178,27 @@ var cards = [
   {
     label: "09 / 20 — Score as input",
     title: "The closed-loop feedback architecture",
-    body: "Here is the architectural innovation: the agent's score output becomes its next input. The agent recurses against its own performance measurement. There is no external optimizer, no human adjustment between cycles. This is a self-referential optimization loop — the agent is both the system being measured and the system doing the measuring."
+    body: "Here is the architectural innovation: the agent's score output becomes its next input. The agent recurses against its own performance measurement. There is no external optimizer, no human adjustment between cycles. This is a self-referential optimization loop. The agent is both the system being measured and the system doing the measuring."
   },
   {
     label: "10 / 20 — Recursive descent",
     title: "Finding a new floor on every cycle",
-    body: "With each recursive pass, the agent finds a new efficiency floor. The first cycle establishes a baseline. The second cycle treats that baseline as the problem to beat. Gains compound — a 3% improvement in cycle one does not disappear; it becomes the starting condition for cycle two."
+    body: "With each recursive pass, the agent finds a new efficiency floor. The first cycle establishes a baseline. The second cycle treats that baseline as the problem to beat. Gains compound. A 3% improvement in cycle one does not disappear; it becomes the starting condition for cycle two."
   },
   {
     label: "11 / 20 — Ephemeral execution",
     title: "Zero residue after each cycle",
-    body: "Agents do not persist between cycles in memory. Each execution is fully encapsulated, run, scored, and removed. The only artifact that carries forward is the updated score — what T.C.A.P. calls the living-memory trajectory. The repo is the only state."
+    body: "Agents do not persist between cycles in memory. Each execution is fully encapsulated, run, scored, and removed. The only artifact that carries forward is the updated score, what T.C.A.P. calls the iterative scoring trajectory. The repo is the only state."
   },
   {
     label: "12 / 20 — Parallel swarm execution",
     title: "Hundreds of agents running simultaneously",
-    body: "Because each agent is local and isolated, they can run in parallel without interference. A business with 200 classified processes can have 200 agents recursively optimizing in the same cycle. There is no coordination cost between agents at this layer — that is handled one level up."
+    body: "Because each agent is local and isolated, they can run in parallel without interference. A business with 200 classified processes can have 200 agents recursively optimizing in the same cycle. There is no coordination cost between agents at this layer. That is handled one level up."
   },
   {
     label: "13 / 20 — The executive model",
     title: "Coordinating the swarm from above",
-    body: "A central executive model holds read access across all agent scores simultaneously. It does not interfere with individual agent loops — it operates at the system level, identifying coordination opportunities that no single agent can see from inside its local context."
+    body: "A central executive model holds read access across all agent scores simultaneously. It does not interfere with individual agent loops. It operates at the system level, identifying coordination opportunities that no single agent can see from inside its local context."
   },
   {
     label: "14 / 20 — Cross-process synthesis",
@@ -213,12 +213,12 @@ var cards = [
   {
     label: "16 / 20 — Score aggregation",
     title: "Composing the Yukora Score",
-    body: "The Yukora Score is the aggregate efficiency state of the entire system — a weighted composition of every agent's current floor score, adjusted for process criticality and resource cost. It is updated on every scan cycle. It only moves in one direction."
+    body: "The Yukora Score is the aggregate efficiency state of the entire system, a weighted composition of every agent's current floor score, adjusted for process criticality and resource cost. It is updated on every scan cycle. It only moves in one direction."
   },
   {
     label: "17 / 20 — Overhead as a function of cycles",
     title: "Why efficiency compounds over time",
-    body: "Each cycle, agents find lower floors. The executive model finds new merge and elimination candidates. The Yukora Score reflects the accumulated result of all prior cycles. This is not linear improvement — it is compounding, because each cycle's gains become the baseline conditions for the next."
+    body: "Each cycle, agents find lower floors. The executive model finds new merge and elimination candidates. The Yukora Score reflects the accumulated result of all prior cycles. This is not linear improvement. It is compounding, because each cycle's gains become the baseline conditions for the next."
   },
   {
     label: "18 / 20 — Intelligence allocation",
