@@ -27,6 +27,11 @@
     scroll-margin-top: 88px;
     }
   </style>
+  <style>
+  html {
+    visibility: hidden;
+  }
+  </style>
 </head>
 
 <style>
@@ -411,6 +416,25 @@ function advanceCard() {
         });
       }
     }
+  });
+</script>
+<script>
+  window.addEventListener("load", function () {
+    if (!window.location.hash) {
+      const metricsSection = document.getElementById("metrics");
+
+      if (metricsSection) {
+        const navigationOffset = 82;
+        const sectionPosition =
+          metricsSection.getBoundingClientRect().top +
+          window.scrollY -
+          navigationOffset;
+
+        window.scrollTo(0, sectionPosition);
+      }
+    }
+
+    document.documentElement.style.visibility = "visible";
   });
 </script>
 </body>
