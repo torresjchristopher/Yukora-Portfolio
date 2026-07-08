@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="The Yukora Score measures and recursively drives down the aggregate token consumption and time complexity of every individually classified business process."
+  >
+
+  <title>The Yukora Score</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+  <style>
+    @import url(
+      'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
+    );
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .gold {
+      color: #facc15;
+    }
+
+    .gold-border {
+      border-color: rgba(250, 204, 21, 0.45);
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.045);
+      backdrop-filter: blur(14px);
+    }
+
+    .score-grid {
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+        ),
+        radial-gradient(
+          circle at 75% 20%,
+          rgba(250, 204, 21, 0.12),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #050505 0%,
+          #111119 100%
+        );
+
+      background-size:
+        48px 48px,
+        48px 48px,
+        auto,
+        auto;
+    }
+
+    .score-line {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .score-line::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+
+      background: linear-gradient(
+        90deg,
+        #facc15,
+        rgba(250, 204, 21, 0.08)
+      );
+
+      transform-origin: left;
+      animation: compress 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes compress {
+      from {
+        transform: scaleX(1);
+      }
+
+      to {
+        transform: scaleX(0.28);
+      }
+    }
+
+    section {
+      scroll-margin-top: 90px;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white">
+
+  <nav
+    class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/75 backdrop-blur-md"
+  >
+    <div
+      class="max-w-screen-2xl mx-auto px-6 md:px-8 py-5 flex items-center justify-between"
+    >
+
+      <a
+        href="/"
+        class="text-2xl font-bold tracking-tighter"
+      >
+        YUKORA
+      </a>
+
+      <div
+        class="hidden md:flex items-center gap-8 text-sm font-medium"
+      >
+        <a
+          href="#definition"
+          class="hover:text-white/80 transition"
+        >
+          Definition
+        </a>
+
+        <a
+          href="#method"
+          class="hover:text-white/80 transition"
+        >
+          Method
+        </a>
+
+        <a
+          href="#aggregate"
+          class="hover:text-white/80 transition"
+        >
+          Aggregate
+        </a>
+
+        <a
+          href="#objective"
+          class="gold hover:text-yellow-300 transition"
+        >
+          Optimization Goal
+        </a>
+      </div>
+
+      <a
+        href="/"
+        class="flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 rounded-full text-sm font-medium transition"
+      >
+        <i class="fas fa-arrow-left text-xs"></i>
+        <span>Back to Yukora</span>
+      </a>
+
+    </div>
+  </nav>
+
+  <main>
+
+    <section
+      class="score-grid min-h-screen flex items-center pt-28 border-b border-white/10"
+    >
+      <div
+        class="max-w-screen-2xl mx-auto px-6 md:px-8 py-24 w-full"
+      >
+
+        <p
+          class="text-xs font-semibold tracking-[0.24em] uppercase text-white/40 mb-5"
+        >
+          Performance metric
+        </p>
+
+        <div
+          class="grid lg:grid-cols-[1.25fr_.75fr] gap-16 items-end"
+        >
+
+          <div>
+
+            <h1
+              class="text-6xl md:text-8xl font-semibold tracking-tighter leading-[0.92] mb-8"
+            >
+              The Yukora<br>
+              <span class="gold">Score.</span>
+            </h1>
+
+            <p
+              class="text-xl md:text-2xl text-white/65 max-w-3xl leading-relaxed"
+            >
+              A living measurement of how efficiently every process
+              in a business consumes time, computation, and artificial
+              reasoning. Every angle is scored individually. Every
+              score is driven down. The total becomes the operating
+              efficiency of the whole system.
+            </p>
+
+          </div>
+
+          <div
+            class="glass border gold-border p-8 score-line"
+          >
+
+            <div
+              class="text-xs uppercase tracking-[0.22em] text-white/40 mb-6"
+            >
+              Direction of optimization
+            </div>
+
+            <div
+              class="text-7xl md:text-8xl font-semibold tracking-tighter gold mb-5"
+            >
+              ↓
+            </div>
+
+            <p class="text-white/70 leading-relaxed">
+              Lower is better. The score moves toward the least total
+              token consumption and the lowest defensible time
+              complexity across the complete process surface.
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="definition"
+      class="py-24 border-b border-white/10"
+    >
+      <div
+        class="max-w-screen-2xl mx-auto px-6 md:px-8 grid lg:grid-cols-2 gap-16"
+      >
+
+        <div>
+
+          <p
+            class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4"
+          >
+            What the score represents
+          </p>
+
+          <h2
+            class="text-4xl md:text-6xl font-semibold tracking-tighter leading-none max-w-xl"
+          >
+            One aggregate. Built from every process.
+          </h2>
+
+        </div>
+
+        <div
+          class="space-y-7 text-lg text-white/65 leading-relaxed max-w-2xl"
+        >
+
+          <p>
+            The Yukora Score is not assigned to a business from the
+            outside. It is constructed from the inside out. T.C.A.P.
+            first identifies each distinct process, then classifies
+            how that process should be executed: deterministic
+            computation, agentic reasoning, or a hybrid of both.
+          </p>
+
+          <p>
+            Once a process is isolated, a new performance angle is
+            created for it. That angle receives its own score, its own
+            optimization history, and its own path downward. The
+            enterprise score is the aggregate of those individually
+            accountable measurements.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section
+      id="method"
+      class="py-24 bg-white/[0.025] border-b border-white/10"
+    >
+      <div
+        class="max-w-screen-2xl mx-auto px-6 md:px-8"
+      >
+
+        <p
+          class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4"
+        >
+          The scoring cycle
+        </p>
+
+        <h2
+          class="text-5xl md:text-6xl font-semibold tracking-tighter leading-none mb-16 max-w-3xl"
+        >
+          Identification creates the angle. Classification defines
+          the baseline. Recursion finds the floor.
+        </h2>
+
+        <div
+          class="grid md:grid-cols-2 xl:grid-cols-4 gap-px bg-white/10 border border-white/10"
+        >
+
+          <article class="bg-black p-8 md:p-10">
+
+            <div class="gold text-sm font-semibold mb-8">
+              01
+            </div>
+
+            <h3 class="text-xl font-semibold mb-4">
+              Identify
+            </h3>
+
+            <p class="text-white/60 leading-relaxed">
+              Enumerate every process that consumes time, compute,
+              memory, tokens, or coordination overhead.
+            </p>
+
+          </article>
+
+          <article class="bg-black p-8 md:p-10">
+
+            <div class="gold text-sm font-semibold mb-8">
+              02
+            </div>
+
+            <h3 class="text-xl font-semibold mb-4">
+              Classify
+            </h3>
+
+            <p class="text-white/60 leading-relaxed">
+              Determine the process type, complexity class,
+              predictability, reasoning requirement, and optimal
+              execution layer.
+            </p>
+
+          </article>
+
+          <article class="bg-black p-8 md:p-10">
+
+            <div class="gold text-sm font-semibold mb-8">
+              03
+            </div>
+
+            <h3 class="text-xl font-semibold mb-4">
+              Score
+            </h3>
+
+            <p class="text-white/60 leading-relaxed">
+              Establish a measurable baseline for token use, runtime
+              behavior, and the computational cost of producing the
+              required result.
+            </p>
+
+          </article>
+
+          <article class="bg-black p-8 md:p-10">
+
+            <div class="gold text-sm font-semibold mb-8">
+              04
+            </div>
+
+            <h3 class="text-xl font-semibold mb-4">
+              Drive down
+            </h3>
+
+            <p class="text-white/60 leading-relaxed">
+              Feed the result of each cycle into the next until the
+              process reaches a lower stable operating floor or is
+              eliminated entirely.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section
+      id="aggregate"
+      class="py-24 border-b border-white/10"
+    >
+      <div
+        class="max-w-screen-2xl mx-auto px-6 md:px-8"
+      >
+
+        <div
+          class="grid lg:grid-cols-[0.8fr_1.2fr] gap-16 items-start"
+        >
+
+          <div class="lg:sticky lg:top-32">
+
+            <p
+              class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4"
+            >
+              Dynamic aggregation
+            </p>
+
+            <h2
+              class="text-4xl md:text-6xl font-semibold tracking-tighter leading-none mb-7"
+            >
+              The score changes when the business changes.
+            </h2>
+
+            <p
+              class="text-white/60 text-lg leading-relaxed"
+            >
+              It is a compositional metric, not a permanent number.
+              Its structure follows the actual scope of the operating
+              system it measures.
+            </p>
+
+          </div>
+
+          <div class="space-y-4">
+
+            <div
+              class="border border-white/10 bg-white/[0.025] p-8"
+            >
+              <div class="flex items-start gap-5">
+
+                <div class="gold text-2xl">
+                  +
+                </div>
+
+                <div>
+
+                  <h3 class="text-xl font-semibold mb-2">
+                    A process can be added
+                  </h3>
+
+                  <p class="text-white/60 leading-relaxed">
+                    A newly discovered workflow creates a new angle
+                    and enters the aggregate with its own baseline.
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div
+              class="border border-white/10 bg-white/[0.025] p-8"
+            >
+              <div class="flex items-start gap-5">
+
+                <div class="gold text-2xl">
+                  ÷
+                </div>
+
+                <div>
+
+                  <h3 class="text-xl font-semibold mb-2">
+                    A process can fractionalize
+                  </h3>
+
+                  <p class="text-white/60 leading-relaxed">
+                    One broad workflow may separate into independently
+                    measurable subprocesses when greater precision
+                    creates better optimization.
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div
+              class="border border-white/10 bg-white/[0.025] p-8"
+            >
+              <div class="flex items-start gap-5">
+
+                <div class="gold text-2xl">
+                  ↔
+                </div>
+
+                <div>
+
+                  <h3 class="text-xl font-semibold mb-2">
+                    Processes can merge
+                  </h3>
+
+                  <p class="text-white/60 leading-relaxed">
+                    Redundant or overlapping operations can consolidate
+                    into one lower-cost process and one accountable
+                    score.
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div
+              class="border border-white/10 bg-white/[0.025] p-8"
+            >
+              <div class="flex items-start gap-5">
+
+                <div class="gold text-2xl">
+                  −
+                </div>
+
+                <div>
+
+                  <h3 class="text-xl font-semibold mb-2">
+                    A process can disappear
+                  </h3>
+
+                  <p class="text-white/60 leading-relaxed">
+                    When a process produces no necessary value, its
+                    optimal score is zero because the process no longer
+                    needs to run.
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section
+      id="objective"
+      class="score-grid py-28 border-b border-white/10"
+    >
+      <div
+        class="max-w-screen-2xl mx-auto px-6 md:px-8"
+      >
+
+        <p
+          class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-5"
+        >
+          Common objective
+        </p>
+
+        <h2
+          class="text-5xl md:text-7xl font-semibold tracking-tighter leading-[0.95] max-w-5xl mb-12"
+        >
+          The lowest total token consumption.<br>
+          The lowest defensible time complexity.<br>
+          <span class="gold">
+            The lightest complete system.
+          </span>
+        </h2>
+
+        <div
+          class="grid md:grid-cols-3 gap-8 max-w-6xl"
+        >
+
+          <div class="border-l-2 gold-border pl-6">
+
+            <h3 class="font-semibold mb-3">
+              Token economy
+            </h3>
+
+            <p class="text-white/55 leading-relaxed">
+              Reasoning is used only where reasoning changes the
+              quality of the outcome. Everything else remains
+              deterministic.
+            </p>
+
+          </div>
+
+          <div class="border-l border-white/20 pl-6">
+
+            <h3 class="font-semibold mb-3">
+              Complexity discipline
+            </h3>
+
+            <p class="text-white/55 leading-relaxed">
+              Each process is evaluated against the simplest execution
+              model capable of producing the required result reliably.
+            </p>
+
+          </div>
+
+          <div class="border-l border-white/20 pl-6">
+
+            <h3 class="font-semibold mb-3">
+              Aggregate accountability
+            </h3>
+
+            <p class="text-white/55 leading-relaxed">
+              The overall score can be traced back to every individual
+              process, so improvement is attributable rather than
+              abstract.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="py-24">
+
+      <div
+        class="max-w-screen-2xl mx-auto px-6 md:px-8 text-center"
+      >
+
+        <p
+          class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-5"
+        >
+          The recursive principle
+        </p>
+
+        <p
+          class="text-3xl md:text-5xl font-semibold tracking-tight max-w-5xl mx-auto leading-tight"
+        >
+          Each score becomes the next input. Each cycle searches for a
+          lower floor. Every local reduction compounds into the
+          efficiency of the whole.
+        </p>
+
+        <a
+          href="/"
+          class="inline-flex items-center gap-3 mt-12 px-7 py-4 bg-white text-black font-semibold rounded-full hover:scale-[1.02] transition"
+        >
+          Return to Yukora
+          <i class="fas fa-arrow-right text-sm"></i>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer
+    class="py-12 border-t border-white/10 text-white/40 text-sm"
+  >
+    <div
+      class="max-w-screen-2xl mx-auto px-6 md:px-8 flex flex-wrap justify-between items-center gap-5"
+    >
+
+      <div>
+        © 2026 Yukora. All rights reserved.
+      </div>
+
+      <div class="flex gap-8">
+
+        <a
+          href="mailto:torresjchristopher@yukora.org"
+          class="hover:text-white transition"
+        >
+          Contact
+        </a>
+
+        <a
+          href="https://github.com/torresjchristopher/Yukora-Portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-white transition"
+        >
+          GitHub
+        </a>
+
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
