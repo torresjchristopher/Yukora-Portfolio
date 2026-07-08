@@ -23,6 +23,9 @@
     }
     @keyframes twinkle { 0% { opacity: 0.6; } 100% { opacity: 1; } }
     .gold { color: #facc15; }
+    #metrics {
+    scroll-margin-top: 88px;
+    }
   </style>
 </head>
 
@@ -388,5 +391,27 @@ function advanceCard() {
       });
     });
   </script>
+
+  <script>
+  window.addEventListener("load", function () {
+    if (!window.location.hash) {
+      const metricsSection = document.getElementById("metrics");
+
+      if (metricsSection) {
+        const navigationOffset = 82;
+        const sectionPosition =
+          metricsSection.getBoundingClientRect().top +
+          window.scrollY -
+          navigationOffset;
+
+        window.scrollTo({
+          top: sectionPosition,
+          left: 0,
+          behavior: "auto"
+        });
+      }
+    }
+  });
+</script>
 </body>
 </html>
