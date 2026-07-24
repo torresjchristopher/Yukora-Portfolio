@@ -1,82 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="The Yukora Score measures and recursively drives down the aggregate token consumption and time complexity of every individually classified business process."
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Yukora Score measures and recursively drives down the aggregate token consumption and time complexity of every individually classified business process.">
   <title>The Yukora Score</title>
-
+  
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    @import url(
-      'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
-    );
-
-    html {
-      scroll-behavior: smooth;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
+      background-color: #050505;
     }
 
-    .gold {
-      color: #facc15;
+    /* Premium Gold Gradient */
+    .gold-text {
+      background: linear-gradient(135deg, #fde047 0%, #ca8a04 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .gold-border {
-      border-color: rgba(250, 204, 21, 0.45);
+      border-color: rgba(250, 204, 21, 0.3);
     }
 
     .glass {
-      background: rgba(255, 255, 255, 0.045);
-      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
+    /* Refined Background Grid */
     .score-grid {
       background-image:
-        linear-gradient(
-          rgba(255, 255, 255, 0.035) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.035) 1px,
-          transparent 1px
-        ),
-        radial-gradient(
-          circle at 75% 20%,
-          rgba(250, 204, 21, 0.12),
-          transparent 30%
-        ),
-        linear-gradient(
-          135deg,
-          #050505 0%,
-          #111119 100%
-        );
-
-      background-size:
-        48px 48px,
-        48px 48px,
-        auto,
-        auto;
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at 80% 20%, rgba(250, 204, 21, 0.08), transparent 40%),
+        linear-gradient(135deg, #050505 0%, #0a0a0f 100%);
+      background-size: 64px 64px, 64px 64px, auto, auto;
+      background-position: center center;
     }
 
+    /* Smoother Animation */
     .score-line {
       position: relative;
       overflow: hidden;
@@ -89,86 +59,41 @@
       right: 0;
       bottom: 0;
       height: 2px;
-
-      background: linear-gradient(
-        90deg,
-        #facc15,
-        rgba(250, 204, 21, 0.08)
-      );
-
+      background: linear-gradient(90deg, #facc15, rgba(250, 204, 21, 0.05));
       transform-origin: left;
-      animation: compress 4s ease-in-out infinite alternate;
+      animation: compress 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
     }
 
     @keyframes compress {
-      from {
-        transform: scaleX(1);
-      }
-
-      to {
-        transform: scaleX(0.28);
-      }
+      0% { transform: scaleX(1); opacity: 1; }
+      100% { transform: scaleX(0.15); opacity: 0.5; }
     }
 
     section {
-      scroll-margin-top: 90px;
+      scroll-margin-top: 100px;
     }
   </style>
 </head>
 
-<body class="bg-black text-white">
+<body class="text-white antialiased selection:bg-yellow-500/30 selection:text-yellow-200">
 
-  <nav
-    class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/75 backdrop-blur-md"
-  >
-    <div
-      class="max-w-screen-2xl mx-auto px-6 md:px-8 py-5 flex items-center justify-between"
-    >
-
-      <a
-        href="/"
-        class="text-2xl font-bold tracking-tighter"
-      >
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-black/60 backdrop-blur-xl transition-all duration-300">
+    <div class="max-w-screen-2xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
+      
+      <a href="/" class="text-2xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
         YUKORA
       </a>
 
-      <div
-        class="hidden md:flex items-center gap-8 text-sm font-medium"
-      >
-        <a
-          href="#definition"
-          class="hover:text-white/80 transition"
-        >
-          Definition
-        </a>
-
-        <a
-          href="#method"
-          class="hover:text-white/80 transition"
-        >
-          Method
-        </a>
-
-        <a
-          href="#aggregate"
-          class="hover:text-white/80 transition"
-        >
-          Aggregate
-        </a>
-
-        <a
-          href="#objective"
-          class="gold hover:text-yellow-300 transition"
-        >
-          Optimization Goal
-        </a>
+      <div class="hidden lg:flex items-center gap-10 text-sm font-medium">
+        <a href="#definition" class="text-white/60 hover:text-white transition-colors">Definition</a>
+        <a href="#method" class="text-white/60 hover:text-white transition-colors">Method</a>
+        <a href="#aggregate" class="text-white/60 hover:text-white transition-colors">Aggregate</a>
+        <a href="#objective" class="gold-text font-semibold hover:brightness-125 transition-all">Optimization Goal</a>
       </div>
 
-      <a
-        href="/"
-        class="flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 rounded-full text-sm font-medium transition"
-      >
-        <i class="fas fa-arrow-left text-xs"></i>
+      <a href="/" class="group flex items-center gap-2 px-6 py-2.5 bg-white/5 border border-white/10 hover:bg-white/10 rounded-full text-sm font-medium transition-all duration-300">
+        <i class="fas fa-arrow-left text-xs text-white/50 group-hover:-translate-x-1 transition-transform"></i>
         <span>Back to Yukora</span>
       </a>
 
@@ -176,508 +101,264 @@
   </nav>
 
   <main>
-
-    <section
-      class="score-grid min-h-screen flex items-center pt-28 border-b border-white/10"
-    >
-      <div
-        class="max-w-screen-2xl mx-auto px-6 md:px-8 py-24 w-full"
-      >
-
-        <p
-          class="text-xs font-semibold tracking-[0.24em] uppercase text-white/40 mb-5"
-        >
-          Performance metric
+    <!-- Hero Section -->
+    <section class="score-grid min-h-[90vh] flex items-center pt-28 border-b border-white/10 relative">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 pointer-events-none"></div>
+      <div class="max-w-screen-2xl mx-auto px-6 md:px-8 py-24 w-full relative z-10">
+        
+        <p class="text-xs font-semibold tracking-[0.25em] uppercase text-yellow-500 mb-6 flex items-center gap-3">
+          <span class="w-8 h-px bg-yellow-500/50"></span> Performance Metric
         </p>
 
-        <div
-          class="grid lg:grid-cols-[1.25fr_.75fr] gap-16 items-end"
-        >
-
+        <div class="grid lg:grid-cols-[1.25fr_.75fr] gap-16 lg:gap-24 items-center">
+          
           <div>
-
-            <h1
-              class="text-6xl md:text-8xl font-semibold tracking-tighter leading-[0.92] mb-8"
-            >
+            <h1 class="text-6xl md:text-8xl font-bold tracking-tighter leading-[1.05] mb-8">
               The Yukora<br>
-              <span class="gold">Score.</span>
+              <span class="gold-text">Score.</span>
             </h1>
-
-            <p
-              class="text-xl md:text-2xl text-white/65 max-w-3xl leading-relaxed"
-            >
-              A living measurement of how efficiently every process
-              in a business consumes time, computation, and artificial
-              reasoning. Every angle is scored individually. Every
-              score is driven down. The total becomes the operating
-              efficiency of the whole system.
+            <p class="text-xl md:text-2xl text-white/60 max-w-2xl leading-relaxed font-light">
+              A living measurement of how efficiently every process in a business consumes time, computation, and artificial reasoning. Every angle is scored individually. Every score is driven down. The total becomes the operating efficiency of the whole system.
             </p>
-
           </div>
 
-          <div
-            class="glass border gold-border p-8 score-line"
-          >
-
-            <div
-              class="text-xs uppercase tracking-[0.22em] text-white/40 mb-6"
-            >
+          <div class="glass border gold-border p-10 rounded-2xl score-line shadow-[0_0_40px_rgba(250,204,21,0.05)]">
+            <div class="text-xs uppercase tracking-[0.2em] text-white/40 mb-8 font-medium">
               Direction of optimization
             </div>
-
-            <div
-              class="text-7xl md:text-8xl font-semibold tracking-tighter gold mb-5"
-            >
+            <div class="text-7xl md:text-8xl font-light gold-text mb-6">
               ↓
             </div>
-
-            <p class="text-white/70 leading-relaxed">
-              Lower is better. The score moves toward the least total
-              token consumption and the lowest defensible time
-              complexity across the complete process surface.
+            <p class="text-white/60 leading-relaxed text-sm md:text-base">
+              Lower is better. The score moves toward the least total token consumption and the lowest defensible time complexity across the complete process surface.
             </p>
-
           </div>
 
         </div>
       </div>
     </section>
 
-    <section
-      id="definition"
-      class="py-24 border-b border-white/10"
-    >
-      <div
-        class="max-w-screen-2xl mx-auto px-6 md:px-8 grid lg:grid-cols-2 gap-16"
-      >
-
+    <!-- Definition Section -->
+    <section id="definition" class="py-32 border-b border-white/5 relative overflow-hidden">
+      <!-- Subtle background flare -->
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
+      
+      <div class="max-w-screen-2xl mx-auto px-6 md:px-8 grid lg:grid-cols-2 gap-16 relative z-10">
         <div>
-
-          <p
-            class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4"
-          >
+          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-6">
             What the score represents
           </p>
-
-          <h2
-            class="text-4xl md:text-6xl font-semibold tracking-tighter leading-none max-w-xl"
-          >
+          <h2 class="text-4xl md:text-6xl font-semibold tracking-tighter leading-[1.1] max-w-xl">
             One aggregate. Built from every process.
           </h2>
-
         </div>
 
-        <div
-          class="space-y-7 text-lg text-white/65 leading-relaxed max-w-2xl"
-        >
-
+        <div class="space-y-8 text-lg text-white/60 leading-relaxed max-w-2xl font-light">
           <p>
-            The Yukora Score is not assigned to a business from the
-            outside. It is constructed from the inside out. T.C.A.P.
-            first identifies each distinct process, then classifies
-            how that process should be executed: deterministic
-            computation, agentic reasoning, or a hybrid of both.
+            The Yukora Score is not assigned to a business from the outside. It is constructed from the inside out. T.C.A.P. first identifies each distinct process, then classifies how that process should be executed: deterministic computation, agentic reasoning, or a hybrid of both.
           </p>
-
           <p>
-            Once a process is isolated, a new performance angle is
-            created for it. That angle receives its own score, its own
-            optimization history, and its own path downward. The
-            enterprise score is the aggregate of those individually
-            accountable measurements.
+            Once a process is isolated, a new performance angle is created for it. That angle receives its own score, its own optimization history, and its own path downward. The enterprise score is the aggregate of those individually accountable measurements.
           </p>
-
         </div>
-
       </div>
     </section>
 
-    <section
-      id="method"
-      class="py-24 bg-white/[0.025] border-b border-white/10"
-    >
-      <div
-        class="max-w-screen-2xl mx-auto px-6 md:px-8"
-      >
+    <!-- Method Section -->
+    <section id="method" class="py-32 bg-white/[0.01] border-b border-white/5">
+      <div class="max-w-screen-2xl mx-auto px-6 md:px-8">
+        
+        <div class="mb-20 max-w-4xl">
+          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-6">
+            The scoring cycle
+          </p>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-[1.1]">
+            Identification creates the angle. Classification defines the baseline. Recursion finds the floor.
+          </h2>
+        </div>
 
-        <p
-          class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4"
-        >
-          The scoring cycle
-        </p>
-
-        <h2
-          class="text-5xl md:text-6xl font-semibold tracking-tighter leading-none mb-16 max-w-3xl"
-        >
-          Identification creates the angle. Classification defines
-          the baseline. Recursion finds the floor.
-        </h2>
-
-        <div
-          class="grid md:grid-cols-2 xl:grid-cols-4 gap-px bg-white/10 border border-white/10"
-        >
-
-          <article class="bg-black p-8 md:p-10">
-
-            <div class="gold text-sm font-semibold mb-8">
-              01
-            </div>
-
-            <h3 class="text-xl font-semibold mb-4">
-              Identify
-            </h3>
-
-            <p class="text-white/60 leading-relaxed">
-              Enumerate every process that consumes time, compute,
-              memory, tokens, or coordination overhead.
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+          
+          <article class="group bg-[#0a0a0f] p-10 hover:bg-[#111118] transition-colors duration-500 cursor-default">
+            <div class="gold-text text-lg font-bold mb-8 transition-transform group-hover:-translate-y-1 duration-300">01</div>
+            <h3 class="text-2xl font-semibold mb-4 text-white/90">Identify</h3>
+            <p class="text-white/50 leading-relaxed font-light">
+              Enumerate every process that consumes time, compute, memory, tokens, or coordination overhead.
             </p>
-
           </article>
 
-          <article class="bg-black p-8 md:p-10">
-
-            <div class="gold text-sm font-semibold mb-8">
-              02
-            </div>
-
-            <h3 class="text-xl font-semibold mb-4">
-              Classify
-            </h3>
-
-            <p class="text-white/60 leading-relaxed">
-              Determine the process type, complexity class,
-              predictability, reasoning requirement, and optimal
-              execution layer.
+          <article class="group bg-[#0a0a0f] p-10 hover:bg-[#111118] transition-colors duration-500 cursor-default">
+            <div class="gold-text text-lg font-bold mb-8 transition-transform group-hover:-translate-y-1 duration-300">02</div>
+            <h3 class="text-2xl font-semibold mb-4 text-white/90">Classify</h3>
+            <p class="text-white/50 leading-relaxed font-light">
+              Determine the process type, complexity class, predictability, reasoning requirement, and optimal execution layer.
             </p>
-
           </article>
 
-          <article class="bg-black p-8 md:p-10">
-
-            <div class="gold text-sm font-semibold mb-8">
-              03
-            </div>
-
-            <h3 class="text-xl font-semibold mb-4">
-              Score
-            </h3>
-
-            <p class="text-white/60 leading-relaxed">
-              Establish a measurable baseline for token use, runtime
-              behavior, and the computational cost of producing the
-              required result.
+          <article class="group bg-[#0a0a0f] p-10 hover:bg-[#111118] transition-colors duration-500 cursor-default">
+            <div class="gold-text text-lg font-bold mb-8 transition-transform group-hover:-translate-y-1 duration-300">03</div>
+            <h3 class="text-2xl font-semibold mb-4 text-white/90">Score</h3>
+            <p class="text-white/50 leading-relaxed font-light">
+              Establish a measurable baseline for token use, runtime behavior, and the computational cost of producing the required result.
             </p>
-
           </article>
 
-          <article class="bg-black p-8 md:p-10">
-
-            <div class="gold text-sm font-semibold mb-8">
-              04
-            </div>
-
-            <h3 class="text-xl font-semibold mb-4">
-              Drive down
-            </h3>
-
-            <p class="text-white/60 leading-relaxed">
-              Feed the result of each cycle into the next until the
-              process reaches a lower stable operating floor or is
-              eliminated entirely.
+          <article class="group bg-[#0a0a0f] p-10 hover:bg-[#111118] transition-colors duration-500 cursor-default">
+            <div class="gold-text text-lg font-bold mb-8 transition-transform group-hover:-translate-y-1 duration-300">04</div>
+            <h3 class="text-2xl font-semibold mb-4 text-white/90">Drive Down</h3>
+            <p class="text-white/50 leading-relaxed font-light">
+              Feed the result of each cycle into the next until the process reaches a lower stable operating floor or is eliminated entirely.
             </p>
-
           </article>
 
         </div>
-
       </div>
     </section>
 
-    <section
-      id="aggregate"
-      class="py-24 border-b border-white/10"
-    >
-      <div
-        class="max-w-screen-2xl mx-auto px-6 md:px-8"
-      >
-
-        <div
-          class="grid lg:grid-cols-[0.8fr_1.2fr] gap-16 items-start"
-        >
-
+    <!-- Aggregate Section -->
+    <section id="aggregate" class="py-32 border-b border-white/5 relative">
+      <div class="max-w-screen-2xl mx-auto px-6 md:px-8">
+        <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-24 items-start">
+          
           <div class="lg:sticky lg:top-32">
-
-            <p
-              class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4"
-            >
+            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-6">
               Dynamic aggregation
             </p>
-
-            <h2
-              class="text-4xl md:text-6xl font-semibold tracking-tighter leading-none mb-7"
-            >
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-[1.1] mb-8">
               The score changes when the business changes.
             </h2>
-
-            <p
-              class="text-white/60 text-lg leading-relaxed"
-            >
-              It is a compositional metric, not a permanent number.
-              Its structure follows the actual scope of the operating
-              system it measures.
+            <p class="text-white/50 text-lg leading-relaxed font-light">
+              It is a compositional metric, not a permanent number. Its structure follows the actual scope of the operating system it measures.
             </p>
-
           </div>
 
           <div class="space-y-4">
-
-            <div
-              class="border border-white/10 bg-white/[0.025] p-8"
-            >
-              <div class="flex items-start gap-5">
-
-                <div class="gold text-2xl">
-                  +
-                </div>
-
+            <!-- Process Items -->
+            <div class="group border border-white/5 bg-white/[0.015] hover:bg-white/[0.03] p-8 md:p-10 rounded-2xl transition-all duration-300 hover:border-white/10">
+              <div class="flex items-start gap-6">
+                <div class="gold-text text-3xl font-light group-hover:scale-110 transition-transform duration-300">+</div>
                 <div>
-
-                  <h3 class="text-xl font-semibold mb-2">
-                    A process can be added
-                  </h3>
-
-                  <p class="text-white/60 leading-relaxed">
-                    A newly discovered workflow creates a new angle
-                    and enters the aggregate with its own baseline.
-                  </p>
-
+                  <h3 class="text-xl font-semibold mb-3 text-white/90">A process can be added</h3>
+                  <p class="text-white/50 leading-relaxed font-light">A newly discovered workflow creates a new angle and enters the aggregate with its own baseline.</p>
                 </div>
-
               </div>
             </div>
 
-            <div
-              class="border border-white/10 bg-white/[0.025] p-8"
-            >
-              <div class="flex items-start gap-5">
-
-                <div class="gold text-2xl">
-                  ÷
-                </div>
-
+            <div class="group border border-white/5 bg-white/[0.015] hover:bg-white/[0.03] p-8 md:p-10 rounded-2xl transition-all duration-300 hover:border-white/10">
+              <div class="flex items-start gap-6">
+                <div class="gold-text text-3xl font-light group-hover:scale-110 transition-transform duration-300">÷</div>
                 <div>
-
-                  <h3 class="text-xl font-semibold mb-2">
-                    A process can fractionalize
-                  </h3>
-
-                  <p class="text-white/60 leading-relaxed">
-                    One broad workflow may separate into independently
-                    measurable subprocesses when greater precision
-                    creates better optimization.
-                  </p>
-
+                  <h3 class="text-xl font-semibold mb-3 text-white/90">A process can fractionalize</h3>
+                  <p class="text-white/50 leading-relaxed font-light">One broad workflow may separate into independently measurable subprocesses when greater precision creates better optimization.</p>
                 </div>
-
               </div>
             </div>
 
-            <div
-              class="border border-white/10 bg-white/[0.025] p-8"
-            >
-              <div class="flex items-start gap-5">
-
-                <div class="gold text-2xl">
-                  ↔
-                </div>
-
+            <div class="group border border-white/5 bg-white/[0.015] hover:bg-white/[0.03] p-8 md:p-10 rounded-2xl transition-all duration-300 hover:border-white/10">
+              <div class="flex items-start gap-6">
+                <div class="gold-text text-3xl font-light group-hover:scale-110 transition-transform duration-300">↔</div>
                 <div>
-
-                  <h3 class="text-xl font-semibold mb-2">
-                    Processes can merge
-                  </h3>
-
-                  <p class="text-white/60 leading-relaxed">
-                    Redundant or overlapping operations can consolidate
-                    into one lower-cost process and one accountable
-                    score.
-                  </p>
-
+                  <h3 class="text-xl font-semibold mb-3 text-white/90">Processes can merge</h3>
+                  <p class="text-white/50 leading-relaxed font-light">Redundant or overlapping operations can consolidate into one lower-cost process and one accountable score.</p>
                 </div>
-
               </div>
             </div>
 
-            <div
-              class="border border-white/10 bg-white/[0.025] p-8"
-            >
-              <div class="flex items-start gap-5">
-
-                <div class="gold text-2xl">
-                  −
-                </div>
-
+            <div class="group border border-white/5 bg-white/[0.015] hover:bg-white/[0.03] p-8 md:p-10 rounded-2xl transition-all duration-300 hover:border-white/10">
+              <div class="flex items-start gap-6">
+                <div class="gold-text text-3xl font-light group-hover:scale-110 transition-transform duration-300">−</div>
                 <div>
-
-                  <h3 class="text-xl font-semibold mb-2">
-                    A process can disappear
-                  </h3>
-
-                  <p class="text-white/60 leading-relaxed">
-                    When a process produces no necessary value, its
-                    optimal score is zero because the process no longer
-                    needs to run.
-                  </p>
-
+                  <h3 class="text-xl font-semibold mb-3 text-white/90">A process can disappear</h3>
+                  <p class="text-white/50 leading-relaxed font-light">When a process produces no necessary value, its optimal score is zero because the process no longer needs to run.</p>
                 </div>
-
               </div>
             </div>
-
           </div>
 
         </div>
-
       </div>
     </section>
 
-    <section
-      id="objective"
-      class="score-grid py-28 border-b border-white/10"
-    >
-      <div
-        class="max-w-screen-2xl mx-auto px-6 md:px-8"
-      >
-
-        <p
-          class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-5"
-        >
+    <!-- Objective Section -->
+    <section id="objective" class="score-grid py-32 border-b border-white/5 relative">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent pointer-events-none"></div>
+      <div class="max-w-screen-2xl mx-auto px-6 md:px-8 relative z-10">
+        
+        <p class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-8">
           Common objective
         </p>
-
-        <h2
-          class="text-5xl md:text-7xl font-semibold tracking-tighter leading-[0.95] max-w-5xl mb-12"
-        >
+        
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter leading-[1.05] max-w-5xl mb-20">
           The lowest total token consumption.<br>
           The lowest defensible time complexity.<br>
-          <span class="gold">
-            The lightest complete system.
-          </span>
+          <span class="gold-text">The lightest complete system.</span>
         </h2>
 
-        <div
-          class="grid md:grid-cols-3 gap-8 max-w-6xl"
-        >
-
-          <div class="border-l-2 gold-border pl-6">
-
-            <h3 class="font-semibold mb-3">
-              Token economy
-            </h3>
-
-            <p class="text-white/55 leading-relaxed">
-              Reasoning is used only where reasoning changes the
-              quality of the outcome. Everything else remains
-              deterministic.
+        <div class="grid md:grid-cols-3 gap-12 max-w-6xl">
+          
+          <div class="border-l-2 gold-border pl-8">
+            <h3 class="text-xl font-semibold mb-4 text-white/90">Token economy</h3>
+            <p class="text-white/50 leading-relaxed font-light">
+              Reasoning is used only where reasoning changes the quality of the outcome. Everything else remains deterministic.
             </p>
-
           </div>
 
-          <div class="border-l border-white/20 pl-6">
-
-            <h3 class="font-semibold mb-3">
-              Complexity discipline
-            </h3>
-
-            <p class="text-white/55 leading-relaxed">
-              Each process is evaluated against the simplest execution
-              model capable of producing the required result reliably.
+          <div class="border-l border-white/10 pl-8">
+            <h3 class="text-xl font-semibold mb-4 text-white/90">Complexity discipline</h3>
+            <p class="text-white/50 leading-relaxed font-light">
+              Each process is evaluated against the simplest execution model capable of producing the required result reliably.
             </p>
-
           </div>
 
-          <div class="border-l border-white/20 pl-6">
-
-            <h3 class="font-semibold mb-3">
-              Aggregate accountability
-            </h3>
-
-            <p class="text-white/55 leading-relaxed">
-              The overall score can be traced back to every individual
-              process, so improvement is attributable rather than
-              abstract.
+          <div class="border-l border-white/10 pl-8">
+            <h3 class="text-xl font-semibold mb-4 text-white/90">Aggregate accountability</h3>
+            <p class="text-white/50 leading-relaxed font-light">
+              The overall score can be traced back to every individual process, so improvement is attributable rather than abstract.
             </p>
-
           </div>
 
         </div>
-
       </div>
     </section>
 
-    <section class="py-24">
-
-      <div
-        class="max-w-screen-2xl mx-auto px-6 md:px-8 text-center"
-      >
-
-        <p
-          class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-5"
-        >
+    <!-- CTA Section -->
+    <section class="py-40 relative overflow-hidden">
+      <!-- Glow effect -->
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(250,204,21,0.05)_0%,transparent_50%)] pointer-events-none"></div>
+      
+      <div class="max-w-screen-2xl mx-auto px-6 md:px-8 text-center relative z-10">
+        <p class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-8">
           The recursive principle
         </p>
-
-        <p
-          class="text-3xl md:text-5xl font-semibold tracking-tight max-w-5xl mx-auto leading-tight"
-        >
-          Each score becomes the next input. Each cycle searches for a
-          lower floor. Every local reduction compounds into the
-          efficiency of the whole.
+        
+        <p class="text-3xl md:text-5xl lg:text-6xl font-medium tracking-tight max-w-5xl mx-auto leading-tight text-white/90 mb-16">
+          Each score becomes the next input. Each cycle searches for a lower floor. Every local reduction compounds into the efficiency of the whole.
         </p>
 
-        <a
-          href="/"
-          class="inline-flex items-center gap-3 mt-12 px-7 py-4 bg-white text-black font-semibold rounded-full hover:scale-[1.02] transition"
-        >
+        <a href="/" class="group inline-flex items-center gap-4 px-10 py-5 bg-white text-black font-semibold rounded-full hover:bg-gray-100 hover:scale-[1.02] transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
           Return to Yukora
-          <i class="fas fa-arrow-right text-sm"></i>
+          <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
         </a>
-
       </div>
-
     </section>
 
   </main>
 
-  <footer
-    class="py-12 border-t border-white/10 text-white/40 text-sm"
-  >
-    <div
-      class="max-w-screen-2xl mx-auto px-6 md:px-8 flex flex-wrap justify-between items-center gap-5"
-    >
-
+  <!-- Footer -->
+  <footer class="py-12 border-t border-white/5 text-white/40 text-sm bg-black relative z-10">
+    <div class="max-w-screen-2xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      
       <div>
-        © 2026 Yukora. All rights reserved.
+        &copy; 2026 Yukora. All rights reserved.
       </div>
 
-      <div class="flex gap-8">
-
-        <a
-          href="mailto:torresjchristopher@yukora.org"
-          class="hover:text-white transition"
-        >
+      <div class="flex gap-8 font-medium">
+        <a href="mailto:torresjchristopher@yukora.org" class="hover:text-white transition-colors">
           Contact
         </a>
-
-        <a
-          href="https://github.com/torresjchristopher/Yukora-Portfolio"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:text-white transition"
-        >
-          GitHub
+        <a href="https://github.com/torresjchristopher/Yukora-Portfolio" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-2">
+          <i class="fab fa-github"></i> GitHub
         </a>
-
       </div>
 
     </div>
