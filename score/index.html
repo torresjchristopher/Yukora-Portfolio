@@ -155,6 +155,88 @@
       </div>
     </section>
 
+    <!-- The Telemetry Log: Recursive Execution Feed -->
+    <section id="telemetry" class="py-32 border-b border-white/10 blueprint-grid relative">
+      <!-- Faded radial gradient to focus the center -->
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#030303_80%)] pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div>
+            <h2 class="text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">
+              Finding the Floor
+            </h2>
+            <p class="text-white/50 text-lg max-w-xl font-light">
+              Observation of cyclical process compression. The algorithm runs until a process reaches its mathematical asymptote of efficiency.
+            </p>
+          </div>
+          <div class="font-mono text-xs uppercase text-white/30 flex gap-4">
+            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span> Live Stream</span>
+            <span>Epoch: <span class="text-white/70">n_8492</span></span>
+          </div>
+        </div>
+
+        <!-- Terminal / Telemetry Window -->
+        <div class="border border-white/10 bg-[#030303] rounded-sm overflow-hidden shadow-2xl">
+          
+          <!-- Terminal Header -->
+          <div class="grid grid-cols-4 md:grid-cols-6 gap-4 p-4 border-b border-white/10 font-mono text-[10px] uppercase tracking-widest text-white/40 bg-white/[0.02]">
+            <div class="col-span-2">Process ID</div>
+            <div class="hidden md:block">Classification</div>
+            <div>Cycle (n)</div>
+            <div class="text-right">Cost (Tokens/Time)</div>
+            <div class="text-right">Status</div>
+          </div>
+
+          <!-- Terminal Feed -->
+          <div class="font-mono text-xs md:text-sm divide-y divide-white/[0.05]">
+            
+            <!-- Row 1: Fully Optimized -->
+            <div class="grid grid-cols-4 md:grid-cols-6 gap-4 p-4 items-center hover:bg-white/[0.02] transition-colors opacity-60">
+              <div class="col-span-2 text-white/70">PRC_894_DATA_STRUCT</div>
+              <div class="hidden md:block text-white/50">Deterministic</div>
+              <div class="text-white/50">n_04</div>
+              <div class="text-right text-white/70">12ms / 0T</div>
+              <div class="text-right text-emerald-500">FLOOR_REACHED</div>
+            </div>
+
+            <!-- Row 2: In Progress -->
+            <div class="grid grid-cols-4 md:grid-cols-6 gap-4 p-4 items-center hover:bg-white/[0.02] transition-colors">
+              <div class="col-span-2 text-white">PRC_102_CLIENT_ONBOARD</div>
+              <div class="hidden md:block text-amber-500">Hybrid Agentic</div>
+              <div class="text-white/70">n_12</div>
+              <div class="text-right text-white flex flex-col items-end">
+                <span class="line-through text-white/30">4.2s / 8,400T</span>
+                <span>1.8s / 2,150T</span>
+              </div>
+              <div class="text-right text-amber-500 animate-pulse">COMPRESSING...</div>
+            </div>
+
+            <!-- Row 3: Re-routing -->
+            <div class="grid grid-cols-4 md:grid-cols-6 gap-4 p-4 items-center hover:bg-white/[0.02] transition-colors">
+              <div class="col-span-2 text-white">PRC_445_QUERY_ROUTING</div>
+              <div class="hidden md:block text-white/50">Evaluating...</div>
+              <div class="text-white/70">n_01</div>
+              <div class="text-right text-white">850ms / 1,200T</div>
+              <div class="text-right text-blue-400">BIFURCATING</div>
+            </div>
+
+            <!-- Row 4: Eliminated -->
+            <div class="grid grid-cols-4 md:grid-cols-6 gap-4 p-4 items-center hover:bg-white/[0.02] transition-colors opacity-40">
+              <div class="col-span-2 text-white/50 line-through">PRC_099_LEGACY_SYNC</div>
+              <div class="hidden md:block text-white/30">Deprecated</div>
+              <div class="text-white/30">-</div>
+              <div class="text-right text-white/30">0ms / 0T</div>
+              <div class="text-right text-red-500">ELIMINATED</div>
+            </div>
+
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
     <!-- Dynamic Aggregation: The Ledger -->
     <section id="aggregation" class="py-32 bg-white/[0.02]">
       <div class="max-w-7xl mx-auto px-6">
