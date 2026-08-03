@@ -1,305 +1,94 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The Yukora Score measures and recursively drives down aggregate token consumption and time complexity.">
-  <title>The Yukora Score | System Telemetry</title>
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap');
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #030303;
-      color: #e5e5e5;
-    }
-
-    /* Monospace for data, metrics, and structural elements */
-    .font-mono {
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Sharp, engineered accent color */
-    .accent-gold {
-      color: #F59E0B;
-    }
-    
-    .bg-accent-gold {
-      background-color: #F59E0B;
-    }
-
-    /* Grid paper effect for engineering feel */
-    .blueprint-grid {
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-
-    /* Sequential pipeline borders */
-    .pipeline-border {
-      border-left: 1px dashed rgba(255, 255, 255, 0.2);
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The Yukora Score — Local Preview</title>
+  <link rel="stylesheet" href="yukora-score.css">
 </head>
-<body class="antialiased selection:bg-amber-500/30 selection:text-amber-200">
-
-  <!-- Minimalist Structural Nav -->
-  <nav class="fixed top-0 w-full z-50 border-b border-white/10 bg-[#030303]/90 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center font-mono text-xs uppercase tracking-widest text-white/50">
-      <div class="flex items-center gap-4">
-        <span class="w-2 h-2 rounded-full bg-accent-gold animate-pulse"></span>
-        <span class="text-white font-bold">YUKORA / T.C.A.P.</span>
-      </div>
-      <div class="hidden md:flex gap-8">
-        <a href="#metric" class="hover:text-white transition-colors">Metric</a>
-        <a href="#engine" class="hover:text-white transition-colors">Engine</a>
-        <a href="#aggregation" class="hover:text-white transition-colors">Aggregation</a>
-      </div>
-    </div>
+<body>
+<main>
+  <nav class="nav">
+    <a class="brand" href="#top"><span class="brand-mark">Y</span><span>YUKORA</span></a>
+    <div class="nav-center"><span class="live-dot"></span> SCORE MODEL / LIVE</div>
+    <a class="nav-link" href="#method">How it works <span>↓</span></a>
   </nav>
 
-  <main class="pt-24">
-    
-    <!-- Hero: The Metric as a Readout -->
-    <section id="metric" class="relative min-h-[75vh] flex items-center border-b border-white/10 blueprint-grid">
-      <div class="max-w-7xl mx-auto px-6 w-full py-20">
-        
-        <div class="max-w-4xl">
-          <p class="font-mono text-xs uppercase tracking-[0.3em] accent-gold mb-8 flex items-center gap-4">
-            <span class="w-12 h-px bg-amber-500/50"></span>
-            System Objective Metric
-          </p>
-          
-          <h1 class="text-5xl md:text-7xl font-medium tracking-tight leading-[1.1] text-white mb-10">
-            The Yukora Score is a living coordinate.
-          </h1>
-          
-          <p class="text-xl md:text-2xl text-white/60 font-light leading-relaxed max-w-2xl mb-16">
-            It is not assigned from the outside. It is constructed from the inside out. A continuous measurement driving toward the least total token consumption and lowest defensible time complexity.
-          </p>
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">A coordinate for operational intelligence</p>
+      <h1>Measure the work.<br>Then make it <em>disappear.</em></h1>
+      <p class="hero-intro">The Yukora Score tracks the total cost of getting useful work done—tokens, time, and complexity—and drives that cost toward its lowest defensible floor.</p>
+      <a class="text-link" href="#method">Follow one optimization cycle <span>↘</span></a>
+    </div>
+    <div class="score-field">
+      <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+      <div class="coordinate axis-x"></div><div class="coordinate axis-y"></div>
+      <span class="axis-label label-y">TOKEN COST</span><span class="axis-label label-x">TIME COMPLEXITY</span>
+      <div class="score-core"><span>YUKORA</span><strong>24.6</strong><small>↓ 71% FROM BASELINE</small></div>
+      <div class="node n1"><i></i> DISCOVER</div><div class="node n2"><i></i> ROUTE</div><div class="node n3"><i></i> COMPRESS</div>
+      <p class="field-note">Not a rating.<br>A direction of travel.</p>
+    </div>
+  </section>
 
-          <!-- Telemetry Data Display -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10">
-            <div class="bg-[#030303] p-6">
-              <div class="font-mono text-[10px] uppercase text-white/40 mb-2">Direction</div>
-              <div class="font-mono text-2xl text-white">↓ Floor</div>
-            </div>
-            <div class="bg-[#030303] p-6">
-              <div class="font-mono text-[10px] uppercase text-white/40 mb-2">Cost Variable A</div>
-              <div class="font-mono text-2xl text-white">Token Δ</div>
-            </div>
-            <div class="bg-[#030303] p-6">
-              <div class="font-mono text-[10px] uppercase text-white/40 mb-2">Cost Variable B</div>
-              <div class="font-mono text-2xl text-white">Compute Time</div>
-            </div>
-            <div class="bg-[#030303] p-6 bg-white/[0.02]">
-              <div class="font-mono text-[10px] uppercase accent-gold mb-2">Optimization</div>
-              <div class="font-mono text-2xl accent-gold">Recursive</div>
-            </div>
-          </div>
-        </div>
+  <section class="thesis">
+    <p>Every operation has a cost.</p>
+    <h2>Intelligence belongs only where<br>it creates <span>leverage.</span></h2>
+    <div class="thesis-note"><span>THE CENTRAL IDEA</span><p>Do not use an agent where a function will do. Do not run a function where the work should not exist.</p></div>
+  </section>
 
+  <section class="method" id="method">
+    <div class="section-head">
+      <div><span class="section-no">01</span><span class="kicker">THE ROUTING LAYER</span></div>
+      <h2>Give every kind of work<br>its cheapest valid path.</h2>
+    </div>
+    <div class="router">
+      <div class="router-source"><span>INCOMING WORK</span><div class="source-pulse">?</div><p>What kind of reasoning<br>does this actually require?</p></div>
+      <div class="route-lines"><span></span><span></span><span></span></div>
+      <div class="route-list">
+        <article class="route-card blue"><span class="route-num">01</span><div><p>Known input</p><h3>DETERMINISTIC</h3></div><p class="route-note">Run code. Spend 0 tokens.</p></article>
+        <article class="route-card orange"><span class="route-num">02</span><div><p>Ambiguous input</p><h3>INTELLIGENCE</h3></div><p class="route-note">Reason only where judgment compounds.</p></article>
+        <article class="route-card black"><span class="route-num">03</span><div><p>No useful output</p><h3>ELIMINATE</h3></div><p class="route-note">The cheapest process is no process.</p></article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- The Method: Engineered Pipeline -->
-    <section id="engine" class="py-32 border-b border-white/10">
-      <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="mb-20">
-          <h2 class="text-3xl md:text-5xl font-medium tracking-tight text-white mb-6">
-            The T.C.A.P. Engine
-          </h2>
-          <p class="text-white/50 text-lg max-w-2xl font-light">
-            Intelligence is a cost. The algorithm discerns precisely where artificial reasoning creates leverage, and where deterministic computation already wins.
-          </p>
-        </div>
-
-        <!-- Sequential Flow Layout -->
-        <div class="grid md:grid-cols-4 pipeline-border">
-          
-          <div class="relative p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/10 border-dashed before:content-[''] before:absolute before:w-2 before:h-2 before:bg-white before:-left-[5px] before:top-14">
-            <div class="font-mono text-sm text-white/40 mb-6">01_IDENTIFY</div>
-            <p class="text-white/70 font-light leading-relaxed">
-              Enumerate every process that consumes time, compute, memory, tokens, or coordination overhead.
-            </p>
-          </div>
-
-          <div class="relative p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/10 border-dashed before:content-[''] before:absolute before:w-2 before:h-2 before:bg-white before:-left-[5px] before:top-14">
-            <div class="font-mono text-sm text-white/40 mb-6">02_CLASSIFY</div>
-            <p class="text-white/70 font-light leading-relaxed">
-              Determine predictability and reasoning requirement. Withhold intelligence from tasks that don't need it.
-            </p>
-          </div>
-
-          <div class="relative p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/10 border-dashed before:content-[''] before:absolute before:w-2 before:h-2 before:bg-white before:-left-[5px] before:top-14">
-            <div class="font-mono text-sm text-white/40 mb-6">03_SCORE</div>
-            <p class="text-white/70 font-light leading-relaxed">
-              Establish a measurable baseline for runtime behavior and the computational cost of the required result.
-            </p>
-          </div>
-
-          <div class="relative p-8 md:p-12 before:content-[''] before:absolute before:w-2 before:h-2 before:bg-amber-500 before:-left-[5px] before:top-14">
-            <div class="font-mono text-sm accent-gold mb-6">04_DRIVE_DOWN</div>
-            <p class="text-white/70 font-light leading-relaxed">
-              Feed the result of each cycle into the next until the process reaches a lower stable operating floor.
-            </p>
-          </div>
-
-        </div>
-
+  <section class="compression">
+    <div class="section-head light">
+      <div><span class="section-no">02</span><span class="kicker">THE RECURSIVE LOOP</span></div>
+      <h2>Run. Observe. Remove.<br>Repeat to the floor.</h2>
+    </div>
+    <div class="compression-grid">
+      <div class="cycle-panel">
+        <div class="cycle-readout"><span id="cycleLabel">CYCLE n_04</span><strong><span id="costValue">31</span><small>%</small></strong><p>of baseline cost remaining</p></div>
+        <div class="slider-wrap"><label for="cycle">Move through optimization cycles</label><input id="cycle" type="range" min="0" max="6" value="3"><div class="ticks"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span></div></div>
       </div>
-    </section>
-
-    <!-- The Telemetry Log: Recursive Execution Feed -->
-    <section id="telemetry" class="py-32 border-b border-white/10 blueprint-grid relative">
-      <!-- Faded radial gradient to focus the center -->
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#030303_80%)] pointer-events-none"></div>
-      
-      <div class="max-w-7xl mx-auto px-6 relative z-10">
-        
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div>
-            <h2 class="text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">
-              Finding the Floor
-            </h2>
-            <p class="text-white/50 text-lg max-w-xl font-light">
-              Observation of cyclical process compression. The algorithm runs until a process reaches its mathematical asymptote of efficiency.
-            </p>
-          </div>
-          <div class="font-mono text-xs uppercase text-white/30 flex gap-4">
-            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span> Live Stream</span>
-            <span>Epoch: <span class="text-white/70">n_8492</span></span>
-          </div>
-        </div>
-
-        <!-- Terminal / Telemetry Window -->
-        <div class="border border-white/10 bg-[#030303] rounded-sm overflow-hidden shadow-2xl">
-          
-          <!-- Terminal Header -->
-          <div class="grid grid-cols-4 md:grid-cols-6 gap-4 p-4 border-b border-white/10 font-mono text-[10px] uppercase tracking-widest text-white/40 bg-white/[0.02]">
-            <div class="col-span-2">Process ID</div>
-            <div class="hidden md:block">Classification</div>
-            <div>Cycle (n)</div>
-            <div class="text-right">Cost (Tokens/Time)</div>
-            <div class="text-right">Status</div>
-          </div>
-
-          <!-- Terminal Feed -->
-          <div class="font-mono text-xs md:text-sm divide-y divide-white/[0.05]">
-            
-            <!-- Row 1: Fully Optimized -->
-            <div class="grid grid-cols-4 md:grid-cols-6 gap-4 p-4 items-center hover:bg-white/[0.02] transition-colors opacity-60">
-              <div class="col-span-2 text-white/70">PRC_894_DATA_STRUCT</div>
-              <div class="hidden md:block text-white/50">Deterministic</div>
-              <div class="text-white/50">n_04</div>
-              <div class="text-right text-white/70">12ms / 0T</div>
-              <div class="text-right text-emerald-500">FLOOR_REACHED</div>
-            </div>
-
-            <!-- Row 2: In Progress -->
-            <div class="grid grid-cols-4 md:grid-cols-6 gap-4 p-4 items-center hover:bg-white/[0.02] transition-colors">
-              <div class="col-span-2 text-white">PRC_102_CLIENT_ONBOARD</div>
-              <div class="hidden md:block text-amber-500">Hybrid Agentic</div>
-              <div class="text-white/70">n_12</div>
-              <div class="text-right text-white flex flex-col items-end">
-                <span class="line-through text-white/30">4.2s / 8,400T</span>
-                <span>1.8s / 2,150T</span>
-              </div>
-              <div class="text-right text-amber-500 animate-pulse">COMPRESSING...</div>
-            </div>
-
-            <!-- Row 3: Re-routing -->
-            <div class="grid grid-cols-4 md:grid-cols-6 gap-4 p-4 items-center hover:bg-white/[0.02] transition-colors">
-              <div class="col-span-2 text-white">PRC_445_QUERY_ROUTING</div>
-              <div class="hidden md:block text-white/50">Evaluating...</div>
-              <div class="text-white/70">n_01</div>
-              <div class="text-right text-white">850ms / 1,200T</div>
-              <div class="text-right text-blue-400">BIFURCATING</div>
-            </div>
-
-            <!-- Row 4: Eliminated -->
-            <div class="grid grid-cols-4 md:grid-cols-6 gap-4 p-4 items-center hover:bg-white/[0.02] transition-colors opacity-40">
-              <div class="col-span-2 text-white/50 line-through">PRC_099_LEGACY_SYNC</div>
-              <div class="hidden md:block text-white/30">Deprecated</div>
-              <div class="text-white/30">-</div>
-              <div class="text-right text-white/30">0ms / 0T</div>
-              <div class="text-right text-red-500">ELIMINATED</div>
-            </div>
-
-          </div>
-          
-        </div>
+      <div class="curve">
+        <span class="curve-label top">BASELINE / 100%</span><span class="curve-label bottom">DEFENSIBLE FLOOR / 24%</span>
+        <svg viewBox="0 0 700 370"><path class="curve-path ghost" d="M25 30 C120 40 120 180 240 220 S420 305 675 320"></path><path id="activePath" class="curve-path active" style="stroke-dashoffset:545" d="M25 30 C120 40 120 180 240 220 S420 305 675 320"></path></svg>
+        <div class="floor-line"></div><div class="curve-caption"><span>Δ</span><p>Each result becomes the<br>baseline for the next cycle.</p></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Dynamic Aggregation: The Ledger -->
-    <section id="aggregation" class="py-32 bg-white/[0.02]">
-      <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="grid lg:grid-cols-2 gap-20">
-          <div>
-            <h2 class="text-3xl md:text-5xl font-medium tracking-tight text-white mb-6">
-              Dynamic Aggregation
-            </h2>
-            <p class="text-white/50 text-lg font-light leading-relaxed mb-12">
-              The score changes when the business changes. It is a compositional metric; its structure follows the actual scope of the operating system it measures.
-            </p>
-          </div>
-
-          <!-- Mathematical Ledger Format -->
-          <div class="font-mono border border-white/10">
-            
-            <div class="grid grid-cols-[80px_1fr] border-b border-white/10 hover:bg-white/[0.02] transition-colors">
-              <div class="p-6 border-r border-white/10 flex items-center justify-center text-2xl accent-gold">+</div>
-              <div class="p-6">
-                <div class="text-white mb-2 uppercase text-sm">Addition</div>
-                <div class="text-white/50 text-sm font-sans font-light">A newly discovered workflow creates a new angle and enters the aggregate with its own baseline.</div>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-[80px_1fr] border-b border-white/10 hover:bg-white/[0.02] transition-colors">
-              <div class="p-6 border-r border-white/10 flex items-center justify-center text-2xl accent-gold">÷</div>
-              <div class="p-6">
-                <div class="text-white mb-2 uppercase text-sm">Fractionalization</div>
-                <div class="text-white/50 text-sm font-sans font-light">One broad workflow separates into independently measurable subprocesses for precise optimization.</div>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-[80px_1fr] border-b border-white/10 hover:bg-white/[0.02] transition-colors">
-              <div class="p-6 border-r border-white/10 flex items-center justify-center text-2xl accent-gold">↔</div>
-              <div class="p-6">
-                <div class="text-white mb-2 uppercase text-sm">Consolidation</div>
-                <div class="text-white/50 text-sm font-sans font-light">Redundant operations merge into one lower-cost process and one accountable score.</div>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-[80px_1fr] hover:bg-white/[0.02] transition-colors">
-              <div class="p-6 border-r border-white/10 flex items-center justify-center text-2xl accent-gold">−</div>
-              <div class="p-6">
-                <div class="text-white mb-2 uppercase text-sm">Elimination</div>
-                <div class="text-white/50 text-sm font-sans font-light">When a process produces no necessary value, its optimal score is zero. It ceases to run.</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+  <section class="aggregate">
+    <div class="section-head"><div><span class="section-no">03</span><span class="kicker">THE LIVING SCORE</span></div><h2>The map changes<br>when the business does.</h2></div>
+    <div class="aggregate-layout">
+      <div class="ledger">
+        <article><span class="ledger-symbol">+</span><h3>Discover</h3><p>A new workflow enters the map with its own baseline.</p></article>
+        <article><span class="ledger-symbol">÷</span><h3>Separate</h3><p>A broad process splits into independently measurable parts.</p></article>
+        <article><span class="ledger-symbol">↔</span><h3>Consolidate</h3><p>Duplicate operations become one accountable system.</p></article>
+        <article><span class="ledger-symbol">−</span><h3>Eliminate</h3><p>Work without necessary value resolves to zero.</p></article>
       </div>
-    </section>
+      <div class="sum-card"><span>AGGREGATE MODEL</span><div class="formula"><i>Σ</i><p><b>necessary work</b><br>× lowest valid cost</p></div><div class="equals">= <strong>Y</strong><small>n</small></div><p class="sum-note">The Yukora Score is not assigned from outside. It is constructed from every process inside.</p></div>
+    </div>
+  </section>
 
-    <!-- Footer Terminal Look -->
-    <footer class="py-8 border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center font-mono text-xs text-white/30 uppercase">
-        <div>SYS.YUKORA.2026 // END OF FILE</div>
-        <div>T.C.A.P Protocol Active</div>
-      </div>
-    </footer>
-
-  </main>
+  <footer><div class="footer-call"><p>The target is not “more AI.”</p><h2>It is less work<br>for the same truth.</h2></div><div class="footer-meta"><span>YUKORA / T.C.A.P.</span><span>MINIMIZE → VERIFY → REPEAT</span><a href="#top">BACK TO ZERO ↑</a></div></footer>
+</main>
+<script>
+  const values=[100,64,42,31,27,25,24], slider=document.querySelector('#cycle');
+  slider.addEventListener('input',()=>{const n=+slider.value;document.querySelector('#costValue').textContent=values[n];document.querySelector('#cycleLabel').textContent='CYCLE n_0'+(n+1);document.querySelector('#activePath').style.strokeDashoffset=920-n*125;});
+</script>
 </body>
 </html>
