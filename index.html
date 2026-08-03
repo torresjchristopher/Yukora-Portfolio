@@ -1,428 +1,257 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Yukora Engine — The lightest software ever built. Recursive ephemeral agents. Zip-and-Detonate computation. Zero residue. The repo is the only state.">
-  <title>Yukora</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    .hero-bg { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); }
-    .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); }
-    .stars-bg {
-      background: radial-gradient(circle at 30% 20%, #fff 1px, transparent 0),
-                  radial-gradient(circle at 70% 80%, #fff 1px, transparent 0),
-                  radial-gradient(circle at 20% 70%, #fff 1px, transparent 0),
-                  radial-gradient(circle at 80% 30%, #fff 1px, transparent 0),
-                  linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-      background-size: 200px 200px, 180px 180px, 220px 220px, 160px 160px, cover;
-      animation: twinkle 8s infinite alternate ease-in-out;
-    }
-    @keyframes twinkle { 0% { opacity: 0.6; } 100% { opacity: 1; } }
-    .gold { color: #facc15; }
-    #metrics {
-    scroll-margin-top: 88px;
-    }
-  </style>
-  <style>
-  html {
-    visibility: hidden;
-  }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Yukora is the machine that removes machinery.">
+  <title>Yukora — The machine that removes itself.</title>
+  <link rel="stylesheet" href="yukora-main.css">
 </head>
-
-<style>
-  @media (min-width: 768px) {
-    #pipeline-card {
-      min-height: 320px !important;
-      height: 320px !important;
-    }
-  }
-</style>
-  
-<body class="bg-black text-white">
-
-  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur-md">
-    <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span class="text-2xl font-bold tracking-tighter">YUKORA</span>
-      </div>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="#metrics" class="hover:text-white/80 transition">AI Analysis</a>
-        <a href="#matrix" class="hover:text-white/80 transition">Time Complexity</a>
-        <a href="#demo" class="hover:text-white/80 transition">Recursive Process</a>
-        <a href="/score/" class="gold hover:text-yellow-300 transition font-medium">The Yukora Score</a>
-        <a href="#contact" class="hover:text-white/80 transition">Contact</a>
-      </div>
-      <a href="https://github.com/torresjchristopher/Yukora-Portfolio" target="_blank"
-         class="flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 rounded-full text-sm font-medium transition">
-        <i class="fab fa-github"></i>
-        <span>GitHub</span>
-      </a>
-    </div>
+<body>
+  <nav>
+    <a class="wordmark" href="#zero"><i>Y</i> YUKORA</a>
+    <span class="nav-thesis">THE LIGHTEST VALID SYSTEM</span>
+    <a class="nav-action" href="mailto:torresjchristopher@yukora.org">BEGIN WITH ONE PROCESS ↗</a>
   </nav>
 
-
-    <section id="metrics" class="pt-32 pb-24 bg-white/5 border-t border-white/10">
-  <div class="max-w-screen-2xl mx-auto px-8">
-
-    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4">
-      Time Complexity Analysis Protocol
-    </p>
-
-    <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter leading-none text-white mb-16 max-w-2xl">
-      The next step in A.I. is the strategy behind it.
-    </h2>
-
-    <div class="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 mb-16">
-      <div class="bg-black px-8 py-10">
-        <div class="text-xs text-white/40 tracking-widest uppercase mb-4">Local optimization</div>
-        <p class="text-white/70 text-base leading-relaxed">
-          Each agent is spawned with a single purpose: drive down its own performance metric. Its entire context is the process it governs. Nothing else. That narrowness is the point. Each agent becomes an expert at exactly one thing, optimizing from the inside out with every cycle.
-        </p>
+  <main>
+    <section class="coordinate coordinate-first" id="zero">
+      <div class="coordinate-field">
+        <div class="cursor-light"></div>
+        <div class="proximity"><span>LOWER-STATE SIGNAL</span><b id="proximityValue">00</b><em>%</em></div>
+        <div class="state-counter"><span id="stateLabel">STATE n_00</span><em>MOVE THROUGH THE FIELD</em></div>
+        <span class="axis horizontal"></span><span class="axis vertical"></span>
+        <span class="origin-line"></span>
+        <span class="orbit one"></span><span class="orbit two"></span><span class="orbit three"></span>
+        <div class="core"><small>CURRENT BASELINE</small><b id="coordinateScore">100</b><em id="coordinateState">ORIGIN / n_00</em></div>
+        <div class="floor-found"><i></i><strong>LOWER FLOOR FOUND</strong><span>THIS COORDINATE BECOMES THE NEXT ORIGIN</span></div>
+        <i class="point p1">DISCOVER</i><i class="point p2">ROUTE</i><i class="point p3">COMPRESS</i>
       </div>
-      <div class="bg-black px-8 py-10">
-        <div class="text-xs text-white/40 tracking-widest uppercase mb-4">Coordinated intelligence</div>
-        <p class="text-white/70 text-base leading-relaxed">
-          No agent operates in isolation. A central executive model holds visibility across the entire swarm, identifying where separate processes can be merged into a single more efficient one or eliminated entirely. Overhead that existed before Yukora simply ceases to run.
-        </p>
+      <div class="coordinate-copy">
+        <p class="label">00 / THE LIVING COORDINATE</p>
+        <h2>Find the next<br>lower state.</h2>
+        <p>Every Yukora cycle begins from the current business state. Move through the field to discover a lower-cost coordinate. Once verified, it becomes the origin of the next cycle.</p>
+        <a href="#manifest">UNDERSTAND THE PROTOCOL ↓</a>
       </div>
-      <div class="bg-black px-8 py-10">
-        <div class="text-xs text-white/40 tracking-widest uppercase mb-4">Compounding returns</div>
-        <p class="text-white/70 text-base leading-relaxed">
-          Each agent's score output becomes its next input. The system recurses against itself, finding a new floor on every cycle. Local gains compound into enterprise-wide efficiency, not as a projection, but as a structural consequence of how the architecture is built.
-        </p>
+    </section>
+
+    <section class="hero" id="manifest">
+      <div class="hero-index">T.C.A.P. / MANIFEST 000</div>
+      <p class="hero-pre">A machine should earn the right to exist.</p>
+      <h1>THE MACHINE<br>THAT REMOVES<br><em>ITSELF.</em></h1>
+      <div class="hero-foot">
+        <p>Yukora maps the work of a business, decides what deserves intelligence, and recursively compresses everything else toward zero.</p>
+        <a href="#law">ENTER THE PROTOCOL <span>↓</span></a>
       </div>
-    </div>
+      <div class="seal" aria-hidden="true"><span>Y</span><i></i><b>MINIMUM<br>VIABLE<br>COMPUTE</b></div>
+    </section>
 
-    <p class="text-white/40 text-base max-w-2xl leading-relaxed">
-      The algorithm discerns precisely where artificial reasoning creates leverage, and where deterministic computation already wins. Intelligence is withheld from tasks that don't require it. That discernment is where most of the savings come from.
-    </p>
+    <section class="law" id="law">
+      <div class="law-number">I</div>
+      <p class="label">THE FIRST LAW OF YUKORA</p>
+      <h2>Use no more intelligence<br>than the truth requires.</h2>
+      <p class="law-note">Every token is a cost. Every handoff is latency. Every unnecessary process is a claim on the future.</p>
+      <div class="law-line"><span>NECESSARY WORK</span><i></i><span>LOWEST VALID COST</span><b>= Y</b></div>
+    </section>
 
-  </div>
-</section>
+    <section class="doors">
+      <header>
+        <p class="label">THE THREE DOORS</p>
+        <h2>Every operation<br>must choose.</h2>
+        <p>Yukora begins with judgment—not automation. Before work runs, it is classified by the kind of thinking it truly needs.</p>
+      </header>
+      <div class="door-grid">
+        <article class="door blue">
+          <span>01 / KNOWN</span>
+          <div class="glyph">□</div>
+          <h3>COMPUTE</h3>
+          <p>Predictable inputs. Repeatable rules. Route directly to deterministic code.</p>
+          <footer><b>0</b><small>INFERENCE TOKENS</small></footer>
+        </article>
+        <article class="door orange">
+          <span>02 / AMBIGUOUS</span>
+          <div class="glyph">?</div>
+          <h3>REASON</h3>
+          <p>Context matters. Judgment compounds. Give one agent one bounded purpose.</p>
+          <footer><b>1</b><small>LOCAL INTELLIGENCE LAYER</small></footer>
+        </article>
+        <article class="door black">
+          <span>03 / UNNECESSARY</span>
+          <div class="glyph">×</div>
+          <h3>REMOVE</h3>
+          <p>No necessary output. No justification. The optimal implementation is absence.</p>
+          <footer><b>0</b><small>ONGOING COMPUTE</small></footer>
+        </article>
+      </div>
+    </section>
 
+    <section class="inventory">
+      <header class="chapter-head">
+        <div><span>02</span><p class="label">PROCESS DISCOVERY</p></div>
+        <h2>Before choosing a tool,<br>find the real work.</h2>
+        <p>Yukora does not optimize job titles or org charts. It decomposes the business into observable processes with inputs, decisions, outputs, and costs.</p>
+      </header>
+      <div class="anatomy">
+        <div class="anatomy-title"><span>PROCESS ANATOMY / PRC_102</span><h3>Customer<br>onboarding</h3></div>
+        <ol>
+          <li><span>01</span><div><b>INPUT</b><p>What enters the process?</p></div><em>Account data</em></li>
+          <li><span>02</span><div><b>TRANSFORM</b><p>What changes?</p></div><em>Validate + enrich</em></li>
+          <li><span>03</span><div><b>DECISION</b><p>Where is judgment used?</p></div><em>Risk classification</em></li>
+          <li><span>04</span><div><b>OUTPUT</b><p>What necessary truth exits?</p></div><em>Activated account</em></li>
+          <li><span>05</span><div><b>COST</b><p>What does the path consume?</p></div><em>Time + tokens + coordination</em></li>
+        </ol>
+      </div>
+    </section>
 
-    <section id="matrix" class="py-24 border-t border-white/10 relative">
-    <div class="absolute inset-0 bg-cover bg-center opacity-30"
-    style="background-image: url('https://raw.githubusercontent.com/torresjchristopher/Yukora-Portfolio/main/a4XV1.jpg');"></div>
-    <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
-      <h2 class="text-4xl font-semibold mb-6 text-white">The T.C.A.P. Decision Matrix</h2>
-      <p class="text-white/70 max-w-2xl mb-12 text-lg">
-        Intelligence withheld for where it truly adds leverage. Protocol never wastes memory on tasks suited for deterministic logic. Modular architectures serve as intelligent keycards to the core processing logic, classifying each business process through T.C.A.P., identifying where artificial reasoning creates leverage, and determining the optimal intelligence layer for each.
-        </p>
-      </p>
-    </div>
-  </section>
-  
-   <section id="matrix" class="py-24 border-t border-white/10 relative">
-     <div class="absolute inset-0 bg-cover bg-center opacity-30"
-    style="background-image: url('https://raw.githubusercontent.com/torresjchristopher/Yukora-Portfolio/main/WwM53.jpg');"></div>
-    <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
-      <h2 class="text-4xl font-semibold mb-6 text-white">Identification</h2>
-      <p class="text-white/70 max-w-2xl mb-12 text-lg">
-        The classfication algorithm which strictly follows the Time Complexity Analysis Protocol identifies each and every seperate process occuring during business operations. It then reconfigures these processes to be engineered to power the purpose of their own design.
-      </p>
-    </div>
-  </section>
+    <section class="classifier">
+      <div class="classifier-copy">
+        <p class="label">03 / THE CLASSIFIER</p>
+        <h2>Complexity is a signal.<br><em>Predictability is the gate.</em></h2>
+        <p>Big-O describes how computational work grows. But the routing decision also needs to know whether the path is stable, whether context changes the answer, and how costly an error would be.</p>
+      </div>
+      <div class="classifier-grid">
+        <div class="quadrant q1"><small>HIGH PREDICTABILITY / LOW CONTEXT</small><b>DETERMINISTIC</b><p>Rules, sorting, validation, mapping.</p></div>
+        <div class="quadrant q2"><small>LOW PREDICTABILITY / HIGH CONTEXT</small><b>AGENTIC</b><p>Interpretation, synthesis, exceptions.</p></div>
+        <div class="quadrant q3"><small>HIGH COST / LOW VALUE</small><b>ELIMINATE</b><p>Redundant approvals and unused outputs.</p></div>
+        <div class="quadrant q4"><small>MIXED REQUIREMENTS</small><b>HYBRID</b><p>Code handles the path. Intelligence handles the fork.</p></div>
+        <span class="axis-name axis-y-name">CONTEXT REQUIRED ↑</span>
+        <span class="axis-name axis-x-name">PREDICTABILITY →</span>
+      </div>
+    </section>
 
-    <section id="matrix" class="py-24 border-t border-white/10 relative">
-      <div class="absolute inset-0 bg-cover bg-center opacity-30"
-    style="background-image: url('https://raw.githubusercontent.com/torresjchristopher/Yukora-Portfolio/main/wdukz.jpg');"></div>
-    <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
-      <h2 class="text-4xl font-semibold mb-6 text-white">Classification</h2>
-      <p class="text-white/70 max-w-2xl mb-12 text-lg">
-        Traditional Compute: Complexity Baseline: O(1) or O(n). High-volume, highly predictable tasks (e.g., standard data sorting, mapping). The Time Complexity Analysis Protocol strictly bypasses artificial reasoning and routes directly to raw computational algorithms, saving API costs and latency. Agentic Computation: Complexity Baseline: O(n log n) or worse. Unstructured pipelines requiring contextual reasoning and decision-making. The T.C.A.P. algorithm spawns an ephemeral agent localized entirely to the target process, initiating the self-recursive scoring loop.
-  </section>
-
-  <section id="matrix" class="py-24 border-t border-white/10 relative">
-    <div class="absolute inset-0 bg-cover bg-center opacity-30"
-    style="background-image: url('https://raw.githubusercontent.com/torresjchristopher/Yukora-Portfolio/main/SpaceX.jpg');"></div>
-    <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
-      <h2 class="text-4xl font-semibold mb-6 text-white">Optimization</h2>
-      <p class="text-white/70 max-w-2xl mb-12 text-lg">
-        This algorithim designed to strictly follow the T.C.A.P. optimization protocal will yield unprecedented and endless gains. Overhead costs are expeditiously and perpetually cut lower over time, levergaing technology where it matters most to power the processes of the future. There is no limit to the financial gains accrued from strict adherence to this protocol, leveraging cutting edge technologies while discerning between where traditional computation matters most.
-    </div>
-  </section>
-
-
-<section id="demo" class="py-24 border-t border-white/10 relative overflow-hidden">
-  <div class="absolute inset-0 bg-cover bg-center opacity-30"
-       style="background-image: url('https://raw.githubusercontent.com/torresjchristopher/Yukora-Portfolio/main/KnJWf.jpg');"></div>
-  <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
-
-<p class="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-4">
-  Data Pipelines
-</p>
-<h2 class="text-5xl md:text-6xl font-semibold tracking-tighter leading-none text-white mb-16 max-w-2xl">
-  Architecting the Yukora Engine.
-</h2>
-<div class="flex items-stretch gap-4">
-<div id="pipeline-card" class="bg-black/60 border border-white/10 px-8 py-10 w-full transition-all duration-300" style="max-width:32rem; overflow:hidden; min-height:520px; height:520px;">
-    <div id="card-label" class="text-xs text-white/40 tracking-widest uppercase mb-4">01 / 20</div>
-    <div id="card-title" class="text-white text-sm font-semibold mb-3"></div>
-    <p id="card-body" class="text-white/70 text-base leading-relaxed"></p>
-  </div>
-  <button onclick="advanceCard()"
-    class="flex items-center justify-center w-12 shrink-0 border border-white/10 bg-black/40 hover:bg-white/10 transition text-white/40 hover:text-white text-2xl"
-    style="cursor:pointer;">
-    ›
-  </button>
-</div>
-<div class="flex gap-1.5 mt-6 ml-0">
-  <div id="pip-track" class="flex gap-1.5"></div>
-</div>
-    
-  </div>
-</section>
-
-<script>
-var cards = [
-  {
-    label: "01 / 20 — Process discovery",
-    title: "Scanning the full compute surface",
-    body: "Before any optimization can occur, T.C.A.P. performs a complete inventory of every process consuming compute within the business. No process is assumed necessary. This is analogous to static analysis before compilation. You cannot optimize what you haven't fully enumerated."
-  },
-  {
-    label: "02 / 20 — Redundancy elimination",
-    title: "Merge or discard before you optimize",
-    body: "Overlapping processes are identified and flagged for consolidation. Processes that consume compute without producing business value are marked for elimination. A significant portion of overhead reduction happens here before a single agent is spawned."
-  },
-  {
-    label: "03 / 20 — Time complexity profiling",
-    title: "Measuring algorithmic runtime per process",
-    body: "Each surviving process is profiled for its time complexity class. T.C.A.P. asks: is this O(1), O(n), O(n log n), or worse? This is not approximation. It is formal classification using the same asymptotic analysis taught in any algorithms course, applied to live business operations."
-  },
-  {
-    label: "04 / 20 — The classification decision",
-    title: "Traditional compute vs. agentic reasoning",
-    body: "O(1) and O(n) processes with high predictability route directly to deterministic algorithms: sorting, mapping, rule evaluation. No language model is involved. O(n log n) and above, or any process requiring contextual judgment, is flagged for agentic handling. This boundary is where most AI cost waste originates."
-  },
-  {
-    label: "05 / 20 — Traditional compute path",
-    title: "Deterministic logic where it already wins",
-    body: "Processes classified as traditional compute are handled entirely by optimized algorithms. No API call, no token cost, no inference latency. A binary search does not benefit from a language model. T.C.A.P. enforces this rigorously. Intelligence is withheld, not applied by default."
-  },
-  {
-    label: "06 / 20 — Agentic compute path",
-    title: "Spawning an ephemeral local agent",
-    body: "For processes that clear the complexity threshold, an ephemeral agent is instantiated. It is localized entirely to that one process. Its context window contains only what is relevant to the task it governs. It has no awareness of other agents, other processes, or the broader system."
-  },
-  {
-    label: "07 / 20 — Context locality",
-    title: "Why narrow context produces better models",
-    body: "A model given a single, well-defined objective with a bounded context performs measurably better than a generalist model handling a broad surface area. T.C.A.P. exploits this deliberately. Each agent is an expert at exactly one thing because its entire world is that one thing."
-  },
-  {
-    label: "08 / 20 — The efficiency score",
-    title: "Defining the metric each agent optimizes",
-    body: "Each agent is assigned an efficiency score — a numerical measure of how well its governed process is performing relative to theoretical optimum. This score accounts for latency, memory footprint, throughput, and error rate. It is the only number the agent is trained to care about."
-  },
-  {
-    label: "09 / 20 — Score as input",
-    title: "The closed-loop feedback architecture",
-    body: "Here is the architectural innovation: the agent's score output becomes its next input. The agent recurses against its own performance measurement. There is no external optimizer, no human adjustment between cycles. This is a self-referential optimization loop. The agent is both the system being measured and the system doing the measuring."
-  },
-  {
-    label: "10 / 20 — Recursive descent",
-    title: "Finding a new floor on every cycle",
-    body: "With each recursive pass, the agent finds a new efficiency floor. The first cycle establishes a baseline. The second cycle treats that baseline as the problem to beat. Gains compound. A 3% improvement in cycle one does not disappear; it becomes the starting condition for cycle two."
-  },
-  {
-    label: "11 / 20 — Ephemeral execution",
-    title: "Zero residue after each cycle",
-    body: "Agents do not persist between cycles in memory. Each execution is fully encapsulated, run, scored, and removed. The only artifact that carries forward is the updated score, what T.C.A.P. calls the iterative scoring trajectory. The repo is the only state."
-  },
-  {
-    label: "12 / 20 — Parallel swarm execution",
-    title: "Hundreds of agents running simultaneously",
-    body: "Because each agent is local and isolated, they can run in parallel without interference. A business with 200 classified processes can have 200 agents recursively optimizing in the same cycle. There is no coordination cost between agents at this layer. That is handled one level up."
-  },
-  {
-    label: "13 / 20 — The executive model",
-    title: "Coordinating the swarm from above",
-    body: "A central executive model holds read access across all agent scores simultaneously. It does not interfere with individual agent loops. It operates at the system level, identifying coordination opportunities that no single agent can see from inside its local context."
-  },
-  {
-    label: "14 / 20 — Cross-process synthesis",
-    title: "Where enterprise efficiency emerges",
-    body: "The executive model identifies cases where two separately optimized processes can be merged into a single more efficient one. The sum of two locally optimal processes is not always globally optimal. Synthesis at this layer produces gains that local recursion alone cannot reach."
-  },
-  {
-    label: "15 / 20 — Process elimination",
-    title: "Removing what optimization cannot fix",
-    body: "Some processes, once fully measured under T.C.A.P., are found to contribute no business value commensurate with their compute cost. The correct outcome for these is not optimization — it is elimination. The executive model governs this decision. Overhead that existed before Yukora simply ceases to run."
-  },
-  {
-    label: "16 / 20 — Score aggregation",
-    title: "Composing the Yukora Score",
-    body: "The Yukora Score is the aggregate efficiency state of the entire system, a weighted composition of every agent's current floor score, adjusted for process criticality and resource cost. It is updated on every scan cycle. It only moves in one direction."
-  },
-  {
-    label: "17 / 20 — Overhead as a function of cycles",
-    title: "Why efficiency compounds over time",
-    body: "Each cycle, agents find lower floors. The executive model finds new merge and elimination candidates. The Yukora Score reflects the accumulated result of all prior cycles. This is not linear improvement. It is compounding, because each cycle's gains become the baseline conditions for the next."
-  },
-  {
-    label: "18 / 20 — Intelligence allocation",
-    title: "The financial logic of selective AI deployment",
-    body: "Every token processed by a language model has a cost. T.C.A.P. minimizes the surface area over which that cost is incurred. AI is deployed only where it cannot be replaced by deterministic logic. The financial consequence is direct: the same business outcome at a fraction of the inference cost."
-  },
-  {
-    label: "19 / 20 — System self-description",
-    title: "The architecture articulates itself",
-    body: "As the system matures across cycles, the accumulated score trajectory becomes a precise description of the business's compute surface — what runs, what it costs, how efficient each process is, and what has been eliminated. The architecture documents itself through the act of optimizing itself."
-  },
-  {
-    label: "20 / 20 — The lightest software ever built",
-    title: "What remains when the system is done",
-    body: "A business run through a mature T.C.A.P. cycle carries only the processes it cannot function without, each running at or near theoretical optimum, each governed by an agent that has spent every prior cycle finding a lower floor. What remains is the minimum viable compute surface for maximum business output. That is the Yukora thesis."
-  }
-];
-
-var current = 0;
-
-function renderCard(idx) {
-  var c = cards[idx];
-  document.getElementById('card-label').textContent = c.label;
-  document.getElementById('card-title').textContent = c.title;
-  document.getElementById('card-body').textContent = c.body;
-  var pips = document.getElementById('pip-track').children;
-  for (var i = 0; i < pips.length; i++) {
-    pips[i].style.background = i === idx ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.2)';
-  }
-}
-
-function advanceCard() {
-  current = (current + 1) % cards.length;
-  var card = document.getElementById('pipeline-card');
-  card.style.opacity = '0';
-  card.style.transform = 'translateX(12px)';
-  setTimeout(function() {
-    renderCard(current);
-    card.style.opacity = '1';
-    card.style.transform = 'translateX(0)';
-  }, 180);
-}
-
-(function init() {
-  var track = document.getElementById('pip-track');
-  for (var i = 0; i < cards.length; i++) {
-    var d = document.createElement('div');
-    d.style.cssText = 'width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background 0.3s;';
-    track.appendChild(d);
-  }
-  document.getElementById('pipeline-card').style.transition = 'opacity 0.18s ease, transform 0.18s ease';
-  renderCard(0);
-})();
-</script>
-
-
-   
-
-<section id="possibilities" class="stars-bg py-24 border-t border-white/10" 
-  onmouseenter="this.querySelector('.poss-inner').style.opacity='1'"
-  onmouseleave="this.querySelector('.poss-inner').style.opacity='0.45'">
-  <div class="max-w-screen-2xl mx-auto px-8">
-    <div class="max-w-3xl mx-auto text-center">
-      <div class="poss-inner" style="opacity:0.45; transition:opacity 0.4s ease; cursor:default;">
-        <h2 class="text-4xl font-semibold mb-8 text-white">Truly Endless Possibilities</h2>
-        <div class="text-white text-2xl font-semibold leading-relaxed">
-          The medium of business is an art. Imagine a future where technology actually makes a difference, intelligence is withheld to where it needs to be, and the traditional power of computation lives on to automate tasks which do not require the use of artificial intelligence based upon time complexity metrics derived from algorithmic performance.
+    <section class="descent">
+      <div class="descent-copy">
+        <p class="label">04 / THE RECURSIVE DESCENT</p>
+        <h2>What survives<br>must become<br><em>lighter.</em></h2>
+        <p>Each cycle returns its cost as the next cycle’s problem. The system measures itself against itself until another pass can no longer defend the work it consumes.</p>
+      </div>
+      <div class="descent-machine">
+        <div class="machine-head"><span>CYCLE</span><span>COST REMAINING</span><span>STATE</span></div>
+        <button class="cycle-row" data-value="100"><span>n_00</span><b>100%</b><em>BASELINE</em></button>
+        <button class="cycle-row" data-value="64"><span>n_01</span><b>64%</b><em>ROUTED</em></button>
+        <button class="cycle-row" data-value="42"><span>n_02</span><b>42%</b><em>LOCALIZED</em></button>
+        <button class="cycle-row active" data-value="31"><span>n_03</span><b>31%</b><em>COMPRESSING</em></button>
+        <button class="cycle-row" data-value="25"><span>n_08</span><b>25%</b><em>ASYMPTOTIC</em></button>
+        <button class="cycle-row" data-value="24"><span>n_12</span><b>24%</b><em>FLOOR</em></button>
+        <div class="machine-readout">
+          <div id="readout">31</div><small>% OF ORIGINAL<br>OPERATING COST</small>
+          <span class="arc a1"></span><span class="arc a2"></span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-
-
-  <section id="contact" class="py-16 border-t border-white/10">
-    <div class="max-w-screen-2xl mx-auto px-8">
-      <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-3 text-lg">
-        <div class="font-semibold">Ready to Explore?</div>
-        <a href="mailto:torresjchristopher@yukora.org" class="hover:text-emerald-400">TorresJChristopher@yukora.org</a>
-        <div class="text-white/70">Powering enterprises.</div>
+    <section class="ephemeral">
+      <div class="ephemeral-intro">
+        <p class="label">05 / EPHEMERAL EXECUTION</p>
+        <h2>Zip.<br>Run.<br><em>Detonate.</em></h2>
+        <p>An agent exists only long enough to govern one bounded process. It receives the minimum relevant context, performs the work, records the result, and disappears.</p>
       </div>
-    </div>
-  </section>
-
-  <section id="research" class="pt-20 pb-24">
-    <div class="max-w-screen-2xl mx-auto px-8 max-w-3xl mx-auto text-center">
-      <h2 class="text-4xl font-semibold mb-6">Built from research-first principles</h2>
-      <p class="text-xl text-white/70">
-        We have taken a modular approach to enterprise management and logistical ingelligence. Leveraging recursion and agentic workflows, Yukora changes the way you power your entire business while dropping operating costs significantly due to this increase in efficiency.
-      </p>
-    </div>
-  </section>
-
-    <footer id="contact" class="py-16 border-t border-white/10">
-    <div class="max-w-screen-2xl mx-auto px-8">
-      <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-3 text-lg">
-        <div class="font-semibold">© 2026 Yukora. All rights reserved.</div>
-      <div class="flex flex-col md:flex-row md:gap-8 mt-4 md:mt-0">
-      <div class="flex gap-8">
-        <a href="https://linkedin.com/in/Torres-J-Christopher" target="_blank">LinkedIn</a>
+      <div class="execution-line">
+        <article><span>01</span><i>⌁</i><h3>PACKAGE</h3><p>Assemble one purpose, one context, and one measurable objective.</p></article>
+        <article><span>02</span><i>▶</i><h3>EXECUTE</h3><p>Run the localized agent without exposing the rest of the business.</p></article>
+        <article><span>03</span><i>◇</i><h3>SCORE</h3><p>Write the verified result and cost trajectory back to the repository.</p></article>
+        <article><span>04</span><i>×</i><h3>REMOVE</h3><p>Destroy the runtime. Preserve no ambient memory and no idle agent.</p></article>
       </div>
+      <div class="residue"><span>WHAT SURVIVES THE CYCLE</span><strong>CODE · RESULT · SCORE</strong><b>ZERO RUNTIME RESIDUE</b></div>
+    </section>
+
+    <section class="executive">
+      <header class="chapter-head light">
+        <div><span>06</span><p class="label">THE EXECUTIVE MODEL</p></div>
+        <h2>Local experts.<br>One global view.</h2>
+        <p>Process agents optimize from inside. The executive layer sees across them, finding system-level opportunities no isolated agent can detect.</p>
+      </header>
+      <div class="swarm">
+        <div class="local-nodes">
+          <div><span>A01</span><b>PAYMENTS</b><em>24</em></div><div><span>A02</span><b>ONBOARDING</b><em>31</em></div>
+          <div><span>A03</span><b>FULFILLMENT</b><em>19</em></div><div><span>A04</span><b>SUPPORT</b><em>42</em></div>
+          <div><span>A05</span><b>REPORTING</b><em>0</em></div><div><span>A06</span><b>ROUTING</b><em>27</em></div>
+        </div>
+        <div class="converge"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="executive-core"><small>EXECUTIVE</small><strong>Σ</strong><p>MERGE · COORDINATE · ELIMINATE</p></div>
+        <div class="global-actions"><div><span>↔</span><b>CONSOLIDATE</b><p>Two locally efficient processes become one globally efficient system.</p></div><div><span>−</span><b>ELIMINATE</b><p>A process whose output no longer justifies its cost resolves to zero.</p></div></div>
       </div>
-    </div>
-  </footer>
+    </section>
 
+    <section class="proof">
+      <p class="label">07 / ONE PROCESS / BEFORE AND AFTER</p>
+      <div class="proof-title"><h2>The result<br>does not change.</h2><h2><em>The machinery does.</em></h2></div>
+      <div class="proof-grid">
+        <div class="process"><span>PRC_102</span><h3>Customer<br>onboarding</h3><p>Illustrative workflow<br>after twelve cycles.</p></div>
+        <div class="state before"><span>BEFORE</span><dl><dt>12</dt><dd>HANDOFFS</dd><dt>8,400</dt><dd>TOKENS</dd><dt>4.2s</dt><dd>RUNTIME</dd></dl></div>
+        <div class="arrow">→</div>
+        <div class="state after"><span>AFTER</span><dl><dt>05</dt><dd>DETERMINISTIC STEPS</dd><dt>2,150</dt><dd>TOKENS</dd><dt>1.8s</dt><dd>RUNTIME</dd></dl></div>
+        <div class="delta"><span>THE DISTANCE</span><strong>−74%</strong><p>TOKEN CONSUMPTION</p><strong>−57%</strong><p>LATENCY</p></div>
+      </div>
+      <small class="fineprint">Illustrative protocol model. Performance depends on workflow structure and implementation.</small>
+    </section>
 
+    <section class="composition">
+      <header class="chapter-head">
+        <div><span>08</span><p class="label">DYNAMIC COMPOSITION</p></div>
+        <h2>The score follows<br>the shape of reality.</h2>
+        <p>A business is not static, so its efficiency metric cannot be static. The aggregate changes whenever work is discovered, divided, combined, or removed.</p>
+      </header>
+      <div class="ledger">
+        <article><strong>+</strong><div><span>DISCOVER</span><h3>A new process enters the map.</h3></div><p>It receives its own baseline, routing decision, and cost trajectory.</p></article>
+        <article><strong>÷</strong><div><span>FRACTIONALIZE</span><h3>One workflow becomes measurable parts.</h3></div><p>Each subprocess can now receive the method appropriate to its nature.</p></article>
+        <article><strong>↔</strong><div><span>CONSOLIDATE</span><h3>Separate paths become one system.</h3></div><p>Cross-process redundancy disappears from the global operating surface.</p></article>
+        <article><strong>−</strong><div><span>ELIMINATE</span><h3>Unnecessary work resolves to zero.</h3></div><p>The Yukora Score improves because the process permanently ceases to run.</p></article>
+      </div>
+    </section>
+
+    <section class="end">
+      <p>THE YUKORA THESIS / 2026 → ∞</p>
+      <h2>THE FUTURE IS NOT<br>MORE SOFTWARE.</h2>
+      <h2><em>IT IS LESS.</em></h2>
+      <a href="mailto:torresjchristopher@yukora.org">MAP YOUR FIRST PROCESS <span>↗</span></a>
+      <div class="end-meta"><span>TORRESJCHRISTOPHER@YUKORA.ORG</span><span>MINIMIZE / VERIFY / REPEAT</span><span>THE REPO IS THE STATE</span></div>
+    </section>
+  </main>
 
   <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        if (this.getAttribute('href') !== '#') {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-        }
-      });
+    const rows=[...document.querySelectorAll(".cycle-row")],output=document.querySelector("#readout");
+    rows.forEach(row=>row.addEventListener("click",()=>{
+      document.querySelector(".cycle-row.active")?.classList.remove("active");
+      row.classList.add("active");output.textContent=row.dataset.value;
+    }));
+    const field=document.querySelector(".coordinate-field"),glow=document.querySelector(".cursor-light"),proximity=document.querySelector("#proximityValue"),coordinateScore=document.querySelector("#coordinateScore"),coordinateState=document.querySelector("#coordinateState"),stateLabel=document.querySelector("#stateLabel");
+    const states=[
+      {origin:[24,68],target:[72,27],base:100,floor:64},
+      {origin:[72,27],target:[38,76],base:64,floor:42},
+      {origin:[38,76],target:[81,59],base:42,floor:31},
+      {origin:[81,59],target:[57,18],base:31,floor:25},
+      {origin:[57,18],target:[19,39],base:25,floor:24}
+    ];
+    let stateIndex=0,transitioning=false;
+    function applyState(){
+      const state=states[stateIndex];
+      field.style.setProperty("--origin-x",state.origin[0]+"%");field.style.setProperty("--origin-y",state.origin[1]+"%");
+      field.style.setProperty("--target-x",state.target[0]+"%");field.style.setProperty("--target-y",state.target[1]+"%");
+      const rect=field.getBoundingClientRect(),dx=rect.width*(state.target[0]-state.origin[0])/100,dy=rect.height*(state.target[1]-state.origin[1])/100;
+      field.style.setProperty("--line-length",Math.hypot(dx,dy)+"px");field.style.setProperty("--line-angle",Math.atan2(dy,dx)+"rad");
+      coordinateScore.textContent=state.base.toFixed(state.base%1?1:0);
+      coordinateState.textContent="ORIGIN / n_0"+stateIndex;stateLabel.textContent="STATE n_0"+stateIndex;
+    }
+    applyState();
+    window.addEventListener("resize",applyState);
+    field.addEventListener("pointermove",(event)=>{
+      const rect=field.getBoundingClientRect(),x=event.clientX-rect.left,y=event.clientY-rect.top;
+      const state=states[stateIndex],tx=rect.width*state.target[0]/100,ty=rect.height*state.target[1]/100;
+      const max=Math.hypot(rect.width,rect.height),distance=Math.hypot(x-tx,y-ty);
+      const signal=Math.max(0,Math.round((1-distance/(max*.62))*100));
+      const cost=state.floor+(state.base-state.floor)*(1-signal/100);
+      glow.style.setProperty("--x",x+"px");glow.style.setProperty("--y",y+"px");
+      glow.style.setProperty("--strength",String(.08+signal/105));
+      proximity.textContent=String(signal).padStart(2,"0");coordinateScore.textContent=cost.toFixed(cost<30?1:0);
+      if(signal>=97&&!transitioning){
+        transitioning=true;field.classList.add("optimal");coordinateScore.textContent=state.floor.toFixed(state.floor%1?1:0);coordinateState.textContent="FLOOR FOUND";
+        setTimeout(()=>{
+          field.classList.remove("optimal");stateIndex=(stateIndex+1)%states.length;applyState();proximity.textContent="00";transitioning=false;
+        },1700);
+      }
     });
+    field.addEventListener("pointerleave",()=>{if(transitioning)return;proximity.textContent="00";glow.style.setProperty("--strength","0");coordinateScore.textContent=states[stateIndex].base;});
   </script>
-
-  <script>
-  window.addEventListener("load", function () {
-    if (!window.location.hash) {
-      const metricsSection = document.getElementById("metrics");
-
-      if (metricsSection) {
-        const navigationOffset = 82;
-        const sectionPosition =
-          metricsSection.getBoundingClientRect().top +
-          window.scrollY -
-          navigationOffset;
-
-        window.scrollTo({
-          top: sectionPosition,
-          left: 0,
-          behavior: "auto"
-        });
-      }
-    }
-  });
-</script>
-<script>
-  window.addEventListener("load", function () {
-    if (!window.location.hash) {
-      const metricsSection = document.getElementById("metrics");
-
-      if (metricsSection) {
-        const navigationOffset = 82;
-        const sectionPosition =
-          metricsSection.getBoundingClientRect().top +
-          window.scrollY -
-          navigationOffset;
-
-        window.scrollTo(0, sectionPosition);
-      }
-    }
-
-    document.documentElement.style.visibility = "visible";
-  });
-</script>
 </body>
 </html>
